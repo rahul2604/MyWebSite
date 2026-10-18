@@ -1,4 +1,4 @@
-import { BOOK_POSTS, HASHTAG_URL, INSTAGRAM_REELS_URL, LINKEDIN_POSTS, READS_HASHTAG_URL, REELS } from '../data';
+import { BOOK_POSTS, HASHTAG_URL, INSTAGRAM_REELS_URL, LINKEDIN_POSTS, READS_THREADS_URL, REELS } from '../data';
 import { BookIcon, InstagramIcon, LinkedInIcon, PlayIcon, ReelIcon } from './Icons';
 
 export function Blog() {
@@ -36,7 +36,13 @@ export function Blog() {
         <div className="row-head spaced">
           <BookIcon />
           <h3>Book recommendations</h3>
-          <a href={READS_HASHTAG_URL} target="_blank" rel="noopener noreferrer">
+          <a
+            href={READS_THREADS_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Search #rahulreads on Threads (opens in a new tab)"
+            title="Search #rahulreads on Threads"
+          >
             #rahulreads ↗
           </a>
         </div>
