@@ -134,8 +134,14 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 .site-header {
   display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap; padding: 22px 0;
 }
-.logo { display: inline-flex; align-items: center; text-decoration: none; color: var(--t-strong); min-height: 44px; }
+.logo {
+  display: inline-flex; align-items: center; text-decoration: none; color: var(--t-strong); min-height: 44px;
+  border-radius: 8px; -webkit-tap-highlight-color: transparent;
+}
+.logo svg { transition: transform 0.2s ease, opacity 0.2s ease; }
 .logo:hover { color: var(--t-strong); }
+.logo:hover svg { transform: translateY(-1px); opacity: 0.85; }
+.logo:active svg { transform: scale(0.96); opacity: 0.75; }
 .primary-nav {
   display: flex; align-items: center; gap: clamp(14px, 2.4vw, 34px); flex-wrap: wrap; font-size: 15px; font-weight: 500;
 }
@@ -459,9 +465,21 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   .header-socials { display: none; }
 }
 
-/* Tablets and phones: compact header bar + collapsible menu. */
+/* Tablets and phones: compact, fixed header bar that auto-hides on scroll + collapsible menu. */
 @media (max-width: 859px) {
-  .site-header { padding: 16px 0; gap: 12px; flex-wrap: wrap; }
+  /* The bar is fixed, so reserve its height (16 + 44 + 16) at the top of the page. */
+  .hero-sky { padding-top: 76px; }
+  section[id] { scroll-margin-top: 76px; }
+  .site-header {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 50;
+    padding: 16px clamp(20px, 5vw, 80px); gap: 12px; flex-wrap: wrap;
+    transition: transform 0.3s ease, background-color 0.25s ease, box-shadow 0.25s ease;
+  }
+  .site-header.is-scrolled, .site-header.menu-open {
+    background: var(--glass); box-shadow: 0 1px 0 var(--glass-border);
+    -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px);
+  }
+  .site-header.is-hidden { transform: translateY(-100%); }
   .header-actions { gap: 10px; flex-wrap: nowrap; margin-left: auto; }
   .header-cta-bar { display: none; }
   .menu-toggle { display: inline-flex; }
@@ -478,9 +496,16 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   .nav-extras { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; padding-top: 14px; }
   .nav-extras-icons { display: flex; gap: 4px; margin-left: -10px; }
 
-  /* Hero stacks; trim the gap the desktop column spacing leaves behind. */
-  .hero { padding-top: 12px; row-gap: 8px; }
-  .hero-copy { padding-bottom: 24px; }
+  /* Hero stacks as: photo → name, headline, intro, CTA → badges.
+     `display: contents` lets the portrait and badges be ordered around the copy. */
+  .hero { flex-direction: column; flex-wrap: nowrap; align-items: stretch; gap: 0; padding-top: 4px; }
+  .hero-visual { display: contents; }
+  .hero-visual img {
+    order: 1; align-self: center;
+    width: min(64vw, 340px); height: auto; max-height: 36vh; object-fit: contain;
+  }
+  .hero-copy { order: 2; margin-top: 4px; padding-bottom: 0; }
+  .hero-stats { order: 3; margin-top: 32px; padding-bottom: 48px; }
 }
 
 /* Phones */
@@ -494,7 +519,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   /* Three badges in one row under the portrait instead of a tall zig-zag stack. */
   .hero-stats {
     width: 100%; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; align-items: stretch;
-    margin-top: -56px; padding-bottom: 40px;
+    margin-top: 28px; padding-bottom: 40px;
   }
   .stat { min-width: 0; padding: 12px 6px; border-radius: 10px; }
   .stat.offset { margin-top: 0; }

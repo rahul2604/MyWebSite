@@ -1,4 +1,5 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, type MouseEvent } from 'react';
+import { useAutoHideHeader } from '../hooks/useAutoHideHeader';
 import type { Theme } from '../hooks/useTheme';
 import { INSTAGRAM_URL, LINKEDIN_URL, TOPMATE_URL } from '../data';
 import { CloseIcon, InstagramIcon, LinkedInIcon, Logo, MenuIcon, MoonIcon, SunIcon } from './Icons';
@@ -16,6 +17,24 @@ export function Header({ onPmp, theme, onToggleTheme }: HeaderProps) {
   const [menuOpen, setMenuOpen] = useState(false);
   const themeLabel = theme === 'light' ? 'Switch to dark mode' : 'Switch to light mode';
   const closeMenu = () => setMenuOpen(false);
+  const { hidden, scrolled } = useAutoHideHeader(menuOpen);
+
+  // RM logo: go to the homepage ("/") from any view, then scroll smoothly to the top.
+  const goHome = (e: MouseEvent<HTMLAnchorElement>) => {
+    if (e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return; // let "open in new tab" work
+    e.preventDefault();
+    closeMenu();
+    if (window.location.hash) {
+      history.pushState(null, '', window.location.pathname + window.location.search);
+      window.dispatchEvent(new HashChangeEvent('hashchange'));
+    }
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    window.scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' });
+  };
+
+  const headerClass = ['site-header', hidden && 'is-hidden', scrolled && 'is-scrolled', menuOpen && 'menu-open']
+    .filter(Boolean)
+    .join(' ');
 
   // Close on Escape, and when the viewport grows past the mobile breakpoint.
   useEffect(() => {
@@ -36,8 +55,8 @@ export function Header({ onPmp, theme, onToggleTheme }: HeaderProps) {
   }, [menuOpen]);
 
   return (
-    <header className="site-header">
-      <a className="logo" href="#top" aria-label="Rahul Mehra — home" onClick={closeMenu}>
+    <header className={headerClass}>
+      <a className="logo" href="/" aria-label="Rahul Mehra — home" onClick={goHome}>
         <Logo />
       </a>
       <nav id="primary-nav" className={menuOpen ? 'primary-nav is-open' : 'primary-nav'} aria-label="Primary">
