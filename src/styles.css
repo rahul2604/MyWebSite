@@ -205,25 +205,14 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 .rm-dark .portrait-light { display: none !important; }
 .hero-stats {
   position: relative; z-index: 2; display: flex; flex-wrap: wrap; justify-content: center; align-items: flex-start;
-  gap: 14px; margin-top: -118px; padding-bottom: 16px;
+  gap: 14px; margin-top: -118px; padding-bottom: 60px;
 }
 .stat {
   min-width: 168px; padding: 16px 22px; text-align: center; background: var(--glass);
   border: 1px solid var(--glass-border); border-radius: 12px;
   -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
 }
-.stat.offset { margin-top: 16px; }
-/* Secondary booking link beside the portrait — deliberately quieter than the main CTA. */
-.coach-pill {
-  position: relative; z-index: 2;
-  display: inline-flex; align-items: center; gap: 8px; min-height: 44px; margin: 4px 0 60px; padding: 0 18px;
-  border: 1px solid var(--accent-border); border-radius: 99px; background: var(--glass);
-  -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
-  color: var(--t-accent); font-size: 14px; font-weight: 600; text-decoration: none;
-  transition: background 0.2s, border-color 0.2s, color 0.2s, transform 0.2s;
-}
-.coach-pill:hover { color: var(--t-strong); border-color: var(--ghost-hover-border); transform: translateY(-1px); }
-.stat-title { font-family: 'Outfit', sans-serif; font-weight: 600; font-size: 24px; color: var(--t-strong); line-height: 1.2; }
+.stat.offset { margin-top: 16px; }.stat-title { font-family: 'Outfit', sans-serif; font-weight: 600; font-size: 24px; color: var(--t-strong); line-height: 1.2; }
 .stat-sub { font-size: 14px; color: var(--t-body-2); }
 
 /* ============ About ============ */
@@ -507,8 +496,8 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   .nav-extras { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; padding-top: 14px; }
   .nav-extras-icons { display: flex; gap: 4px; margin-left: -10px; }
 
-  /* Hero stacks as: name, headline, intro, CTA → photo → coaching pill → badges.
-     `display: contents` lets the portrait, pill and badges be ordered after the copy. */
+  /* Hero stacks as: name, headline, intro, CTA → photo → badges.
+     `display: contents` lets the portrait and badges be ordered after the copy. */
   .hero { flex-direction: column; flex-wrap: nowrap; align-items: stretch; gap: 0; padding-top: 20px; }
   .hero-visual { display: contents; }
   .hero-copy { order: 1; padding-bottom: 0; }
@@ -516,8 +505,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
     order: 2; align-self: center; margin-top: 32px;
     width: min(76vw, 360px); height: auto; max-height: 48vh; object-fit: contain;
   }
-  .coach-pill { order: 3; align-self: center; margin: 12px 0 0; }
-  .hero-stats { order: 4; margin-top: 24px; padding-bottom: 48px; }
+  .hero-stats { order: 3; margin-top: 16px; padding-bottom: 48px; }
 }
 
 /* Phones */

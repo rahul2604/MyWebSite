@@ -1,7 +1,7 @@
 import portraitDark from '../assets/portrait-dark.webp';
 import portraitLight from '../assets/portrait-light.webp';
 import { TOPMATE_URL } from '../data';
-import { ArrowRight, CalendarIcon } from './Icons';
+import { ArrowRight } from './Icons';
 
 const STATS = [
   { title: 'Air India', sub: 'Revenue Management' },
@@ -53,18 +53,6 @@ export function Hero() {
             </div>
           ))}
         </div>
-        <a
-          className="coach-pill"
-          href={TOPMATE_URL}
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Book a strategy and consulting interview coaching session on Topmate (opens in a new tab)"
-          title="Strategy & consulting interview coaching on Topmate"
-        >
-          <CalendarIcon />
-          Book a Coaching Session
-          <span aria-hidden="true">↗</span>
-        </a>
       </div>
     </div>
   );

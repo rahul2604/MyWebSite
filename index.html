@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" class="rm-dark">
+<html lang="en" class="rm-light">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -8,7 +8,7 @@
       name="description"
       content="Rahul Mehra — Product Owner in Revenue Management at Air India. Revenue strategy, aviation, project management, strategy interview coaching and a PMP® learning path."
     />
-    <meta name="color-scheme" content="dark light" />
+    <meta name="color-scheme" content="light dark" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -17,13 +17,12 @@
       href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Figtree:wght@400;500;600&family=Plus+Jakarta+Sans:wght@800&display=swap"
     />
     <script>
-      // Apply the saved / preferred theme before first paint to avoid a flash.
+      // Apply the visitor's saved theme before first paint to avoid a flash; light by default.
       (function () {
-        var t = 'dark';
+        var t = 'light';
         try {
           var s = localStorage.getItem('rm-theme');
           if (s === 'light' || s === 'dark') t = s;
-          else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) t = 'light';
         } catch (e) {}
         document.documentElement.className = 'rm-' + t;
       })();

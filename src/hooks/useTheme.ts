@@ -11,15 +11,10 @@ function initialTheme(): Theme {
   } catch {
     /* storage unavailable */
   }
-  try {
-    if (window.matchMedia?.('(prefers-color-scheme: light)').matches) return 'light';
-  } catch {
-    /* matchMedia unavailable */
-  }
-  return 'dark';
+  return 'light';
 }
 
-/** Dark by default, follows the OS preference until the visitor picks one, then remembers it. */
+/** Light by default (whatever the OS theme); remembers the visitor's choice once they toggle. */
 export function useTheme() {
   const [theme, setTheme] = useState<Theme>(initialTheme);
 
