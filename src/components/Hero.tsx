@@ -23,7 +23,7 @@ export function Hero() {
           airlines grow revenue. My role also involves launching new routes and bringing teams together to turn plans into
           action. Outside work, I help professionals prepare for strategy interviews and the PMP® certification.
         </p>
-        <div style={{ marginTop: 36 }}>
+        <div className="hero-cta-wrap">
           <a className="btn btn-blue hero-cta" href={TOPMATE_URL} target="_blank" rel="noopener noreferrer">
             Schedule Appointment <ArrowRight />
           </a>

@@ -152,6 +152,12 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 }
 .icon-link:hover { color: var(--nav-hover); transform: translateY(-1px); }
 .header-cta { min-height: 44px; padding: 0 22px; border-radius: 8px; font-size: 15px; }
+.nav-extras { display: none; }
+.menu-toggle {
+  display: none; width: 44px; height: 44px; align-items: center; justify-content: center; padding: 0;
+  border: 1px solid var(--line-strong); border-radius: 10px; background: var(--toggle-bg); color: var(--t-strong);
+  cursor: pointer;
+}
 
 .theme-toggle {
   display: inline-flex; align-items: center; gap: 2px; height: 44px; padding: 4px; border-radius: 99px;
@@ -165,7 +171,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 .theme-toggle:hover .tt-opt { color: var(--toggle-on-fg); }
 
 .hero { display: flex; flex-wrap: wrap; align-items: center; gap: 32px 48px; padding-top: 28px; }
-.hero-copy { flex: 1 1 460px; min-width: 0; padding-bottom: 72px; }
+.hero-copy { flex: 1 1 420px; min-width: 0; padding-bottom: 72px; }
 .hero-name {
   margin: 0; font-family: 'Outfit', sans-serif; font-weight: 600; font-size: clamp(46px, 6.2vw, 80px);
   line-height: 1.02; letter-spacing: 0.035em; color: var(--t-strong);
@@ -176,8 +182,9 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 }
 .hero-roles .sep { color: var(--t-sep); padding: 0 6px; }
 .hero-intro { margin: 26px 0 0; max-width: 580px; color: var(--t-body); font-size: 18px; line-height: 1.7; }
+.hero-cta-wrap { margin-top: 36px; }
 .hero-cta { min-height: 56px; padding: 0 30px; border-radius: 10px; font-size: 17px; }
-.hero-visual { flex: 1 1 440px; min-width: 0; position: relative; display: flex; flex-direction: column; align-items: center; }
+.hero-visual { flex: 1 1 380px; min-width: 0; position: relative; display: flex; flex-direction: column; align-items: center; }
 .hero-visual img { display: block; width: 100%; max-width: 640px; height: auto; }
 .portrait {
   -webkit-mask-image: radial-gradient(ellipse 60% 66% at 50% 44%, #000 58%, transparent 100%);
@@ -381,7 +388,10 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 .post-cta { margin-top: auto; padding-top: 8px; font-size: 14px; font-weight: 600; color: var(--t-accent); }
 .row-head.spaced { margin-top: 40px; flex-wrap: wrap; }
 .row-head.first { margin-top: 44px; }
-.row-head a { margin-left: 4px; font-size: 14px; font-weight: 600; text-decoration: none; }
+.row-head a {
+  display: inline-flex; align-items: center; min-height: 44px;
+  margin-left: 4px; font-size: 14px; font-weight: 600; text-decoration: none;
+}
 
 .reels { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 20px; }
 .reel {
@@ -435,8 +445,92 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px;
   font-size: 14px; color: var(--t-muted-2);
 }
-.footer-inner a.tag { color: var(--t-accent); text-decoration: none; font-weight: 600; }
+.footer-inner a.tag {
+  display: inline-flex; align-items: center; min-height: 44px; vertical-align: middle;
+  color: var(--t-accent); text-decoration: none; font-weight: 600;
+}
 .footer-icons { display: flex; gap: 4px; }
+
+/* ============ Responsive ============ */
+
+/* Narrow desktops: the header row only fits without the header social icons
+   (LinkedIn / Instagram stay in About, Contact and the footer). */
+@media (max-width: 1099px) {
+  .header-socials { display: none; }
+}
+
+/* Tablets and phones: compact header bar + collapsible menu. */
+@media (max-width: 859px) {
+  .site-header { padding: 16px 0; gap: 12px; flex-wrap: wrap; }
+  .header-actions { gap: 10px; flex-wrap: nowrap; margin-left: auto; }
+  .header-cta-bar { display: none; }
+  .menu-toggle { display: inline-flex; }
+  .primary-nav {
+    display: none; order: 3; flex: 1 0 100%; flex-direction: column; align-items: stretch; gap: 0;
+    padding: 8px 18px 18px; font-size: 16px;
+    background: var(--glass); border: 1px solid var(--glass-border); border-radius: 14px;
+    -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
+  }
+  .primary-nav.is-open { display: flex; }
+  .primary-nav .nav-link {
+    display: flex; align-items: center; min-height: 48px; padding: 0; border-bottom: 1px solid var(--line-2);
+  }
+  .nav-extras { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; padding-top: 14px; }
+  .nav-extras-icons { display: flex; gap: 4px; margin-left: -10px; }
+
+  /* Hero stacks; trim the gap the desktop column spacing leaves behind. */
+  .hero { padding-top: 12px; row-gap: 8px; }
+  .hero-copy { padding-bottom: 24px; }
+}
+
+/* Phones */
+@media (max-width: 599px) {
+  .theme-toggle { gap: 0; }
+  .hero-roles { margin-top: 16px; }
+  .hero-intro { margin-top: 20px; font-size: 17px; }
+  .hero-cta-wrap { margin-top: 28px; }
+  .hero-cta { width: 100%; }
+
+  /* Three badges in one row under the portrait instead of a tall zig-zag stack. */
+  .hero-stats {
+    width: 100%; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; align-items: stretch;
+    margin-top: -56px; padding-bottom: 40px;
+  }
+  .stat { min-width: 0; padding: 12px 6px; border-radius: 10px; }
+  .stat.offset { margin-top: 0; }
+  .stat-title { font-size: clamp(15px, 4.6vw, 19px); }
+  .stat-sub { font-size: 12px; line-height: 1.35; margin-top: 2px; }
+
+  .about-grid { gap: 40px; }
+  .facts { padding: 24px; gap: 18px; }
+  .facts > div { padding-bottom: 18px; }
+  .service { padding: 24px; }
+  .service h3 { font-size: 23px; }
+  .panel { padding: 22px; }
+  .lesson { padding: 24px; }
+  .lesson h3 { font-size: 22px; }
+  .lesson-actions .btn { flex: 1 1 auto; }
+  .progress-pct { font-size: 30px; }
+  .complete { gap: 28px; }
+  .complete-copy h3 { font-size: 26px; }
+  .cert-download { width: 100%; }
+  .cert { flex-basis: 100%; }
+  .cert-foot { flex-wrap: wrap; }
+  .post { padding: 20px; }
+  .btn-cta { width: 100%; }
+
+  /* Reels: two per row instead of one full-width 9:16 card each. */
+  .reels { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+  .reel-play { width: 48px; height: 48px; }
+
+  .socials { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; width: 100%; max-width: 340px; }
+  .soc { flex: 1; min-width: 0; }
+}
+
+/* Touch screens have no hover: show the reel play button and keep the badge. */
+@media (hover: none) {
+  .reel-overlay { opacity: 1; background: rgba(6, 10, 18, 0.25); }
+}
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }

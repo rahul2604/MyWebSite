@@ -1,6 +1,7 @@
+import { useEffect, useState } from 'react';
 import type { Theme } from '../hooks/useTheme';
 import { INSTAGRAM_URL, LINKEDIN_URL, TOPMATE_URL } from '../data';
-import { InstagramIcon, LinkedInIcon, Logo, MoonIcon, SunIcon } from './Icons';
+import { CloseIcon, InstagramIcon, LinkedInIcon, Logo, MenuIcon, MoonIcon, SunIcon } from './Icons';
 
 interface HeaderProps {
   onPmp: boolean;
@@ -8,22 +9,59 @@ interface HeaderProps {
   onToggleTheme: () => void;
 }
 
+/* Must match the max-width of the mobile-menu media query in styles.css. */
+const MOBILE_MENU_QUERY = '(max-width: 859px)';
+
 export function Header({ onPmp, theme, onToggleTheme }: HeaderProps) {
+  const [menuOpen, setMenuOpen] = useState(false);
   const themeLabel = theme === 'light' ? 'Switch to dark mode' : 'Switch to light mode';
+  const closeMenu = () => setMenuOpen(false);
+
+  // Close on Escape, and when the viewport grows past the mobile breakpoint.
+  useEffect(() => {
+    if (!menuOpen) return;
+    const mq = window.matchMedia(MOBILE_MENU_QUERY);
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setMenuOpen(false);
+    };
+    const onChange = () => {
+      if (!mq.matches) setMenuOpen(false);
+    };
+    document.addEventListener('keydown', onKey);
+    mq.addEventListener('change', onChange);
+    return () => {
+      document.removeEventListener('keydown', onKey);
+      mq.removeEventListener('change', onChange);
+    };
+  }, [menuOpen]);
 
   return (
     <header className="site-header">
-      <a className="logo" href="#top" aria-label="Rahul Mehra — home">
+      <a className="logo" href="#top" aria-label="Rahul Mehra — home" onClick={closeMenu}>
         <Logo />
       </a>
-      <nav className="primary-nav" aria-label="Primary">
-        <a className="nav-link" href="#about">About</a>
-        <a className="nav-link" href="#services">Services</a>
-        <a className="nav-link" href="#pmp" aria-current={onPmp ? 'page' : undefined}>
+      <nav id="primary-nav" className={menuOpen ? 'primary-nav is-open' : 'primary-nav'} aria-label="Primary">
+        <a className="nav-link" href="#about" onClick={closeMenu}>About</a>
+        <a className="nav-link" href="#services" onClick={closeMenu}>Services</a>
+        <a className="nav-link" href="#pmp" aria-current={onPmp ? 'page' : undefined} onClick={closeMenu}>
           PMP® Learning Path
         </a>
-        <a className="nav-link" href="#blog">Blog</a>
-        <a className="nav-link" href="#contact">Contact</a>
+        <a className="nav-link" href="#blog" onClick={closeMenu}>Blog</a>
+        <a className="nav-link" href="#contact" onClick={closeMenu}>Contact</a>
+        {/* Shown only inside the mobile menu, where the header bar has no room for them. */}
+        <div className="nav-extras">
+          <div className="nav-extras-icons">
+            <a className="icon-link" href={LINKEDIN_URL} target="_blank" rel="noopener noreferrer" aria-label="Rahul Mehra on LinkedIn (opens in a new tab)">
+              <LinkedInIcon size={20} />
+            </a>
+            <a className="icon-link" href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer" aria-label="Rahul Mehra on Instagram (opens in a new tab)">
+              <InstagramIcon size={21} />
+            </a>
+          </div>
+          <a className="btn btn-white header-cta" href={TOPMATE_URL} target="_blank" rel="noopener noreferrer">
+            Schedule Appointment
+          </a>
+        </div>
       </nav>
       <div className="header-actions">
         <button className="theme-toggle" type="button" onClick={onToggleTheme} aria-label={themeLabel} title={themeLabel}>
@@ -42,9 +80,19 @@ export function Header({ onPmp, theme, onToggleTheme }: HeaderProps) {
             <InstagramIcon size={21} />
           </a>
         </div>
-        <a className="btn btn-white header-cta" href={TOPMATE_URL} target="_blank" rel="noopener noreferrer">
+        <a className="btn btn-white header-cta header-cta-bar" href={TOPMATE_URL} target="_blank" rel="noopener noreferrer">
           Schedule Appointment
         </a>
+        <button
+          className="menu-toggle"
+          type="button"
+          aria-expanded={menuOpen}
+          aria-controls="primary-nav"
+          aria-label={menuOpen ? 'Close menu' : 'Open menu'}
+          onClick={() => setMenuOpen((o) => !o)}
+        >
+          {menuOpen ? <CloseIcon /> : <MenuIcon />}
+        </button>
       </div>
     </header>
   );
