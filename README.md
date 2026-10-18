@@ -1,39 +1,51 @@
-# Rahul Mehra — Personal Brand Website (Frontend v1)
+# Rahul Mehra — Portfolio
 
-A responsive React + TypeScript + Vite website built from scratch using the approved premium navy/off-white direction.
+React + TypeScript + Vite site for Revenue Strategy, Aviation and Project Management, with a PMP® Learning Path prototype.
 
-## Requirements
-- Node.js 20+ recommended
-- npm
+## Develop
 
-## Run locally
-1. Extract this ZIP.
-2. Open a terminal in the project folder.
-3. Run `npm install`
-4. Run `npm run dev`
-5. Open the local URL printed by Vite (usually `http://localhost:5173`).
+```bash
+npm install
+npm run dev
+```
 
-## Production build
-Run `npm run build`. To preview the production build locally, run `npm run preview`.
+`npm run build` type-checks and writes the static site to `dist/`. `npm run preview` serves that build locally.
 
-## Current frontend scope
-- Home, About, Services, approach and Contact sections
-- Strategy interview and PMP coaching detail switcher
-- Configurable placeholder packages/pricing
-- Booking-flow preview with sample slot selection
-- Contact form validation and demo feedback
-- LinkedIn link and Instagram icon without a URL
-- Responsive layout and uploaded profile photo
+## Deploy to Cloudflare Pages
 
-## Not connected yet
-This is deliberately frontend-only. The contact form does not send messages. Booking does not reserve real availability. No payment, database, email, Google Calendar or Google Meet integration is included. The booking UI explicitly identifies itself as a demo.
+**Git-connected project** (Pages dashboard → Create → Connect to Git):
 
-## Customize later
-- Replace `public/rahul-mehra.jpg` with an updated portrait if needed.
-- Set package prices and deliverables in `src/App.tsx`.
-- Add the Instagram URL when ready.
-- Connect a real contact form and booking/payment services only in a future backend phase.
+| Setting | Value |
+| --- | --- |
+| Framework preset | Vite (or None) |
+| Build command | `npm run build` |
+| Build output directory | `dist` |
+| Node version | from `.node-version` (22) |
 
-## Notes
-The page uses Google Fonts via CSS import, so typography falls back to system fonts if the fonts cannot load. No employer or institution endorsement is implied.
-"# MyWebSite" 
+**Direct upload:** `npm run build`, then `npx wrangler pages deploy` (reads `wrangler.toml`).
+
+`public/_headers` sets long-lived caching on hashed assets and basic security headers. The site needs no server routing:
+the PMP® Learning Path lives at `/#pmp`, so no `_redirects` file is needed.
+
+## Editing content
+
+All lists live in [`src/data.ts`](src/data.ts):
+
+- `LINKEDIN_POSTS`, `BOOK_POSTS` — blog carousels (newest first)
+- `REELS` — Instagram reels; `code` is the part after `/reel/` in the link, `cover` is an image in `src/assets/`
+- `PMP_MODULES` — learning-path module titles
+- `WHATSAPP_NUMBER` — the WhatsApp contact tile appears when this has 10+ digits
+
+Theme colours for dark and light mode are the tokens at the top of [`src/styles.css`](src/styles.css).
+
+## Structure
+
+```
+src/
+  App.tsx              page layout, home ⇄ PMP view switch
+  hooks/useTheme.ts    dark/light theme, remembered in localStorage
+  hooks/useHashView.ts #pmp view + section scrolling
+  components/          Header, Hero, About, Services, PmpPath, Blog, Contact, Footer, Icons
+  lib/certificate.ts   sample certificate SVG generator
+  assets/              portraits, hero skies, reel covers
+```

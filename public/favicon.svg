@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <rect width="64" height="64" rx="14" fill="#060A12"/>
+  <text x="8" y="40" fill="#FFFFFF" font-family="Outfit, Arial, sans-serif" font-weight="700" font-size="28" letter-spacing="-1">RM</text>
+  <path d="M16 50 C 30 48, 44 40, 56 30" stroke="#5B85F0" stroke-width="3" fill="none" stroke-linecap="round"/>
+</svg>

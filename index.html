@@ -1,11 +1,33 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="rm-dark">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#14243a" />
-    <meta name="description" content="Meet Rahul Mehra — strategy, revenue management and practical coaching for strategy interviews and PMP preparation." />
-    <title>Rahul Mehra | Strategy, Product & Coaching</title>
+    <title>Rahul Mehra — Revenue Strategy, Aviation, Project Management</title>
+    <meta
+      name="description"
+      content="Rahul Mehra — Product Owner in Revenue Management at Air India. Revenue strategy, aviation, project management, strategy interview coaching and a PMP® learning path."
+    />
+    <meta name="color-scheme" content="dark light" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Figtree:wght@400;500;600&display=swap"
+    />
+    <script>
+      // Apply the saved / preferred theme before first paint to avoid a flash.
+      (function () {
+        var t = 'dark';
+        try {
+          var s = localStorage.getItem('rm-theme');
+          if (s === 'light' || s === 'dark') t = s;
+          else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) t = 'light';
+        } catch (e) {}
+        document.documentElement.className = 'rm-' + t;
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>

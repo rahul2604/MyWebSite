@@ -1,0 +1,10 @@
+node_modules
+dist
+.wrangler
+*.log
+.DS_Store
+
+# Local environment / secrets
+.env
+.env.*
+.dev.vars

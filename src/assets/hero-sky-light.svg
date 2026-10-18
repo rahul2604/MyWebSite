@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="1600" height="900" preserveAspectRatio="xMidYMid slice">
+<defs>
+<linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+<stop offset="0" stop-color="#cfe0f3"></stop>
+<stop offset="0.5" stop-color="#e3edf8"></stop>
+<stop offset="0.8" stop-color="#f1f4f8"></stop>
+<stop offset="1" stop-color="#f7efe8"></stop>
+</linearGradient>
+<radialGradient id="glow" cx="1080" cy="360" r="620" gradientUnits="userSpaceOnUse">
+<stop offset="0" stop-color="#ffffff" stop-opacity="0.75"></stop>
+<stop offset="1" stop-color="#ffffff" stop-opacity="0"></stop>
+</radialGradient>
+<radialGradient id="sunset" cx="80" cy="940" r="760" gradientUnits="userSpaceOnUse">
+<stop offset="0" stop-color="#ffd3a6" stop-opacity="0.95"></stop>
+<stop offset="0.2" stop-color="#ffc7a0" stop-opacity="0.65"></stop>
+<stop offset="0.45" stop-color="#f6c9c0" stop-opacity="0.3"></stop>
+<stop offset="1" stop-color="#e3edf8" stop-opacity="0"></stop>
+</radialGradient>
+<linearGradient id="leftWash" x1="0" y1="0" x2="1" y2="0">
+<stop offset="0" stop-color="#ffffff" stop-opacity="0.7"></stop>
+<stop offset="0.5" stop-color="#ffffff" stop-opacity="0"></stop>
+</linearGradient>
+<linearGradient id="wingTop" x1="0" y1="900" x2="360" y2="700" gradientUnits="userSpaceOnUse">
+<stop offset="0" stop-color="#9aa6b8"></stop>
+<stop offset="0.55" stop-color="#c3ccd9"></stop>
+<stop offset="1" stop-color="#eef2f7"></stop>
+</linearGradient>
+<linearGradient id="winglet" x1="300" y1="780" x2="365" y2="690" gradientUnits="userSpaceOnUse">
+<stop offset="0" stop-color="#2d56b8"></stop>
+<stop offset="1" stop-color="#5b85f0"></stop>
+</linearGradient>
+<linearGradient id="trail" x1="1400" y1="214" x2="1120" y2="340" gradientUnits="userSpaceOnUse">
+<stop offset="0" stop-color="#ffffff" stop-opacity="0.95"></stop>
+<stop offset="1" stop-color="#ffffff" stop-opacity="0"></stop>
+</linearGradient>
+<filter id="blurL" x="-30%" y="-60%" width="160%" height="220%"><feGaussianBlur stdDeviation="22"></feGaussianBlur></filter>
+<filter id="blurM" x="-30%" y="-60%" width="160%" height="220%"><feGaussianBlur stdDeviation="10"></feGaussianBlur></filter>
+</defs>
+<rect width="1600" height="900" fill="url(#sky)"></rect>
+<rect width="1600" height="900" fill="url(#glow)"></rect>
+<rect width="1600" height="900" fill="url(#sunset)"></rect>
+<g filter="url(#blurL)">
+<ellipse cx="260" cy="840" rx="520" ry="95" fill="#ffffff" opacity="0.85"></ellipse>
+<ellipse cx="160" cy="880" rx="360" ry="70" fill="#ffe2c8" opacity="0.8"></ellipse>
+<ellipse cx="620" cy="870" rx="420" ry="70" fill="#ffffff" opacity="0.8"></ellipse>
+<ellipse cx="1050" cy="890" rx="460" ry="60" fill="#ffffff" opacity="0.75"></ellipse>
+<ellipse cx="1450" cy="900" rx="380" ry="55" fill="#eef3fa" opacity="0.8"></ellipse>
+<ellipse cx="1300" cy="170" rx="260" ry="34" fill="#ffffff" opacity="0.55"></ellipse>
+<ellipse cx="520" cy="120" rx="300" ry="30" fill="#ffffff" opacity="0.45"></ellipse>
+</g>
+<g filter="url(#blurM)">
+<ellipse cx="90" cy="848" rx="170" ry="28" fill="#ffe9d6" opacity="0.9"></ellipse>
+<ellipse cx="420" cy="845" rx="150" ry="18" fill="#ffffff" opacity="0.9"></ellipse>
+<ellipse cx="760" cy="866" rx="220" ry="22" fill="#ffffff" opacity="0.85"></ellipse>
+<ellipse cx="1150" cy="884" rx="260" ry="24" fill="#f4f7fb" opacity="0.9"></ellipse>
+</g>
+<rect width="1600" height="900" fill="url(#leftWash)"></rect>
+<g>
+<path d="M0 828 L296 772 L344 777 L64 900 L0 900 Z" fill="url(#wingTop)"></path>
+<path d="M0 828 L296 772" stroke="#ffffff" stroke-width="2.5" stroke-opacity="0.9" fill="none"></path>
+<path d="M0 862 L310 790 L344 777 L64 900 L0 900 Z" fill="#6b7890" opacity="0.35"></path>
+<path d="M296 772 L352 690 L366 692 L344 777 Z" fill="url(#winglet)"></path>
+<path d="M90 812 L150 800" stroke="#8e9ab0" stroke-width="2" stroke-opacity="0.6"></path>
+</g>
+<path d="M1398 216 L1120 336" stroke="url(#trail)" stroke-width="2.6" stroke-linecap="round"></path>
+<path d="M1400 222 L1135 344" stroke="url(#trail)" stroke-width="2" stroke-linecap="round" opacity="0.85"></path>
+<g transform="translate(1400 214) rotate(-18) scale(0.82)" fill="#5c6c86">
+<path d="M0 0 C 10 -4 60 -5 78 -2 C 84 -1 86 1 84 3 C 70 6 20 6 4 4 Z"></path>
+<path d="M30 -2 L52 -26 L58 -26 L46 -1 Z"></path>
+<path d="M30 4 L50 22 L56 22 L44 4 Z" opacity="0.85"></path>
+<path d="M2 1 L-4 -16 L4 -16 L12 0 Z"></path>
+<path d="M2 3 L-4 10 L4 10 L10 4 Z" opacity="0.8"></path>
+</g>
+</svg>

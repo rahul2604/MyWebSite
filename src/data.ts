@@ -1,0 +1,114 @@
+import reel1 from './assets/reel-1.jpg';
+import reel2 from './assets/reel-2.jpg';
+import reel3 from './assets/reel-3.jpg';
+import reel4 from './assets/reel-4.jpg';
+
+export const LINKEDIN_URL = 'https://www.linkedin.com/in/rahulamehra/';
+export const INSTAGRAM_URL = 'https://www.instagram.com/rm.music2604?dlrf=MWZ4MHR1eTJzNzMzcA%3D%3D';
+export const INSTAGRAM_REELS_URL = 'https://www.instagram.com/rm.music2604/reels/';
+export const TOPMATE_URL = 'https://topmate.io/rahul_mehra';
+export const HASHTAG_URL = 'https://www.linkedin.com/feed/hashtag/rahulm2604/';
+export const READS_HASHTAG_URL = 'https://www.linkedin.com/feed/hashtag/rahulreads/';
+export const EMAIL = 'rahul.a.mehra@gmail.com';
+export const GMAIL_COMPOSE_URL = `https://mail.google.com/mail/?view=cm&fs=1&to=${EMAIL}`;
+
+/* WhatsApp — number with country code. The icon only shows when this holds 10+ digits. */
+export const WHATSAPP_NUMBER = '+919537784427';
+
+export const PMP_MODULES = [
+  'Introduction to PMP® and the Certification Journey',
+  'Project Management Fundamentals',
+  'Predictive Project Management',
+  'Agile and Hybrid Project Management',
+  'Project Planning and Execution',
+  'Project Monitoring, Risk and Quality',
+  'Leadership and Stakeholder Management',
+  'Exam Preparation and Mock Tests',
+];
+
+/* Instagram reels — newest first. `code` is the part after /reel/ in the reel's link. */
+export const REELS = [
+  { code: 'DcOkQvsBUvN', cover: reel1 },
+  { code: 'Daiihs6hRKh', cover: reel2 },
+  { code: 'DZ5fN_KBVi2', cover: reel3 },
+  { code: 'DZSoXB8h48y', cover: reel4 },
+];
+
+export interface LinkedInPost {
+  tag: string;
+  title: string;
+  excerpt: string;
+  url: string;
+}
+
+/* LinkedIn posts — newest first. */
+export const LINKEDIN_POSTS: LinkedInPost[] = [
+  {
+    tag: 'AVIATION',
+    title: 'Aircraft livery isn’t always just about airline branding.',
+    excerpt:
+      'Airlines often use their aircraft to showcase the culture and identity of their country — like All Nippon Airways’ Pokémon-themed Eevee livery in Japan.',
+    url: 'https://www.linkedin.com/feed/update/urn:li:activity:7512531592171438080/',
+  },
+  {
+    tag: 'DATA & ANALYTICS',
+    title: 'Data collection is just the first step.',
+    excerpt:
+      'Manual data entry makes it hard to analyse trends. Even a simple Excel pivot table can slice and dice data within minutes — the real value is in how easily we can use it to decide better.',
+    url: 'https://www.linkedin.com/feed/update/urn:li:activity:7509858721674629120/',
+  },
+  {
+    tag: 'AIR INDIA',
+    title: 'What does it feel like to fly on a brand-new aircraft on its first day?',
+    excerpt:
+      'Flying Air India’s latest Boeing line-fit aircraft, VT-AWD, on AI 2408 from Mumbai to Delhi — top-notch comfort, interiors and a cockpit-style flight display.',
+    url: 'https://www.linkedin.com/feed/update/urn:li:activity:7502427354565357568/',
+  },
+  {
+    tag: 'AVIATION',
+    title: 'If you flew on 23rd July 2026, you were part of aviation history.',
+    excerpt:
+      '150,000+ commercial flights in a single day — the highest ever tracked by Flightradar24, driven by the overlap of US summer holidays and Europe’s peak season.',
+    url: 'https://www.linkedin.com/feed/update/urn:li:activity:7487229817524772864/',
+  },
+];
+
+export interface BookPost extends LinkedInPost {
+  author: string;
+}
+
+/* Book recommendations — newest first. */
+export const BOOK_POSTS: BookPost[] = [
+  {
+    tag: '#24 · BOOK',
+    title: 'Make Time',
+    author: 'Jake Knapp & John Zeratsky',
+    excerpt:
+      'Not your usual productivity book — a simple Highlight, Laser, Energize framework to focus on one important thing each day, avoid distractions and stay energised.',
+    url: 'https://www.linkedin.com/feed/update/urn:li:activity:7502220013987336192/',
+  },
+  {
+    tag: '#23 · BOOK',
+    title: 'Steal Like an Artist',
+    author: 'Austin Kleon',
+    excerpt:
+      'You don’t need to be original — you need to be curious. Observe, steal, improvise, execute: creativity as smart adaptation rather than invention.',
+    url: 'https://www.linkedin.com/posts/rahulamehra_bookrecommendation-rahulm2604-rahulreads-share-7479538557376753664-62RH/',
+  },
+  {
+    tag: '#22 · BOOK',
+    title: 'The Dip',
+    author: 'Seth Godin',
+    excerpt:
+      '“Never quit” isn’t always right. Every journey has a dip — if it’s a dead end, quit; if there’s light ahead, push through.',
+    url: 'https://www.linkedin.com/posts/rahulamehra_bookrecommendation-rahulm2604-rahulreads-share-7475212728350171136-gNKO/',
+  },
+  {
+    tag: '#21 · BOOK',
+    title: 'A CEO’s Brew',
+    author: 'Sanjiv Mehta',
+    excerpt:
+      'A leadership journey across North Africa, the Middle East, Bangladesh, the Philippines and India — blending business strategy with people-first leadership.',
+    url: 'https://www.linkedin.com/posts/rahulamehra_bookrecommendation-rahulm2604-rahulreads-share-7473544322764681216-_x59/',
+  },
+];

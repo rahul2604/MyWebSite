@@ -1,0 +1,4 @@
+# Cloudflare Pages project config (used by `wrangler pages deploy` and Git-connected builds).
+name = "rahul-mehra-portfolio"
+compatibility_date = "2026-10-01"
+pages_build_output_dir = "./dist"
