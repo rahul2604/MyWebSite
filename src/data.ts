@@ -8,8 +8,8 @@ export const INSTAGRAM_URL = 'https://www.instagram.com/rm.music2604?dlrf=MWZ4MH
 export const INSTAGRAM_REELS_URL = 'https://www.instagram.com/rm.music2604/reels/';
 export const TOPMATE_URL = 'https://topmate.io/rahul_mehra';
 export const HASHTAG_URL = 'https://www.linkedin.com/feed/hashtag/rahulm2604/';
-/* Threads search results for the #rahulreads hashtag. */
-export const READS_THREADS_URL = 'https://www.threads.com/search?q=%23rahulreads&serp_type=default';
+/* LinkedIn content search results for the #rahulreads hashtag. */
+export const READS_SEARCH_URL = 'https://www.linkedin.com/search/results/content/?keywords=%23rahulreads';
 export const EMAIL = 'rahul.a.mehra@gmail.com';
 export const GMAIL_COMPOSE_URL = `https://mail.google.com/mail/?view=cm&fs=1&to=${EMAIL}`;
 
