@@ -1,0 +1,14 @@
+# Copy this file to `.dev.vars` (already git-ignored) for local testing with
+# `npm run preview:pages`. Never commit real values.
+# In production, set these in Cloudflare Pages → Settings → Variables and Secrets.
+
+# Required. Your Resend API key (starts with "re_"). Store as an encrypted SECRET in Cloudflare.
+RESEND_API_KEY=
+
+# Optional. Defaults to rahul.a.mehra@gmail.com.
+# CONTACT_TO_EMAIL=rahul.a.mehra@gmail.com
+
+# Optional. Defaults to Resend's shared test sender "Rahul Mehra Website <onboarding@resend.dev>",
+# which only delivers to the email address that owns your Resend account.
+# After verifying a domain in Resend, use an address on it, e.g.:
+# CONTACT_FROM_EMAIL=Rahul Mehra Website <website@send.rahulmehra.co.in>

@@ -1,4 +1,4 @@
-import { TOPMATE_URL } from '../data';
+import { BOOKING_URL } from '../data';
 import { ArrowRight, ChatIcon, CourseIcon } from './Icons';
 
 export function Services() {
@@ -42,7 +42,7 @@ export function Services() {
           </article>
         </div>
         <div style={{ marginTop: 40 }}>
-          <a className="btn btn-blue btn-cta" href={TOPMATE_URL} target="_blank" rel="noopener noreferrer">
+          <a className="btn btn-blue btn-cta" href={BOOKING_URL}>
             Schedule Appointment <ArrowRight />
           </a>
         </div>

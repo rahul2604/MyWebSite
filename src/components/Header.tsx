@@ -1,7 +1,7 @@
 import { useEffect, useState, type MouseEvent } from 'react';
 import { useAutoHideHeader } from '../hooks/useAutoHideHeader';
 import type { Theme } from '../hooks/useTheme';
-import { INSTAGRAM_URL, LINKEDIN_URL, TOPMATE_URL } from '../data';
+import { BOOKING_URL, INSTAGRAM_URL, LINKEDIN_URL } from '../data';
 import { CloseIcon, InstagramIcon, LinkedInIcon, Logo, MenuIcon, MoonIcon, SunIcon } from './Icons';
 
 interface HeaderProps {
@@ -77,7 +77,7 @@ export function Header({ onPmp, theme, onToggleTheme }: HeaderProps) {
               <InstagramIcon size={21} />
             </a>
           </div>
-          <a className="btn btn-white header-cta" href={TOPMATE_URL} target="_blank" rel="noopener noreferrer">
+          <a className="btn btn-white header-cta" href={BOOKING_URL} onClick={closeMenu}>
             Schedule Appointment
           </a>
         </div>
@@ -99,7 +99,7 @@ export function Header({ onPmp, theme, onToggleTheme }: HeaderProps) {
             <InstagramIcon size={21} />
           </a>
         </div>
-        <a className="btn btn-white header-cta header-cta-bar" href={TOPMATE_URL} target="_blank" rel="noopener noreferrer">
+        <a className="btn btn-white header-cta header-cta-bar" href={BOOKING_URL}>
           Schedule Appointment
         </a>
         <button

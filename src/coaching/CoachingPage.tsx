@@ -51,8 +51,8 @@ export function CoachingPage({ hidden }: { hidden: boolean }) {
         </div>
         <h2 id="bk-title" className="h2">Book a coaching session</h2>
         <p className="lede">
-          One-to-one guidance for strategy and consulting interviews. Choose a time and share a little about what you
-          need.
+          One-to-one guidance for strategy and consulting interviews, plus free introductory and PMP® course discovery
+          calls. Pick a service, choose a time and share a little about what you need.
         </p>
 
         <div ref={panelRef} className="bk-panel">

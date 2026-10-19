@@ -1,6 +1,6 @@
 import portraitDark from '../assets/portrait-dark.webp';
 import portraitLight from '../assets/portrait-light.webp';
-import { TOPMATE_URL } from '../data';
+import { BOOKING_URL } from '../data';
 import { ArrowRight } from './Icons';
 
 const STATS = [
@@ -24,7 +24,7 @@ export function Hero() {
           action. Outside work, I help professionals prepare for strategy interviews and the PMP® certification.
         </p>
         <div className="hero-cta-wrap">
-          <a className="btn btn-blue hero-cta" href={TOPMATE_URL} target="_blank" rel="noopener noreferrer">
+          <a className="btn btn-blue hero-cta" href={BOOKING_URL}>
             Schedule Appointment <ArrowRight />
           </a>
         </div>

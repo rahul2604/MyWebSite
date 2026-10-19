@@ -39,7 +39,8 @@ export function Confirmation({ confirmation: c, service, onBookAnother, onHome }
           <li>No WhatsApp message or email has been sent to you or to Rahul.</li>
         </ul>
         <p>
-          To book a real session for now, use <strong>Schedule Appointment</strong> elsewhere on this site.
+          Online booking isn't live yet. To arrange a session in the meantime, reach out through the{' '}
+          <a href="#contact">contact options</a> on this site.
         </p>
       </div>
 

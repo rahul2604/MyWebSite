@@ -6,7 +6,8 @@ import reel4 from './assets/reel-4.jpg';
 export const LINKEDIN_URL = 'https://www.linkedin.com/in/rahulamehra/';
 export const INSTAGRAM_URL = 'https://www.instagram.com/rm.music2604?dlrf=MWZ4MHR1eTJzNzMzcA%3D%3D';
 export const INSTAGRAM_REELS_URL = 'https://www.instagram.com/rm.music2604/reels/';
-export const TOPMATE_URL = 'https://topmate.io/rahul_mehra';
+/* "Schedule Appointment" opens the site's own booking page (src/coaching). */
+export const BOOKING_URL = '#coaching';
 export const HASHTAG_URL = 'https://www.linkedin.com/feed/hashtag/rahulm2604/';
 /* LinkedIn content search results for the #rahulreads hashtag. */
 export const READS_SEARCH_URL = 'https://www.linkedin.com/search/results/content/?keywords=%23rahulreads';

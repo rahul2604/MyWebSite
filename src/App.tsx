@@ -7,6 +7,7 @@ import { Hero } from './components/Hero';
 import { PmpPath } from './components/PmpPath';
 import { Services } from './components/Services';
 import { CoachingPage } from './coaching/CoachingPage';
+import { ChatWidget } from './contact/ChatWidget';
 import { useHashView } from './hooks/useHashView';
 import { useTheme } from './hooks/useTheme';
 
@@ -43,6 +44,7 @@ export default function App() {
       )}
 
       <Footer />
+      <ChatWidget />
     </div>
   );
 }

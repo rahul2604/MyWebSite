@@ -1,0 +1,64 @@
+/* "Chat with Rahul" floating contact widget. Uses the site's tokens from styles.css. */
+
+.chat-root {
+  position: fixed; right: max(16px, env(safe-area-inset-right)); bottom: max(16px, env(safe-area-inset-bottom));
+  z-index: 60; display: flex; flex-direction: column; align-items: flex-end; gap: 12px;
+  font-family: 'Figtree', system-ui, sans-serif; font-size: 16px; line-height: 1.5;
+}
+
+.chat-toggle {
+  display: inline-flex; align-items: center; gap: 10px; min-height: 52px; padding: 0 20px 0 16px;
+  border: 1px solid var(--accent-border); border-radius: 99px; background: var(--primary); color: #ffffff;
+  font: inherit; font-weight: 600; font-size: 15px; cursor: pointer;
+  box-shadow: 0 8px 24px rgba(15, 30, 60, 0.22);
+  transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+}
+.chat-toggle:hover { background: var(--primary-hover); transform: translateY(-1px); box-shadow: 0 12px 28px rgba(15, 30, 60, 0.28); }
+.chat-toggle.is-open { background: var(--surface); color: var(--t-strong); border-color: var(--line-strong); }
+
+.chat-panel {
+  width: min(360px, calc(100vw - 32px)); max-height: min(620px, calc(100dvh - 104px)); overflow-y: auto;
+  background: var(--surface); color: var(--t-body-strong); border: 1px solid var(--line-2); border-radius: 18px;
+  box-shadow: 0 20px 50px rgba(10, 20, 40, 0.25);
+}
+.chat-head {
+  position: sticky; top: 0; z-index: 1; display: flex; align-items: flex-start; justify-content: space-between; gap: 12px;
+  padding: 18px 18px 14px; background: var(--surface); border-bottom: 1px solid var(--line);
+}
+.chat-head h2 { margin: 0; font-family: 'Outfit', sans-serif; font-weight: 600; font-size: 19px; color: var(--t-strong); }
+.chat-head p { margin: 2px 0 0; font-size: 14px; color: var(--t-muted); }
+.chat-close {
+  flex: none; width: 40px; height: 40px; margin: -6px -6px 0 0; display: inline-flex; align-items: center; justify-content: center;
+  border: 0; border-radius: 10px; background: none; color: var(--t-label); cursor: pointer;
+}
+.chat-close:hover { background: var(--ghost-hover-bg); color: var(--t-strong); }
+
+.chat-body { display: flex; flex-direction: column; gap: 14px; padding: 16px 18px 18px; }
+.chat-field { display: flex; flex-direction: column; gap: 5px; }
+.chat-field label { font-size: 14px; font-weight: 500; color: var(--t-label); }
+.chat-field .field { min-height: 44px; font-size: 16px; }
+.chat-textarea { min-height: 104px; padding: 10px 14px; resize: vertical; line-height: 1.5; }
+.chat-hint { font-size: 12.5px; color: var(--t-muted); }
+.chat-hp { position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden; }
+.chat-error {
+  margin: 0; padding: 10px 12px; border-radius: 10px; border: 1px solid var(--err-text); color: var(--err-text); font-size: 14px;
+}
+.chat-primary { min-height: 48px; border-radius: 10px; font-size: 15px; }
+.chat-primary:disabled { opacity: 0.7; cursor: progress; }
+
+.chat-sent { align-items: center; text-align: center; padding: 28px 22px; }
+.chat-sent h3 { margin: 4px 0 0; font-family: 'Outfit', sans-serif; font-weight: 600; font-size: 20px; color: var(--t-strong); }
+.chat-sent p { margin: 0; font-size: 15px; color: var(--t-body); }
+
+/* Keep the footer's icons clear of the floating button. (Extra specificity: this file loads before styles.css.) */
+.rm-root .site-footer { padding-bottom: 92px; }
+
+/* Phones: icon-only button. */
+@media (max-width: 599px) {
+  .chat-toggle { width: 56px; min-height: 56px; padding: 0; justify-content: center; }
+  .chat-toggle-label { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .chat-toggle { transition: none; }
+}

@@ -6,7 +6,7 @@
  */
 
 /* Add an id here (and an entry below) to offer another service. */
-export type ServiceId = 'strategy-interview' | 'lets-connect';
+export type ServiceId = 'strategy-interview' | 'lets-connect' | 'pmp-discovery';
 
 export interface CoachingService {
   id: ServiceId;
@@ -94,6 +94,40 @@ export const COACHING_SERVICES: CoachingService[] = [
     preparation: [
       'Jot down your goals and the questions you would like to ask',
       'Share a line about what you are looking for in the booking form',
+    ],
+  },
+  {
+    id: 'pmp-discovery',
+    number: '03',
+    title: 'PMP® Course Discovery Call',
+    summary:
+      'A short call to walk through the PMP® course overview, understand your goals, and discuss a preparation approach and guidance that suits you.',
+    audience: 'Professionals considering the PMP® certification or the PMP® course',
+    format: '[Session format, e.g. online call]',
+    duration: '15 minutes',
+    durationMinutes: 15,
+    price: 'Free (₹0)',
+    free: true,
+    ctaLabel: 'Book a Free Call',
+    covers: [
+      'An overview of the PMP® course',
+      'Your goals and where you are in your PMP® journey',
+      'A suitable preparation approach',
+      'Guidance on next steps',
+    ],
+    forWho: [
+      'Professionals considering the PMP® certification',
+      'Aspirants who want to understand the course before committing',
+    ],
+    outcomes: [
+      'A clear picture of what the course covers',
+      'A preparation approach matched to your goals',
+      'Answers to your questions about getting started',
+    ],
+    preparation: [
+      'Think about your target timeline for the PMP® exam',
+      'Note any questions about the course or the certification process',
+      'Mention your current experience and goals in the booking form',
     ],
   },
 ];

@@ -1,4 +1,4 @@
-import { EMAIL, GMAIL_COMPOSE_URL, INSTAGRAM_URL, LINKEDIN_URL, TOPMATE_URL, WHATSAPP_NUMBER } from '../data';
+import { BOOKING_URL, EMAIL, GMAIL_COMPOSE_URL, INSTAGRAM_URL, LINKEDIN_URL, WHATSAPP_NUMBER } from '../data';
 import { ArrowRight, GmailIcon, InstagramIcon, LinkedInIcon, WhatsAppIcon } from './Icons';
 
 const waDigits = WHATSAPP_NUMBER.replace(/\D/g, '');
@@ -35,7 +35,7 @@ export function Contact() {
           ))}
         </div>
         <div className="contact-cta">
-          <a className="btn btn-blue btn-cta" href={TOPMATE_URL} target="_blank" rel="noopener noreferrer">
+          <a className="btn btn-blue btn-cta" href={BOOKING_URL}>
             Schedule Appointment <ArrowRight />
           </a>
         </div>

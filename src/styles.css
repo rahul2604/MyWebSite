@@ -501,9 +501,13 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   .hero { flex-direction: column; flex-wrap: nowrap; align-items: stretch; gap: 0; padding-top: 20px; }
   .hero-visual { display: contents; }
   .hero-copy { order: 1; padding-bottom: 0; }
+  /* Show the whole portrait in a soft frame: the desktop fade masks would dissolve the
+     bottom of the photo here, because the badges no longer overlap it. */
   .hero-visual img {
     order: 2; align-self: center; margin-top: 32px;
-    width: min(76vw, 360px); height: auto; max-height: 48vh; object-fit: contain;
+    width: min(84vw, 380px, 52vh); height: auto;
+    -webkit-mask-image: none; mask-image: none;
+    border-radius: 20px; border: 1px solid var(--line-2); box-shadow: var(--card-shadow);
   }
   .hero-stats { order: 3; margin-top: 16px; padding-bottom: 48px; }
 }
