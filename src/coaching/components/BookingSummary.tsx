@@ -1,7 +1,7 @@
 import type { ReactNode } from 'react';
 import { BOOKING_TIMEZONE_LABEL } from '../data/availability';
 import type { CoachingService } from '../data/services';
-import { formatDateLong, formatTime, localEquivalent } from '../lib/dates';
+import { formatDateLong, formatSlot, localEquivalent } from '../lib/dates';
 import { Value } from './Placeholder';
 
 interface Props {
@@ -45,7 +45,7 @@ export function BookingSummary({ service, date, time, title = 'Your session', on
             <dd>
               {formatDateLong(date)}
               <br />
-              {formatTime(time)} IST
+              {formatSlot(time, service.durationMinutes)} IST
               {local && <span className="bk-local">Your time: {local}</span>}
             </dd>
           ) : (

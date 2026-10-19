@@ -33,7 +33,10 @@ export function ServiceDetail({ service, onBack, onChooseSlot }: Props) {
         <ArrowLeft /> All services
       </button>
       <div className="bk-detail-head">
-        <span className="service-num">{service.number}</span>
+        <div className="bk-service-top">
+          <span className="service-num">{service.number}</span>
+          {service.free && <span className="bk-chip bk-chip-free">Free</span>}
+        </div>
         <h3 className="bk-step-title" data-step-heading tabIndex={-1}>
           {service.title}
         </h3>

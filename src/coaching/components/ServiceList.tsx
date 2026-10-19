@@ -19,7 +19,10 @@ export function ServiceList({ selectedId, onSelect }: Props) {
           <article key={s.id} className={`bk-service lift${selectedId === s.id ? ' is-selected' : ''}`}>
             <div className="bk-service-top">
               <span className="service-num">{s.number}</span>
-              {selectedId === s.id && <span className="bk-chip">In progress</span>}
+              <span className="bk-chips">
+                {selectedId === s.id && <span className="bk-chip">In progress</span>}
+                {s.free && <span className="bk-chip bk-chip-free">Free</span>}
+              </span>
             </div>
             <div className="bk-service-text">
               <h4>{s.title}</h4>
@@ -36,9 +39,21 @@ export function ServiceList({ selectedId, onSelect }: Props) {
                   <Value text={s.format} />
                 </dd>
               </div>
+              <div>
+                <dt>Duration</dt>
+                <dd>
+                  <Value text={s.duration} />
+                </dd>
+              </div>
+              <div>
+                <dt>Price</dt>
+                <dd>
+                  <Value text={s.price} />
+                </dd>
+              </div>
             </dl>
             <button type="button" className="btn btn-blue bk-service-cta" onClick={() => onSelect(s.id)}>
-              View Details &amp; Book <ArrowRight size={16} />
+              {s.ctaLabel ?? 'View Details & Book'} <ArrowRight size={16} />
               <span className="sr-only"> — {s.title}</span>
             </button>
           </article>

@@ -4,7 +4,7 @@ import { bookingApi, type DayAvailability } from '../api/bookingApi';
 import { BOOKING_TIMEZONE_LABEL } from '../data/availability';
 import type { CoachingService } from '../data/services';
 import {
-  formatDateLong, formatMonth, formatTime, monthGrid, parseDateKey, toDateKey, WEEKDAY_LABELS,
+  formatDateLong, formatMonth, formatSlot, monthGrid, parseDateKey, toDateKey, WEEKDAY_LABELS,
 } from '../lib/dates';
 import { BookingSummary } from './BookingSummary';
 
@@ -179,7 +179,7 @@ export function SlotPicker({ service, date, time, error, onPickDate, onPickTime,
                       aria-pressed={selected}
                       onClick={() => onPickTime(s.time)}
                     >
-                      {formatTime(s.time)}
+                      {formatSlot(s.time, service.durationMinutes)}
                       {!open && <span className="bk-slot-note">Booked</span>}
                     </button>
                   );

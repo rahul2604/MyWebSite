@@ -6,7 +6,7 @@
  */
 
 /* Add an id here (and an entry below) to offer another service. */
-export type ServiceId = 'strategy-interview';
+export type ServiceId = 'strategy-interview' | 'lets-connect';
 
 export interface CoachingService {
   id: ServiceId;
@@ -18,7 +18,13 @@ export interface CoachingService {
   audience: string;
   format: string;
   duration: string;
+  /** Session length in minutes, once known. Slots and summaries then show an end time. */
+  durationMinutes?: number;
   price: string;
+  /** Free sessions get a "Free" badge and never mention payment. */
+  free?: boolean;
+  /** Label for the card's button. Defaults to "View Details & Book". */
+  ctaLabel?: string;
   covers: string[];
   forWho: string[];
   outcomes: string[];
@@ -57,6 +63,37 @@ export const COACHING_SERVICES: CoachingService[] = [
       'Mention the role or company you are preparing for in the booking form',
       'Note the question types or topics you find hardest',
       'Keep a pen and paper ready for structuring during the session',
+    ],
+  },
+  {
+    id: 'lets-connect',
+    number: '02',
+    title: 'Let’s Connect',
+    summary:
+      'A brief introductory conversation to connect, discuss your goals, and understand how I might be able to help.',
+    audience: 'Anyone interested in exploring my coaching, strategy or career guidance offerings',
+    format: '[Session format, e.g. online call]',
+    duration: '10 minutes',
+    durationMinutes: 10,
+    price: 'Free (₹0)',
+    free: true,
+    ctaLabel: 'Book a Free Call',
+    covers: [
+      'A quick introduction',
+      'Your goals and what you are working towards',
+      'How I might be able to help, and whether a longer session makes sense',
+    ],
+    forWho: [
+      'Anyone interested in exploring my coaching, strategy or career guidance offerings',
+      'People who would like to talk briefly before booking a full session',
+    ],
+    outcomes: [
+      'A clearer idea of whether my coaching fits what you need',
+      'Suggested next steps, if a follow-up session would help',
+    ],
+    preparation: [
+      'Jot down your goals and the questions you would like to ask',
+      'Share a line about what you are looking for in the booking form',
     ],
   },
 ];

@@ -67,6 +67,17 @@ export function formatTime(time: string): string {
   return `${((h + 11) % 12) + 1}:${pad(m)} ${suffix}`;
 }
 
+/** "7:00 – 7:10 PM" when the session length is known, otherwise just "7:00 PM". */
+export function formatSlot(time: string, minutes?: number): string {
+  if (!minutes) return formatTime(time);
+  const [h, m] = time.split(':').map(Number);
+  const end = h * 60 + m + minutes;
+  const endTime = `${pad(Math.floor(end / 60) % 24)}:${pad(end % 60)}`;
+  const [start, startSuffix] = formatTime(time).split(' ');
+  const [finish, endSuffix] = formatTime(endTime).split(' ');
+  return startSuffix === endSuffix ? `${start} – ${finish} ${endSuffix}` : `${start} ${startSuffix} – ${finish} ${endSuffix}`;
+}
+
 /** The visitor's local equivalent of an IST slot, or null when they're already on IST. */
 export function localEquivalent(date: string, time: string): string | null {
   const zone = Intl.DateTimeFormat().resolvedOptions().timeZone;
