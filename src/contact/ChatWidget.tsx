@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState, type FormEvent } from 'react';
 import { CheckIcon, CloseIcon } from '../components/Icons';
 import {
-  ContactError, MESSAGE_MAX, sendContactMessage, validateContact, type ContactErrors, type ContactMessage,
+  ContactError, devHint, MESSAGE_MAX, sendContactMessage, validateContact, type ContactErrors, type ContactMessage,
 } from './contactApi';
 import './chat.css';
 
@@ -24,6 +24,7 @@ export function ChatWidget() {
   const [errors, setErrors] = useState<ContactErrors>({});
   const [status, setStatus] = useState<Status>('idle');
   const [serverError, setServerError] = useState('');
+  const [setupHint, setSetupHint] = useState<string | null>(null);
   const toggleRef = useRef<HTMLButtonElement>(null);
   const panelRef = useRef<HTMLDivElement>(null);
   const wasOpen = useRef(false);
@@ -66,6 +67,7 @@ export function ChatWidget() {
     }
     setStatus('sending');
     setServerError('');
+    setSetupHint(null);
     try {
       await sendContactMessage(form, Date.now() - (startedAt.current ?? Date.now()));
       setStatus('sent');
@@ -74,6 +76,7 @@ export function ChatWidget() {
     } catch (err) {
       setStatus('error');
       setServerError(err instanceof ContactError ? err.message : 'Your message could not be sent. Please try again later.');
+      setSetupHint(err instanceof ContactError ? devHint(err.code) : null);
     }
   };
 
@@ -111,7 +114,7 @@ export function ChatWidget() {
                 <CheckIcon />
               </div>
               <h3>Message sent</h3>
-              <p>Thanks for getting in touch. I'll reply to the email address you shared.</p>
+              <p>Your message has been sent successfully. Rahul will get back to you.</p>
               <button type="button" className="btn btn-ghost btn-small" onClick={() => setStatus('idle')}>
                 Send another message
               </button>
@@ -138,6 +141,7 @@ export function ChatWidget() {
               {status === 'error' && (
                 <p className="chat-error" role="alert">
                   {serverError}
+                  {setupHint && <span className="chat-dev-hint">{setupHint}</span>}
                 </p>
               )}
               <button type="submit" className="btn btn-blue chat-primary" disabled={status === 'sending'} aria-busy={status === 'sending'}>

@@ -43,6 +43,10 @@
 .chat-error {
   margin: 0; padding: 10px 12px; border-radius: 10px; border: 1px solid var(--err-text); color: var(--err-text); font-size: 14px;
 }
+.chat-dev-hint {
+  display: block; margin-top: 8px; padding-top: 8px; border-top: 1px dashed var(--err-text);
+  font-size: 12.5px; line-height: 1.45; color: var(--t-body); overflow-wrap: anywhere;
+}
 .chat-primary { min-height: 48px; border-radius: 10px; font-size: 15px; }
 .chat-primary:disabled { opacity: 0.7; cursor: progress; }
 

@@ -1,5 +1,7 @@
 # Copy this file to `.dev.vars` (already git-ignored) for local testing with
 # `npm run preview:pages`. Never commit real values.
+# (Cloudflare's local runtime reads `.dev.vars`, so this replaces a `.env.example`.
+#  Never use a VITE_-prefixed variable for the key: those are bundled into the browser code.)
 # In production, set these in Cloudflare Pages → Settings → Variables and Secrets.
 
 # Required. Your Resend API key (starts with "re_"). Store as an encrypted SECRET in Cloudflare.
