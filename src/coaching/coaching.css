@@ -71,6 +71,21 @@
 .bk-meta dt { font-weight: 600; color: var(--t-eyebrow); letter-spacing: 0.04em; }
 .bk-meta dd { margin: 0; color: var(--t-body); }
 .bk-service-cta { margin-top: auto; min-height: 48px; padding: 0 20px; border-radius: 10px; font-size: 15px; gap: 10px; }
+.bk-service-text { display: flex; flex-direction: column; gap: 14px; }
+
+/* A single offering: one wide card — copy on the left, facts and CTA on the right. */
+@media (min-width: 860px) {
+  .bk-services.is-single .bk-service {
+    display: grid; grid-template-columns: minmax(0, 1.6fr) minmax(280px, 1fr); column-gap: 48px; row-gap: 18px;
+    grid-template-areas: 'top top' 'text meta' 'text cta'; padding: 36px 40px;
+  }
+  .bk-services.is-single .bk-service-top { grid-area: top; }
+  .bk-services.is-single .bk-service-text { grid-area: text; }
+  .bk-services.is-single .bk-service h4 { font-size: 28px; }
+  .bk-services.is-single .bk-service-summary { font-size: 17px; max-width: 620px; }
+  .bk-services.is-single .bk-meta { grid-area: meta; padding: 0 0 0 28px; border-top: 0; border-left: 1px solid var(--line); }
+  .bk-services.is-single .bk-service-cta { grid-area: cta; align-self: end; margin-left: 28px; }
+}
 
 /* ---------- Service detail ---------- */
 .bk-detail-head .service-num { display: block; margin-bottom: 6px; }

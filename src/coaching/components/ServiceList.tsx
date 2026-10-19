@@ -8,20 +8,23 @@ interface Props {
 }
 
 export function ServiceList({ selectedId, onSelect }: Props) {
+  const single = COACHING_SERVICES.length === 1;
   return (
     <div>
       <h3 className="bk-step-title" data-step-heading tabIndex={-1}>
-        Choose a coaching service
+        {single ? 'Coaching service' : 'Choose a coaching service'}
       </h3>
-      <div className="bk-services">
+      <div className={single ? 'bk-services is-single' : 'bk-services'}>
         {COACHING_SERVICES.map((s) => (
           <article key={s.id} className={`bk-service lift${selectedId === s.id ? ' is-selected' : ''}`}>
             <div className="bk-service-top">
               <span className="service-num">{s.number}</span>
               {selectedId === s.id && <span className="bk-chip">In progress</span>}
             </div>
-            <h4>{s.title}</h4>
-            <p className="bk-service-summary">{s.summary}</p>
+            <div className="bk-service-text">
+              <h4>{s.title}</h4>
+              <p className="bk-service-summary">{s.summary}</p>
+            </div>
             <dl className="bk-meta">
               <div>
                 <dt>For</dt>
