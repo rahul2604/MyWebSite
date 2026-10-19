@@ -20,6 +20,9 @@ export function Services() {
               One-to-one sessions to prepare for strategy and consulting case interviews — structuring problems,
               communicating your thinking clearly and approaching your next career move with confidence.
             </p>
+            <a className="inline-link" href="#coaching">
+              Explore coaching &amp; book <ArrowRight size={16} />
+            </a>
           </article>
           <article className="service lift">
             <div className="service-top">

@@ -6,6 +6,7 @@ import { Header } from './components/Header';
 import { Hero } from './components/Hero';
 import { PmpPath } from './components/PmpPath';
 import { Services } from './components/Services';
+import { CoachingPage } from './coaching/CoachingPage';
 import { useHashView } from './hooks/useHashView';
 import { useTheme } from './hooks/useTheme';
 
@@ -13,17 +14,18 @@ export default function App() {
   const { theme, toggleTheme } = useTheme();
   const view = useHashView();
   const onPmp = view === 'pmp';
+  const onHome = view === 'home';
 
   return (
     <div id="top" className="rm-root">
-      <section className={onPmp ? 'hero-sky is-compact' : 'hero-sky'}>
+      <section className={onHome ? 'hero-sky' : 'hero-sky is-compact'}>
         <div className="container">
           <Header onPmp={onPmp} theme={theme} onToggleTheme={toggleTheme} />
-          {!onPmp && <Hero />}
+          {onHome && <Hero />}
         </div>
       </section>
 
-      {!onPmp && (
+      {onHome && (
         <>
           <About />
           <Services />
@@ -31,8 +33,9 @@ export default function App() {
       )}
 
       <PmpPath hidden={!onPmp} />
+      <CoachingPage hidden={view !== 'coaching'} />
 
-      {!onPmp && (
+      {onHome && (
         <>
           <Blog />
           <Contact />
