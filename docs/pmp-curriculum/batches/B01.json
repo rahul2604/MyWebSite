@@ -1,0 +1,53 @@
+{
+  "batch": "B01",
+  "range": [1, 37],
+  "readBy": "sequential read of extracted text, 2026-10-20",
+  "topics": {
+    "src-publication-structure": {
+      "title": "How the source publication is organised (Guide, Standard, Appendices; bundled Agile Practice Guide)",
+      "section": "Front matter; Table of Contents",
+      "kind": "orientation",
+      "module": "M00",
+      "notes": "Part 1 is the Guide (chapters 1-13): framework chapters 1-3 and ten Knowledge Area chapters 4-13. Part 2 is The Standard for Project Management (ANSI/PMI 99-001-2017), organised by the five Process Groups. Part 3 holds Appendices X1-X6, Glossary and Index. The Part 1 divider states that Part 1 is not an American National Standard and was not processed under ANSI's consensus requirements, whereas Part 2 is the ANSI standard. This PDF also bundles the Agile Practice Guide (PDF 794-976)."
+    }
+  },
+  "pages": {
+    "1": {"t": [], "d": "cover", "visual": "Done", "issues": []},
+    "2": {"t": [], "d": "title page"},
+    "3": {"t": [], "d": "copyright and cataloguing data"},
+    "4": {"t": [], "d": "legal notice"},
+    "5": {"t": [], "d": "blank"},
+    "6": {"t": ["src-publication-structure"], "d": "navigation"},
+    "7": {"t": ["src-publication-structure"], "d": "navigation"},
+    "8": {"t": ["src-publication-structure"], "d": "navigation"},
+    "9": {"t": ["src-publication-structure"], "d": "navigation"},
+    "10": {"t": ["src-publication-structure"], "d": "navigation"},
+    "11": {"t": ["src-publication-structure"], "d": "navigation"},
+    "12": {"t": ["src-publication-structure"], "d": "navigation"},
+    "13": {"t": ["src-publication-structure"], "d": "navigation"},
+    "14": {"t": ["src-publication-structure"], "d": "navigation"},
+    "15": {"t": ["src-publication-structure"], "d": "navigation"},
+    "16": {"t": ["src-publication-structure"], "d": "navigation"},
+    "17": {"t": ["src-publication-structure"], "d": "navigation"},
+    "18": {"t": ["src-publication-structure"], "d": "navigation"},
+    "19": {"t": ["src-publication-structure"], "d": "navigation"},
+    "20": {"t": ["src-publication-structure"], "d": "navigation"},
+    "21": {"t": ["src-publication-structure"], "d": "navigation"},
+    "22": {"t": ["src-publication-structure"], "d": "navigation"},
+    "23": {"t": ["src-publication-structure"], "d": "navigation"},
+    "24": {"t": ["src-publication-structure"], "d": "navigation"},
+    "25": {"t": ["src-publication-structure"], "d": "navigation"},
+    "26": {"t": ["src-publication-structure"], "d": "navigation"},
+    "27": {"t": ["src-publication-structure"], "d": "navigation"},
+    "28": {"t": ["src-publication-structure"], "d": "navigation"},
+    "29": {"t": ["src-publication-structure"], "d": "navigation"},
+    "30": {"t": ["src-publication-structure"], "d": "navigation"},
+    "31": {"t": ["src-publication-structure"], "d": "navigation"},
+    "32": {"t": ["src-publication-structure"], "d": "navigation"},
+    "33": {"t": ["src-publication-structure"], "d": "navigation"},
+    "34": {"t": ["src-publication-structure"], "d": "navigation", "visual": "Not required (caption list fully extracted as text)"},
+    "35": {"t": [], "d": "blank"},
+    "36": {"t": ["src-publication-structure"], "d": "part divider", "visual": "Done"},
+    "37": {"t": [], "d": "blank"}
+  }
+}

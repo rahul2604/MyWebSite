@@ -1,0 +1,7087 @@
+{
+ "source": "A Guide to the Project Management Body of Knowledge (PMBOK Guide), Sixth Edition, with The Standard for Project Management (ANSI/PMI 99-001-2017), bundled with the Agile Practice Guide (PMI, 2017)",
+ "generatedFrom": [
+  "page-processing-manifest.json",
+  "topic-catalogue.json",
+  "process-map.json"
+ ],
+ "note": "Locations are PDF page numbers of the supplied file, with printed page numbers where confirmed. The index points to the source; it does not reproduce source text.",
+ "counts": {
+  "sections": 209,
+  "figuresTables": 265,
+  "topics": 160,
+  "processes": 49
+ },
+ "sections": [
+  {
+   "book": "PMBOK",
+   "number": "1.1",
+   "title": "Overview And Purpose Of This Guide",
+   "pdfStart": 38,
+   "printedStart": "1",
+   "pdfEnd": 40
+  },
+  {
+   "book": "PMBOK",
+   "number": "1.2",
+   "title": "Foundational Elements",
+   "pdfStart": 41,
+   "printedStart": "4",
+   "pdfEnd": 73
+  },
+  {
+   "book": "PMBOK",
+   "number": "2.1",
+   "title": "Overview",
+   "pdfStart": 74,
+   "printedStart": "37",
+   "pdfEnd": 74
+  },
+  {
+   "book": "PMBOK",
+   "number": "2.2",
+   "title": "Enterprise Environmental Factors",
+   "pdfStart": 75,
+   "printedStart": "38",
+   "pdfEnd": 75
+  },
+  {
+   "book": "PMBOK",
+   "number": "2.3",
+   "title": "Organizational Process Assets",
+   "pdfStart": 76,
+   "printedStart": "39",
+   "pdfEnd": 78
+  },
+  {
+   "book": "PMBOK",
+   "number": "2.4",
+   "title": "Organizational Systems",
+   "pdfStart": 79,
+   "printedStart": "42",
+   "pdfEnd": 87
+  },
+  {
+   "book": "PMBOK",
+   "number": "3.1",
+   "title": "Overview",
+   "pdfStart": 88,
+   "printedStart": "51",
+   "pdfEnd": 88
+  },
+  {
+   "book": "PMBOK",
+   "number": "3.2",
+   "title": "Definition Of A Project Manager",
+   "pdfStart": 89,
+   "printedStart": "52",
+   "pdfEnd": 89
+  },
+  {
+   "book": "PMBOK",
+   "number": "3.3",
+   "title": "The Project Manager’S Sphere Of Influence",
+   "pdfStart": 89,
+   "printedStart": "52",
+   "pdfEnd": 92
+  },
+  {
+   "book": "PMBOK",
+   "number": "3.4",
+   "title": "Project Manager Competences",
+   "pdfStart": 93,
+   "printedStart": "56",
+   "pdfEnd": 102
+  },
+  {
+   "book": "PMBOK",
+   "number": "3.5",
+   "title": "Performing Integration",
+   "pdfStart": 103,
+   "printedStart": "66",
+   "pdfEnd": 111
+  },
+  {
+   "book": "PMBOK",
+   "number": "4.1",
+   "title": "Develop Project Charter",
+   "pdfStart": 112,
+   "printedStart": "75",
+   "pdfEnd": 118
+  },
+  {
+   "book": "PMBOK",
+   "number": "4.2",
+   "title": "Develop Project Management Plan",
+   "pdfStart": 119,
+   "printedStart": "82",
+   "pdfEnd": 126
+  },
+  {
+   "book": "PMBOK",
+   "number": "4.3",
+   "title": "Direct And Manage Project Work",
+   "pdfStart": 127,
+   "printedStart": "90",
+   "pdfEnd": 134
+  },
+  {
+   "book": "PMBOK",
+   "number": "4.4",
+   "title": "Manage Project Knowledge",
+   "pdfStart": 135,
+   "printedStart": "98",
+   "pdfEnd": 141
+  },
+  {
+   "book": "PMBOK",
+   "number": "4.5",
+   "title": "Monitor And Control Project Work",
+   "pdfStart": 142,
+   "printedStart": "105",
+   "pdfEnd": 149
+  },
+  {
+   "book": "PMBOK",
+   "number": "4.6",
+   "title": "Perform Integrated Change Control",
+   "pdfStart": 150,
+   "printedStart": "113",
+   "pdfEnd": 157
+  },
+  {
+   "book": "PMBOK",
+   "number": "4.7",
+   "title": "Close Project Or Phase",
+   "pdfStart": 158,
+   "printedStart": "121",
+   "pdfEnd": 170
+  },
+  {
+   "book": "PMBOK",
+   "number": "5.1",
+   "title": "Plan Scope Management",
+   "pdfStart": 171,
+   "printedStart": "134",
+   "pdfEnd": 174
+  },
+  {
+   "book": "PMBOK",
+   "number": "5.2",
+   "title": "Collect Requirements",
+   "pdfStart": 175,
+   "printedStart": "138",
+   "pdfEnd": 186
+  },
+  {
+   "book": "PMBOK",
+   "number": "5.3",
+   "title": "Define Scope",
+   "pdfStart": 187,
+   "printedStart": "150",
+   "pdfEnd": 192
+  },
+  {
+   "book": "PMBOK",
+   "number": "5.4",
+   "title": "Create Wbs",
+   "pdfStart": 193,
+   "printedStart": "156",
+   "pdfEnd": 199
+  },
+  {
+   "book": "PMBOK",
+   "number": "5.5",
+   "title": "Validate Scope",
+   "pdfStart": 200,
+   "printedStart": "163",
+   "pdfEnd": 203
+  },
+  {
+   "book": "PMBOK",
+   "number": "5.6",
+   "title": "Control Scope",
+   "pdfStart": 204,
+   "printedStart": "167",
+   "pdfEnd": 215
+  },
+  {
+   "book": "PMBOK",
+   "number": "6.1",
+   "title": "Plan Schedule Management",
+   "pdfStart": 216,
+   "printedStart": "179",
+   "pdfEnd": 219
+  },
+  {
+   "book": "PMBOK",
+   "number": "6.2",
+   "title": "Define Activities",
+   "pdfStart": 220,
+   "printedStart": "183",
+   "pdfEnd": 223
+  },
+  {
+   "book": "PMBOK",
+   "number": "6.3",
+   "title": "Sequence Activities",
+   "pdfStart": 224,
+   "printedStart": "187",
+   "pdfEnd": 231
+  },
+  {
+   "book": "PMBOK",
+   "number": "6.4",
+   "title": "Estimate Activity Durations",
+   "pdfStart": 232,
+   "printedStart": "195",
+   "pdfEnd": 241
+  },
+  {
+   "book": "PMBOK",
+   "number": "6.5",
+   "title": "Develop Schedule",
+   "pdfStart": 242,
+   "printedStart": "205",
+   "pdfEnd": 258
+  },
+  {
+   "book": "PMBOK",
+   "number": "6.6",
+   "title": "Control Schedule",
+   "pdfStart": 259,
+   "printedStart": "222",
+   "pdfEnd": 271
+  },
+  {
+   "book": "PMBOK",
+   "number": "7.1",
+   "title": "Plan Cost Management",
+   "pdfStart": 272,
+   "printedStart": "235",
+   "pdfEnd": 276
+  },
+  {
+   "book": "PMBOK",
+   "number": "7.2",
+   "title": "Estimate Costs",
+   "pdfStart": 277,
+   "printedStart": "240",
+   "pdfEnd": 284
+  },
+  {
+   "book": "PMBOK",
+   "number": "7.3",
+   "title": "Determine Budget",
+   "pdfStart": 285,
+   "printedStart": "248",
+   "pdfEnd": 293
+  },
+  {
+   "book": "PMBOK",
+   "number": "7.4",
+   "title": "Control Costs",
+   "pdfStart": 294,
+   "printedStart": "257",
+   "pdfEnd": 313
+  },
+  {
+   "book": "PMBOK",
+   "number": "8.1",
+   "title": "Plan Quality Management",
+   "pdfStart": 314,
+   "printedStart": "277",
+   "pdfEnd": 324
+  },
+  {
+   "book": "PMBOK",
+   "number": "8.2",
+   "title": "Manage Quality",
+   "pdfStart": 325,
+   "printedStart": "288",
+   "pdfEnd": 334
+  },
+  {
+   "book": "PMBOK",
+   "number": "8.3",
+   "title": "Control Quality",
+   "pdfStart": 335,
+   "printedStart": "298",
+   "pdfEnd": 348
+  },
+  {
+   "book": "PMBOK",
+   "number": "9.1",
+   "title": "Plan Resource Management",
+   "pdfStart": 349,
+   "printedStart": "312",
+   "pdfEnd": 356
+  },
+  {
+   "book": "PMBOK",
+   "number": "9.2",
+   "title": "Estimate Activity Resources",
+   "pdfStart": 357,
+   "printedStart": "320",
+   "pdfEnd": 364
+  },
+  {
+   "book": "PMBOK",
+   "number": "9.3",
+   "title": "Acquire Resources",
+   "pdfStart": 365,
+   "printedStart": "328",
+   "pdfEnd": 372
+  },
+  {
+   "book": "PMBOK",
+   "number": "9.4",
+   "title": "Develop Team",
+   "pdfStart": 373,
+   "printedStart": "336",
+   "pdfEnd": 381
+  },
+  {
+   "book": "PMBOK",
+   "number": "9.5",
+   "title": "Manage Team",
+   "pdfStart": 382,
+   "printedStart": "345",
+   "pdfEnd": 388
+  },
+  {
+   "book": "PMBOK",
+   "number": "9.6",
+   "title": "Control Resources",
+   "pdfStart": 389,
+   "printedStart": "352",
+   "pdfEnd": 402
+  },
+  {
+   "book": "PMBOK",
+   "number": "10.1",
+   "title": "Plan Communications Management",
+   "pdfStart": 403,
+   "printedStart": "366",
+   "pdfEnd": 415
+  },
+  {
+   "book": "PMBOK",
+   "number": "10.2",
+   "title": "Manage Communications",
+   "pdfStart": 416,
+   "printedStart": "379",
+   "pdfEnd": 424
+  },
+  {
+   "book": "PMBOK",
+   "number": "10.3",
+   "title": "Monitor Communications",
+   "pdfStart": 425,
+   "printedStart": "388",
+   "pdfEnd": 437
+  },
+  {
+   "book": "PMBOK",
+   "number": "11.1",
+   "title": "Plan Risk Management",
+   "pdfStart": 438,
+   "printedStart": "401",
+   "pdfEnd": 445
+  },
+  {
+   "book": "PMBOK",
+   "number": "11.2",
+   "title": "Identify Risks",
+   "pdfStart": 446,
+   "printedStart": "409",
+   "pdfEnd": 455
+  },
+  {
+   "book": "PMBOK",
+   "number": "11.3",
+   "title": "Perform Qualitative Risk Analysis",
+   "pdfStart": 456,
+   "printedStart": "419",
+   "pdfEnd": 464
+  },
+  {
+   "book": "PMBOK",
+   "number": "11.4",
+   "title": "Perform Quantitative Risk Analysis",
+   "pdfStart": 465,
+   "printedStart": "428",
+   "pdfEnd": 473
+  },
+  {
+   "book": "PMBOK",
+   "number": "11.5",
+   "title": "Plan Risk Responses",
+   "pdfStart": 474,
+   "printedStart": "437",
+   "pdfEnd": 485
+  },
+  {
+   "book": "PMBOK",
+   "number": "11.6",
+   "title": "Implement Risk Responses",
+   "pdfStart": 486,
+   "printedStart": "449",
+   "pdfEnd": 489
+  },
+  {
+   "book": "PMBOK",
+   "number": "11.7",
+   "title": "Monitor Risks",
+   "pdfStart": 490,
+   "printedStart": "453",
+   "pdfEnd": 502
+  },
+  {
+   "book": "PMBOK",
+   "number": "12.1",
+   "title": "Plan Procurement Management",
+   "pdfStart": 503,
+   "printedStart": "466",
+   "pdfEnd": 518
+  },
+  {
+   "book": "PMBOK",
+   "number": "12.2",
+   "title": "Conduct Procurements",
+   "pdfStart": 519,
+   "printedStart": "482",
+   "pdfEnd": 528
+  },
+  {
+   "book": "PMBOK",
+   "number": "12.3",
+   "title": "Control Procurements",
+   "pdfStart": 529,
+   "printedStart": "492",
+   "pdfEnd": 543
+  },
+  {
+   "book": "PMBOK",
+   "number": "13.1",
+   "title": "Identify Stakeholders",
+   "pdfStart": 544,
+   "printedStart": "507",
+   "pdfEnd": 552
+  },
+  {
+   "book": "PMBOK",
+   "number": "13.2",
+   "title": "Plan Stakeholder Engagement",
+   "pdfStart": 553,
+   "printedStart": "516",
+   "pdfEnd": 559
+  },
+  {
+   "book": "PMBOK",
+   "number": "13.3",
+   "title": "Manage Stakeholder Engagement",
+   "pdfStart": 560,
+   "printedStart": "523",
+   "pdfEnd": 566
+  },
+  {
+   "book": "PMBOK",
+   "number": "13.4",
+   "title": "Monitor Stakeholder Engagement",
+   "pdfStart": 567,
+   "printedStart": "530",
+   "pdfEnd": 578
+  },
+  {
+   "book": "PMBOK",
+   "number": "1.1",
+   "title": "Projects And Project Management",
+   "pdfStart": 579,
+   "printedStart": "542",
+   "pdfEnd": 579
+  },
+  {
+   "book": "PMBOK",
+   "number": "1.2",
+   "title": "Relationships Among Portfolios, Programs, And Projects",
+   "pdfStart": 580,
+   "printedStart": "543",
+   "pdfEnd": 581
+  },
+  {
+   "book": "PMBOK",
+   "number": "1.3",
+   "title": "Linking Organizational Governance And Project Governance",
+   "pdfStart": 582,
+   "printedStart": "545",
+   "pdfEnd": 582
+  },
+  {
+   "book": "PMBOK",
+   "number": "1.4",
+   "title": "Project Success And Benefits Management",
+   "pdfStart": 583,
+   "printedStart": "546",
+   "pdfEnd": 583
+  },
+  {
+   "book": "PMBOK",
+   "number": "1.5",
+   "title": "The Project Life Cycle",
+   "pdfStart": 584,
+   "printedStart": "547",
+   "pdfEnd": 586
+  },
+  {
+   "book": "PMBOK",
+   "number": "1.6",
+   "title": "Project Stakeholders",
+   "pdfStart": 587,
+   "printedStart": "550",
+   "pdfEnd": 588
+  },
+  {
+   "book": "PMBOK",
+   "number": "1.7",
+   "title": "Role Of The Project Manager",
+   "pdfStart": 589,
+   "printedStart": "552",
+   "pdfEnd": 589
+  },
+  {
+   "book": "PMBOK",
+   "number": "1.8",
+   "title": "Project Management Knowledge Areas",
+   "pdfStart": 590,
+   "printedStart": "553",
+   "pdfEnd": 590
+  },
+  {
+   "book": "PMBOK",
+   "number": "1.9",
+   "title": "Project Management Process Groups",
+   "pdfStart": 591,
+   "printedStart": "554",
+   "pdfEnd": 593
+  },
+  {
+   "book": "PMBOK",
+   "number": "1.10",
+   "title": "Enterprise Environmental Factors And Organizational",
+   "pdfStart": 594,
+   "printedStart": "557",
+   "pdfEnd": 594
+  },
+  {
+   "book": "PMBOK",
+   "number": "1.11",
+   "title": "Tailoring The Project Artifacts",
+   "pdfStart": 595,
+   "printedStart": "558",
+   "pdfEnd": 599
+  },
+  {
+   "book": "PMBOK",
+   "number": "2.1",
+   "title": "Develop Project Charter",
+   "pdfStart": 600,
+   "printedStart": "563",
+   "pdfEnd": 600
+  },
+  {
+   "book": "PMBOK",
+   "number": "2.2",
+   "title": "Identify Stakeholders",
+   "pdfStart": 600,
+   "printedStart": "563",
+   "pdfEnd": 603
+  },
+  {
+   "book": "PMBOK",
+   "number": "3.1",
+   "title": "Develop Project Management Plan",
+   "pdfStart": 604,
+   "printedStart": "567",
+   "pdfEnd": 604
+  },
+  {
+   "book": "PMBOK",
+   "number": "3.2",
+   "title": "Plan Scope Management",
+   "pdfStart": 604,
+   "printedStart": "567",
+   "pdfEnd": 604
+  },
+  {
+   "book": "PMBOK",
+   "number": "3.3",
+   "title": "Collect Requirements",
+   "pdfStart": 605,
+   "printedStart": "568",
+   "pdfEnd": 605
+  },
+  {
+   "book": "PMBOK",
+   "number": "3.4",
+   "title": "Define Scope",
+   "pdfStart": 606,
+   "printedStart": "569",
+   "pdfEnd": 606
+  },
+  {
+   "book": "PMBOK",
+   "number": "3.5",
+   "title": "Create Wbs",
+   "pdfStart": 607,
+   "printedStart": "570",
+   "pdfEnd": 607
+  },
+  {
+   "book": "PMBOK",
+   "number": "3.6",
+   "title": "Plan Schedule Management",
+   "pdfStart": 608,
+   "printedStart": "571",
+   "pdfEnd": 608
+  },
+  {
+   "book": "PMBOK",
+   "number": "3.7",
+   "title": "Define Activities",
+   "pdfStart": 609,
+   "printedStart": "572",
+   "pdfEnd": 609
+  },
+  {
+   "book": "PMBOK",
+   "number": "3.8",
+   "title": "Sequence Activities",
+   "pdfStart": 610,
+   "printedStart": "573",
+   "pdfEnd": 610
+  },
+  {
+   "book": "PMBOK",
+   "number": "3.9",
+   "title": "Estimate Activity Durations",
+   "pdfStart": 611,
+   "printedStart": "574",
+   "pdfEnd": 611
+  },
+  {
+   "book": "PMBOK",
+   "number": "3.10",
+   "title": "Develop Schedule",
+   "pdfStart": 612,
+   "printedStart": "575",
+   "pdfEnd": 613
+  },
+  {
+   "book": "PMBOK",
+   "number": "3.11",
+   "title": "Plan Cost Management",
+   "pdfStart": 614,
+   "printedStart": "577",
+   "pdfEnd": 614
+  },
+  {
+   "book": "PMBOK",
+   "number": "3.12",
+   "title": "Estimate Costs",
+   "pdfStart": 614,
+   "printedStart": "577",
+   "pdfEnd": 614
+  },
+  {
+   "book": "PMBOK",
+   "number": "3.13",
+   "title": "Determine Budget",
+   "pdfStart": 615,
+   "printedStart": "578",
+   "pdfEnd": 616
+  },
+  {
+   "book": "PMBOK",
+   "number": "3.14",
+   "title": "Plan Quality Management",
+   "pdfStart": 617,
+   "printedStart": "580",
+   "pdfEnd": 617
+  },
+  {
+   "book": "PMBOK",
+   "number": "3.15",
+   "title": "Plan Resource Management",
+   "pdfStart": 618,
+   "printedStart": "581",
+   "pdfEnd": 618
+  },
+  {
+   "book": "PMBOK",
+   "number": "3.16",
+   "title": "Estimate Activity Resources",
+   "pdfStart": 619,
+   "printedStart": "582",
+   "pdfEnd": 620
+  },
+  {
+   "book": "PMBOK",
+   "number": "3.17",
+   "title": "Plan Communications Management",
+   "pdfStart": 621,
+   "printedStart": "584",
+   "pdfEnd": 621
+  },
+  {
+   "book": "PMBOK",
+   "number": "3.18",
+   "title": "Plan Risk Management",
+   "pdfStart": 622,
+   "printedStart": "585",
+   "pdfEnd": 622
+  },
+  {
+   "book": "PMBOK",
+   "number": "3.19",
+   "title": "Identify Risks",
+   "pdfStart": 623,
+   "printedStart": "586",
+   "pdfEnd": 624
+  },
+  {
+   "book": "PMBOK",
+   "number": "3.20",
+   "title": "Perform Qualitative Risk Analysis",
+   "pdfStart": 625,
+   "printedStart": "588",
+   "pdfEnd": 625
+  },
+  {
+   "book": "PMBOK",
+   "number": "3.21",
+   "title": "Perform Quantitative Risk Analysis",
+   "pdfStart": 626,
+   "printedStart": "589",
+   "pdfEnd": 626
+  },
+  {
+   "book": "PMBOK",
+   "number": "3.22",
+   "title": "Plan Risk Responses",
+   "pdfStart": 627,
+   "printedStart": "590",
+   "pdfEnd": 628
+  },
+  {
+   "book": "PMBOK",
+   "number": "3.23",
+   "title": "Plan Procurement Management",
+   "pdfStart": 629,
+   "printedStart": "592",
+   "pdfEnd": 630
+  },
+  {
+   "book": "PMBOK",
+   "number": "3.24",
+   "title": "Plan Stakeholder Engagement",
+   "pdfStart": 631,
+   "printedStart": "594",
+   "pdfEnd": 633
+  },
+  {
+   "book": "PMBOK",
+   "number": "4.1",
+   "title": "Direct And Manage Project Work",
+   "pdfStart": 634,
+   "printedStart": "597",
+   "pdfEnd": 634
+  },
+  {
+   "book": "PMBOK",
+   "number": "4.2",
+   "title": "Manage Project Knowledge",
+   "pdfStart": 635,
+   "printedStart": "598",
+   "pdfEnd": 635
+  },
+  {
+   "book": "PMBOK",
+   "number": "4.3",
+   "title": "Manage Quality",
+   "pdfStart": 636,
+   "printedStart": "599",
+   "pdfEnd": 637
+  },
+  {
+   "book": "PMBOK",
+   "number": "4.4",
+   "title": "Acquire Resources",
+   "pdfStart": 638,
+   "printedStart": "601",
+   "pdfEnd": 638
+  },
+  {
+   "book": "PMBOK",
+   "number": "4.5",
+   "title": "Develop Team",
+   "pdfStart": 639,
+   "printedStart": "602",
+   "pdfEnd": 640
+  },
+  {
+   "book": "PMBOK",
+   "number": "4.6",
+   "title": "Manage Team",
+   "pdfStart": 641,
+   "printedStart": "604",
+   "pdfEnd": 641
+  },
+  {
+   "book": "PMBOK",
+   "number": "4.7",
+   "title": "Manage Communications",
+   "pdfStart": 642,
+   "printedStart": "605",
+   "pdfEnd": 643
+  },
+  {
+   "book": "PMBOK",
+   "number": "4.8",
+   "title": "Implement Risk Responses",
+   "pdfStart": 644,
+   "printedStart": "607",
+   "pdfEnd": 644
+  },
+  {
+   "book": "PMBOK",
+   "number": "4.9",
+   "title": "Conduct Procurements",
+   "pdfStart": 645,
+   "printedStart": "608",
+   "pdfEnd": 646
+  },
+  {
+   "book": "PMBOK",
+   "number": "4.10",
+   "title": "Manage Stakeholder Engagement",
+   "pdfStart": 647,
+   "printedStart": "610",
+   "pdfEnd": 651
+  },
+  {
+   "book": "PMBOK",
+   "number": "5.1",
+   "title": "Monitor And Control Project Work",
+   "pdfStart": 652,
+   "printedStart": "615",
+   "pdfEnd": 652
+  },
+  {
+   "book": "PMBOK",
+   "number": "5.2",
+   "title": "Perform Integrated Change Control",
+   "pdfStart": 653,
+   "printedStart": "616",
+   "pdfEnd": 654
+  },
+  {
+   "book": "PMBOK",
+   "number": "5.3",
+   "title": "Validate Scope",
+   "pdfStart": 655,
+   "printedStart": "618",
+   "pdfEnd": 655
+  },
+  {
+   "book": "PMBOK",
+   "number": "5.4",
+   "title": "Control Scope",
+   "pdfStart": 656,
+   "printedStart": "619",
+   "pdfEnd": 657
+  },
+  {
+   "book": "PMBOK",
+   "number": "5.5",
+   "title": "Control Schedule",
+   "pdfStart": 658,
+   "printedStart": "621",
+   "pdfEnd": 658
+  },
+  {
+   "book": "PMBOK",
+   "number": "5.6",
+   "title": "Control Costs",
+   "pdfStart": 659,
+   "printedStart": "622",
+   "pdfEnd": 660
+  },
+  {
+   "book": "PMBOK",
+   "number": "5.7",
+   "title": "Control Quality",
+   "pdfStart": 661,
+   "printedStart": "624",
+   "pdfEnd": 661
+  },
+  {
+   "book": "PMBOK",
+   "number": "5.8",
+   "title": "Control Resources",
+   "pdfStart": 662,
+   "printedStart": "625",
+   "pdfEnd": 663
+  },
+  {
+   "book": "PMBOK",
+   "number": "5.9",
+   "title": "Monitor Communications",
+   "pdfStart": 664,
+   "printedStart": "627",
+   "pdfEnd": 664
+  },
+  {
+   "book": "PMBOK",
+   "number": "5.10",
+   "title": "Monitor Risks",
+   "pdfStart": 665,
+   "printedStart": "628",
+   "pdfEnd": 665
+  },
+  {
+   "book": "PMBOK",
+   "number": "5.11",
+   "title": "Control Procurements",
+   "pdfStart": 666,
+   "printedStart": "629",
+   "pdfEnd": 667
+  },
+  {
+   "book": "PMBOK",
+   "number": "5.12",
+   "title": "Monitor Stakeholder Engagement",
+   "pdfStart": 668,
+   "printedStart": "631",
+   "pdfEnd": 670
+  },
+  {
+   "book": "PMBOK",
+   "number": "6.1",
+   "title": "Close Project Or Phase",
+   "pdfStart": 671,
+   "printedStart": "634",
+   "pdfEnd": 675
+  },
+  {
+   "book": "PMBOK",
+   "number": "X1.1",
+   "title": "Scope Of Update",
+   "pdfStart": 676,
+   "printedStart": "639",
+   "pdfEnd": 676
+  },
+  {
+   "book": "PMBOK",
+   "number": "X1.2",
+   "title": "Rules For Harmonization Between Glossary Terms And The Pmi Lexicon",
+   "pdfStart": 677,
+   "printedStart": "640",
+   "pdfEnd": 677
+  },
+  {
+   "book": "PMBOK",
+   "number": "X1.3",
+   "title": "Rules For Handling Inputs And Outputs",
+   "pdfStart": 677,
+   "printedStart": "640",
+   "pdfEnd": 677
+  },
+  {
+   "book": "PMBOK",
+   "number": "X1.4",
+   "title": "Rules For Handling Tools And Techniques",
+   "pdfStart": 678,
+   "printedStart": "641",
+   "pdfEnd": 678
+  },
+  {
+   "book": "PMBOK",
+   "number": "X1.5",
+   "title": "Project Management Plan",
+   "pdfStart": 679,
+   "printedStart": "642",
+   "pdfEnd": 679
+  },
+  {
+   "book": "PMBOK",
+   "number": "X1.9",
+   "title": "Agile",
+   "pdfStart": 679,
+   "printedStart": "642",
+   "pdfEnd": 679
+  },
+  {
+   "book": "PMBOK",
+   "number": "X1.10",
+   "title": "Knowledge Area Front Material",
+   "pdfStart": 680,
+   "printedStart": "643",
+   "pdfEnd": 680
+  },
+  {
+   "book": "PMBOK",
+   "number": "X1.11",
+   "title": "Knowledge Area And Process Changes",
+   "pdfStart": 680,
+   "printedStart": "643",
+   "pdfEnd": 686
+  },
+  {
+   "book": "PMBOK",
+   "number": "X1.22",
+   "title": "Glossary",
+   "pdfStart": 687,
+   "printedStart": "650",
+   "pdfEnd": 688
+  },
+  {
+   "book": "PMBOK",
+   "number": "X2.2",
+   "title": "Significant Contributors",
+   "pdfStart": 689,
+   "printedStart": "652",
+   "pdfEnd": 690
+  },
+  {
+   "book": "PMBOK",
+   "number": "X2.4",
+   "title": "Reviewers",
+   "pdfStart": 691,
+   "printedStart": "654",
+   "pdfEnd": 699
+  },
+  {
+   "book": "PMBOK",
+   "number": "X2.5",
+   "title": "Pmi Standards Program Member Advisory Group (Mag)",
+   "pdfStart": 700,
+   "printedStart": "663",
+   "pdfEnd": 700
+  },
+  {
+   "book": "PMBOK",
+   "number": "X2.6",
+   "title": "Consensus Body Review",
+   "pdfStart": 701,
+   "printedStart": "664",
+   "pdfEnd": 701
+  },
+  {
+   "book": "PMBOK",
+   "number": "X2.7",
+   "title": "Production Staff",
+   "pdfStart": 701,
+   "printedStart": "664",
+   "pdfEnd": 701
+  },
+  {
+   "book": "PMBOK",
+   "number": "X3.1",
+   "title": "The Continuum Of Project Life Cycles",
+   "pdfStart": 702,
+   "printedStart": "665",
+   "pdfEnd": 703
+  },
+  {
+   "book": "PMBOK",
+   "number": "X3.2",
+   "title": "Project Phases",
+   "pdfStart": 704,
+   "printedStart": "667",
+   "pdfEnd": 705
+  },
+  {
+   "book": "PMBOK",
+   "number": "X3.3",
+   "title": "Process Groups In Adaptive Environments",
+   "pdfStart": 706,
+   "printedStart": "669",
+   "pdfEnd": 709
+  },
+  {
+   "book": "PMBOK",
+   "number": "X4.1",
+   "title": "Key Concepts For Project Integration Management",
+   "pdfStart": 710,
+   "printedStart": "673",
+   "pdfEnd": 710
+  },
+  {
+   "book": "PMBOK",
+   "number": "X4.2",
+   "title": "Key Concepts For Project Scope Management",
+   "pdfStart": 711,
+   "printedStart": "674",
+   "pdfEnd": 711
+  },
+  {
+   "book": "PMBOK",
+   "number": "X4.3",
+   "title": "Key Concepts For Project Schedule Management",
+   "pdfStart": 711,
+   "printedStart": "674",
+   "pdfEnd": 711
+  },
+  {
+   "book": "PMBOK",
+   "number": "X4.4",
+   "title": "Key Concepts For Project Cost Management",
+   "pdfStart": 711,
+   "printedStart": "674",
+   "pdfEnd": 711
+  },
+  {
+   "book": "PMBOK",
+   "number": "X4.5",
+   "title": "Key Concepts For Project Quality Management",
+   "pdfStart": 712,
+   "printedStart": "675",
+   "pdfEnd": 712
+  },
+  {
+   "book": "PMBOK",
+   "number": "X4.6",
+   "title": "Key Concepts For Project Resource Management",
+   "pdfStart": 713,
+   "printedStart": "676",
+   "pdfEnd": 713
+  },
+  {
+   "book": "PMBOK",
+   "number": "X4.7",
+   "title": "Key Concepts For Project Communications Management",
+   "pdfStart": 713,
+   "printedStart": "676",
+   "pdfEnd": 713
+  },
+  {
+   "book": "PMBOK",
+   "number": "X4.8",
+   "title": "Key Concepts For Project Risk Management",
+   "pdfStart": 714,
+   "printedStart": "677",
+   "pdfEnd": 714
+  },
+  {
+   "book": "PMBOK",
+   "number": "X4.9",
+   "title": "Key Concepts For Project Procurement Management",
+   "pdfStart": 715,
+   "printedStart": "678",
+   "pdfEnd": 715
+  },
+  {
+   "book": "PMBOK",
+   "number": "X4.10",
+   "title": "Key Concepts For Project Stakeholder Management",
+   "pdfStart": 715,
+   "printedStart": "678",
+   "pdfEnd": 715
+  },
+  {
+   "book": "PMBOK",
+   "number": "X5.1",
+   "title": "Project Integration Management",
+   "pdfStart": 716,
+   "printedStart": "679",
+   "pdfEnd": 716
+  },
+  {
+   "book": "PMBOK",
+   "number": "X5.2",
+   "title": "Project Scope Management",
+   "pdfStart": 717,
+   "printedStart": "680",
+   "pdfEnd": 717
+  },
+  {
+   "book": "PMBOK",
+   "number": "X5.3",
+   "title": "Project Schedule Management",
+   "pdfStart": 717,
+   "printedStart": "680",
+   "pdfEnd": 717
+  },
+  {
+   "book": "PMBOK",
+   "number": "X5.4",
+   "title": "Project Cost Management",
+   "pdfStart": 718,
+   "printedStart": "681",
+   "pdfEnd": 718
+  },
+  {
+   "book": "PMBOK",
+   "number": "X5.5",
+   "title": "Project Quality Management",
+   "pdfStart": 718,
+   "printedStart": "681",
+   "pdfEnd": 718
+  },
+  {
+   "book": "PMBOK",
+   "number": "X5.6",
+   "title": "Project Resource Management",
+   "pdfStart": 719,
+   "printedStart": "682",
+   "pdfEnd": 719
+  },
+  {
+   "book": "PMBOK",
+   "number": "X5.7",
+   "title": "Project Communications Management",
+   "pdfStart": 719,
+   "printedStart": "682",
+   "pdfEnd": 719
+  },
+  {
+   "book": "PMBOK",
+   "number": "X5.8",
+   "title": "Project Risk Management",
+   "pdfStart": 720,
+   "printedStart": "683",
+   "pdfEnd": 720
+  },
+  {
+   "book": "PMBOK",
+   "number": "X5.9",
+   "title": "Project Procurement Management",
+   "pdfStart": 720,
+   "printedStart": "683",
+   "pdfEnd": 720
+  },
+  {
+   "book": "PMBOK",
+   "number": "X5.10",
+   "title": "Project Stakeholder Management",
+   "pdfStart": 721,
+   "printedStart": "684",
+   "pdfEnd": 721
+  },
+  {
+   "book": "PMBOK",
+   "number": "X6.1",
+   "title": "Introduction",
+   "pdfStart": 722,
+   "printedStart": "685",
+   "pdfEnd": 722
+  },
+  {
+   "book": "PMBOK",
+   "number": "X6.2",
+   "title": "Tools And Techniques Groups",
+   "pdfStart": 723,
+   "printedStart": "686",
+   "pdfEnd": 815
+  },
+  {
+   "book": "Agile Practice Guide",
+   "number": "2.2",
+   "title": "The Agile Manifesto And Mindset",
+   "pdfStart": 816,
+   "printedStart": "8",
+   "pdfEnd": 819
+  },
+  {
+   "book": "Agile Practice Guide",
+   "number": "2.3",
+   "title": "Lean And The Kanban Method",
+   "pdfStart": 820,
+   "printedStart": "12",
+   "pdfEnd": 820
+  },
+  {
+   "book": "Agile Practice Guide",
+   "number": "2.4",
+   "title": "Uncertainty, Risk, And Life Cycle Selection",
+   "pdfStart": 821,
+   "printedStart": "13",
+   "pdfEnd": 825
+  },
+  {
+   "book": "Agile Practice Guide",
+   "number": "3.1",
+   "title": "Characteristics Of Project Life Cycles",
+   "pdfStart": 826,
+   "printedStart": "18",
+   "pdfEnd": 838
+  },
+  {
+   "book": "Agile Practice Guide",
+   "number": "3.2",
+   "title": "Mixing Agile Approaches",
+   "pdfStart": 839,
+   "printedStart": "31",
+   "pdfEnd": 839
+  },
+  {
+   "book": "Agile Practice Guide",
+   "number": "3.3",
+   "title": "Project Factors That Influence Tailoring",
+   "pdfStart": 840,
+   "printedStart": "32",
+   "pdfEnd": 840
+  },
+  {
+   "book": "Agile Practice Guide",
+   "number": "4.1",
+   "title": "Start With An Agile Mindset",
+   "pdfStart": 841,
+   "printedStart": "33",
+   "pdfEnd": 841
+  },
+  {
+   "book": "Agile Practice Guide",
+   "number": "4.2",
+   "title": "Servant Leadership Empowers The Team",
+   "pdfStart": 841,
+   "printedStart": "33",
+   "pdfEnd": 845
+  },
+  {
+   "book": "Agile Practice Guide",
+   "number": "4.3",
+   "title": "Team Composition",
+   "pdfStart": 846,
+   "printedStart": "38",
+   "pdfEnd": 856
+  },
+  {
+   "book": "Agile Practice Guide",
+   "number": "5.1",
+   "title": "Charter The Project And The Team",
+   "pdfStart": 857,
+   "printedStart": "49",
+   "pdfEnd": 857
+  },
+  {
+   "book": "Agile Practice Guide",
+   "number": "5.2",
+   "title": "Common Agile Practices",
+   "pdfStart": 858,
+   "printedStart": "50",
+   "pdfEnd": 864
+  },
+  {
+   "book": "Agile Practice Guide",
+   "number": "5.3",
+   "title": "Troubleshooting Agile Project Challenges",
+   "pdfStart": 865,
+   "printedStart": "57",
+   "pdfEnd": 867
+  },
+  {
+   "book": "Agile Practice Guide",
+   "number": "5.4",
+   "title": "Measurements In Agile Projects",
+   "pdfStart": 868,
+   "printedStart": "60",
+   "pdfEnd": 878
+  },
+  {
+   "book": "Agile Practice Guide",
+   "number": "6.1",
+   "title": "Organizational Change Management",
+   "pdfStart": 879,
+   "printedStart": "71",
+   "pdfEnd": 882
+  },
+  {
+   "book": "Agile Practice Guide",
+   "number": "6.2",
+   "title": "Organizational Culture",
+   "pdfStart": 883,
+   "printedStart": "75",
+   "pdfEnd": 884
+  },
+  {
+   "book": "Agile Practice Guide",
+   "number": "6.3",
+   "title": "Procurement And Contracts",
+   "pdfStart": 885,
+   "printedStart": "77",
+   "pdfEnd": 886
+  },
+  {
+   "book": "Agile Practice Guide",
+   "number": "6.4",
+   "title": "Business Practices",
+   "pdfStart": 887,
+   "printedStart": "79",
+   "pdfEnd": 887
+  },
+  {
+   "book": "Agile Practice Guide",
+   "number": "6.5",
+   "title": "Multiteam Coordination And Dependencies (Scaling)",
+   "pdfStart": 888,
+   "printedStart": "80",
+   "pdfEnd": 888
+  },
+  {
+   "book": "Agile Practice Guide",
+   "number": "6.6",
+   "title": "Agile And The Project Management Office (Pmo)",
+   "pdfStart": 889,
+   "printedStart": "81",
+   "pdfEnd": 890
+  },
+  {
+   "book": "Agile Practice Guide",
+   "number": "6.7",
+   "title": "Organizational Structure",
+   "pdfStart": 891,
+   "printedStart": "83",
+   "pdfEnd": 891
+  },
+  {
+   "book": "Agile Practice Guide",
+   "number": "6.8",
+   "title": "Evolving The Organization",
+   "pdfStart": 892,
+   "printedStart": "84",
+   "pdfEnd": 906
+  },
+  {
+   "book": "Agile Practice Guide",
+   "number": "A3.1",
+   "title": "Selection Criteria For The Agile Practice Guide",
+   "pdfStart": 907,
+   "printedStart": "99",
+   "pdfEnd": 908
+  },
+  {
+   "book": "Agile Practice Guide",
+   "number": "A3.2",
+   "title": "Scrum",
+   "pdfStart": 909,
+   "printedStart": "101",
+   "pdfEnd": 909
+  },
+  {
+   "book": "Agile Practice Guide",
+   "number": "A3.3",
+   "title": "Extreme Programming",
+   "pdfStart": 910,
+   "printedStart": "102",
+   "pdfEnd": 910
+  },
+  {
+   "book": "Agile Practice Guide",
+   "number": "A3.4",
+   "title": "Kanban Method",
+   "pdfStart": 911,
+   "printedStart": "103",
+   "pdfEnd": 913
+  },
+  {
+   "book": "Agile Practice Guide",
+   "number": "A3.5",
+   "title": "Crystal Methods",
+   "pdfStart": 914,
+   "printedStart": "106",
+   "pdfEnd": 915
+  },
+  {
+   "book": "Agile Practice Guide",
+   "number": "A3.6",
+   "title": "Scrumban",
+   "pdfStart": 916,
+   "printedStart": "108",
+   "pdfEnd": 916
+  },
+  {
+   "book": "Agile Practice Guide",
+   "number": "A3.7",
+   "title": "Feature-Driven Development",
+   "pdfStart": 916,
+   "printedStart": "108",
+   "pdfEnd": 917
+  },
+  {
+   "book": "Agile Practice Guide",
+   "number": "A3.8",
+   "title": "Dynamic Systems Development Method",
+   "pdfStart": 918,
+   "printedStart": "110",
+   "pdfEnd": 918
+  },
+  {
+   "book": "Agile Practice Guide",
+   "number": "A3.9",
+   "title": "Agile Unified Process",
+   "pdfStart": 919,
+   "printedStart": "111",
+   "pdfEnd": 919
+  },
+  {
+   "book": "Agile Practice Guide",
+   "number": "A3.10",
+   "title": "Scaling Frameworks",
+   "pdfStart": 919,
+   "printedStart": "111",
+   "pdfEnd": 919
+  },
+  {
+   "book": "Agile Practice Guide",
+   "number": "A3.11",
+   "title": "Scaled Agile Framework",
+   "pdfStart": 920,
+   "printedStart": "112",
+   "pdfEnd": 921
+  },
+  {
+   "book": "Agile Practice Guide",
+   "number": "A3.13",
+   "title": "Enterprise Scrum",
+   "pdfStart": 922,
+   "printedStart": "114",
+   "pdfEnd": 922
+  },
+  {
+   "book": "Agile Practice Guide",
+   "number": "A3.14",
+   "title": "Disciplined Agile (Da)",
+   "pdfStart": 922,
+   "printedStart": "114",
+   "pdfEnd": 922
+  },
+  {
+   "book": "Agile Practice Guide",
+   "number": "X1.1",
+   "title": "Agile Practice Guide Core Committee",
+   "pdfStart": 923,
+   "printedStart": "115",
+   "pdfEnd": 923
+  },
+  {
+   "book": "Agile Practice Guide",
+   "number": "X1.2",
+   "title": "Agile Practice Guide Subject Matter Expert Reviewers",
+   "pdfStart": 924,
+   "printedStart": "116",
+   "pdfEnd": 924
+  },
+  {
+   "book": "Agile Practice Guide",
+   "number": "X1.3",
+   "title": "Format Focus Group",
+   "pdfStart": 925,
+   "printedStart": "117",
+   "pdfEnd": 925
+  },
+  {
+   "book": "Agile Practice Guide",
+   "number": "X1.4",
+   "title": "Pmi Standards Member Advisory Group (Mag)",
+   "pdfStart": 925,
+   "printedStart": "117",
+   "pdfEnd": 925
+  },
+  {
+   "book": "Agile Practice Guide",
+   "number": "X1.6",
+   "title": "Pmi Support Staff And Academic Research Support",
+   "pdfStart": 926,
+   "printedStart": "118",
+   "pdfEnd": 926
+  },
+  {
+   "book": "Agile Practice Guide",
+   "number": "X1.7",
+   "title": "Pmi Production Staff",
+   "pdfStart": 926,
+   "printedStart": "118",
+   "pdfEnd": 926
+  },
+  {
+   "book": "Agile Practice Guide",
+   "number": "X2.1",
+   "title": "Introduction",
+   "pdfStart": 927,
+   "printedStart": "119",
+   "pdfEnd": 927
+  },
+  {
+   "book": "Agile Practice Guide",
+   "number": "X2.2",
+   "title": "First Some Cautions",
+   "pdfStart": 927,
+   "printedStart": "119",
+   "pdfEnd": 927
+  },
+  {
+   "book": "Agile Practice Guide",
+   "number": "X2.3",
+   "title": "How To Use This Appendix",
+   "pdfStart": 928,
+   "printedStart": "120",
+   "pdfEnd": 928
+  },
+  {
+   "book": "Agile Practice Guide",
+   "number": "X2.4",
+   "title": "Tailoring Recommendations",
+   "pdfStart": 928,
+   "printedStart": "120",
+   "pdfEnd": 932
+  },
+  {
+   "book": "Agile Practice Guide",
+   "number": "X3.1",
+   "title": "Introduction",
+   "pdfStart": 933,
+   "printedStart": "125",
+   "pdfEnd": 933
+  },
+  {
+   "book": "Agile Practice Guide",
+   "number": "X3.2",
+   "title": "Overview Of The Model",
+   "pdfStart": 934,
+   "printedStart": "126",
+   "pdfEnd": 935
+  },
+  {
+   "book": "Agile Practice Guide",
+   "number": "X3.3",
+   "title": "Instructions For Use",
+   "pdfStart": 936,
+   "printedStart": "128",
+   "pdfEnd": 936
+  },
+  {
+   "book": "Agile Practice Guide",
+   "number": "X3.4",
+   "title": "Suitability Filter Questions",
+   "pdfStart": 937,
+   "printedStart": "129",
+   "pdfEnd": 941
+  },
+  {
+   "book": "Agile Practice Guide",
+   "number": "X3.5",
+   "title": "Suitability Assessment Chart",
+   "pdfStart": 942,
+   "printedStart": "134",
+   "pdfEnd": 945
+  },
+  {
+   "book": "Agile Practice Guide",
+   "number": "X3.6",
+   "title": "Summary",
+   "pdfStart": 946,
+   "printedStart": "138",
+   "pdfEnd": 976
+  }
+ ],
+ "figuresTables": [
+  {
+   "book": "PMBOK",
+   "kind": "figure",
+   "id": "1-1",
+   "title": "Organizational State Transition via a Project .....................................................6",
+   "pdfPage": 24,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "figure",
+   "id": "1-2",
+   "title": "Project Initiation Context .....................................................................................8",
+   "pdfPage": 24,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "figure",
+   "id": "1-3",
+   "title": "Portfolio, Programs, Projects, and Operations..................................................12",
+   "pdfPage": 24,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "figure",
+   "id": "1-4",
+   "title": "Organizational Project Management ................................................................17",
+   "pdfPage": 24,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "figure",
+   "id": "1-5",
+   "title": "Interrelationship of PMBOK® Guide Key Components in Projects ...................18",
+   "pdfPage": 24,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "figure",
+   "id": "1-6",
+   "title": "Example Process: Inputs, Tools & Techniques, and Outputs............................22",
+   "pdfPage": 24,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "figure",
+   "id": "1-7",
+   "title": "Project Data, Information, and Report Flow .....................................................27",
+   "pdfPage": 24,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "figure",
+   "id": "1-8",
+   "title": "Interrelationship of Needs Assessment and Critical Business/",
+   "pdfPage": 24,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "figure",
+   "id": "2-1",
+   "title": "Project Influences ..............................................................................................37",
+   "pdfPage": 24,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "figure",
+   "id": "3-1",
+   "title": "Example of Project Manager’s Sphere of Influence .........................................53",
+   "pdfPage": 24,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "figure",
+   "id": "3-2",
+   "title": "The PMI Talent Triangle® ...................................................................................57",
+   "pdfPage": 24,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "figure",
+   "id": "4-1",
+   "title": "Project Integration Management Overview ......................................................71",
+   "pdfPage": 24,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "figure",
+   "id": "4-2",
+   "title": "Develop Project Charter: Inputs, Tools & Techniques, and Outputs .................75",
+   "pdfPage": 24,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "figure",
+   "id": "4-3",
+   "title": "Develop Project Charter: Data Flow Diagram ...................................................76",
+   "pdfPage": 24,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "figure",
+   "id": "4-4",
+   "title": "Develop Project Management Plan: Inputs, Tools & Techniques,",
+   "pdfPage": 24,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "figure",
+   "id": "4-5",
+   "title": "Develop Project Management Plan: Data Flow Diagram .................................82",
+   "pdfPage": 25,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "figure",
+   "id": "4-6",
+   "title": "Direct and Manage Project Work: Inputs, Tools & Techniques,",
+   "pdfPage": 25,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "figure",
+   "id": "4-7",
+   "title": "Direct and Manage Project Work: Data Flow Diagram .....................................91",
+   "pdfPage": 25,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "figure",
+   "id": "4-8",
+   "title": "Manage Project Knowledge: Inputs, Tools & Techniques, and Outputs ...........98",
+   "pdfPage": 25,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "figure",
+   "id": "4-9",
+   "title": "Manage Project Knowledge: Data Flow Diagram .............................................99",
+   "pdfPage": 25,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "figure",
+   "id": "4-10",
+   "title": "Monitor and Control Project Work: Inputs, Tools & Techniques,",
+   "pdfPage": 25,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "figure",
+   "id": "4-11",
+   "title": "Monitor and Control Project Work: Data Flow Diagram .................................106",
+   "pdfPage": 25,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "figure",
+   "id": "4-12",
+   "title": "Perform Integrated Change Control: Inputs, Tools & Techniques,",
+   "pdfPage": 25,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "figure",
+   "id": "4-13",
+   "title": "Perform Integrated Change Control: Data Flow Diagram ..............................114",
+   "pdfPage": 25,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "figure",
+   "id": "4-14",
+   "title": "Close Project or Phase: Inputs, Tools & Techniques, and Outputs .................121",
+   "pdfPage": 25,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "figure",
+   "id": "4-15",
+   "title": "Close Project or Phase: Data Flow Diagram ...................................................122",
+   "pdfPage": 25,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "figure",
+   "id": "5-1",
+   "title": "Project Scope Management Overview ............................................................130",
+   "pdfPage": 25,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "figure",
+   "id": "5-2",
+   "title": "Plan Scope Management: Inputs, Tools & Techniques, and Outputs .............134",
+   "pdfPage": 25,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "figure",
+   "id": "5-3",
+   "title": "Plan Scope Management: Data Flow Diagram ...............................................134",
+   "pdfPage": 25,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "figure",
+   "id": "5-4",
+   "title": "Collect Requirements: Inputs, Tools & Techniques, and Outputs ..................138",
+   "pdfPage": 25,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "figure",
+   "id": "5-5",
+   "title": "Collect Requirements: Data Flow Diagram .....................................................139",
+   "pdfPage": 25,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "figure",
+   "id": "5-6",
+   "title": "Context Diagram ..............................................................................................146",
+   "pdfPage": 25,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "figure",
+   "id": "5-7",
+   "title": "Example of a Requirements Traceability Matrix ............................................149",
+   "pdfPage": 25,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "figure",
+   "id": "5-8",
+   "title": "Define Scope: Inputs, Tools & Techniques, and Outputs ................................150",
+   "pdfPage": 25,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "figure",
+   "id": "5-9",
+   "title": "Define Scope: Data Flow Diagram ..................................................................151",
+   "pdfPage": 25,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "figure",
+   "id": "5-10",
+   "title": "Create WBS: Inputs, Tools & Techniques, and Outputs ..................................156",
+   "pdfPage": 25,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "figure",
+   "id": "5-11",
+   "title": "Create WBS: Data Flow Diagram .....................................................................156",
+   "pdfPage": 25,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "figure",
+   "id": "5-12",
+   "title": "Sample WBS Decomposed Down Through Work Packages ...........................158",
+   "pdfPage": 25,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "figure",
+   "id": "5-13",
+   "title": "Sample WBS Organized by Phase ...................................................................159",
+   "pdfPage": 25,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "figure",
+   "id": "5-14",
+   "title": "Sample WBS with Major Deliverables.............................................................160",
+   "pdfPage": 26,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "figure",
+   "id": "5-15",
+   "title": "Validate Scope: Inputs, Tools & Techniques, and Outputs .............................163",
+   "pdfPage": 26,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "figure",
+   "id": "5-16",
+   "title": "Validate Scope: Data Flow Diagram ................................................................164",
+   "pdfPage": 26,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "figure",
+   "id": "5-17",
+   "title": "Control Scope: Inputs, Tools & Techniques, and Outputs ...............................167",
+   "pdfPage": 26,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "figure",
+   "id": "5-18",
+   "title": "Control Scope: Data Flow Diagram .................................................................168",
+   "pdfPage": 26,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "figure",
+   "id": "6-1",
+   "title": "Project Schedule Management Overview .......................................................174",
+   "pdfPage": 26,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "figure",
+   "id": "6-2",
+   "title": "Scheduling Overview .......................................................................................176",
+   "pdfPage": 26,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "figure",
+   "id": "6-3",
+   "title": "Plan Schedule Management: Inputs, Tools & Techniques, and Outputs ........179",
+   "pdfPage": 26,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "figure",
+   "id": "6-4",
+   "title": "Plan Schedule Management: Data Flow Diagram ..........................................179",
+   "pdfPage": 26,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "figure",
+   "id": "6-5",
+   "title": "Define Activities: Inputs, Tools & Techniques, and Outputs ...........................183",
+   "pdfPage": 26,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "figure",
+   "id": "6-6",
+   "title": "Define Activities: Data Flow Diagram .............................................................183",
+   "pdfPage": 26,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "figure",
+   "id": "6-7",
+   "title": "Sequence Activities: Inputs, Tools & Techniques, and Outputs .....................187",
+   "pdfPage": 26,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "figure",
+   "id": "6-8",
+   "title": "Sequence Activities: Data Flow Diagram ........................................................187",
+   "pdfPage": 26,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "figure",
+   "id": "6-9",
+   "title": "Precedence Diagramming Method (PDM) Relationship Types ......................190",
+   "pdfPage": 26,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "figure",
+   "id": "6-10",
+   "title": "Examples of Lead and Lag ..............................................................................192",
+   "pdfPage": 26,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "figure",
+   "id": "6-11",
+   "title": "Project Schedule Network Diagram ................................................................193",
+   "pdfPage": 26,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "figure",
+   "id": "6-12",
+   "title": "Estimate Activity Durations: Inputs, Tools & Techniques, and Outputs .........195",
+   "pdfPage": 26,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "figure",
+   "id": "6-13",
+   "title": "Estimate Activity Durations: Data Flow Diagram ...........................................196",
+   "pdfPage": 26,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "figure",
+   "id": "6-14",
+   "title": "Develop Schedule: Inputs, Tools & Techniques, and Outputs ........................205",
+   "pdfPage": 26,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "figure",
+   "id": "6-15",
+   "title": "Develop Schedule: Data Flow Diagram ...........................................................206",
+   "pdfPage": 26,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "figure",
+   "id": "6-16",
+   "title": "Example of Critical Path Method .....................................................................211",
+   "pdfPage": 26,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "figure",
+   "id": "6-17",
+   "title": "Resource Leveling ...........................................................................................212",
+   "pdfPage": 26,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "figure",
+   "id": "6-18",
+   "title": "Example Probability Distribution of a Target Milestone .................................214",
+   "pdfPage": 26,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "figure",
+   "id": "6-19",
+   "title": "Schedule Compression Comparison ...............................................................215",
+   "pdfPage": 26,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "figure",
+   "id": "6-20",
+   "title": "Relationship Between Product Vision, Release Planning,",
+   "pdfPage": 26,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "figure",
+   "id": "6-21",
+   "title": "Project Schedule Presentations—Examples ..................................................219",
+   "pdfPage": 27,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "figure",
+   "id": "6-22",
+   "title": "Control Schedule: Inputs, Tools & Techniques, and Outputs ..........................222",
+   "pdfPage": 27,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "figure",
+   "id": "6-23",
+   "title": "Control Schedule: Data Flow Diagram ............................................................223",
+   "pdfPage": 27,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "figure",
+   "id": "6-24",
+   "title": "Iteration Burndown Chart ................................................................................226",
+   "pdfPage": 27,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "figure",
+   "id": "7-1",
+   "title": "Project Cost Management Overview ...............................................................232",
+   "pdfPage": 27,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "figure",
+   "id": "7-2",
+   "title": "Plan Cost Management: Inputs, Tools & Techniques, and Outputs ................235",
+   "pdfPage": 27,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "figure",
+   "id": "7-3",
+   "title": "Plan Cost Management: Data Flow Diagram ..................................................235",
+   "pdfPage": 27,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "figure",
+   "id": "7-4",
+   "title": "Estimate Costs: Inputs, Tools & Techniques, and Outputs .............................240",
+   "pdfPage": 27,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "figure",
+   "id": "7-5",
+   "title": "Estimate Costs: Data Flow Diagram ...............................................................240",
+   "pdfPage": 27,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "figure",
+   "id": "7-6",
+   "title": "Determine Budget: Inputs, Tools & Techniques, and Outputs ........................248",
+   "pdfPage": 27,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "figure",
+   "id": "7-7",
+   "title": "Determine Budget: Data Flow Diagram ..........................................................249",
+   "pdfPage": 27,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "figure",
+   "id": "7-8",
+   "title": "Project Budget Components ............................................................................255",
+   "pdfPage": 27,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "figure",
+   "id": "7-9",
+   "title": "Cost Baseline, Expenditures, and Funding Requirements .............................255",
+   "pdfPage": 27,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "figure",
+   "id": "7-10",
+   "title": "Control Costs: Inputs, Tools & Techniques, and Outputs ................................257",
+   "pdfPage": 27,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "figure",
+   "id": "7-11",
+   "title": "Control Costs: Data Flow Diagram ..................................................................258",
+   "pdfPage": 27,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "figure",
+   "id": "7-12",
+   "title": "Earned Value, Planned Value, and Actual Costs .............................................264",
+   "pdfPage": 27,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "figure",
+   "id": "7-13",
+   "title": "To-Complete Performance Index (TCPI) ..........................................................268",
+   "pdfPage": 27,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "figure",
+   "id": "8-1",
+   "title": "Project Quality Management Overview ...........................................................272",
+   "pdfPage": 27,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "figure",
+   "id": "8-2",
+   "title": "Major Project Quality Management Process Interrelations ...........................273",
+   "pdfPage": 27,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "figure",
+   "id": "8-3",
+   "title": "Plan Quality Management: Inputs, Tools & Techniques, and Outputs ...........277",
+   "pdfPage": 27,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "figure",
+   "id": "8-4",
+   "title": "Plan Quality Management: Data Flow Diagram ..............................................278",
+   "pdfPage": 27,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "figure",
+   "id": "8-5",
+   "title": "Cost of Quality..................................................................................................283",
+   "pdfPage": 27,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "figure",
+   "id": "8-6",
+   "title": "The SIPOC Model..............................................................................................285",
+   "pdfPage": 27,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "figure",
+   "id": "8-7",
+   "title": "Manage Quality: Inputs, Tools & Techniques, and Outputs ............................288",
+   "pdfPage": 27,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "figure",
+   "id": "8-8",
+   "title": "Manage Quality: Data Flow Diagram ..............................................................289",
+   "pdfPage": 27,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "figure",
+   "id": "8-9",
+   "title": "Cause-and-Effect Diagram ..............................................................................294",
+   "pdfPage": 27,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "figure",
+   "id": "8-10",
+   "title": "Control Quality: Inputs, Tools & Techniques, and Outputs .............................298",
+   "pdfPage": 28,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "figure",
+   "id": "8-11",
+   "title": "Control Quality: Data Flow Diagram ................................................................299",
+   "pdfPage": 28,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "figure",
+   "id": "8-12",
+   "title": "Check Sheets ...................................................................................................302",
+   "pdfPage": 28,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "figure",
+   "id": "9-1",
+   "title": "Project Resource Management Overview .......................................................308",
+   "pdfPage": 28,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "figure",
+   "id": "9-2",
+   "title": "Plan Resource Management: Inputs, Tools & Techniques, and Outputs .......312",
+   "pdfPage": 28,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "figure",
+   "id": "9-3",
+   "title": "Plan Resource Management: Data Flow Diagram ..........................................313",
+   "pdfPage": 28,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "figure",
+   "id": "9-4",
+   "title": "Sample RACI Chart ..........................................................................................317",
+   "pdfPage": 28,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "figure",
+   "id": "9-5",
+   "title": "Estimate Activity Resources: Inputs, Tools & Techniques, and Outputs ........321",
+   "pdfPage": 28,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "figure",
+   "id": "9-6",
+   "title": "Estimate Activity Resources: Data Flow Diagram ..........................................321",
+   "pdfPage": 28,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "figure",
+   "id": "9-7",
+   "title": "Sample Resource Breakdown Structure .........................................................327",
+   "pdfPage": 28,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "figure",
+   "id": "9-8",
+   "title": "Acquire Resources: Inputs, Tools & Techniques, and Outputs .......................328",
+   "pdfPage": 28,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "figure",
+   "id": "9-9",
+   "title": "Acquire Resources: Data Flow Diagram .........................................................329",
+   "pdfPage": 28,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "figure",
+   "id": "9-10",
+   "title": "Develop Team: Inputs, Tools & Techniques, and Outputs ...............................336",
+   "pdfPage": 28,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "figure",
+   "id": "9-11",
+   "title": "Develop Team: Data Flow Diagram .................................................................337",
+   "pdfPage": 28,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "figure",
+   "id": "9-12",
+   "title": "Manage Team: Inputs, Tools & Techniques, and Outputs ...............................345",
+   "pdfPage": 28,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "figure",
+   "id": "9-13",
+   "title": "Manage Team: Data Flow Diagram .................................................................346",
+   "pdfPage": 28,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "figure",
+   "id": "9-14",
+   "title": "Control Resources: Inputs, Tools & Techniques, and Outputs........................352",
+   "pdfPage": 28,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "figure",
+   "id": "9-15",
+   "title": "Control Resources: Data Flow Diagram ..........................................................353",
+   "pdfPage": 28,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "figure",
+   "id": "10-1",
+   "title": "Project Communications Overview .................................................................360",
+   "pdfPage": 28,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "figure",
+   "id": "10-2",
+   "title": "Plan Communications Management: Inputs, Tools & Techniques,",
+   "pdfPage": 28,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "figure",
+   "id": "10-3",
+   "title": "Plan Communications Management: Data Flow Diagram .............................367",
+   "pdfPage": 28,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "figure",
+   "id": "10-4",
+   "title": "Communication Model for Cross-Cultural Communication ...........................373",
+   "pdfPage": 28,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "figure",
+   "id": "10-5",
+   "title": "Manage Communications: Inputs, Tools & Techniques, and Outputs ............379",
+   "pdfPage": 28,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "figure",
+   "id": "10-6",
+   "title": "Manage Communications: Data Flow Diagram ..............................................380",
+   "pdfPage": 28,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "figure",
+   "id": "10-7",
+   "title": "Monitor Communications: Inputs, Tools & Techniques, and Outputs ............388",
+   "pdfPage": 28,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "figure",
+   "id": "10-8",
+   "title": "Monitor Communications: Data Flow Diagram ..............................................389",
+   "pdfPage": 29,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "figure",
+   "id": "11-1",
+   "title": "Project Risk Management Overview ...............................................................396",
+   "pdfPage": 29,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "figure",
+   "id": "11-2",
+   "title": "Plan Risk Management: Inputs, Tools & Techniques, and Outputs ................401",
+   "pdfPage": 29,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "figure",
+   "id": "11-3",
+   "title": "Plan Risk Management: Data Flow Diagram ..................................................402",
+   "pdfPage": 29,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "figure",
+   "id": "11-4",
+   "title": "Extract from Sample Risk Breakdown Structure (RBS) .................................406",
+   "pdfPage": 29,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "figure",
+   "id": "11-5",
+   "title": "Example Probability and Impact Matrix with Scoring Scheme .....................408",
+   "pdfPage": 29,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "figure",
+   "id": "11-6",
+   "title": "Identify Risks: Inputs, Tools & Techniques, and Outputs ...............................409",
+   "pdfPage": 29,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "figure",
+   "id": "11-7",
+   "title": "Identify Risks: Data Flow Diagram .................................................................410",
+   "pdfPage": 29,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "figure",
+   "id": "11-8",
+   "title": "Perform Qualitative Risk Analysis: Inputs, Tools & Techniques,",
+   "pdfPage": 29,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "figure",
+   "id": "11-9",
+   "title": "Perform Qualitative Risk Analysis: Data Flow Diagram .................................420",
+   "pdfPage": 29,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "figure",
+   "id": "11-10",
+   "title": "Example Bubble Chart Showing Detectability, Proximity,",
+   "pdfPage": 29,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "figure",
+   "id": "11-11",
+   "title": "Perform Quantitative Risk Analysis: Inputs, Tools & Techniques,",
+   "pdfPage": 29,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "figure",
+   "id": "11-12",
+   "title": "Perform Quantitative Risk Analysis: Data Flow Diagram ...............................429",
+   "pdfPage": 29,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "figure",
+   "id": "11-13",
+   "title": "Example S-Curve from Quantitative Cost Risk Analysis ................................433",
+   "pdfPage": 29,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "figure",
+   "id": "11-14",
+   "title": "Example Tornado Diagram ..............................................................................434",
+   "pdfPage": 29,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "figure",
+   "id": "11-15",
+   "title": "Example Decision Tree ....................................................................................435",
+   "pdfPage": 29,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "figure",
+   "id": "11-16",
+   "title": "Plan Risk Responses: Inputs, Tools & Techniques, and Outputs ...................437",
+   "pdfPage": 29,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "figure",
+   "id": "11-17",
+   "title": "Plan Risk Responses: Data Flow Diagram ......................................................438",
+   "pdfPage": 29,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "figure",
+   "id": "11-18",
+   "title": "Implement Risk Responses: Inputs, Tools & Techniques, and Outputs .........449",
+   "pdfPage": 29,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "figure",
+   "id": "11-19",
+   "title": "Implement Risk Responses: Data Flow Diagram ...........................................449",
+   "pdfPage": 29,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "figure",
+   "id": "11-20",
+   "title": "Monitor Risks: Inputs, Tools & Techniques, and Outputs ...............................453",
+   "pdfPage": 29,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "figure",
+   "id": "11-21",
+   "title": "Monitor Risks: Data Flow Diagram .................................................................454",
+   "pdfPage": 29,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "figure",
+   "id": "12-1",
+   "title": "Project Procurement Management Overview .................................................460",
+   "pdfPage": 29,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "figure",
+   "id": "12-2",
+   "title": "Plan Procurement Management: Inputs, Tools & Techniques, and Outputs ....466",
+   "pdfPage": 30,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "figure",
+   "id": "12-3",
+   "title": "Plan Procurement Management: Data Flow Diagram ....................................467",
+   "pdfPage": 30,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "figure",
+   "id": "12-4",
+   "title": "Conduct Procurements: Inputs, Tools & Techniques, and Outputs ................482",
+   "pdfPage": 30,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "figure",
+   "id": "12-5",
+   "title": "Conduct Procurements: Data Flow Diagram ..................................................483",
+   "pdfPage": 30,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "figure",
+   "id": "12-6",
+   "title": "Control Procurements: Inputs, Tools & Techniques, and Outputs ..................492",
+   "pdfPage": 30,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "figure",
+   "id": "12-7",
+   "title": "Control Procurements: Data Flow Diagram ....................................................493",
+   "pdfPage": 30,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "figure",
+   "id": "13-1",
+   "title": "Project Stakeholder Management Overview ..................................................504",
+   "pdfPage": 30,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "figure",
+   "id": "13-2",
+   "title": "Identify Stakeholders: Inputs, Tools & Techniques, and Outputs...................507",
+   "pdfPage": 30,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "figure",
+   "id": "13-3",
+   "title": "Identify Stakeholders: Data Flow Diagram .....................................................508",
+   "pdfPage": 30,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "figure",
+   "id": "13-4",
+   "title": "Plan Stakeholder Engagement: Inputs, Tools & Techniques, and Outputs ....516",
+   "pdfPage": 30,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "figure",
+   "id": "13-5",
+   "title": "Plan Stakeholder Engagement: Data Flow Diagram ......................................517",
+   "pdfPage": 30,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "figure",
+   "id": "13-6",
+   "title": "Stakeholder Engagement Assessment Matrix ...............................................522",
+   "pdfPage": 30,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "figure",
+   "id": "13-7",
+   "title": "Manage Stakeholder Engagement: Inputs, Tools & Techniques,",
+   "pdfPage": 30,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "figure",
+   "id": "13-8",
+   "title": "Manage Stakeholder Engagement: Data Flow Diagram ................................524",
+   "pdfPage": 30,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "figure",
+   "id": "13-9",
+   "title": "Monitor Stakeholder Engagement: Inputs, Tools & Techniques,",
+   "pdfPage": 30,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "figure",
+   "id": "13-10",
+   "title": "Monitor Stakeholder Engagement: Data Flow Diagram .................................531",
+   "pdfPage": 30,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "table",
+   "id": "1-1",
+   "title": "Examples of Factors that Lead to the Creation of a Project ..............................9",
+   "pdfPage": 30,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "table",
+   "id": "1-2",
+   "title": "Comparative Overview of Portfolios, Programs, and Projects .........................13",
+   "pdfPage": 30,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "table",
+   "id": "1-3",
+   "title": "Description of PMBOK® Guide Key Components ..............................................18",
+   "pdfPage": 30,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "table",
+   "id": "1-4",
+   "title": "Project Management Process Group and Knowledge Area Mapping ..............25",
+   "pdfPage": 30,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "table",
+   "id": "1-5",
+   "title": "Project Business Documents ............................................................................29",
+   "pdfPage": 30,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "table",
+   "id": "2-1",
+   "title": "Influences of Organizational Structures on Projects .......................................47",
+   "pdfPage": 30,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "table",
+   "id": "3-1",
+   "title": "Team Management and Team Leadership Compared ......................................64",
+   "pdfPage": 30,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "table",
+   "id": "4-1",
+   "title": "Project Management Plan and Project Documents ..........................................89",
+   "pdfPage": 31,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "table",
+   "id": "5-1",
+   "title": "Elements of the Project Charter and Project Scope Statement .....................155",
+   "pdfPage": 31,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "table",
+   "id": "7-1",
+   "title": "Earned Value Calculations Summary Table ....................................................267",
+   "pdfPage": 31,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "table",
+   "id": "11-1",
+   "title": "Example of Definitions for Probability and Impacts ......................................407",
+   "pdfPage": 31,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "table",
+   "id": "12-1",
+   "title": "Comparison of Procurement Documentation .................................................481",
+   "pdfPage": 31,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "figure",
+   "id": "2-2",
+   "title": "Initiating Process Group ..................................................................................562",
+   "pdfPage": 31,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "figure",
+   "id": "2-3",
+   "title": "Develop Project Charter: Inputs and Outputs .................................................563",
+   "pdfPage": 31,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "figure",
+   "id": "2-4",
+   "title": "Identify Stakeholders: Inputs and Outputs .....................................................563",
+   "pdfPage": 31,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "figure",
+   "id": "3-3",
+   "title": "Plan Scope Management: Inputs and Outputs ...............................................567",
+   "pdfPage": 31,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "figure",
+   "id": "3-4",
+   "title": "Collect Requirements: Inputs and Outputs .....................................................568",
+   "pdfPage": 31,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "figure",
+   "id": "3-5",
+   "title": "Define Scope: Inputs and Outputs ..................................................................569",
+   "pdfPage": 31,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "figure",
+   "id": "3-6",
+   "title": "Create WBS: Inputs and Outputs .....................................................................570",
+   "pdfPage": 31,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "figure",
+   "id": "3-7",
+   "title": "Plan Schedule Management: Inputs and Outputs ..........................................571",
+   "pdfPage": 31,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "figure",
+   "id": "3-8",
+   "title": "Define Activities: Inputs and Outputs .............................................................572",
+   "pdfPage": 31,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "figure",
+   "id": "3-9",
+   "title": "Sequence Activities: Inputs and Outputs ........................................................573",
+   "pdfPage": 32,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "figure",
+   "id": "3-10",
+   "title": "Estimate Activity Durations: Inputs and Outputs ...........................................574",
+   "pdfPage": 32,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "figure",
+   "id": "3-11",
+   "title": "Develop Schedule: Inputs and Outputs ...........................................................575",
+   "pdfPage": 32,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "figure",
+   "id": "3-12",
+   "title": "Plan Cost Management: Inputs and Outputs ..................................................577",
+   "pdfPage": 32,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "figure",
+   "id": "3-13",
+   "title": "Estimate Costs: Inputs and Outputs................................................................577",
+   "pdfPage": 32,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "figure",
+   "id": "3-14",
+   "title": "Determine Budget: Inputs and Outputs ..........................................................579",
+   "pdfPage": 32,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "figure",
+   "id": "3-15",
+   "title": "Plan Quality Management: Inputs and Outputs ..............................................580",
+   "pdfPage": 32,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "figure",
+   "id": "3-16",
+   "title": "Plan Resource Management: Inputs and Outputs ..........................................581",
+   "pdfPage": 32,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "figure",
+   "id": "3-17",
+   "title": "Estimate Activity Resources: Inputs and Outputs ..........................................583",
+   "pdfPage": 32,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "figure",
+   "id": "3-18",
+   "title": "Plan Communications Management: Inputs and Outputs .............................584",
+   "pdfPage": 32,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "figure",
+   "id": "3-19",
+   "title": "Plan Risk Management: Inputs and Outputs ..................................................585",
+   "pdfPage": 32,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "figure",
+   "id": "3-20",
+   "title": "Identify Risks: Inputs and Outputs..................................................................586",
+   "pdfPage": 32,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "figure",
+   "id": "3-21",
+   "title": "Perform Qualitative Risk Analysis: Inputs and Outputs .................................588",
+   "pdfPage": 32,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "figure",
+   "id": "3-22",
+   "title": "Perform Quantitative Risk Analysis: Inputs and Outputs ...............................589",
+   "pdfPage": 32,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "figure",
+   "id": "3-23",
+   "title": "Plan Risk Responses: Inputs and Outputs ......................................................590",
+   "pdfPage": 32,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "figure",
+   "id": "3-24",
+   "title": "Plan Procurement Management: Inputs and Outputs ....................................592",
+   "pdfPage": 32,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "figure",
+   "id": "3-25",
+   "title": "Plan Stakeholder Engagement: Inputs and Outputs ......................................594",
+   "pdfPage": 32,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "figure",
+   "id": "X3-1",
+   "title": "The Continuum of Project Life Cycles .............................................................666",
+   "pdfPage": 34,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "figure",
+   "id": "X3-2",
+   "title": "Level of Effort for Process Groups across Iteration Cycles ...........................667",
+   "pdfPage": 34,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "figure",
+   "id": "X3-3",
+   "title": "Relationship of Process Groups in Continuous Phases .................................668",
+   "pdfPage": 34,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "table",
+   "id": "X1-1",
+   "title": "Section 4 Changes ...........................................................................................645",
+   "pdfPage": 34,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "table",
+   "id": "X1-2",
+   "title": "Section 6 Changes ...........................................................................................646",
+   "pdfPage": 34,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "table",
+   "id": "X1-3",
+   "title": "Section 8 Changes ...........................................................................................646",
+   "pdfPage": 34,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "table",
+   "id": "X1-4",
+   "title": "Section 9 Changes ...........................................................................................647",
+   "pdfPage": 34,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "table",
+   "id": "X1-5",
+   "title": "Section 10 Changes .........................................................................................648",
+   "pdfPage": 34,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "table",
+   "id": "X1-6",
+   "title": "Section 11 Changes .........................................................................................648",
+   "pdfPage": 34,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "table",
+   "id": "X1-7",
+   "title": "Section 12 Changes .........................................................................................649",
+   "pdfPage": 34,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "table",
+   "id": "X1-8",
+   "title": "Section 13 Changes .........................................................................................650",
+   "pdfPage": 34,
+   "printedPage": null
+  },
+  {
+   "book": "PMBOK",
+   "kind": "table",
+   "id": "X6-1",
+   "title": "Categorization and Index of Tools and Techniques ........................................686",
+   "pdfPage": 34,
+   "printedPage": null
+  },
+  {
+   "book": "Agile Practice Guide",
+   "kind": "figure",
+   "id": "2-1",
+   "title": "The Four Values of the Agile Manifesto ..............................................................8",
+   "pdfPage": 805,
+   "printedPage": null
+  },
+  {
+   "book": "Agile Practice Guide",
+   "kind": "figure",
+   "id": "2-2",
+   "title": "The Twelve Principles Behind the Agile Manifesto ............................................9",
+   "pdfPage": 805,
+   "printedPage": null
+  },
+  {
+   "book": "Agile Practice Guide",
+   "kind": "figure",
+   "id": "2-3",
+   "title": "The Relationship Between the Agile Manifesto Values, Principles,",
+   "pdfPage": 805,
+   "printedPage": null
+  },
+  {
+   "book": "Agile Practice Guide",
+   "kind": "figure",
+   "id": "2-4",
+   "title": "Agile is a Blanket Term for Many Approaches .................................................11",
+   "pdfPage": 805,
+   "printedPage": null
+  },
+  {
+   "book": "Agile Practice Guide",
+   "kind": "figure",
+   "id": "2-5",
+   "title": "Uncertainty and Complexity Model Inspired",
+   "pdfPage": 805,
+   "printedPage": null
+  },
+  {
+   "book": "Agile Practice Guide",
+   "kind": "figure",
+   "id": "3-1",
+   "title": "The Continuum of Life Cycles ...........................................................................19",
+   "pdfPage": 805,
+   "printedPage": null
+  },
+  {
+   "book": "Agile Practice Guide",
+   "kind": "figure",
+   "id": "3-2",
+   "title": "Predictive Life Cycle ..........................................................................................21",
+   "pdfPage": 805,
+   "printedPage": null
+  },
+  {
+   "book": "Agile Practice Guide",
+   "kind": "figure",
+   "id": "3-3",
+   "title": "Iterative Life Cycle .............................................................................................21",
+   "pdfPage": 805,
+   "printedPage": null
+  },
+  {
+   "book": "Agile Practice Guide",
+   "kind": "figure",
+   "id": "3-4",
+   "title": "A Life Cycle of Varying-Sized Increments ........................................................22",
+   "pdfPage": 805,
+   "printedPage": null
+  },
+  {
+   "book": "Agile Practice Guide",
+   "kind": "figure",
+   "id": "3-5",
+   "title": "Iteration-Based and Flow-Based Agile Life Cycles ..........................................24",
+   "pdfPage": 805,
+   "printedPage": null
+  },
+  {
+   "book": "Agile Practice Guide",
+   "kind": "figure",
+   "id": "3-6",
+   "title": "Agile Development Followed by a Predictive Rollout .......................................27",
+   "pdfPage": 805,
+   "printedPage": null
+  },
+  {
+   "book": "Agile Practice Guide",
+   "kind": "figure",
+   "id": "3-7",
+   "title": "A Combined Agile and Predictive Approach Used Simultaneously .................27",
+   "pdfPage": 805,
+   "printedPage": null
+  },
+  {
+   "book": "Agile Practice Guide",
+   "kind": "figure",
+   "id": "3-8",
+   "title": "A Largely Predictive Approach with Agile Components ..................................28",
+   "pdfPage": 805,
+   "printedPage": null
+  },
+  {
+   "book": "Agile Practice Guide",
+   "kind": "figure",
+   "id": "3-9",
+   "title": "A Largely Agile Approach with a Predictive Component .................................28",
+   "pdfPage": 805,
+   "printedPage": null
+  },
+  {
+   "book": "Agile Practice Guide",
+   "kind": "figure",
+   "id": "5-1",
+   "title": "Burndown Chart for Remaining Story Points ...................................................62",
+   "pdfPage": 805,
+   "printedPage": null
+  },
+  {
+   "book": "Agile Practice Guide",
+   "kind": "figure",
+   "id": "5-2",
+   "title": "Burnup Chart for Showing Story Points Completed .........................................63",
+   "pdfPage": 805,
+   "printedPage": null
+  },
+  {
+   "book": "Agile Practice Guide",
+   "kind": "figure",
+   "id": "5-3",
+   "title": "Example of a Kanban Board ..............................................................................65",
+   "pdfPage": 805,
+   "printedPage": null
+  },
+  {
+   "book": "Agile Practice Guide",
+   "kind": "figure",
+   "id": "5-4",
+   "title": "Feature Chart .....................................................................................................67",
+   "pdfPage": 805,
+   "printedPage": null
+  },
+  {
+   "book": "Agile Practice Guide",
+   "kind": "figure",
+   "id": "5-5",
+   "title": "Product Backlog Burnup Chart .........................................................................68",
+   "pdfPage": 805,
+   "printedPage": null
+  },
+  {
+   "book": "Agile Practice Guide",
+   "kind": "figure",
+   "id": "5-6",
+   "title": "Earned Value in an Agile Context ......................................................................69",
+   "pdfPage": 806,
+   "printedPage": null
+  },
+  {
+   "book": "Agile Practice Guide",
+   "kind": "figure",
+   "id": "5-7",
+   "title": "Cumulative Flow Diagram of Completed Features ...........................................70",
+   "pdfPage": 806,
+   "printedPage": null
+  },
+  {
+   "book": "Agile Practice Guide",
+   "kind": "figure",
+   "id": "6-1",
+   "title": "The Relationship Between Change Management and Agile Approaches .......72",
+   "pdfPage": 806,
+   "printedPage": null
+  },
+  {
+   "book": "Agile Practice Guide",
+   "kind": "figure",
+   "id": "6-2",
+   "title": "Example of Assessing Organizational Culture .................................................76",
+   "pdfPage": 806,
+   "printedPage": null
+  },
+  {
+   "book": "Agile Practice Guide",
+   "kind": "figure",
+   "id": "6-3",
+   "title": "Initial Ranked Backlog for Changes .................................................................85",
+   "pdfPage": 806,
+   "printedPage": null
+  },
+  {
+   "book": "Agile Practice Guide",
+   "kind": "figure",
+   "id": "6-4",
+   "title": "Using Backlogs and Kanban Boards to Organize and Track Change Work .......86",
+   "pdfPage": 806,
+   "printedPage": null
+  },
+  {
+   "book": "Agile Practice Guide",
+   "kind": "figure",
+   "id": "A3-1",
+   "title": "Agile Approaches Plotted by Breadth and Detail ...........................................100",
+   "pdfPage": 806,
+   "printedPage": null
+  },
+  {
+   "book": "Agile Practice Guide",
+   "kind": "figure",
+   "id": "A3-2",
+   "title": "Kanban Board Demonstrating Work in Progress Limits,",
+   "pdfPage": 806,
+   "printedPage": null
+  },
+  {
+   "book": "Agile Practice Guide",
+   "kind": "figure",
+   "id": "A3-3",
+   "title": "The Crystal Family of Methods ........................................................................106",
+   "pdfPage": 806,
+   "printedPage": null
+  },
+  {
+   "book": "Agile Practice Guide",
+   "kind": "figure",
+   "id": "A3-4",
+   "title": "Feature-Driven Development Project Life Cycle .............................................109",
+   "pdfPage": 806,
+   "printedPage": null
+  },
+  {
+   "book": "Agile Practice Guide",
+   "kind": "figure",
+   "id": "A3-5",
+   "title": "DSDM Approach to Constraint-Driven Agility .................................................110",
+   "pdfPage": 806,
+   "printedPage": null
+  },
+  {
+   "book": "Agile Practice Guide",
+   "kind": "figure",
+   "id": "A3-6",
+   "title": "Representatives of Scrum Teams Participating in SoS teams ......................112",
+   "pdfPage": 806,
+   "printedPage": null
+  },
+  {
+   "book": "Agile Practice Guide",
+   "kind": "figure",
+   "id": "X3-1",
+   "title": "Model for Suitability of Agile Approach ..........................................................127",
+   "pdfPage": 806,
+   "printedPage": null
+  },
+  {
+   "book": "Agile Practice Guide",
+   "kind": "figure",
+   "id": "X3-2",
+   "title": "Buy-In to Approach Assessment ....................................................................129",
+   "pdfPage": 806,
+   "printedPage": null
+  },
+  {
+   "book": "Agile Practice Guide",
+   "kind": "figure",
+   "id": "X3-3",
+   "title": "Trust in Team Assessment ..............................................................................130",
+   "pdfPage": 806,
+   "printedPage": null
+  },
+  {
+   "book": "Agile Practice Guide",
+   "kind": "figure",
+   "id": "X3-4",
+   "title": "Assessment for Decision-Making Powers of Team .......................................130",
+   "pdfPage": 806,
+   "printedPage": null
+  },
+  {
+   "book": "Agile Practice Guide",
+   "kind": "figure",
+   "id": "X3-5",
+   "title": "Team Size Assessment ....................................................................................131",
+   "pdfPage": 806,
+   "printedPage": null
+  },
+  {
+   "book": "Agile Practice Guide",
+   "kind": "figure",
+   "id": "X3-6",
+   "title": "Experience Level Assessment .........................................................................131",
+   "pdfPage": 806,
+   "printedPage": null
+  },
+  {
+   "book": "Agile Practice Guide",
+   "kind": "figure",
+   "id": "X3-7",
+   "title": "Assessment for Access to the Customer/Business .......................................132",
+   "pdfPage": 806,
+   "printedPage": null
+  },
+  {
+   "book": "Agile Practice Guide",
+   "kind": "figure",
+   "id": "X3-8",
+   "title": "Likelihood of Change Assessment ..................................................................132",
+   "pdfPage": 806,
+   "printedPage": null
+  },
+  {
+   "book": "Agile Practice Guide",
+   "kind": "figure",
+   "id": "X3-9",
+   "title": "Assessment for Criticality of Product or Service ...........................................133",
+   "pdfPage": 806,
+   "printedPage": null
+  },
+  {
+   "book": "Agile Practice Guide",
+   "kind": "figure",
+   "id": "X3-10",
+   "title": "Incremental Delivery Assessment ..................................................................133",
+   "pdfPage": 806,
+   "printedPage": null
+  },
+  {
+   "book": "Agile Practice Guide",
+   "kind": "figure",
+   "id": "X3-11",
+   "title": "Suitability Assessment Radar Chart ...............................................................134",
+   "pdfPage": 806,
+   "printedPage": null
+  },
+  {
+   "book": "Agile Practice Guide",
+   "kind": "figure",
+   "id": "X3-12",
+   "title": "Drug Store Project ...........................................................................................135",
+   "pdfPage": 806,
+   "printedPage": null
+  },
+  {
+   "book": "Agile Practice Guide",
+   "kind": "figure",
+   "id": "X3-13",
+   "title": "Military Messaging Example ...........................................................................137",
+   "pdfPage": 806,
+   "printedPage": null
+  },
+  {
+   "book": "Agile Practice Guide",
+   "kind": "table",
+   "id": "1-1",
+   "title": "In-Scope and Out-of-Scope Items ......................................................................4",
+   "pdfPage": 807,
+   "printedPage": null
+  },
+  {
+   "book": "Agile Practice Guide",
+   "kind": "table",
+   "id": "3-1",
+   "title": "Characteristics of Four Categories of Life Cycles ............................................18",
+   "pdfPage": 807,
+   "printedPage": null
+  },
+  {
+   "book": "Agile Practice Guide",
+   "kind": "table",
+   "id": "3-2",
+   "title": "Tailoring Options to Improve Fit ........................................................................32",
+   "pdfPage": 807,
+   "printedPage": null
+  },
+  {
+   "book": "Agile Practice Guide",
+   "kind": "table",
+   "id": "4-1",
+   "title": "Attributes of Successful Agile Teams ...............................................................40",
+   "pdfPage": 807,
+   "printedPage": null
+  },
+  {
+   "book": "Agile Practice Guide",
+   "kind": "table",
+   "id": "4-2",
+   "title": "Agile Team Roles ...............................................................................................41",
+   "pdfPage": 807,
+   "printedPage": null
+  },
+  {
+   "book": "Agile Practice Guide",
+   "kind": "table",
+   "id": "5-1",
+   "title": "Agile Pain Points and Troubleshooting Possibilities ........................................58",
+   "pdfPage": 807,
+   "printedPage": null
+  },
+  {
+   "book": "Agile Practice Guide",
+   "kind": "table",
+   "id": "A1-1",
+   "title": "Project Management Process Group and Knowledge Area Mapping ..............90",
+   "pdfPage": 807,
+   "printedPage": null
+  },
+  {
+   "book": "Agile Practice Guide",
+   "kind": "table",
+   "id": "A1-2",
+   "title": "Application of Agile in PMBOK® Guide Knowledge Areas ................................91",
+   "pdfPage": 807,
+   "printedPage": null
+  },
+  {
+   "book": "Agile Practice Guide",
+   "kind": "table",
+   "id": "A2-1",
+   "title": "Agile Manifesto Values Covered in the Agile Practice Guide ...........................97",
+   "pdfPage": 807,
+   "printedPage": null
+  },
+  {
+   "book": "Agile Practice Guide",
+   "kind": "table",
+   "id": "A2-2",
+   "title": "Agile Practice Guide Mapping of Principles Behind the Agile Manifesto ........98",
+   "pdfPage": 807,
+   "printedPage": null
+  },
+  {
+   "book": "Agile Practice Guide",
+   "kind": "table",
+   "id": "A3-1",
+   "title": "Scrum Events and Artifacts .............................................................................101",
+   "pdfPage": 807,
+   "printedPage": null
+  },
+  {
+   "book": "Agile Practice Guide",
+   "kind": "table",
+   "id": "A3-2",
+   "title": "The Practices of eXtreme Programming .........................................................102",
+   "pdfPage": 807,
+   "printedPage": null
+  },
+  {
+   "book": "Agile Practice Guide",
+   "kind": "table",
+   "id": "A3-3",
+   "title": "Defining Principles and Properties of the Kanban Method ............................104",
+   "pdfPage": 807,
+   "printedPage": null
+  },
+  {
+   "book": "Agile Practice Guide",
+   "kind": "table",
+   "id": "A3-4",
+   "title": "The Core Values and Common Properties of Crystal .....................................107",
+   "pdfPage": 807,
+   "printedPage": null
+  },
+  {
+   "book": "Agile Practice Guide",
+   "kind": "table",
+   "id": "A3-5",
+   "title": "The Key Elements of the Agile Unified Process ..............................................111",
+   "pdfPage": 807,
+   "printedPage": null
+  },
+  {
+   "book": "Agile Practice Guide",
+   "kind": "table",
+   "id": "A3-6",
+   "title": "Comparison of LeSS and Scrum .....................................................................113",
+   "pdfPage": 807,
+   "printedPage": null
+  },
+  {
+   "book": "Agile Practice Guide",
+   "kind": "table",
+   "id": "X2-1",
+   "title": "Tailoring Guidelines .........................................................................................121",
+   "pdfPage": 807,
+   "printedPage": null
+  }
+ ],
+ "topics": {
+  "a-agile-contracts": {
+   "title": "Agile procurement and contracting techniques",
+   "module": "M17",
+   "section": "APG 6.3",
+   "kind": "technique",
+   "process": null,
+   "pdfPages": [
+    885,
+    886,
+    887
+   ]
+  },
+  "a-agile-measurements": {
+   "title": "Measurements in agile projects: empirical metrics, burndown/burnup, velocity, flow metrics, kanban board, feature charts, agile earned value, cumulative flow",
+   "module": "M17",
+   "section": "APG 5.4 (Figures 5-1 to 5-7)",
+   "kind": "concept",
+   "process": null,
+   "pdfPages": [
+    868,
+    869,
+    870,
+    871,
+    872,
+    873,
+    874,
+    875,
+    876,
+    877,
+    878
+   ]
+  },
+  "a-apg-purpose-scope": {
+   "title": "Agile Practice Guide: purpose, joint PMI-Agile Alliance origin, scope and structure",
+   "module": "M17",
+   "section": "APG Preface, Section 1 (Table 1-1)",
+   "kind": "orientation",
+   "process": null,
+   "pdfPages": [
+    799,
+    809,
+    810,
+    811,
+    812,
+    813
+   ]
+  },
+  "a-call-to-action": {
+   "title": "Agile Practice Guide call to action",
+   "module": "M17",
+   "section": "APG Section 7",
+   "kind": "orientation",
+   "process": null,
+   "pdfPages": [
+    895
+   ]
+  },
+  "a-charter-practices": {
+   "title": "Delivering in agile: chartering the project and team, retrospectives, backlog preparation and refinement, daily standups, demonstrations, iteration planning, technical execution practices, troubleshooting (Table 5-1)",
+   "module": "M17",
+   "section": "APG 5.1-5.3 (Table 5-1)",
+   "kind": "concept",
+   "process": null,
+   "pdfPages": [
+    857,
+    858,
+    859,
+    860,
+    861,
+    862,
+    863,
+    864,
+    865,
+    866,
+    867
+   ]
+  },
+  "a-definable-vs-uncertain": {
+   "title": "Definable work vs high-uncertainty work",
+   "module": "M17",
+   "section": "APG 2.1",
+   "kind": "concept",
+   "process": null,
+   "pdfPages": [
+    815
+   ]
+  },
+  "a-frameworks-scaled": {
+   "title": "Scaling frameworks: Scrum of Scrums, SAFe, LeSS, Enterprise Scrum, Disciplined Agile",
+   "module": "M17",
+   "section": "APG Annex A3.10-A3.14 (Figure A3-6)",
+   "kind": "concept",
+   "process": null,
+   "pdfPages": [
+    919,
+    920,
+    921,
+    922
+   ]
+  },
+  "a-frameworks-team": {
+   "title": "Agile and lean frameworks: selection criteria, Scrum, XP, Kanban Method, Crystal, Scrumban, FDD, DSDM, Agile UP",
+   "module": "M17",
+   "section": "APG Annex A3.1-A3.9 (Figures A3-1 to A3-5, Tables A3-1 to A3-5)",
+   "kind": "concept",
+   "process": null,
+   "pdfPages": [
+    907,
+    908,
+    909,
+    910,
+    911,
+    912,
+    913,
+    914,
+    915,
+    916,
+    917,
+    918,
+    919
+   ]
+  },
+  "a-hybrid-tailoring": {
+   "title": "Hybrid life cycles (agile then predictive, combined, largely predictive with agile parts, largely agile with predictive parts, fit-for-purpose, transition strategy); mixing approaches; project factors that influence tailoring",
+   "module": "M17",
+   "section": "APG 3.1.6-3.3 (Figures 3-6 to 3-9, Table 3-2)",
+   "kind": "concept",
+   "process": null,
+   "pdfPages": [
+    834,
+    835,
+    836,
+    837,
+    838,
+    839,
+    840
+   ]
+  },
+  "a-lean-kanban-uncertainty": {
+   "title": "Lean and the Kanban Method; uncertainty, risk and the Stacey-inspired complexity model",
+   "module": "M17",
+   "section": "APG 2.3-2.4 (Figure 2-5)",
+   "kind": "concept",
+   "process": null,
+   "pdfPages": [
+    820,
+    821,
+    822,
+    823,
+    824
+   ]
+  },
+  "a-life-cycle-types": {
+   "title": "Life cycle selection: predictive, iterative, incremental and agile characteristics; planning in every life cycle; iteration-based vs flow-based agile; suitability filters",
+   "module": "M17",
+   "section": "APG 3, 3.1-3.1.5 (Table 3-1, Figures 3-1 to 3-5)",
+   "kind": "concept",
+   "process": null,
+   "pdfPages": [
+    825,
+    826,
+    827,
+    828,
+    829,
+    830,
+    831,
+    832,
+    833
+   ]
+  },
+  "a-manifesto-mapping": {
+   "title": "Agile Manifesto values and principles mapped to the Agile Practice Guide (Annex A2)",
+   "module": "M17",
+   "section": "APG Annex A2 (Tables A2-1, A2-2)",
+   "kind": "reference",
+   "process": null,
+   "pdfPages": [
+    905,
+    906
+   ]
+  },
+  "a-manifesto-mindset": {
+   "title": "Agile Manifesto values and twelve principles; agile as mindset, values, principles and practices; agile as an umbrella term; two strategies to become agile",
+   "module": "M17",
+   "section": "APG 2.2 (Figures 2-1 to 2-4)",
+   "kind": "concept",
+   "process": null,
+   "pdfPages": [
+    816,
+    817,
+    818,
+    819,
+    820
+   ]
+  },
+  "a-org-business-pmo-structure": {
+   "title": "Business practices, multiteam scaling, the agile PMO, organisational structure and evolving the organisation",
+   "module": "M17",
+   "section": "APG 6.4-6.8 (Figures 6-3, 6-4 begin)",
+   "kind": "concept",
+   "process": null,
+   "pdfPages": [
+    887,
+    888,
+    889,
+    890,
+    891,
+    892,
+    893,
+    894
+   ]
+  },
+  "a-org-change-culture": {
+   "title": "Organisational considerations: change management, readiness for change, culture and safety, assessing culture",
+   "module": "M17",
+   "section": "APG 6.1-6.2 (Figures 6-1, 6-2)",
+   "kind": "concept",
+   "process": null,
+   "pdfPages": [
+    879,
+    880,
+    881,
+    882,
+    883,
+    884,
+    885
+   ]
+  },
+  "a-pmbok-ka-mapping": {
+   "title": "Applying agile across the PMBOK Guide Knowledge Areas (Annex A1)",
+   "module": "M17",
+   "section": "APG Annex A1 (Tables A1-1, A1-2)",
+   "kind": "concept",
+   "process": null,
+   "pdfPages": [
+    897,
+    898,
+    899,
+    900,
+    901,
+    902,
+    903
+   ]
+  },
+  "a-servant-leadership": {
+   "title": "Agile mindset questions, servant leadership (purpose-people-process, characteristics, responsibilities) and the project manager's role in agile",
+   "module": "M17",
+   "section": "APG 4.1-4.2.3",
+   "kind": "concept",
+   "process": null,
+   "pdfPages": [
+    841,
+    842,
+    843,
+    844,
+    845,
+    846
+   ]
+  },
+  "a-suitability-filter": {
+   "title": "Agile suitability filter: culture, team and project attributes on a radar chart",
+   "module": "M17",
+   "section": "APG Appendix X3 (Figures X3-1 to X3-13)",
+   "kind": "technique",
+   "process": null,
+   "pdfPages": [
+    933,
+    934,
+    935,
+    936,
+    937,
+    938,
+    939,
+    940,
+    941,
+    942,
+    943,
+    944,
+    945,
+    946
+   ]
+  },
+  "a-tailoring-agile": {
+   "title": "Tailoring agile approaches: cautions, Shu-Ha-Ri, self-supporting practice pairs and tailoring guidelines",
+   "module": "M17",
+   "section": "APG Appendix X2 (Table X2-1)",
+   "kind": "technique",
+   "process": null,
+   "pdfPages": [
+    927,
+    928,
+    929,
+    930,
+    931
+   ]
+  },
+  "a-team-composition": {
+   "title": "Agile team composition: team size, dedication, cross-functional roles (team member, product owner, team facilitator), generalising specialists, structures, multitasking cost, workspaces, silos",
+   "module": "M17",
+   "section": "APG 4.3 (Tables 4-1, 4-2)",
+   "kind": "concept",
+   "process": null,
+   "pdfPages": [
+    846,
+    847,
+    848,
+    849,
+    850,
+    851,
+    852,
+    853,
+    854,
+    855
+   ]
+  },
+  "c-7.1-plan-cost": {
+   "title": "7.1 Plan Cost Management: the cost management plan",
+   "module": "M07",
+   "section": "7.1 (Figures 7-2, 7-3)",
+   "kind": "process",
+   "process": "7.1",
+   "pdfPages": [
+    272,
+    273,
+    274,
+    275,
+    276
+   ]
+  },
+  "c-7.2-estimate-costs": {
+   "title": "7.2 Estimate Costs: ROM vs definitive accuracy, estimating techniques, three-point (triangular and beta), reserves, cost of quality",
+   "module": "M07",
+   "section": "7.2 (Figures 7-4, 7-5)",
+   "kind": "process",
+   "process": "7.2",
+   "pdfPages": [
+    277,
+    278,
+    279,
+    280,
+    281,
+    282,
+    283,
+    284
+   ]
+  },
+  "c-7.3-determine-budget": {
+   "title": "7.3 Determine Budget: cost aggregation, management reserve, funding limit reconciliation, cost baseline vs project budget, S-curve",
+   "module": "M07",
+   "section": "7.3 (Figures 7-6 to 7-9)",
+   "kind": "process",
+   "process": "7.3",
+   "pdfPages": [
+    285,
+    286,
+    287,
+    288,
+    289,
+    290,
+    291,
+    292,
+    293
+   ]
+  },
+  "c-7.4-control-costs": {
+   "title": "7.4 Control Costs: purpose and earned value fundamentals (PV, EV, AC, BAC, CV, SV, CPI, SPI)",
+   "module": "M07",
+   "section": "7.4, 7.4.1, 7.4.2.1-7.4.2.2 (Figures 7-10, 7-11)",
+   "kind": "process",
+   "process": "7.4",
+   "pdfPages": [
+    294,
+    295,
+    296,
+    297,
+    298,
+    299,
+    300
+   ]
+  },
+  "c-7.4-forecasting-tcpi": {
+   "title": "7.4 Control Costs (continued): EAC forecasting methods, ETC, VAC, reserve analysis, TCPI, Table 7-1",
+   "module": "M07",
+   "section": "7.4.2.2-7.4.3 (Figures 7-12, 7-13; Table 7-1, visually verified)",
+   "kind": "formula",
+   "process": "7.4",
+   "pdfPages": [
+    301,
+    302,
+    303,
+    304,
+    305,
+    306,
+    307
+   ]
+  },
+  "c-cost-overview": {
+   "title": "Project Cost Management overview: four processes, life-cycle cost, measuring cost, earned schedule trend, tailoring, agile",
+   "module": "M07",
+   "section": "7 intro, key concepts, trends, tailoring, agile (Figure 7-1)",
+   "kind": "process-overview",
+   "process": null,
+   "pdfPages": [
+    268,
+    269,
+    270,
+    271
+   ]
+  },
+  "e-eefs": {
+   "title": "Enterprise environmental factors (internal and external)",
+   "module": "M02",
+   "section": "2.2, 2.2.1, 2.2.2",
+   "kind": "concept",
+   "process": null,
+   "pdfPages": [
+    75,
+    76
+   ]
+  },
+  "e-governance": {
+   "title": "Organisational and project governance frameworks",
+   "module": "M02",
+   "section": "2.4.2",
+   "kind": "concept",
+   "process": null,
+   "pdfPages": [
+    80,
+    81
+   ]
+  },
+  "e-management-elements": {
+   "title": "Management elements (general management principles)",
+   "module": "M02",
+   "section": "2.4.3",
+   "kind": "concept",
+   "process": null,
+   "pdfPages": [
+    81,
+    82
+   ]
+  },
+  "e-opas": {
+   "title": "Organisational process assets: processes/policies/procedures and knowledge repositories",
+   "module": "M02",
+   "section": "2.3, 2.3.1, 2.3.2",
+   "kind": "concept",
+   "process": null,
+   "pdfPages": [
+    76,
+    77,
+    78
+   ]
+  },
+  "e-organizational-systems": {
+   "title": "Organisational systems and systems principles",
+   "module": "M02",
+   "section": "2.4.1",
+   "kind": "concept",
+   "process": null,
+   "pdfPages": [
+    79,
+    80
+   ]
+  },
+  "e-pmo": {
+   "title": "Project management office: types and functions",
+   "module": "M02",
+   "section": "2.4.4.3",
+   "kind": "concept",
+   "process": null,
+   "pdfPages": [
+    85,
+    86
+   ]
+  },
+  "e-project-influences": {
+   "title": "Project influences: EEFs, OPAs and organisational systems",
+   "module": "M02",
+   "section": "2.1 (Figure 2-1)",
+   "kind": "concept",
+   "process": null,
+   "pdfPages": [
+    74
+   ]
+  },
+  "e-structure-types": {
+   "title": "Organisational structure types and their influence on projects",
+   "module": "M02",
+   "section": "2.4.4.1, 2.4.4.2 (Table 2-1, visually verified)",
+   "kind": "table",
+   "process": null,
+   "pdfPages": [
+    82,
+    83,
+    84
+   ]
+  },
+  "f-business-documents": {
+   "title": "Project business documents: business case and benefits management plan",
+   "module": "M01",
+   "section": "1.2.6, 1.2.6.1, 1.2.6.2 (Table 1-5, Figure 1-8)",
+   "kind": "concept",
+   "process": null,
+   "pdfPages": [
+    66,
+    67,
+    68,
+    69,
+    70
+   ]
+  },
+  "f-business-value": {
+   "title": "Business value: tangible and intangible benefits",
+   "module": "M01",
+   "section": "1.2.1",
+   "kind": "definition",
+   "process": null,
+   "pdfPages": [
+    44
+   ]
+  },
+  "f-charter-and-plan-defs": {
+   "title": "Project charter and project management plan defined",
+   "module": "M01",
+   "section": "1.2.6.3",
+   "kind": "definition",
+   "process": null,
+   "pdfPages": [
+    71
+   ]
+  },
+  "f-data-information-reports": {
+   "title": "Work performance data, information and reports and how they flow",
+   "module": "M01",
+   "section": "1.2.4.7 (Figure 1-7)",
+   "kind": "definition",
+   "process": null,
+   "pdfPages": [
+    63,
+    64
+   ]
+  },
+  "f-guide-purpose": {
+   "title": "Purpose of the PMBOK Guide: generally recognised good practice, tailoring, guide vs methodology",
+   "module": "M01",
+   "section": "1.1, 1.1.1",
+   "kind": "concept",
+   "process": null,
+   "pdfPages": [
+    38,
+    39,
+    40
+   ]
+  },
+  "f-importance-of-pm": {
+   "title": "Project management defined and why it matters",
+   "module": "M01",
+   "section": "1.2.2",
+   "kind": "concept",
+   "process": null,
+   "pdfPages": [
+    47,
+    48
+   ]
+  },
+  "f-initiation-context": {
+   "title": "Project initiation context: the four categories of factors that create projects",
+   "module": "M01",
+   "section": "1.2.1 (Figure 1-2, Table 1-1)",
+   "kind": "concept",
+   "process": null,
+   "pdfPages": [
+    44,
+    45,
+    46
+   ]
+  },
+  "f-key-components": {
+   "title": "Key components of the Guide and how they interrelate",
+   "module": "M01",
+   "section": "1.2.4 (Figure 1-5, Table 1-3)",
+   "kind": "concept",
+   "process": null,
+   "pdfPages": [
+    54,
+    55
+   ]
+  },
+  "f-knowledge-areas": {
+   "title": "The ten Knowledge Areas",
+   "module": "M01",
+   "section": "1.2.4.6",
+   "kind": "definition",
+   "process": null,
+   "pdfPages": [
+    60,
+    61
+   ]
+  },
+  "f-life-cycles": {
+   "title": "Project and development life cycles: predictive, iterative, incremental, adaptive, hybrid",
+   "module": "M01",
+   "section": "1.2.4.1",
+   "kind": "concept",
+   "process": null,
+   "pdfPages": [
+    56
+   ]
+  },
+  "f-operations-and-projects": {
+   "title": "Operations management and where operations meet projects",
+   "module": "M01",
+   "section": "1.2.3.4-1.2.3.5",
+   "kind": "concept",
+   "process": null,
+   "pdfPages": [
+    53
+   ]
+  },
+  "f-opm": {
+   "title": "Organisational project management (OPM) and strategy alignment",
+   "module": "M01",
+   "section": "1.2.3.6 (Figure 1-4)",
+   "kind": "concept",
+   "process": null,
+   "pdfPages": [
+    53,
+    54
+   ]
+  },
+  "f-phases-and-gates": {
+   "title": "Project phases and phase gates",
+   "module": "M01",
+   "section": "1.2.4.2-1.2.4.3",
+   "kind": "concept",
+   "process": null,
+   "pdfPages": [
+    57,
+    58
+   ]
+  },
+  "f-pm-processes": {
+   "title": "Project management processes, ITTOs and how often processes run",
+   "module": "M01",
+   "section": "1.2.4.4 (Figure 1-6)",
+   "kind": "concept",
+   "process": null,
+   "pdfPages": [
+    59
+   ]
+  },
+  "f-portfolio-management": {
+   "title": "Portfolio management aims",
+   "module": "M01",
+   "section": "1.2.3.3",
+   "kind": "concept",
+   "process": null,
+   "pdfPages": [
+    52
+   ]
+  },
+  "f-portfolio-program-project": {
+   "title": "Portfolios, programs, projects and operations compared",
+   "module": "M01",
+   "section": "1.2.3.1 (Figure 1-3, Table 1-2)",
+   "kind": "concept",
+   "process": null,
+   "pdfPages": [
+    48,
+    49,
+    50
+   ]
+  },
+  "f-process-groups": {
+   "title": "The five Project Management Process Groups",
+   "module": "M01",
+   "section": "1.2.4.5",
+   "kind": "definition",
+   "process": null,
+   "pdfPages": [
+    60
+   ]
+  },
+  "f-process-map": {
+   "title": "Process Group and Knowledge Area mapping of all 49 processes",
+   "module": "M15",
+   "section": "Table 1-4 (visually verified)",
+   "kind": "table",
+   "process": null,
+   "pdfPages": [
+    62,
+    593
+   ]
+  },
+  "f-program-management": {
+   "title": "Program management and program-level interdependencies",
+   "module": "M01",
+   "section": "1.2.3.2",
+   "kind": "concept",
+   "process": null,
+   "pdfPages": [
+    51
+   ]
+  },
+  "f-project-definition": {
+   "title": "What a project is: temporary, unique, deliverables and objectives; when a project ends",
+   "module": "M01",
+   "section": "1.2.1",
+   "kind": "definition",
+   "process": null,
+   "pdfPages": [
+    41,
+    42
+   ]
+  },
+  "f-projects-drive-change": {
+   "title": "Projects drive change: current state, transition state, future state",
+   "module": "M01",
+   "section": "1.2.1 (Figure 1-1)",
+   "kind": "concept",
+   "process": null,
+   "pdfPages": [
+    43
+   ]
+  },
+  "f-success-measures": {
+   "title": "Project success measures and financial measures",
+   "module": "M01",
+   "section": "1.2.6.4",
+   "kind": "concept",
+   "process": null,
+   "pdfPages": [
+    71,
+    72
+   ]
+  },
+  "f-tailoring": {
+   "title": "Tailoring project management to the project",
+   "module": "M01",
+   "section": "1.2.5",
+   "kind": "concept",
+   "process": null,
+   "pdfPages": [
+    65
+   ]
+  },
+  "f-vocabulary-ethics": {
+   "title": "Common vocabulary and the PMI Code of Ethics and Professional Conduct",
+   "module": "M03",
+   "section": "1.1.2, 1.1.3",
+   "kind": "concept",
+   "process": null,
+   "pdfPages": [
+    40
+   ]
+  },
+  "g-apg-glossary": {
+   "title": "Agile Practice Guide glossary: agile terms and definitions",
+   "module": "M17",
+   "section": "APG Glossary (PDF 957-963)",
+   "kind": "definition",
+   "process": null,
+   "pdfPages": [
+    957,
+    958,
+    959,
+    960,
+    961,
+    962,
+    963
+   ]
+  },
+  "g-glossary-a-c": {
+   "title": "Glossary definitions A-C (Acceptance Criteria to Criteria): key precise wordings and glossary-only facts",
+   "module": "M16",
+   "section": "Glossary 3 (PDF 735-740)",
+   "kind": "definition",
+   "process": null,
+   "pdfPages": [
+    735,
+    736,
+    737,
+    738,
+    739,
+    740
+   ]
+  },
+  "g-glossary-c-s": {
+   "title": "Glossary definitions C-S (Critical Path to Start-to-Finish): precise wordings and glossary-only facts",
+   "module": "M16",
+   "section": "Glossary 3 (PDF 741-760)",
+   "kind": "definition",
+   "process": null,
+   "pdfPages": [
+    741,
+    742,
+    743,
+    744,
+    745,
+    746,
+    747,
+    748,
+    749,
+    750,
+    751,
+    752,
+    753,
+    754,
+    755,
+    756,
+    757,
+    758,
+    759,
+    760
+   ]
+  },
+  "g-glossary-s-w": {
+   "title": "Glossary definitions S-W (Start-to-Start to Work Performance Reports)",
+   "module": "M16",
+   "section": "Glossary 3 (PDF 761-763)",
+   "kind": "definition",
+   "process": null,
+   "pdfPages": [
+    761,
+    762,
+    763
+   ]
+  },
+  "g-glossary-scope-acronyms": {
+   "title": "Glossary: inclusion/exclusion rules and common acronyms",
+   "module": "M16",
+   "section": "Glossary 1-2",
+   "kind": "definition",
+   "process": null,
+   "pdfPages": [
+    732,
+    733,
+    734
+   ]
+  },
+  "h-13.1-identify-stakeholders": {
+   "title": "13.1 Identify Stakeholders: stakeholder analysis and stakes, mapping models (grids, cube, salience, directions of influence), stakeholder register",
+   "module": "M13",
+   "section": "13.1 (Figures 13-2, 13-3)",
+   "kind": "process",
+   "process": "13.1",
+   "pdfPages": [
+    544,
+    545,
+    546,
+    547,
+    548,
+    549,
+    550,
+    551,
+    552
+   ]
+  },
+  "h-13.2-plan-engagement": {
+   "title": "13.2 Plan Stakeholder Engagement: update triggers, prioritisation, engagement assessment matrix (unaware to leading), stakeholder engagement plan",
+   "module": "M13",
+   "section": "13.2 (Figures 13-4 to 13-6)",
+   "kind": "process",
+   "process": "13.2",
+   "pdfPages": [
+    553,
+    554,
+    555,
+    556,
+    557,
+    558,
+    559
+   ]
+  },
+  "h-13.3-manage-engagement": {
+   "title": "13.3 Manage Stakeholder Engagement: activities, inputs, communication and interpersonal skills (part 1)",
+   "module": "M13",
+   "section": "13.3, 13.3.1, 13.3.2.1-13.3.2.3 (Figures 13-7, 13-8)",
+   "kind": "process",
+   "process": "13.3",
+   "pdfPages": [
+    560,
+    561,
+    562,
+    563,
+    564
+   ]
+  },
+  "h-13.3-manage-outputs": {
+   "title": "13.3 Manage Stakeholder Engagement (continued): ground rules, meeting types, outputs",
+   "module": "M13",
+   "section": "13.3.2.4-13.3.3",
+   "kind": "process",
+   "process": "13.3",
+   "pdfPages": [
+    565,
+    566
+   ]
+  },
+  "h-13.4-monitor-engagement": {
+   "title": "13.4 Monitor Stakeholder Engagement: analysis, decision making, engagement matrix tracking, communication and interpersonal skills, outputs",
+   "module": "M13",
+   "section": "13.4 (Figures 13-9, 13-10)",
+   "kind": "process",
+   "process": "13.4",
+   "pdfPages": [
+    567,
+    568,
+    569,
+    570,
+    571,
+    572,
+    573
+   ]
+  },
+  "h-stakeholder-intro": {
+   "title": "Project Stakeholder Management: purpose and four processes",
+   "module": "M13",
+   "section": "13 intro",
+   "kind": "process-overview",
+   "process": null,
+   "pdfPages": [
+    540
+   ]
+  },
+  "h-stakeholder-overview": {
+   "title": "Stakeholder Management key concepts, trends (broader definitions, co-creation), tailoring and agile considerations",
+   "module": "M13",
+   "section": "13 key concepts, trends, tailoring, agile (Figure 13-1)",
+   "kind": "concept",
+   "process": null,
+   "pdfPages": [
+    541,
+    542,
+    543
+   ]
+  },
+  "i-4.1-develop-charter": {
+   "title": "4.1 Develop Project Charter: purpose, who charters, inputs, tools, outputs",
+   "module": "M04",
+   "section": "4.1 (Figures 4-2, 4-3)",
+   "kind": "process",
+   "process": "4.1",
+   "pdfPages": [
+    112,
+    113,
+    114,
+    115,
+    116,
+    117,
+    118
+   ]
+  },
+  "i-4.2-develop-pmp": {
+   "title": "4.2 Develop Project Management Plan: baselining, change control, kick-off meeting",
+   "module": "M04",
+   "section": "4.2 (Figures 4-4, 4-5)",
+   "kind": "process",
+   "process": "4.2",
+   "pdfPages": [
+    119,
+    120,
+    121,
+    122,
+    123
+   ]
+  },
+  "i-4.3-direct-manage": {
+   "title": "4.3 Direct and Manage Project Work: executing the plan, approved changes, deliverables and WPD",
+   "module": "M04",
+   "section": "4.3 (Figures 4-6, 4-7)",
+   "kind": "process",
+   "process": "4.3",
+   "pdfPages": [
+    127,
+    128,
+    129,
+    130,
+    131,
+    132,
+    133,
+    134
+   ]
+  },
+  "i-4.4-manage-knowledge": {
+   "title": "4.4 Manage Project Knowledge: tacit vs explicit knowledge, knowledge and information management, lessons learned register",
+   "module": "M04",
+   "section": "4.4 (Figures 4-8, 4-9)",
+   "kind": "process",
+   "process": "4.4",
+   "pdfPages": [
+    135,
+    136,
+    137,
+    138,
+    139,
+    140,
+    141,
+    142
+   ]
+  },
+  "i-4.5-monitor-control-work": {
+   "title": "4.5 Monitor and Control Project Work: integrated monitoring, data analysis techniques, work performance reports",
+   "module": "M04",
+   "section": "4.5 (Figures 4-10, 4-11)",
+   "kind": "process",
+   "process": "4.5",
+   "pdfPages": [
+    142,
+    143,
+    144,
+    145,
+    146,
+    147,
+    148,
+    149,
+    150
+   ]
+  },
+  "i-4.6-integrated-change-control": {
+   "title": "4.6 Perform Integrated Change Control: CCB, configuration vs change control, decisions and the change log",
+   "module": "M04",
+   "section": "4.6 (Figures 4-12, 4-13)",
+   "kind": "process",
+   "process": "4.6",
+   "pdfPages": [
+    150,
+    151,
+    152,
+    153,
+    154,
+    155,
+    156,
+    157
+   ]
+  },
+  "i-4.7-close-project": {
+   "title": "4.7 Close Project or Phase: administrative closure, contract closure, transition, final report",
+   "module": "M04",
+   "section": "4.7 (Figures 4-14, 4-15)",
+   "kind": "process",
+   "process": "4.7",
+   "pdfPages": [
+    158,
+    159,
+    160,
+    161,
+    162,
+    163,
+    164,
+    165
+   ]
+  },
+  "i-change-request-types": {
+   "title": "Change requests and their types; issue log",
+   "module": "M04",
+   "section": "4.3.3.3, 4.3.3.4",
+   "kind": "definition",
+   "process": null,
+   "pdfPages": [
+    133
+   ]
+  },
+  "i-common-tt": {
+   "title": "Recurring tools and techniques: expert judgment, brainstorming, focus groups, interviews, facilitation, meeting management, checklists",
+   "module": "M04",
+   "section": "4.1.2, 4.2.2",
+   "kind": "tool-technique",
+   "process": null,
+   "pdfPages": [
+    116,
+    117,
+    122,
+    123
+   ]
+  },
+  "i-integration-overview": {
+   "title": "Project Integration Management: purpose, the seven processes and their ITTOs",
+   "module": "M04",
+   "section": "4 intro (Figure 4-1)",
+   "kind": "process-overview",
+   "process": null,
+   "pdfPages": [
+    106,
+    107,
+    108
+   ]
+  },
+  "i-key-concepts": {
+   "title": "Key concepts, trends and tailoring for Integration Management; agile considerations",
+   "module": "M04",
+   "section": "4 key concepts, trends, tailoring, agile considerations",
+   "kind": "concept",
+   "process": null,
+   "pdfPages": [
+    109,
+    110,
+    111
+   ]
+  },
+  "i-pmp-components": {
+   "title": "Project management plan components vs project documents (Table 4-1)",
+   "module": "M04",
+   "section": "4.2.3.1 (Table 4-1)",
+   "kind": "table",
+   "process": null,
+   "pdfPages": [
+    124,
+    125,
+    126
+   ]
+  },
+  "k-11.1-plan-contents-pim": {
+   "title": "11.1 risk management plan (continued): probability and impact matrix and scoring, reporting formats, tracking",
+   "module": "M11",
+   "section": "11.1.3.1 (Figure 11-5, visually verified)",
+   "kind": "table",
+   "process": "11.1",
+   "pdfPages": [
+    445
+   ]
+  },
+  "k-11.1-plan-risk": {
+   "title": "11.1 Plan Risk Management: risk management plan, RBS, risk appetite and thresholds, probability and impact definitions",
+   "module": "M11",
+   "section": "11.1 (Figures 11-2 to 11-4; Table 11-1 visually verified)",
+   "kind": "process",
+   "process": "11.1",
+   "pdfPages": [
+    438,
+    439,
+    440,
+    441,
+    442,
+    443,
+    444
+   ]
+  },
+  "k-11.2-identify-risks": {
+   "title": "11.2 Identify Risks: participants, risk statements, techniques (checklists, assumption and constraint analysis, SWOT, prompt lists - PESTLE, TECOP, VUCA), risk register and risk report",
+   "module": "M11",
+   "section": "11.2 (Figures 11-6, 11-7)",
+   "kind": "process",
+   "process": "11.2",
+   "pdfPages": [
+    446,
+    447,
+    448,
+    449,
+    450,
+    451,
+    452,
+    453,
+    454,
+    455
+   ]
+  },
+  "k-11.3-qualitative": {
+   "title": "11.3 Perform Qualitative Risk Analysis: bias, data quality, probability and impact, other parameters, categorisation, P-I matrix, bubble charts, risk owners",
+   "module": "M11",
+   "section": "11.3 (Figures 11-8 to 11-10)",
+   "kind": "process",
+   "process": "11.3",
+   "pdfPages": [
+    456,
+    457,
+    458,
+    459,
+    460,
+    461,
+    462,
+    463,
+    464
+   ]
+  },
+  "k-11.4-quantitative-intro": {
+   "title": "11.4 Perform Quantitative Risk Analysis: when it is used, inputs",
+   "module": "M11",
+   "section": "11.4, 11.4.1, 11.4.2.1 (Figures 11-11, 11-12)",
+   "kind": "process",
+   "process": "11.4",
+   "pdfPages": [
+    465,
+    466,
+    467,
+    468
+   ]
+  },
+  "k-11.4-quantitative-tools": {
+   "title": "11.4 Perform Quantitative Risk Analysis (continued): probability distributions, Monte Carlo, criticality, sensitivity/tornado, decision trees and EMV, influence diagrams, outputs",
+   "module": "M11",
+   "section": "11.4.2.2-11.4.3 (Figures 11-13 to 11-15)",
+   "kind": "process",
+   "process": "11.4",
+   "pdfPages": [
+    469,
+    470,
+    471,
+    472,
+    473
+   ]
+  },
+  "k-11.5-plan-responses": {
+   "title": "11.5 Plan Risk Responses: response criteria, threat and opportunity strategies, contingent responses, overall-risk strategies, secondary and residual risks",
+   "module": "M11",
+   "section": "11.5 (Figures 11-16, 11-17)",
+   "kind": "process",
+   "process": "11.5",
+   "pdfPages": [
+    474,
+    475,
+    476,
+    477,
+    478,
+    479,
+    480,
+    481,
+    482,
+    483,
+    484,
+    485
+   ]
+  },
+  "k-11.6-implement-responses": {
+   "title": "11.6 Implement Risk Responses: ensuring agreed responses are actually executed",
+   "module": "M11",
+   "section": "11.6 (Figures 11-18, 11-19)",
+   "kind": "process",
+   "process": "11.6",
+   "pdfPages": [
+    486,
+    487,
+    488,
+    489
+   ]
+  },
+  "k-11.7-monitor-risks": {
+   "title": "11.7 Monitor Risks: what monitoring determines, inputs (part 1)",
+   "module": "M11",
+   "section": "11.7, 11.7.1 (Figures 11-20, 11-21)",
+   "kind": "process",
+   "process": "11.7",
+   "pdfPages": [
+    490,
+    491,
+    492
+   ]
+  },
+  "k-11.7-monitor-risks-tools": {
+   "title": "11.7 Monitor Risks (continued): technical performance analysis, reserve analysis, risk audits, risk reviews, outputs",
+   "module": "M11",
+   "section": "11.7.1.3-11.7.3",
+   "kind": "process",
+   "process": "11.7",
+   "pdfPages": [
+    493,
+    494,
+    495
+   ]
+  },
+  "k-risk-overview": {
+   "title": "Project Risk Management overview: seven processes, individual vs overall risk, threats and opportunities, risk appetite and thresholds, trends (non-event risks, resilience, integrated risk), tailoring, agile",
+   "module": "M11",
+   "section": "11 intro, key concepts, trends, tailoring, agile (Figure 11-1)",
+   "kind": "process-overview",
+   "process": null,
+   "pdfPages": [
+    432,
+    433,
+    434,
+    435,
+    436,
+    437
+   ]
+  },
+  "m-10.1-plan-communications": {
+   "title": "10.1 Plan Communications Management: requirements analysis, technology factors, communication models, push/pull/interactive methods, plan contents",
+   "module": "M10",
+   "section": "10.1 (Figures 10-2 to 10-4)",
+   "kind": "process",
+   "process": "10.1",
+   "pdfPages": [
+    403,
+    404,
+    405,
+    406,
+    407,
+    408,
+    409,
+    410,
+    411,
+    412,
+    413,
+    414,
+    415
+   ]
+  },
+  "m-10.2-manage-communications": {
+   "title": "10.2 Manage Communications: effective communication techniques and inputs (part 1)",
+   "module": "M10",
+   "section": "10.2, 10.2.1, 10.2.2.1-10.2.2.2 (Figures 10-5, 10-6)",
+   "kind": "process",
+   "process": "10.2",
+   "pdfPages": [
+    416,
+    417,
+    418,
+    419,
+    420
+   ]
+  },
+  "m-10.2-manage-communications-tools": {
+   "title": "10.2 Manage Communications (continued): communication skills, PMIS, project reporting, meeting management, networking, outputs",
+   "module": "M10",
+   "section": "10.2.2.3-10.2.3",
+   "kind": "process",
+   "process": "10.2",
+   "pdfPages": [
+    421,
+    422,
+    423,
+    424,
+    425
+   ]
+  },
+  "m-10.3-monitor-communications": {
+   "title": "10.3 Monitor Communications: right message, audience, channel, time; iteration with planning and managing",
+   "module": "M10",
+   "section": "10.3 (Figures 10-7, 10-8)",
+   "kind": "process",
+   "process": "10.3",
+   "pdfPages": [
+    425,
+    426,
+    427,
+    428,
+    429,
+    430
+   ]
+  },
+  "m-communications-intro": {
+   "title": "Project Communications Management: purpose, two parts, three processes",
+   "module": "M10",
+   "section": "10 intro",
+   "kind": "process-overview",
+   "process": null,
+   "pdfPages": [
+    396
+   ]
+  },
+  "m-communications-overview": {
+   "title": "Communications key concepts: forms and dimensions of communication, 5Cs of written communication, communication skills, trends, tailoring, agile",
+   "module": "M10",
+   "section": "10 key concepts, trends, tailoring, agile (Figure 10-1)",
+   "kind": "concept",
+   "process": null,
+   "pdfPages": [
+    397,
+    398,
+    399,
+    400,
+    401,
+    402
+   ]
+  },
+  "p-12.1-outputs-table": {
+   "title": "12.1 Plan Procurement Management (continued): document updates, OPA updates, Table 12-1 comparison of procurement documentation",
+   "module": "M12",
+   "section": "12.1.3.9-12.1.3.10 (Table 12-1)",
+   "kind": "table",
+   "process": "12.1",
+   "pdfPages": [
+    517,
+    518
+   ]
+  },
+  "p-12.1-plan-procurement": {
+   "title": "12.1 Plan Procurement Management: typical procurement steps, contract types, make-or-buy, source selection methods, procurement strategy, bid documents, SOW/TOR, source selection criteria, independent estimates",
+   "module": "M12",
+   "section": "12.1 (Figures 12-2, 12-3)",
+   "kind": "process",
+   "process": "12.1",
+   "pdfPages": [
+    503,
+    504,
+    505,
+    506,
+    507,
+    508,
+    509,
+    510,
+    511,
+    512,
+    513,
+    514,
+    515,
+    516
+   ]
+  },
+  "p-12.2-conduct-procurements": {
+   "title": "12.2 Conduct Procurements: seller proposals, advertising, bidder conferences, proposal evaluation, negotiation, selected sellers, agreement components",
+   "module": "M12",
+   "section": "12.2 (Figures 12-4, 12-5)",
+   "kind": "process",
+   "process": "12.2",
+   "pdfPages": [
+    519,
+    520,
+    521,
+    522,
+    523,
+    524,
+    525,
+    526,
+    527,
+    528
+   ]
+  },
+  "p-12.3-control-procurements": {
+   "title": "12.3 Control Procurements: contract administration, payments linked to work, claims administration, inspections, audits, closed procurements",
+   "module": "M12",
+   "section": "12.3 (Figures 12-6, 12-7)",
+   "kind": "process",
+   "process": "12.3",
+   "pdfPages": [
+    529,
+    530,
+    531,
+    532,
+    533,
+    534,
+    535,
+    536,
+    537,
+    538
+   ]
+  },
+  "p-procurement-overview": {
+   "title": "Project Procurement Management overview: three processes, legal nature of contracts, buyer-seller roles, centralised vs decentralised purchasing, trends, tailoring, agile",
+   "module": "M12",
+   "section": "12 intro, key concepts, trends, tailoring, agile (Figure 12-1)",
+   "kind": "process-overview",
+   "process": null,
+   "pdfPages": [
+    496,
+    497,
+    498,
+    499,
+    500,
+    501,
+    502
+   ]
+  },
+  "q-8.1-plan-quality": {
+   "title": "8.1 Plan Quality Management: COQ categories, cost-benefit, data representation, test and inspection planning, quality plan and metrics",
+   "module": "M08",
+   "section": "8.1 (Figures 8-3 to 8-6)",
+   "kind": "process",
+   "process": "8.1",
+   "pdfPages": [
+    314,
+    315,
+    316,
+    317,
+    318,
+    319,
+    320,
+    321,
+    322,
+    323,
+    324
+   ]
+  },
+  "q-8.2-manage-quality": {
+   "title": "8.2 Manage Quality: quality assurance, data representation tools, audits, Design for X, problem solving, improvement methods",
+   "module": "M08",
+   "section": "8.2 (Figures 8-7 to 8-9)",
+   "kind": "process",
+   "process": "8.2",
+   "pdfPages": [
+    325,
+    326,
+    327,
+    328,
+    329,
+    330,
+    331,
+    332,
+    333,
+    334
+   ]
+  },
+  "q-8.3-control-quality": {
+   "title": "8.3 Control Quality: check sheets, statistical sampling, inspection, testing, control charts, verified deliverables",
+   "module": "M08",
+   "section": "8.3 (Figures 8-10 to 8-12)",
+   "kind": "process",
+   "process": "8.3",
+   "pdfPages": [
+    335,
+    336,
+    337,
+    338,
+    339,
+    340,
+    341,
+    342,
+    343
+   ]
+  },
+  "q-quality-overview": {
+   "title": "Project Quality Management overview: three processes, interrelations, quality vs grade, prevention vs inspection, COQ, five levels, trends",
+   "module": "M08",
+   "section": "8 intro, key concepts, trends, tailoring, agile (Figures 8-1, 8-2)",
+   "kind": "process-overview",
+   "process": null,
+   "pdfPages": [
+    308,
+    309,
+    310,
+    311,
+    312,
+    313
+   ]
+  },
+  "r-9.1-plan-resource": {
+   "title": "9.1 Plan Resource Management: OBS, RBS, RAM/RACI, organisational theory, resource management plan, team charter",
+   "module": "M09",
+   "section": "9.1 (Figures 9-2 to 9-4)",
+   "kind": "process",
+   "process": "9.1",
+   "pdfPages": [
+    349,
+    350,
+    351,
+    352,
+    353,
+    354,
+    355,
+    356,
+    357
+   ]
+  },
+  "r-9.2-estimate-resources": {
+   "title": "9.2 Estimate Activity Resources: resource calendars, estimating methods, resource requirements, RBS",
+   "module": "M09",
+   "section": "9.2 (Figures 9-5 to 9-7)",
+   "kind": "process",
+   "process": "9.2",
+   "pdfPages": [
+    357,
+    358,
+    359,
+    360,
+    361,
+    362,
+    363,
+    364
+   ]
+  },
+  "r-9.3-acquire-resources": {
+   "title": "9.3 Acquire Resources: negotiation, pre-assignment, virtual teams, selection criteria, assignments and resource calendars",
+   "module": "M09",
+   "section": "9.3 (Figures 9-8, 9-9)",
+   "kind": "process",
+   "process": "9.3",
+   "pdfPages": [
+    365,
+    366,
+    367,
+    368,
+    369,
+    370,
+    371,
+    372
+   ]
+  },
+  "r-9.4-develop-team": {
+   "title": "9.4 Develop Team: high-performing team behaviours, Tuckman ladder, colocation, team building, recognition, training, assessments",
+   "module": "M09",
+   "section": "9.4 (Figures 9-10, 9-11)",
+   "kind": "process",
+   "process": "9.4",
+   "pdfPages": [
+    373,
+    374,
+    375,
+    376,
+    377,
+    378,
+    379,
+    380,
+    381
+   ]
+  },
+  "r-9.5-manage-team": {
+   "title": "9.5 Manage Team: conflict sources and five resolution techniques, decision making, emotional intelligence, influencing, leadership",
+   "module": "M09",
+   "section": "9.5 (Figures 9-12, 9-13)",
+   "kind": "process",
+   "process": "9.5",
+   "pdfPages": [
+    382,
+    383,
+    384,
+    385,
+    386,
+    387,
+    388
+   ]
+  },
+  "r-9.6-control-resources": {
+   "title": "9.6 Control Resources: physical resource control, problem-solving steps, outputs",
+   "module": "M09",
+   "section": "9.6 (Figures 9-14, 9-15)",
+   "kind": "process",
+   "process": "9.6",
+   "pdfPages": [
+    389,
+    390,
+    391,
+    392,
+    393,
+    394,
+    395
+   ]
+  },
+  "r-leadership-qualities": {
+   "title": "Leadership skills, dealing with people and qualities of a leader",
+   "module": "M03",
+   "section": "3.4.4-3.4.4.2",
+   "kind": "concept",
+   "process": null,
+   "pdfPages": [
+    97,
+    98,
+    99
+   ]
+  },
+  "r-leadership-vs-management": {
+   "title": "Leadership vs management; leadership styles; personality",
+   "module": "M03",
+   "section": "3.4.5 (Table 3-1), 3.4.5.1, 3.4.5.2",
+   "kind": "concept",
+   "process": null,
+   "pdfPages": [
+    101,
+    102,
+    103
+   ]
+  },
+  "r-performing-integration": {
+   "title": "Performing integration at process, cognitive and context levels; complexity",
+   "module": "M03",
+   "section": "3.5-3.5.4",
+   "kind": "concept",
+   "process": null,
+   "pdfPages": [
+    103,
+    104,
+    105
+   ]
+  },
+  "r-pm-definition-sphere": {
+   "title": "Project manager defined; sphere of influence (project, organisation, industry, profession, across disciplines)",
+   "module": "M03",
+   "section": "3.1-3.3 (Figure 3-1)",
+   "kind": "concept",
+   "process": null,
+   "pdfPages": [
+    89,
+    90,
+    91,
+    92,
+    93
+   ]
+  },
+  "r-pm-role-overview": {
+   "title": "The project manager's role and the orchestra-conductor analogy",
+   "module": "M03",
+   "section": "3.1",
+   "kind": "concept",
+   "process": null,
+   "pdfPages": [
+    88,
+    89
+   ]
+  },
+  "r-politics-power": {
+   "title": "Politics, power and getting things done: forms of power",
+   "module": "M03",
+   "section": "3.4.4.3",
+   "kind": "concept",
+   "process": null,
+   "pdfPages": [
+    99,
+    100
+   ]
+  },
+  "r-resource-overview": {
+   "title": "Project Resource Management overview: six processes, team vs physical resources, trends (EI, self-organising, virtual teams), tailoring, agile",
+   "module": "M09",
+   "section": "9 intro, key concepts, trends, tailoring, agile (Figure 9-1)",
+   "kind": "process-overview",
+   "process": null,
+   "pdfPages": [
+    344,
+    345,
+    346,
+    347,
+    348,
+    349
+   ]
+  },
+  "r-talent-triangle": {
+   "title": "PMI Talent Triangle: technical project management, leadership, strategic and business management",
+   "module": "M03",
+   "section": "3.4.1-3.4.3 (Figure 3-2)",
+   "kind": "concept",
+   "process": null,
+   "pdfPages": [
+    93,
+    94,
+    95,
+    96,
+    97
+   ]
+  },
+  "s-5.1-plan-scope": {
+   "title": "5.1 Plan Scope Management: scope management plan and requirements management plan",
+   "module": "M05",
+   "section": "5.1 (Figures 5-2, 5-3)",
+   "kind": "process",
+   "process": "5.1",
+   "pdfPages": [
+    171,
+    172,
+    173,
+    174
+   ]
+  },
+  "s-5.2-collect-requirements": {
+   "title": "5.2 Collect Requirements: elicitation techniques, requirements documentation, traceability matrix",
+   "module": "M05",
+   "section": "5.2 (Figures 5-4, 5-5)",
+   "kind": "process",
+   "process": "5.2",
+   "pdfPages": [
+    175,
+    176,
+    177,
+    178,
+    179,
+    180,
+    181
+   ]
+  },
+  "s-5.2-requirements-techniques-outputs": {
+   "title": "5.2 Collect Requirements (continued): nominal group, observation, facilitation (JAD, QFD, user stories), context diagram, prototypes, requirement classes, RTM",
+   "module": "M05",
+   "section": "5.2.2.6-5.2.3.2 (Figures 5-6, 5-7)",
+   "kind": "process",
+   "process": "5.2",
+   "pdfPages": [
+    182,
+    183,
+    184,
+    185,
+    186
+   ]
+  },
+  "s-5.3-define-scope": {
+   "title": "5.3 Define Scope: product analysis, project scope statement, charter vs scope statement",
+   "module": "M05",
+   "section": "5.3 (Figures 5-8, 5-9; Table 5-1)",
+   "kind": "process",
+   "process": "5.3",
+   "pdfPages": [
+    187,
+    188,
+    189,
+    190,
+    191,
+    192
+   ]
+  },
+  "s-5.4-create-wbs": {
+   "title": "5.4 Create WBS: decomposition, work packages, control accounts, planning packages, 100 percent rule, WBS dictionary, scope baseline",
+   "module": "M05",
+   "section": "5.4 (Figures 5-10 to 5-14)",
+   "kind": "process",
+   "process": "5.4",
+   "pdfPages": [
+    193,
+    194,
+    195,
+    196,
+    197,
+    198,
+    199
+   ]
+  },
+  "s-5.5-validate-scope": {
+   "title": "5.5 Validate Scope: formal acceptance by customer or sponsor; Validate Scope vs Control Quality",
+   "module": "M05",
+   "section": "5.5 (Figures 5-15, 5-16)",
+   "kind": "process",
+   "process": "5.5",
+   "pdfPages": [
+    200,
+    201,
+    202,
+    203,
+    204
+   ]
+  },
+  "s-5.6-control-scope": {
+   "title": "5.6 Control Scope: maintaining the scope baseline, scope creep, variance and trend analysis",
+   "module": "M05",
+   "section": "5.6 (Figures 5-17, 5-18)",
+   "kind": "process",
+   "process": "5.6",
+   "pdfPages": [
+    204,
+    205
+   ]
+  },
+  "s-5.6-control-scope-detail": {
+   "title": "5.6 Control Scope (continued): inputs, variance and trend analysis, baseline revisions",
+   "module": "M05",
+   "section": "5.6.1-5.6.3",
+   "kind": "process",
+   "process": "5.6",
+   "pdfPages": [
+    206,
+    207,
+    208
+   ]
+  },
+  "s-scope-overview": {
+   "title": "Project Scope Management overview: six processes, product vs project scope, predictive vs adaptive scope, requirements, business analysis",
+   "module": "M05",
+   "section": "5 intro, key concepts, trends, tailoring, agile considerations (Figure 5-1)",
+   "kind": "process-overview",
+   "process": null,
+   "pdfPages": [
+    166,
+    167,
+    168,
+    169,
+    170
+   ]
+  },
+  "src-publication-structure": {
+   "title": "How the source publication is organised (Guide, Standard, Appendices; bundled Agile Practice Guide)",
+   "module": "M00",
+   "section": "Front matter; Table of Contents",
+   "kind": "orientation",
+   "process": null,
+   "pdfPages": [
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31,
+    32,
+    33,
+    34,
+    36,
+    576,
+    674,
+    794,
+    801,
+    802,
+    803,
+    804,
+    805,
+    806,
+    807,
+    947,
+    949,
+    950,
+    951,
+    952,
+    953,
+    954,
+    955,
+    956
+   ]
+  },
+  "src-references-part1": {
+   "title": "Part 1 references list",
+   "module": "M00",
+   "section": "References (PDF 574)",
+   "kind": "reference",
+   "process": null,
+   "pdfPages": [
+    574
+   ]
+  },
+  "std-closing-group": {
+   "title": "Standard: Closing Process Group - purpose, single process, early closure; Close Project or Phase inputs and outputs",
+   "module": "M15",
+   "section": "Part 2, Section 6 (Figures 6-1, 6-2)",
+   "kind": "process-group",
+   "process": null,
+   "pdfPages": [
+    670,
+    671,
+    672
+   ]
+  },
+  "std-eef-opa-tailoring": {
+   "title": "Standard: EEFs and OPAs; tailoring the project artifacts; plan components vs project documents vs business documents",
+   "module": "M14",
+   "section": "Part 2, 1.10-1.11 (Table 1-2)",
+   "kind": "concept",
+   "process": null,
+   "pdfPages": [
+    594,
+    595,
+    596
+   ]
+  },
+  "std-executing-group": {
+   "title": "Standard: Executing Process Group - purpose, budget consumption, change requests; inputs and outputs of the 10 executing processes (4.1-4.9)",
+   "module": "M15",
+   "section": "Part 2, Section 4, 4.1-4.9 (Figures 4-1 to 4-10)",
+   "kind": "process-group",
+   "process": null,
+   "pdfPages": [
+    632,
+    633,
+    634,
+    635,
+    636,
+    637,
+    638,
+    639,
+    640,
+    641,
+    642,
+    643,
+    644,
+    645
+   ]
+  },
+  "std-executing-group-2": {
+   "title": "Standard: Conduct Procurements (end) and Manage Stakeholder Engagement inputs and outputs",
+   "module": "M15",
+   "section": "Part 2, 4.9.2-4.10 (Figure 4-11)",
+   "kind": "process-group",
+   "process": null,
+   "pdfPages": [
+    646,
+    647,
+    648
+   ]
+  },
+  "std-initiating-group": {
+   "title": "Standard: Initiating Process Group - purpose, project boundaries, revisiting at each phase; Develop Project Charter and Identify Stakeholders inputs and outputs",
+   "module": "M15",
+   "section": "Part 2, Section 2 (Figures 2-1 to 2-4)",
+   "kind": "process-group",
+   "process": null,
+   "pdfPages": [
+    598,
+    599,
+    600,
+    601
+   ]
+  },
+  "std-intro-and-projects": {
+   "title": "The Standard for Project Management: purpose and relationship to the Guide; projects and project management; competing constraints",
+   "module": "M14",
+   "section": "Part 2 introduction, 1.1",
+   "kind": "concept",
+   "process": null,
+   "pdfPages": [
+    578,
+    579
+   ]
+  },
+  "std-life-cycle-stakeholders-pm": {
+   "title": "Standard: project life cycle and phases, impact of variables over time, stakeholders, role of the project manager, Knowledge Areas",
+   "module": "M14",
+   "section": "Part 2, 1.5-1.8 (Figures 1-2 to 1-4)",
+   "kind": "concept",
+   "process": null,
+   "pdfPages": [
+    584,
+    585,
+    586,
+    587,
+    588,
+    589,
+    590
+   ]
+  },
+  "std-monitoring-controlling-group": {
+   "title": "Standard: Monitoring and Controlling Process Group - monitoring vs controlling, what the group involves; inputs and outputs of the 12 M&C processes",
+   "module": "M15",
+   "section": "Part 2, Section 5, 5.1-5.12 (Figures 5-1 to 5-13)",
+   "kind": "process-group",
+   "process": null,
+   "pdfPages": [
+    650,
+    651,
+    652,
+    653,
+    654,
+    655,
+    656,
+    657,
+    658,
+    659,
+    660,
+    661,
+    662,
+    663,
+    664,
+    665,
+    666,
+    667,
+    668,
+    669
+   ]
+  },
+  "std-planning-group": {
+   "title": "Standard: Planning Process Group - purpose, progressive elaboration, baselines; inputs and outputs of the 24 planning processes (part 1: 3.1-3.13)",
+   "module": "M15",
+   "section": "Part 2, Section 3, 3.1-3.13 (Figures 3-1 to 3-14)",
+   "kind": "process-group",
+   "process": null,
+   "pdfPages": [
+    602,
+    603,
+    604,
+    605,
+    606,
+    607,
+    608,
+    609,
+    610,
+    611,
+    612,
+    613,
+    614,
+    615,
+    616
+   ]
+  },
+  "std-planning-group-2": {
+   "title": "Standard: planning processes 3.14-3.24 (quality, resource, communications, risk, procurement, stakeholder planning) - inputs, outputs and example components",
+   "module": "M15",
+   "section": "Part 2, 3.14-3.24 (Figures 3-15 to 3-25)",
+   "kind": "process-group",
+   "process": null,
+   "pdfPages": [
+    617,
+    618,
+    619,
+    620,
+    621,
+    622,
+    623,
+    624,
+    625,
+    626,
+    627,
+    628,
+    629,
+    630,
+    631
+   ]
+  },
+  "std-ppp-governance-success": {
+   "title": "Standard: portfolios, programs and projects; OPM as a strategy execution framework; organisational vs project governance; project success and benefits management",
+   "module": "M14",
+   "section": "Part 2, 1.2-1.4 (Figure 1-1)",
+   "kind": "concept",
+   "process": null,
+   "pdfPages": [
+    580,
+    581,
+    582,
+    583,
+    584
+   ]
+  },
+  "std-process-groups": {
+   "title": "Standard: the five Process Groups, process frequency categories, Process Group interactions and phases",
+   "module": "M15",
+   "section": "Part 2, 1.9 (Figure 1-5, Table 1-1)",
+   "kind": "concept",
+   "process": null,
+   "pdfPages": [
+    591,
+    592,
+    593
+   ]
+  },
+  "t-6.1-plan-schedule": {
+   "title": "6.1 Plan Schedule Management: the schedule management plan contents",
+   "module": "M06",
+   "section": "6.1 (Figures 6-3, 6-4)",
+   "kind": "process",
+   "process": "6.1",
+   "pdfPages": [
+    216,
+    217,
+    218,
+    219
+   ]
+  },
+  "t-6.2-define-activities": {
+   "title": "6.2 Define Activities: decomposition into activities, rolling wave planning, activity list, attributes, milestones",
+   "module": "M06",
+   "section": "6.2 (Figures 6-5, 6-6)",
+   "kind": "process",
+   "process": "6.2",
+   "pdfPages": [
+    220,
+    221,
+    222,
+    223
+   ]
+  },
+  "t-6.3-network-diagrams": {
+   "title": "6.3 Sequence Activities (continued): lags, network diagrams, path convergence and divergence",
+   "module": "M06",
+   "section": "6.3.2.3-6.3.3 (Figures 6-10, 6-11)",
+   "kind": "process",
+   "process": "6.3",
+   "pdfPages": [
+    230,
+    231
+   ]
+  },
+  "t-6.3-sequence-activities": {
+   "title": "6.3 Sequence Activities: PDM relationship types, dependency types, leads and lags",
+   "module": "M06",
+   "section": "6.3 (Figures 6-7 to 6-10)",
+   "kind": "process",
+   "process": "6.3",
+   "pdfPages": [
+    224,
+    225,
+    226,
+    227,
+    228,
+    229
+   ]
+  },
+  "t-6.4-estimate-durations": {
+   "title": "6.4 Estimate Activity Durations: effort vs duration factors, analogous, parametric, three-point, bottom-up, reserves",
+   "module": "M06",
+   "section": "6.4 (Figures 6-12, 6-13)",
+   "kind": "process",
+   "process": "6.4",
+   "pdfPages": [
+    232,
+    233,
+    234,
+    235,
+    236,
+    237,
+    238,
+    239,
+    240,
+    241
+   ]
+  },
+  "t-6.5-develop-schedule": {
+   "title": "6.5 Develop Schedule: inputs, schedule network analysis, critical path method, float",
+   "module": "M06",
+   "section": "6.5, 6.5.1, 6.5.2.1-6.5.2.2 (Figures 6-14 to 6-16)",
+   "kind": "process",
+   "process": "6.5",
+   "pdfPages": [
+    242,
+    243,
+    244,
+    245,
+    246,
+    247,
+    248
+   ]
+  },
+  "t-6.5-optimisation-compression": {
+   "title": "6.5 Develop Schedule (continued): resource leveling vs smoothing, what-if, Monte Carlo, crashing vs fast tracking",
+   "module": "M06",
+   "section": "6.5.2.3-6.5.2.6 (Figures 6-17 to 6-19)",
+   "kind": "process",
+   "process": "6.5",
+   "pdfPages": [
+    248,
+    249,
+    250,
+    251,
+    252
+   ]
+  },
+  "t-6.5-outputs": {
+   "title": "6.5 Develop Schedule (continued): agile release planning, schedule baseline, schedule presentations, schedule data, calendars",
+   "module": "M06",
+   "section": "6.5.2.7-6.5.3 (Figures 6-20, 6-21)",
+   "kind": "process",
+   "process": "6.5",
+   "pdfPages": [
+    253,
+    254,
+    255,
+    256,
+    257,
+    258
+   ]
+  },
+  "t-6.6-control-schedule": {
+   "title": "6.6 Control Schedule: predictive and agile control, burndown charts, variance on critical vs non-critical paths, schedule forecasts",
+   "module": "M06",
+   "section": "6.6 (Figures 6-22 to 6-24)",
+   "kind": "process",
+   "process": "6.6",
+   "pdfPages": [
+    259,
+    260,
+    261,
+    262,
+    263,
+    264,
+    265,
+    266,
+    267
+   ]
+  },
+  "t-schedule-overview": {
+   "title": "Project Schedule Management overview: six processes, scheduling method/tool/model, trends, tailoring, agile",
+   "module": "M06",
+   "section": "6 intro, key concepts, trends, tailoring, agile (Figures 6-1, 6-2)",
+   "kind": "process-overview",
+   "process": null,
+   "pdfPages": [
+    210,
+    211,
+    212,
+    213,
+    214,
+    215
+   ]
+  },
+  "x1-sixth-edition-changes": {
+   "title": "Appendix X1: Sixth Edition changes - ITTO conventions, tool-and-technique groups, new and renamed processes, Knowledge Area front matter",
+   "module": "M16",
+   "section": "X1.1-X1.22 (Tables X1-1 to X1-8)",
+   "kind": "concept",
+   "process": null,
+   "pdfPages": [
+    676,
+    677,
+    678,
+    679,
+    680,
+    681,
+    682,
+    683,
+    684,
+    685,
+    686,
+    687
+   ]
+  },
+  "x3-life-cycle-continuum": {
+   "title": "Appendix X3: continuum of life cycles (predictive, iterative, incremental, agile), iteration-based and continuous overlapping phases",
+   "module": "M16",
+   "section": "X3.1-X3.2 (Figures X3-1 to X3-3)",
+   "kind": "concept",
+   "process": null,
+   "pdfPages": [
+    702,
+    703,
+    704,
+    705
+   ]
+  },
+  "x3-process-groups-adaptive": {
+   "title": "Appendix X3: Process Groups in adaptive environments (initiating, planning, executing, monitoring and controlling via a backlog, closing)",
+   "module": "M16",
+   "section": "X3.3",
+   "kind": "concept",
+   "process": null,
+   "pdfPages": [
+    706,
+    707,
+    708
+   ]
+  },
+  "x4-x5-summaries": {
+   "title": "Appendices X4 and X5: compiled key concepts and tailoring considerations per Knowledge Area (revision aids)",
+   "module": "M16",
+   "section": "X4.1-X4.10, X5.1-X5.10",
+   "kind": "revision",
+   "process": null,
+   "pdfPages": [
+    710,
+    711,
+    712,
+    713,
+    714,
+    715,
+    716,
+    717,
+    718,
+    719,
+    720,
+    721
+   ]
+  },
+  "x6-tools-techniques-index": {
+   "title": "Appendix X6: tools and techniques grouped by purpose (132 tools; group counts) and index",
+   "module": "M16",
+   "section": "X6.1-X6.2 (Table X6-1)",
+   "kind": "table",
+   "process": null,
+   "pdfPages": [
+    722,
+    723,
+    724,
+    725,
+    726,
+    727,
+    728,
+    729,
+    730,
+    731
+   ]
+  }
+ },
+ "processes": {
+  "4.1": {
+   "name": "Develop Project Charter",
+   "processGroup": "Initiating",
+   "knowledgeArea": "Integration",
+   "topics": [
+    "i-4.1-develop-charter"
+   ],
+   "pdfPages": [
+    112,
+    113,
+    114,
+    115,
+    116,
+    117,
+    118
+   ]
+  },
+  "4.2": {
+   "name": "Develop Project Management Plan",
+   "processGroup": "Planning",
+   "knowledgeArea": "Integration",
+   "topics": [
+    "i-4.2-develop-pmp"
+   ],
+   "pdfPages": [
+    119,
+    120,
+    121,
+    122,
+    123
+   ]
+  },
+  "4.3": {
+   "name": "Direct and Manage Project Work",
+   "processGroup": "Executing",
+   "knowledgeArea": "Integration",
+   "topics": [
+    "i-4.3-direct-manage"
+   ],
+   "pdfPages": [
+    127,
+    128,
+    129,
+    130,
+    131,
+    132,
+    133,
+    134
+   ]
+  },
+  "4.4": {
+   "name": "Manage Project Knowledge",
+   "processGroup": "Executing",
+   "knowledgeArea": "Integration",
+   "topics": [
+    "i-4.4-manage-knowledge"
+   ],
+   "pdfPages": [
+    135,
+    136,
+    137,
+    138,
+    139,
+    140,
+    141,
+    142
+   ]
+  },
+  "4.5": {
+   "name": "Monitor and Control Project Work",
+   "processGroup": "Monitoring and Controlling",
+   "knowledgeArea": "Integration",
+   "topics": [
+    "i-4.5-monitor-control-work"
+   ],
+   "pdfPages": [
+    142,
+    143,
+    144,
+    145,
+    146,
+    147,
+    148,
+    149,
+    150
+   ]
+  },
+  "4.6": {
+   "name": "Perform Integrated Change Control",
+   "processGroup": "Monitoring and Controlling",
+   "knowledgeArea": "Integration",
+   "topics": [
+    "i-4.6-integrated-change-control"
+   ],
+   "pdfPages": [
+    150,
+    151,
+    152,
+    153,
+    154,
+    155,
+    156,
+    157
+   ]
+  },
+  "4.7": {
+   "name": "Close Project or Phase",
+   "processGroup": "Closing",
+   "knowledgeArea": "Integration",
+   "topics": [
+    "i-4.7-close-project"
+   ],
+   "pdfPages": [
+    158,
+    159,
+    160,
+    161,
+    162,
+    163,
+    164,
+    165
+   ]
+  },
+  "5.1": {
+   "name": "Plan Scope Management",
+   "processGroup": "Planning",
+   "knowledgeArea": "Scope",
+   "topics": [
+    "s-5.1-plan-scope"
+   ],
+   "pdfPages": [
+    171,
+    172,
+    173,
+    174
+   ]
+  },
+  "5.2": {
+   "name": "Collect Requirements",
+   "processGroup": "Planning",
+   "knowledgeArea": "Scope",
+   "topics": [
+    "s-5.2-collect-requirements",
+    "s-5.2-requirements-techniques-outputs"
+   ],
+   "pdfPages": [
+    175,
+    176,
+    177,
+    178,
+    179,
+    180,
+    181,
+    182,
+    183,
+    184,
+    185,
+    186
+   ]
+  },
+  "5.3": {
+   "name": "Define Scope",
+   "processGroup": "Planning",
+   "knowledgeArea": "Scope",
+   "topics": [
+    "s-5.3-define-scope"
+   ],
+   "pdfPages": [
+    187,
+    188,
+    189,
+    190,
+    191,
+    192
+   ]
+  },
+  "5.4": {
+   "name": "Create WBS",
+   "processGroup": "Planning",
+   "knowledgeArea": "Scope",
+   "topics": [
+    "s-5.4-create-wbs"
+   ],
+   "pdfPages": [
+    193,
+    194,
+    195,
+    196,
+    197,
+    198,
+    199
+   ]
+  },
+  "5.5": {
+   "name": "Validate Scope",
+   "processGroup": "Monitoring and Controlling",
+   "knowledgeArea": "Scope",
+   "topics": [
+    "s-5.5-validate-scope"
+   ],
+   "pdfPages": [
+    200,
+    201,
+    202,
+    203,
+    204
+   ]
+  },
+  "5.6": {
+   "name": "Control Scope",
+   "processGroup": "Monitoring and Controlling",
+   "knowledgeArea": "Scope",
+   "topics": [
+    "s-5.6-control-scope",
+    "s-5.6-control-scope-detail"
+   ],
+   "pdfPages": [
+    204,
+    205,
+    206,
+    207,
+    208
+   ]
+  },
+  "6.1": {
+   "name": "Plan Schedule Management",
+   "processGroup": "Planning",
+   "knowledgeArea": "Schedule",
+   "topics": [
+    "t-6.1-plan-schedule"
+   ],
+   "pdfPages": [
+    216,
+    217,
+    218,
+    219
+   ]
+  },
+  "6.2": {
+   "name": "Define Activities",
+   "processGroup": "Planning",
+   "knowledgeArea": "Schedule",
+   "topics": [
+    "t-6.2-define-activities"
+   ],
+   "pdfPages": [
+    220,
+    221,
+    222,
+    223
+   ]
+  },
+  "6.3": {
+   "name": "Sequence Activities",
+   "processGroup": "Planning",
+   "knowledgeArea": "Schedule",
+   "topics": [
+    "t-6.3-network-diagrams",
+    "t-6.3-sequence-activities"
+   ],
+   "pdfPages": [
+    224,
+    225,
+    226,
+    227,
+    228,
+    229,
+    230,
+    231
+   ]
+  },
+  "6.4": {
+   "name": "Estimate Activity Durations",
+   "processGroup": "Planning",
+   "knowledgeArea": "Schedule",
+   "topics": [
+    "t-6.4-estimate-durations"
+   ],
+   "pdfPages": [
+    232,
+    233,
+    234,
+    235,
+    236,
+    237,
+    238,
+    239,
+    240,
+    241
+   ]
+  },
+  "6.5": {
+   "name": "Develop Schedule",
+   "processGroup": "Planning",
+   "knowledgeArea": "Schedule",
+   "topics": [
+    "t-6.5-develop-schedule",
+    "t-6.5-optimisation-compression",
+    "t-6.5-outputs"
+   ],
+   "pdfPages": [
+    242,
+    243,
+    244,
+    245,
+    246,
+    247,
+    248,
+    249,
+    250,
+    251,
+    252,
+    253,
+    254,
+    255,
+    256,
+    257,
+    258
+   ]
+  },
+  "6.6": {
+   "name": "Control Schedule",
+   "processGroup": "Monitoring and Controlling",
+   "knowledgeArea": "Schedule",
+   "topics": [
+    "t-6.6-control-schedule"
+   ],
+   "pdfPages": [
+    259,
+    260,
+    261,
+    262,
+    263,
+    264,
+    265,
+    266,
+    267
+   ]
+  },
+  "7.1": {
+   "name": "Plan Cost Management",
+   "processGroup": "Planning",
+   "knowledgeArea": "Cost",
+   "topics": [
+    "c-7.1-plan-cost"
+   ],
+   "pdfPages": [
+    272,
+    273,
+    274,
+    275,
+    276
+   ]
+  },
+  "7.2": {
+   "name": "Estimate Costs",
+   "processGroup": "Planning",
+   "knowledgeArea": "Cost",
+   "topics": [
+    "c-7.2-estimate-costs"
+   ],
+   "pdfPages": [
+    277,
+    278,
+    279,
+    280,
+    281,
+    282,
+    283,
+    284
+   ]
+  },
+  "7.3": {
+   "name": "Determine Budget",
+   "processGroup": "Planning",
+   "knowledgeArea": "Cost",
+   "topics": [
+    "c-7.3-determine-budget"
+   ],
+   "pdfPages": [
+    285,
+    286,
+    287,
+    288,
+    289,
+    290,
+    291,
+    292,
+    293
+   ]
+  },
+  "7.4": {
+   "name": "Control Costs",
+   "processGroup": "Monitoring and Controlling",
+   "knowledgeArea": "Cost",
+   "topics": [
+    "c-7.4-control-costs",
+    "c-7.4-forecasting-tcpi"
+   ],
+   "pdfPages": [
+    294,
+    295,
+    296,
+    297,
+    298,
+    299,
+    300,
+    301,
+    302,
+    303,
+    304,
+    305,
+    306,
+    307
+   ]
+  },
+  "8.1": {
+   "name": "Plan Quality Management",
+   "processGroup": "Planning",
+   "knowledgeArea": "Quality",
+   "topics": [
+    "q-8.1-plan-quality"
+   ],
+   "pdfPages": [
+    314,
+    315,
+    316,
+    317,
+    318,
+    319,
+    320,
+    321,
+    322,
+    323,
+    324
+   ]
+  },
+  "8.2": {
+   "name": "Manage Quality",
+   "processGroup": "Executing",
+   "knowledgeArea": "Quality",
+   "topics": [
+    "q-8.2-manage-quality"
+   ],
+   "pdfPages": [
+    325,
+    326,
+    327,
+    328,
+    329,
+    330,
+    331,
+    332,
+    333,
+    334
+   ]
+  },
+  "8.3": {
+   "name": "Control Quality",
+   "processGroup": "Monitoring and Controlling",
+   "knowledgeArea": "Quality",
+   "topics": [
+    "q-8.3-control-quality"
+   ],
+   "pdfPages": [
+    335,
+    336,
+    337,
+    338,
+    339,
+    340,
+    341,
+    342,
+    343
+   ]
+  },
+  "9.1": {
+   "name": "Plan Resource Management",
+   "processGroup": "Planning",
+   "knowledgeArea": "Resource",
+   "topics": [
+    "r-9.1-plan-resource"
+   ],
+   "pdfPages": [
+    349,
+    350,
+    351,
+    352,
+    353,
+    354,
+    355,
+    356,
+    357
+   ]
+  },
+  "9.2": {
+   "name": "Estimate Activity Resources",
+   "processGroup": "Planning",
+   "knowledgeArea": "Resource",
+   "topics": [
+    "r-9.2-estimate-resources"
+   ],
+   "pdfPages": [
+    357,
+    358,
+    359,
+    360,
+    361,
+    362,
+    363,
+    364
+   ]
+  },
+  "9.3": {
+   "name": "Acquire Resources",
+   "processGroup": "Executing",
+   "knowledgeArea": "Resource",
+   "topics": [
+    "r-9.3-acquire-resources"
+   ],
+   "pdfPages": [
+    365,
+    366,
+    367,
+    368,
+    369,
+    370,
+    371,
+    372
+   ]
+  },
+  "9.4": {
+   "name": "Develop Team",
+   "processGroup": "Executing",
+   "knowledgeArea": "Resource",
+   "topics": [
+    "r-9.4-develop-team"
+   ],
+   "pdfPages": [
+    373,
+    374,
+    375,
+    376,
+    377,
+    378,
+    379,
+    380,
+    381
+   ]
+  },
+  "9.5": {
+   "name": "Manage Team",
+   "processGroup": "Executing",
+   "knowledgeArea": "Resource",
+   "topics": [
+    "r-9.5-manage-team"
+   ],
+   "pdfPages": [
+    382,
+    383,
+    384,
+    385,
+    386,
+    387,
+    388
+   ]
+  },
+  "9.6": {
+   "name": "Control Resources",
+   "processGroup": "Monitoring and Controlling",
+   "knowledgeArea": "Resource",
+   "topics": [
+    "r-9.6-control-resources"
+   ],
+   "pdfPages": [
+    389,
+    390,
+    391,
+    392,
+    393,
+    394,
+    395
+   ]
+  },
+  "10.1": {
+   "name": "Plan Communications Management",
+   "processGroup": "Planning",
+   "knowledgeArea": "Communications",
+   "topics": [
+    "m-10.1-plan-communications"
+   ],
+   "pdfPages": [
+    403,
+    404,
+    405,
+    406,
+    407,
+    408,
+    409,
+    410,
+    411,
+    412,
+    413,
+    414,
+    415
+   ]
+  },
+  "10.2": {
+   "name": "Manage Communications",
+   "processGroup": "Executing",
+   "knowledgeArea": "Communications",
+   "topics": [
+    "m-10.2-manage-communications",
+    "m-10.2-manage-communications-tools"
+   ],
+   "pdfPages": [
+    416,
+    417,
+    418,
+    419,
+    420,
+    421,
+    422,
+    423,
+    424,
+    425
+   ]
+  },
+  "10.3": {
+   "name": "Monitor Communications",
+   "processGroup": "Monitoring and Controlling",
+   "knowledgeArea": "Communications",
+   "topics": [
+    "m-10.3-monitor-communications"
+   ],
+   "pdfPages": [
+    425,
+    426,
+    427,
+    428,
+    429,
+    430
+   ]
+  },
+  "11.1": {
+   "name": "Plan Risk Management",
+   "processGroup": "Planning",
+   "knowledgeArea": "Risk",
+   "topics": [
+    "k-11.1-plan-contents-pim",
+    "k-11.1-plan-risk"
+   ],
+   "pdfPages": [
+    438,
+    439,
+    440,
+    441,
+    442,
+    443,
+    444,
+    445
+   ]
+  },
+  "11.2": {
+   "name": "Identify Risks",
+   "processGroup": "Planning",
+   "knowledgeArea": "Risk",
+   "topics": [
+    "k-11.2-identify-risks"
+   ],
+   "pdfPages": [
+    446,
+    447,
+    448,
+    449,
+    450,
+    451,
+    452,
+    453,
+    454,
+    455
+   ]
+  },
+  "11.3": {
+   "name": "Perform Qualitative Risk Analysis",
+   "processGroup": "Planning",
+   "knowledgeArea": "Risk",
+   "topics": [
+    "k-11.3-qualitative"
+   ],
+   "pdfPages": [
+    456,
+    457,
+    458,
+    459,
+    460,
+    461,
+    462,
+    463,
+    464
+   ]
+  },
+  "11.4": {
+   "name": "Perform Quantitative Risk Analysis",
+   "processGroup": "Planning",
+   "knowledgeArea": "Risk",
+   "topics": [
+    "k-11.4-quantitative-intro",
+    "k-11.4-quantitative-tools"
+   ],
+   "pdfPages": [
+    465,
+    466,
+    467,
+    468,
+    469,
+    470,
+    471,
+    472,
+    473
+   ]
+  },
+  "11.5": {
+   "name": "Plan Risk Responses",
+   "processGroup": "Planning",
+   "knowledgeArea": "Risk",
+   "topics": [
+    "k-11.5-plan-responses"
+   ],
+   "pdfPages": [
+    474,
+    475,
+    476,
+    477,
+    478,
+    479,
+    480,
+    481,
+    482,
+    483,
+    484,
+    485
+   ]
+  },
+  "11.6": {
+   "name": "Implement Risk Responses",
+   "processGroup": "Executing",
+   "knowledgeArea": "Risk",
+   "topics": [
+    "k-11.6-implement-responses"
+   ],
+   "pdfPages": [
+    486,
+    487,
+    488,
+    489
+   ]
+  },
+  "11.7": {
+   "name": "Monitor Risks",
+   "processGroup": "Monitoring and Controlling",
+   "knowledgeArea": "Risk",
+   "topics": [
+    "k-11.7-monitor-risks",
+    "k-11.7-monitor-risks-tools"
+   ],
+   "pdfPages": [
+    490,
+    491,
+    492,
+    493,
+    494,
+    495
+   ]
+  },
+  "12.1": {
+   "name": "Plan Procurement Management",
+   "processGroup": "Planning",
+   "knowledgeArea": "Procurement",
+   "topics": [
+    "p-12.1-outputs-table",
+    "p-12.1-plan-procurement"
+   ],
+   "pdfPages": [
+    503,
+    504,
+    505,
+    506,
+    507,
+    508,
+    509,
+    510,
+    511,
+    512,
+    513,
+    514,
+    515,
+    516,
+    517,
+    518
+   ]
+  },
+  "12.2": {
+   "name": "Conduct Procurements",
+   "processGroup": "Executing",
+   "knowledgeArea": "Procurement",
+   "topics": [
+    "p-12.2-conduct-procurements"
+   ],
+   "pdfPages": [
+    519,
+    520,
+    521,
+    522,
+    523,
+    524,
+    525,
+    526,
+    527,
+    528
+   ]
+  },
+  "12.3": {
+   "name": "Control Procurements",
+   "processGroup": "Monitoring and Controlling",
+   "knowledgeArea": "Procurement",
+   "topics": [
+    "p-12.3-control-procurements"
+   ],
+   "pdfPages": [
+    529,
+    530,
+    531,
+    532,
+    533,
+    534,
+    535,
+    536,
+    537,
+    538
+   ]
+  },
+  "13.1": {
+   "name": "Identify Stakeholders",
+   "processGroup": "Initiating",
+   "knowledgeArea": "Stakeholder",
+   "topics": [
+    "h-13.1-identify-stakeholders"
+   ],
+   "pdfPages": [
+    544,
+    545,
+    546,
+    547,
+    548,
+    549,
+    550,
+    551,
+    552
+   ]
+  },
+  "13.2": {
+   "name": "Plan Stakeholder Engagement",
+   "processGroup": "Planning",
+   "knowledgeArea": "Stakeholder",
+   "topics": [
+    "h-13.2-plan-engagement"
+   ],
+   "pdfPages": [
+    553,
+    554,
+    555,
+    556,
+    557,
+    558,
+    559
+   ]
+  },
+  "13.3": {
+   "name": "Manage Stakeholder Engagement",
+   "processGroup": "Executing",
+   "knowledgeArea": "Stakeholder",
+   "topics": [
+    "h-13.3-manage-engagement",
+    "h-13.3-manage-outputs"
+   ],
+   "pdfPages": [
+    560,
+    561,
+    562,
+    563,
+    564,
+    565,
+    566
+   ]
+  },
+  "13.4": {
+   "name": "Monitor Stakeholder Engagement",
+   "processGroup": "Monitoring and Controlling",
+   "knowledgeArea": "Stakeholder",
+   "topics": [
+    "h-13.4-monitor-engagement"
+   ],
+   "pdfPages": [
+    567,
+    568,
+    569,
+    570,
+    571,
+    572,
+    573
+   ]
+  }
+ }
+}

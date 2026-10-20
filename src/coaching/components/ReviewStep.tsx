@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { ArrowLeft } from '../../components/Icons';
+import type { BookingMode } from '../api/bookingApi';
 import type { CoachingService } from '../data/services';
 import type { AspirantDetails } from '../lib/validation';
 import { BookingSummary } from './BookingSummary';
@@ -9,6 +10,8 @@ interface Props {
   date: string;
   time: string;
   details: AspirantDetails;
+  /** Server-reported mode for "server" services; null until availability has loaded. */
+  mode: BookingMode | null;
   submitting: boolean;
   error: string | null;
   onBack: () => void;
@@ -21,6 +24,7 @@ interface Props {
 export function ReviewStep(p: Props) {
   const [ack, setAck] = useState(false);
   const [ackError, setAckError] = useState(false);
+  const mode: BookingMode = p.service.booking === 'server' ? (p.mode ?? 'mock') : 'demo';
 
   const confirm = () => {
     if (!ack) {
@@ -66,8 +70,23 @@ export function ReviewStep(p: Props) {
         <aside className="bk-side-col">
           <div className="card bk-confirm-box">
             <p className="bk-demo-note" role="note">
-              <strong>This is a demo.</strong> Confirming creates a sample booking reference only. No calendar slot is reserved and
-              no message, email or meeting link is sent.
+              {mode === 'live' ? (
+                <>
+                  <strong>Live booking.</strong> Confirming books this time in Rahul’s Google Calendar and creates a Google
+                  Meet link. You’ll see the link on the next screen and receive it by email.
+                </>
+              ) : mode === 'mock' ? (
+                <>
+                  <strong>Demo booking.</strong> Confirming reserves this slot and emails a confirmation to you and a
+                  notification to Rahul. The meeting link will be shared separately.
+                </>
+              ) : (
+                <>
+                  <strong>This is a demo.</strong> Confirming creates a sample booking reference only. No calendar slot is reserved and
+                  no message, email or meeting link is sent.
+                  {!p.service.free && <> No payment is taken: the {p.service.price} fee is not charged here.</>}
+                </>
+              )}
             </p>
             <label className="bk-check">
               <input
@@ -75,11 +94,17 @@ export function ReviewStep(p: Props) {
                 onChange={(e) => { setAck(e.target.checked); setAckError(false); }}
                 aria-invalid={ackError} aria-describedby={ackError ? 'bk-ack-err' : undefined}
               />
-              <span>I understand this is a prototype booking</span>
+              <span>
+                {mode === 'live'
+                  ? 'I’ll join the Google Meet call at the booked time (IST)'
+                  : mode === 'mock'
+                    ? 'I understand this is a demo booking and the meeting link will be shared separately'
+                    : 'I understand this is a prototype booking'}
+              </span>
             </label>
             {ackError && (
               <span id="bk-ack-err" className="field-error" role="alert">
-                Tick the box to confirm you understand this is a demo.
+                {mode === 'live' ? 'Tick the box to continue.' : 'Tick the box to confirm you understand this is a demo.'}
               </span>
             )}
             {p.error && (
@@ -88,7 +113,7 @@ export function ReviewStep(p: Props) {
               </p>
             )}
             <button type="button" className="btn btn-blue btn-cta bk-continue" onClick={confirm} disabled={p.submitting} aria-busy={p.submitting}>
-              {p.submitting ? 'Confirming…' : 'Confirm demo booking'}
+              {p.submitting ? 'Confirming…' : mode === 'demo' ? 'Confirm demo booking' : 'Confirm booking'}
             </button>
           </div>
         </aside>

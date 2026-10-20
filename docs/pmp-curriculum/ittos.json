@@ -1,0 +1,1111 @@
+{
+ "source": "PMBOK Guide Sixth Edition, Knowledge Area overview figures (e.g., Figure 4-1, PDF 108). Item names only; meanings are explained in original wording in the lessons.",
+ "processes": {
+  "4.1": {
+   "inputs": [
+    "Business documents",
+    "Agreements",
+    "Enterprise environmental factors",
+    "Organizational process assets"
+   ],
+   "tools": [
+    "Expert judgment",
+    "Data gathering",
+    "Interpersonal and team skills",
+    "Meetings"
+   ],
+   "outputs": [
+    "Project charter",
+    "Assumption log"
+   ],
+   "src": "PDF 108"
+  },
+  "4.2": {
+   "inputs": [
+    "Project charter",
+    "Outputs from other processes",
+    "Enterprise environmental factors",
+    "Organizational process assets"
+   ],
+   "tools": [
+    "Expert judgment",
+    "Data gathering",
+    "Interpersonal and team skills",
+    "Meetings"
+   ],
+   "outputs": [
+    "Project management plan"
+   ],
+   "src": "PDF 108"
+  },
+  "4.3": {
+   "inputs": [
+    "Project management plan",
+    "Project documents",
+    "Approved change requests",
+    "Enterprise environmental factors",
+    "Organizational process assets"
+   ],
+   "tools": [
+    "Expert judgment",
+    "Project management information system",
+    "Meetings"
+   ],
+   "outputs": [
+    "Deliverables",
+    "Work performance data",
+    "Issue log",
+    "Change requests",
+    "Project management plan updates",
+    "Project documents updates",
+    "Organizational process assets updates"
+   ],
+   "src": "PDF 108"
+  },
+  "4.4": {
+   "inputs": [
+    "Project management plan",
+    "Project documents",
+    "Deliverables",
+    "Enterprise environmental factors",
+    "Organizational process assets"
+   ],
+   "tools": [
+    "Expert judgment",
+    "Knowledge management",
+    "Information management",
+    "Interpersonal and team skills"
+   ],
+   "outputs": [
+    "Lessons learned register",
+    "Project management plan updates",
+    "Organizational process assets updates"
+   ],
+   "src": "PDF 108"
+  },
+  "4.5": {
+   "inputs": [
+    "Project management plan",
+    "Project documents",
+    "Work performance information",
+    "Agreements",
+    "Enterprise environmental factors",
+    "Organizational process assets"
+   ],
+   "tools": [
+    "Expert judgment",
+    "Data analysis",
+    "Decision making",
+    "Meetings"
+   ],
+   "outputs": [
+    "Work performance reports",
+    "Change requests",
+    "Project management plan updates",
+    "Project documents updates"
+   ],
+   "src": "PDF 108"
+  },
+  "4.6": {
+   "inputs": [
+    "Project management plan",
+    "Project documents",
+    "Work performance reports",
+    "Change requests",
+    "Enterprise environmental factors",
+    "Organizational process assets"
+   ],
+   "tools": [
+    "Expert judgment",
+    "Change control tools",
+    "Data analysis",
+    "Decision making",
+    "Meetings"
+   ],
+   "outputs": [
+    "Approved change requests",
+    "Project management plan updates",
+    "Project documents updates"
+   ],
+   "src": "PDF 108"
+  },
+  "4.7": {
+   "inputs": [
+    "Project charter",
+    "Project management plan",
+    "Project documents",
+    "Accepted deliverables",
+    "Business documents",
+    "Agreements",
+    "Procurement documentation",
+    "Organizational process assets"
+   ],
+   "tools": [
+    "Expert judgment",
+    "Data analysis",
+    "Meetings"
+   ],
+   "outputs": [
+    "Project documents updates",
+    "Final product, service, or result transition",
+    "Final report",
+    "Organizational process assets updates"
+   ],
+   "src": "PDF 108"
+  },
+  "5.1": {
+   "inputs": [
+    "Project charter",
+    "Project management plan",
+    "Enterprise environmental factors",
+    "Organizational process assets"
+   ],
+   "tools": [
+    "Expert judgment",
+    "Data analysis",
+    "Meetings"
+   ],
+   "outputs": [
+    "Scope management plan",
+    "Requirements management plan"
+   ],
+   "src": "PDF 167, 171"
+  },
+  "5.2": {
+   "inputs": [
+    "Project charter",
+    "Project management plan",
+    "Project documents",
+    "Business documents",
+    "Agreements",
+    "Enterprise environmental factors",
+    "Organizational process assets"
+   ],
+   "tools": [
+    "Expert judgment",
+    "Data gathering",
+    "Data analysis",
+    "Decision making",
+    "Data representation",
+    "Interpersonal and team skills",
+    "Context diagram",
+    "Prototypes"
+   ],
+   "outputs": [
+    "Requirements documentation",
+    "Requirements traceability matrix"
+   ],
+   "src": "PDF 167, 175"
+  },
+  "5.3": {
+   "inputs": [
+    "Project charter",
+    "Project management plan",
+    "Project documents",
+    "Enterprise environmental factors",
+    "Organizational process assets"
+   ],
+   "tools": [
+    "Expert judgment",
+    "Data analysis",
+    "Decision making",
+    "Interpersonal and team skills",
+    "Product analysis"
+   ],
+   "outputs": [
+    "Project scope statement",
+    "Project documents updates"
+   ],
+   "src": "PDF 167"
+  },
+  "5.4": {
+   "inputs": [
+    "Project management plan",
+    "Project documents",
+    "Enterprise environmental factors",
+    "Organizational process assets"
+   ],
+   "tools": [
+    "Expert judgment",
+    "Decomposition"
+   ],
+   "outputs": [
+    "Scope baseline",
+    "Project documents updates"
+   ],
+   "src": "PDF 167"
+  },
+  "5.5": {
+   "inputs": [
+    "Project management plan",
+    "Project documents",
+    "Verified deliverables",
+    "Work performance data"
+   ],
+   "tools": [
+    "Inspection",
+    "Decision making"
+   ],
+   "outputs": [
+    "Accepted deliverables",
+    "Work performance information",
+    "Change requests",
+    "Project documents updates"
+   ],
+   "src": "PDF 167"
+  },
+  "5.6": {
+   "inputs": [
+    "Project management plan",
+    "Project documents",
+    "Work performance data",
+    "Organizational process assets"
+   ],
+   "tools": [
+    "Data analysis"
+   ],
+   "outputs": [
+    "Work performance information",
+    "Change requests",
+    "Project management plan updates",
+    "Project documents updates"
+   ],
+   "src": "PDF 167"
+  },
+  "6.1": {
+   "inputs": [
+    "Project charter",
+    "Project management plan",
+    "Enterprise environmental factors",
+    "Organizational process assets"
+   ],
+   "tools": [
+    "Expert judgment",
+    "Data analysis",
+    "Meetings"
+   ],
+   "outputs": [
+    "Schedule management plan"
+   ],
+   "src": "PDF 211, 216"
+  },
+  "6.2": {
+   "inputs": [
+    "Project management plan",
+    "Enterprise environmental factors",
+    "Organizational process assets"
+   ],
+   "tools": [
+    "Expert judgment",
+    "Decomposition",
+    "Rolling wave planning",
+    "Meetings"
+   ],
+   "outputs": [
+    "Activity list",
+    "Activity attributes",
+    "Milestone list",
+    "Change requests",
+    "Project management plan updates"
+   ],
+   "src": "PDF 211, 220"
+  },
+  "6.3": {
+   "inputs": [
+    "Project management plan",
+    "Project documents",
+    "Enterprise environmental factors",
+    "Organizational process assets"
+   ],
+   "tools": [
+    "Precedence diagramming method",
+    "Dependency determination and integration",
+    "Leads and lags",
+    "Project management information system"
+   ],
+   "outputs": [
+    "Project schedule network diagrams",
+    "Project documents updates"
+   ],
+   "src": "PDF 211, 224"
+  },
+  "6.4": {
+   "inputs": [
+    "Project management plan",
+    "Project documents",
+    "Enterprise environmental factors",
+    "Organizational process assets"
+   ],
+   "tools": [
+    "Expert judgment",
+    "Analogous estimating",
+    "Parametric estimating",
+    "Three-point estimating",
+    "Bottom-up estimating",
+    "Data analysis",
+    "Decision making",
+    "Meetings"
+   ],
+   "outputs": [
+    "Duration estimates",
+    "Basis of estimates",
+    "Project documents updates"
+   ],
+   "src": "PDF 211"
+  },
+  "6.5": {
+   "inputs": [
+    "Project management plan",
+    "Project documents",
+    "Agreements",
+    "Enterprise environmental factors",
+    "Organizational process assets"
+   ],
+   "tools": [
+    "Schedule network analysis",
+    "Critical path method",
+    "Resource optimization",
+    "Data analysis",
+    "Leads and lags",
+    "Schedule compression",
+    "Project management information system",
+    "Agile release planning"
+   ],
+   "outputs": [
+    "Schedule baseline",
+    "Project schedule",
+    "Schedule data",
+    "Project calendars",
+    "Change requests",
+    "Project management plan updates",
+    "Project documents updates"
+   ],
+   "src": "PDF 211"
+  },
+  "6.6": {
+   "inputs": [
+    "Project management plan",
+    "Project documents",
+    "Work performance data",
+    "Organizational process assets"
+   ],
+   "tools": [
+    "Data analysis",
+    "Critical path method",
+    "Project management information system",
+    "Resource optimization",
+    "Leads and lags",
+    "Schedule compression"
+   ],
+   "outputs": [
+    "Work performance information",
+    "Schedule forecasts",
+    "Change requests",
+    "Project management plan updates",
+    "Project documents updates"
+   ],
+   "src": "PDF 211"
+  },
+  "7.1": {
+   "inputs": [
+    "Project charter",
+    "Project management plan",
+    "Enterprise environmental factors",
+    "Organizational process assets"
+   ],
+   "tools": [
+    "Expert judgment",
+    "Data analysis",
+    "Meetings"
+   ],
+   "outputs": [
+    "Cost management plan"
+   ],
+   "src": "PDF 269, 272"
+  },
+  "7.2": {
+   "inputs": [
+    "Project management plan",
+    "Project documents",
+    "Enterprise environmental factors",
+    "Organizational process assets"
+   ],
+   "tools": [
+    "Expert judgment",
+    "Analogous estimating",
+    "Parametric estimating",
+    "Bottom-up estimating",
+    "Three-point estimating",
+    "Data analysis",
+    "Project management information system",
+    "Decision making"
+   ],
+   "outputs": [
+    "Cost estimates",
+    "Basis of estimates",
+    "Project documents updates"
+   ],
+   "src": "PDF 269"
+  },
+  "7.3": {
+   "inputs": [
+    "Project management plan",
+    "Project documents",
+    "Business documents",
+    "Agreements",
+    "Enterprise environmental factors",
+    "Organizational process assets"
+   ],
+   "tools": [
+    "Expert judgment",
+    "Cost aggregation",
+    "Data analysis",
+    "Historical information review",
+    "Funding limit reconciliation",
+    "Financing"
+   ],
+   "outputs": [
+    "Cost baseline",
+    "Project funding requirements",
+    "Project documents updates"
+   ],
+   "src": "PDF 269"
+  },
+  "7.4": {
+   "inputs": [
+    "Project management plan",
+    "Project documents",
+    "Project funding requirements",
+    "Work performance data",
+    "Organizational process assets"
+   ],
+   "tools": [
+    "Expert judgment",
+    "Data analysis",
+    "To-complete performance index",
+    "Project management information system"
+   ],
+   "outputs": [
+    "Work performance information",
+    "Cost forecasts",
+    "Change requests",
+    "Project management plan updates",
+    "Project documents updates"
+   ],
+   "src": "PDF 269"
+  },
+  "8.1": {
+   "inputs": [
+    "Project charter",
+    "Project management plan",
+    "Project documents",
+    "Enterprise environmental factors",
+    "Organizational process assets"
+   ],
+   "tools": [
+    "Expert judgment",
+    "Data gathering",
+    "Data analysis",
+    "Decision making",
+    "Data representation",
+    "Test and inspection planning",
+    "Meetings"
+   ],
+   "outputs": [
+    "Quality management plan",
+    "Quality metrics",
+    "Project management plan updates",
+    "Project documents updates"
+   ],
+   "src": "PDF 309, 314"
+  },
+  "8.2": {
+   "inputs": [
+    "Project management plan",
+    "Project documents",
+    "Organizational process assets"
+   ],
+   "tools": [
+    "Data gathering",
+    "Data analysis",
+    "Decision making",
+    "Data representation",
+    "Audits",
+    "Design for X",
+    "Problem solving",
+    "Quality improvement methods"
+   ],
+   "outputs": [
+    "Quality reports",
+    "Test and evaluation documents",
+    "Change requests",
+    "Project management plan updates",
+    "Project documents updates"
+   ],
+   "src": "PDF 309"
+  },
+  "8.3": {
+   "inputs": [
+    "Project management plan",
+    "Project documents",
+    "Approved change requests",
+    "Deliverables",
+    "Work performance data",
+    "Enterprise environmental factors",
+    "Organizational process assets"
+   ],
+   "tools": [
+    "Data gathering",
+    "Data analysis",
+    "Inspection",
+    "Testing/product evaluations",
+    "Data representation",
+    "Meetings"
+   ],
+   "outputs": [
+    "Quality control measurements",
+    "Verified deliverables",
+    "Work performance information",
+    "Change requests",
+    "Project management plan updates",
+    "Project documents updates"
+   ],
+   "src": "PDF 309"
+  },
+  "9.1": {
+   "inputs": [
+    "Project charter",
+    "Project management plan",
+    "Project documents",
+    "Enterprise environmental factors",
+    "Organizational process assets"
+   ],
+   "tools": [
+    "Expert judgment",
+    "Data representation",
+    "Organizational theory",
+    "Meetings"
+   ],
+   "outputs": [
+    "Resource management plan",
+    "Team charter",
+    "Project documents updates"
+   ],
+   "src": "PDF 345"
+  },
+  "9.2": {
+   "inputs": [
+    "Project management plan",
+    "Project documents",
+    "Enterprise environmental factors",
+    "Organizational process assets"
+   ],
+   "tools": [
+    "Expert judgment",
+    "Bottom-up estimating",
+    "Analogous estimating",
+    "Parametric estimating",
+    "Data analysis",
+    "Project management information system",
+    "Meetings"
+   ],
+   "outputs": [
+    "Resource requirements",
+    "Basis of estimates",
+    "Resource breakdown structure",
+    "Project documents updates"
+   ],
+   "src": "PDF 345"
+  },
+  "9.3": {
+   "inputs": [
+    "Project management plan",
+    "Project documents",
+    "Enterprise environmental factors",
+    "Organizational process assets"
+   ],
+   "tools": [
+    "Decision making",
+    "Interpersonal and team skills",
+    "Pre-assignment",
+    "Virtual teams"
+   ],
+   "outputs": [
+    "Physical resource assignments",
+    "Project team assignments",
+    "Resource calendars",
+    "Change requests",
+    "Project management plan updates",
+    "Project documents updates",
+    "Enterprise environmental factors updates",
+    "Organizational process assets updates"
+   ],
+   "src": "PDF 345"
+  },
+  "9.4": {
+   "inputs": [
+    "Project management plan",
+    "Project documents",
+    "Enterprise environmental factors",
+    "Organizational process assets"
+   ],
+   "tools": [
+    "Colocation",
+    "Virtual teams",
+    "Communication technology",
+    "Interpersonal and team skills",
+    "Recognition and rewards",
+    "Training",
+    "Individual and team assessments",
+    "Meetings"
+   ],
+   "outputs": [
+    "Team performance assessments",
+    "Change requests",
+    "Project management plan updates",
+    "Project documents updates",
+    "Enterprise environmental factors updates",
+    "Organizational process assets updates"
+   ],
+   "src": "PDF 345"
+  },
+  "9.5": {
+   "inputs": [
+    "Project management plan",
+    "Project documents",
+    "Work performance reports",
+    "Team performance assessments",
+    "Enterprise environmental factors",
+    "Organizational process assets"
+   ],
+   "tools": [
+    "Interpersonal and team skills",
+    "Project management information system"
+   ],
+   "outputs": [
+    "Change requests",
+    "Project management plan updates",
+    "Project documents updates",
+    "Enterprise environmental factors updates"
+   ],
+   "src": "PDF 345"
+  },
+  "9.6": {
+   "inputs": [
+    "Project management plan",
+    "Project documents",
+    "Work performance data",
+    "Agreements",
+    "Organizational process assets"
+   ],
+   "tools": [
+    "Data analysis",
+    "Problem solving",
+    "Interpersonal and team skills",
+    "Project management information system"
+   ],
+   "outputs": [
+    "Work performance information",
+    "Change requests",
+    "Project management plan updates",
+    "Project documents updates"
+   ],
+   "src": "PDF 345"
+  },
+  "10.1": {
+   "inputs": [
+    "Project charter",
+    "Project management plan",
+    "Project documents",
+    "Enterprise environmental factors",
+    "Organizational process assets"
+   ],
+   "tools": [
+    "Expert judgment",
+    "Communication requirements analysis",
+    "Communication technology",
+    "Communication models",
+    "Communication methods",
+    "Interpersonal and team skills",
+    "Data representation",
+    "Meetings"
+   ],
+   "outputs": [
+    "Communications management plan",
+    "Project management plan updates",
+    "Project documents updates"
+   ],
+   "src": "PDF 397, 403"
+  },
+  "10.2": {
+   "inputs": [
+    "Project management plan",
+    "Project documents",
+    "Work performance reports",
+    "Enterprise environmental factors",
+    "Organizational process assets"
+   ],
+   "tools": [
+    "Communication technology",
+    "Communication methods",
+    "Communication skills",
+    "Project management information system",
+    "Project reporting",
+    "Interpersonal and team skills",
+    "Meetings"
+   ],
+   "outputs": [
+    "Project communications",
+    "Project management plan updates",
+    "Project documents updates",
+    "Organizational process assets updates"
+   ],
+   "src": "PDF 397, 416"
+  },
+  "10.3": {
+   "inputs": [
+    "Project management plan",
+    "Project documents",
+    "Work performance data",
+    "Enterprise environmental factors",
+    "Organizational process assets"
+   ],
+   "tools": [
+    "Expert judgment",
+    "Project management information system",
+    "Data representation",
+    "Interpersonal and team skills",
+    "Meetings"
+   ],
+   "outputs": [
+    "Work performance information",
+    "Change requests",
+    "Project management plan updates",
+    "Project documents updates"
+   ],
+   "src": "PDF 397"
+  },
+  "11.1": {
+   "inputs": [
+    "Project charter",
+    "Project management plan",
+    "Project documents",
+    "Enterprise environmental factors",
+    "Organizational process assets"
+   ],
+   "tools": [
+    "Expert judgment",
+    "Data analysis",
+    "Meetings"
+   ],
+   "outputs": [
+    "Risk management plan"
+   ],
+   "src": "PDF 433, 438"
+  },
+  "11.2": {
+   "inputs": [
+    "Project management plan",
+    "Project documents",
+    "Agreements",
+    "Procurement documentation",
+    "Enterprise environmental factors",
+    "Organizational process assets"
+   ],
+   "tools": [
+    "Expert judgment",
+    "Data gathering",
+    "Data analysis",
+    "Interpersonal and team skills",
+    "Prompt lists",
+    "Meetings"
+   ],
+   "outputs": [
+    "Risk register",
+    "Risk report",
+    "Project documents updates"
+   ],
+   "src": "PDF 433"
+  },
+  "11.3": {
+   "inputs": [
+    "Project management plan",
+    "Project documents",
+    "Enterprise environmental factors",
+    "Organizational process assets"
+   ],
+   "tools": [
+    "Expert judgment",
+    "Data gathering",
+    "Data analysis",
+    "Interpersonal and team skills",
+    "Risk categorization",
+    "Data representation",
+    "Meetings"
+   ],
+   "outputs": [
+    "Project documents updates"
+   ],
+   "src": "PDF 433, confirmed by Figures 11-8 and 11-11"
+  },
+  "11.4": {
+   "inputs": [
+    "Project management plan",
+    "Project documents",
+    "Enterprise environmental factors",
+    "Organizational process assets"
+   ],
+   "tools": [
+    "Expert judgment",
+    "Data gathering",
+    "Interpersonal and team skills",
+    "Representations of uncertainty",
+    "Data analysis"
+   ],
+   "outputs": [
+    "Project documents updates"
+   ],
+   "src": "PDF 433, confirmed by Figures 11-8 and 11-11"
+  },
+  "11.5": {
+   "inputs": [
+    "Project management plan",
+    "Project documents",
+    "Enterprise environmental factors",
+    "Organizational process assets"
+   ],
+   "tools": [
+    "Expert judgment",
+    "Data gathering",
+    "Interpersonal and team skills",
+    "Strategies for threats",
+    "Strategies for opportunities",
+    "Contingent response strategies",
+    "Strategies for overall project risk",
+    "Data analysis",
+    "Decision making"
+   ],
+   "outputs": [
+    "Change requests",
+    "Project management plan updates",
+    "Project documents updates"
+   ],
+   "src": "PDF 433"
+  },
+  "11.6": {
+   "inputs": [
+    "Project management plan",
+    "Project documents",
+    "Organizational process assets"
+   ],
+   "tools": [
+    "Expert judgment",
+    "Interpersonal and team skills",
+    "Project management information system"
+   ],
+   "outputs": [
+    "Change requests",
+    "Project documents updates"
+   ],
+   "src": "PDF 433"
+  },
+  "11.7": {
+   "inputs": [
+    "Project management plan",
+    "Project documents",
+    "Work performance data",
+    "Work performance reports"
+   ],
+   "tools": [
+    "Data analysis",
+    "Audits",
+    "Meetings"
+   ],
+   "outputs": [
+    "Work performance information",
+    "Change requests",
+    "Project management plan updates",
+    "Project documents updates",
+    "Organizational process assets updates"
+   ],
+   "src": "PDF 433"
+  },
+  "12.1": {
+   "inputs": [
+    "Project charter",
+    "Business documents",
+    "Project management plan",
+    "Project documents",
+    "Enterprise environmental factors",
+    "Organizational process assets"
+   ],
+   "tools": [
+    "Expert judgment",
+    "Data gathering",
+    "Data analysis",
+    "Source selection analysis",
+    "Meetings"
+   ],
+   "outputs": [
+    "Procurement management plan",
+    "Procurement strategy",
+    "Bid documents",
+    "Procurement statement of work",
+    "Source selection criteria",
+    "Make-or-buy decisions",
+    "Independent cost estimates",
+    "Change requests",
+    "Project documents updates",
+    "Organizational process assets updates"
+   ],
+   "src": "PDF 497, 503"
+  },
+  "12.2": {
+   "inputs": [
+    "Project management plan",
+    "Project documents",
+    "Procurement documentation",
+    "Seller proposals",
+    "Enterprise environmental factors",
+    "Organizational process assets"
+   ],
+   "tools": [
+    "Expert judgment",
+    "Advertising",
+    "Bidder conferences",
+    "Data analysis",
+    "Interpersonal and team skills"
+   ],
+   "outputs": [
+    "Selected sellers",
+    "Agreements",
+    "Change requests",
+    "Project management plan updates",
+    "Project documents updates",
+    "Organizational process assets updates"
+   ],
+   "src": "PDF 497"
+  },
+  "12.3": {
+   "inputs": [
+    "Project management plan",
+    "Project documents",
+    "Agreements",
+    "Procurement documentation",
+    "Approved change requests",
+    "Work performance data",
+    "Enterprise environmental factors",
+    "Organizational process assets"
+   ],
+   "tools": [
+    "Expert judgment",
+    "Claims administration",
+    "Data analysis",
+    "Inspection",
+    "Audits"
+   ],
+   "outputs": [
+    "Closed procurements",
+    "Work performance information",
+    "Procurement documentation updates",
+    "Change requests",
+    "Project management plan updates",
+    "Project documents updates",
+    "Organizational process assets updates"
+   ],
+   "src": "PDF 497"
+  },
+  "13.1": {
+   "inputs": [
+    "Project charter",
+    "Business documents",
+    "Project management plan",
+    "Project documents",
+    "Agreements",
+    "Enterprise environmental factors",
+    "Organizational process assets"
+   ],
+   "tools": [
+    "Expert judgment",
+    "Data gathering",
+    "Data analysis",
+    "Data representation",
+    "Meetings"
+   ],
+   "outputs": [
+    "Stakeholder register",
+    "Change requests",
+    "Project management plan updates",
+    "Project documents updates"
+   ],
+   "src": "PDF 541, 544"
+  },
+  "13.2": {
+   "inputs": [
+    "Project charter",
+    "Project management plan",
+    "Project documents",
+    "Agreements",
+    "Enterprise environmental factors",
+    "Organizational process assets"
+   ],
+   "tools": [
+    "Expert judgment",
+    "Data gathering",
+    "Data analysis",
+    "Decision making",
+    "Data representation",
+    "Meetings"
+   ],
+   "outputs": [
+    "Stakeholder engagement plan"
+   ],
+   "src": "PDF 541, 553"
+  },
+  "13.3": {
+   "inputs": [
+    "Project management plan",
+    "Project documents",
+    "Enterprise environmental factors",
+    "Organizational process assets"
+   ],
+   "tools": [
+    "Expert judgment",
+    "Communication skills",
+    "Interpersonal and team skills",
+    "Ground rules",
+    "Meetings"
+   ],
+   "outputs": [
+    "Change requests",
+    "Project management plan updates",
+    "Project documents updates"
+   ],
+   "src": "PDF 541 (block mapped by content), confirmed by Figure 13-7 (PDF 560)"
+  },
+  "13.4": {
+   "inputs": [
+    "Project management plan",
+    "Project documents",
+    "Work performance data",
+    "Enterprise environmental factors",
+    "Organizational process assets"
+   ],
+   "tools": [
+    "Data analysis",
+    "Decision making",
+    "Data representation",
+    "Communication skills",
+    "Interpersonal and team skills",
+    "Meetings"
+   ],
+   "outputs": [
+    "Work performance information",
+    "Change requests",
+    "Project management plan updates",
+    "Project documents updates"
+   ],
+   "src": "PDF 541 (block mapped by content), confirmed by Figure 13-9 (PDF 567)"
+  }
+ }
+}

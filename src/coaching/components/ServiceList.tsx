@@ -21,11 +21,13 @@ export function ServiceList({ selectedId, onSelect }: Props) {
               <span className="service-num">{s.number}</span>
               <span className="bk-chips">
                 {selectedId === s.id && <span className="bk-chip">In progress</span>}
+                {s.badge && <span className="bk-chip bk-chip-badge">{s.badge}</span>}
                 {s.free && <span className="bk-chip bk-chip-free">Free</span>}
               </span>
             </div>
             <div className="bk-service-text">
               <h4>{s.title}</h4>
+              {s.subtitle && <p className="bk-subtitle">{s.subtitle}</p>}
               <p className="bk-service-summary">{s.summary}</p>
             </div>
             <dl className="bk-meta">

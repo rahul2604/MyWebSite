@@ -1,17 +1,27 @@
 /*
- * Coaching services shown on the Strategy & Coaching page.
+ * Coaching services shown on the Strategy & Coaching booking page.
+ *
+ * Source of truth for the first two services: https://topmate.io/rahul_mehra
+ * (copied 20 October 2026). Keep them in step with Topmate when either changes.
  *
  * Edit freely. Any value wrapped in [square brackets] is a placeholder for
  * information that hasn't been decided yet; the UI marks it as "to be confirmed".
  */
 
 /* Add an id here (and an entry below) to offer another service. */
-export type ServiceId = 'strategy-interview' | 'lets-connect' | 'pmp-discovery';
+export type ServiceId = 'lets-connect' | 'strategy-interview' | 'pmp-discovery';
+
+export interface ServiceTopic {
+  title: string;
+  text: string;
+}
 
 export interface CoachingService {
   id: ServiceId;
   number: string;
   title: string;
+  /** Optional tagline under the title. */
+  subtitle?: string;
   /** One or two sentences for the service card. */
   summary: string;
   /** Who the session is designed for, in one line. */
@@ -23,80 +33,89 @@ export interface CoachingService {
   price: string;
   /** Free sessions get a "Free" badge and never mention payment. */
   free?: boolean;
+  /** Small highlight label on the card, e.g. "Popular". */
+  badge?: string;
   /** Label for the card's button. Defaults to "View Details & Book". */
   ctaLabel?: string;
-  covers: string[];
-  forWho: string[];
-  outcomes: string[];
-  preparation: string[];
+  /**
+   * "server": booked through /api/bookings (stored, slot held, emails; Google Calendar + Meet when BOOKING_MODE=live).
+   * "demo": in-browser prototype only — nothing is stored or sent.
+   */
+  booking: 'server' | 'demo';
+
+  /* Details page — every section is optional and only shown when present. */
+  /** Paragraphs before the topics. */
+  intro?: string[];
+  topicsHeading?: string;
+  topics?: ServiceTopic[];
+  /** Paragraphs after the topics. */
+  outro?: string[];
+  covers?: string[];
+  forWho?: string[];
+  outcomes?: string[];
+  preparation?: string[];
 }
 
 export const COACHING_SERVICES: CoachingService[] = [
   {
-    id: 'strategy-interview',
-    number: '01',
-    title: 'Strategy & Consulting Interview Preparation',
-    summary:
-      'Prepare for strategy and consulting interviews — structure problems clearly and communicate your recommendations with confidence.',
-    audience: 'Candidates interviewing for strategy, consulting and commercial roles',
-    format: '[Session format, e.g. one-to-one online call]',
-    duration: '[Session duration]',
-    price: '[Price]',
-    covers: [
-      'How strategy and consulting interviews are typically structured',
-      'Breaking down ambiguous business problems into a clear structure',
-      'Turning your analysis into a concise, well-supported recommendation',
-      'Communicating your thinking clearly under time pressure',
-      'Feedback on your current approach and where to focus next',
-    ],
-    forWho: [
-      'MBA students and graduates preparing for strategy or consulting interviews',
-      'Professionals moving into strategy, consulting or commercial roles',
-      'Candidates who want structured feedback before an upcoming interview',
-    ],
-    outcomes: [
-      'A clearer, repeatable way to approach interview problems',
-      'Specific feedback on your structure and communication',
-      'A short list of priority areas to work on before your interview',
-    ],
-    preparation: [
-      'Mention the role or company you are preparing for in the booking form',
-      'Note the question types or topics you find hardest',
-      'Keep a pen and paper ready for structuring during the session',
-    ],
-  },
-  {
+    // Topmate: "Need Advice? Let's Talk" — Topmate shows no description; summary and audience are Rahul's own wording.
+    // Duration: 15 minutes on this site (Topmate lists 10) — free calls use the 15-minute booking rule.
     id: 'lets-connect',
-    number: '02',
-    title: 'Let’s Connect',
+    number: '01',
+    title: 'Need Advice? Let’s Talk',
     summary:
       'A brief introductory conversation to connect, discuss your goals, and understand how I might be able to help.',
     audience: 'Anyone interested in exploring my coaching, strategy or career guidance offerings',
-    format: '[Session format, e.g. online call]',
-    duration: '10 minutes',
-    durationMinutes: 10,
-    price: 'Free (₹0)',
+    format: 'Video meeting',
+    duration: '15 minutes',
+    durationMinutes: 15,
+    price: 'Free',
     free: true,
     ctaLabel: 'Book a Free Call',
-    covers: [
-      'A quick introduction',
-      'Your goals and what you are working towards',
-      'How I might be able to help, and whether a longer session makes sense',
+    booking: 'server',
+  },
+  {
+    // Topmate: "1:1 Case & Guesstimate Mock Interview" — text copied from its "About this session".
+    id: 'strategy-interview',
+    number: '02',
+    title: '1:1 Case & Guesstimate Mock Interview',
+    subtitle: 'Ace Strategy Interviews – 1:1 Guidance',
+    summary:
+      'Are you preparing for consulting or strategy interviews as an MBA student or recent graduate? I offer personalized 1:1 sessions to help you succeed in every round.',
+    audience: 'MBA students and recent graduates targeting MBB, Big 4 or corporate strategy roles',
+    format: 'Video meeting',
+    duration: '30 minutes',
+    durationMinutes: 30,
+    price: '₹299',
+    badge: 'Popular',
+    // Paid session: stays an in-browser demo until payments exist.
+    booking: 'demo',
+    intro: [
+      'Are you preparing for consulting or strategy interviews as an MBA student or recent graduate? I offer personalized 1:1 sessions to help you succeed in every round.',
     ],
-    forWho: [
-      'Anyone interested in exploring my coaching, strategy or career guidance offerings',
-      'People who would like to talk briefly before booking a full session',
+    topicsHeading: 'In each session, we will cover',
+    topics: [
+      {
+        title: 'CV-Based Questions',
+        text: 'Learn how to frame your experience, handle common behavioral questions, and showcase your impact effectively.',
+      },
+      {
+        title: 'Guesstimates',
+        text: 'Practice structured thinking for market sizing and estimation problems with real examples and feedback.',
+      },
+      {
+        title: 'Case Interviews',
+        text: 'Get hands-on with profitability, market entry, and other case types — with detailed walkthroughs and feedback.',
+      },
     ],
-    outcomes: [
-      'A clearer idea of whether my coaching fits what you need',
-      'Suggested next steps, if a follow-up session would help',
-    ],
-    preparation: [
-      'Jot down your goals and the questions you would like to ask',
-      'Share a line about what you are looking for in the booking form',
+    outro: [
+      'Whether you’re targeting MBB, Big 4, or corporate strategy roles, these sessions will help you build clarity, confidence, and structure in your approach.',
+      'I bring experience from top B-schools (MDI Gurgaon, ESCP Europe), operations and strategy roles at Air India, Vedanta, and Max Life, and strong analytical foundations — along with a passion for mentoring.',
+      'Let’s work together to sharpen your interview skills and land your dream role.',
     ],
   },
   {
+    // Not on Topmate — added on this site.
     id: 'pmp-discovery',
     number: '03',
     title: 'PMP® Course Discovery Call',
@@ -106,9 +125,10 @@ export const COACHING_SERVICES: CoachingService[] = [
     format: '[Session format, e.g. online call]',
     duration: '15 minutes',
     durationMinutes: 15,
-    price: 'Free (₹0)',
+    price: 'Free',
     free: true,
     ctaLabel: 'Book a Free Call',
+    booking: 'server',
     covers: [
       'An overview of the PMP® course',
       'Your goals and where you are in your PMP® journey',

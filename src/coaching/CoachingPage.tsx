@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react';
 import { ArrowLeft } from '../components/Icons';
 import { Confirmation } from './components/Confirmation';
+import { AboutMe, ProfileCard } from './components/ProfileCard';
 import { DetailsForm } from './components/DetailsForm';
 import { ReviewStep } from './components/ReviewStep';
 import { ServiceDetail } from './components/ServiceDetail';
@@ -49,11 +50,8 @@ export function CoachingPage({ hidden }: { hidden: boolean }) {
           <div className="eyebrow">STRATEGY &amp; COACHING</div>
           <span className="badge">PROTOTYPE · DEMO BOOKINGS</span>
         </div>
-        <h2 id="bk-title" className="h2">Book a coaching session</h2>
-        <p className="lede">
-          One-to-one guidance for strategy and consulting interviews, plus free introductory and PMP® course discovery
-          calls. Pick a service, choose a time and share a little about what you need.
-        </p>
+        <h2 id="bk-title" className="h2">Book a session with Rahul</h2>
+        <ProfileCard />
 
         <div ref={panelRef} className="bk-panel">
           <Stepper step={step} />
@@ -74,6 +72,7 @@ export function CoachingPage({ hidden }: { hidden: boolean }) {
               onPickTime={flow.pickTime}
               onBack={() => flow.go('details')}
               onContinue={flow.confirmSlot}
+              onMode={flow.setMode}
             />
           )}
 
@@ -97,6 +96,7 @@ export function CoachingPage({ hidden }: { hidden: boolean }) {
               date={state.date}
               time={state.time}
               details={state.details}
+              mode={state.mode}
               submitting={state.submitting}
               error={state.submitError}
               onBack={() => flow.go('form')}
@@ -111,6 +111,9 @@ export function CoachingPage({ hidden }: { hidden: boolean }) {
             <Confirmation
               confirmation={state.confirmation}
               service={findService(state.confirmation.serviceId) ?? service!}
+              resending={state.resending}
+              resendError={state.resendError}
+              onResendEmails={flow.resendEmails}
               onBookAnother={flow.reset}
               onHome={() => {
                 flow.reset();
@@ -119,6 +122,8 @@ export function CoachingPage({ hidden }: { hidden: boolean }) {
             />
           )}
         </div>
+
+        {step === 'services' && <AboutMe />}
       </div>
     </section>
   );

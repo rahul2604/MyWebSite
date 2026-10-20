@@ -1,0 +1,158 @@
+{
+ "generated": "2026-10-20",
+ "modules": 18,
+ "lessons": 69,
+ "lessonMinutes": 1945,
+ "lessonWords": 34965,
+ "knowledgeCheckQuestions": 230,
+ "mock1Questions": 100,
+ "mock2Questions": 100,
+ "finalQuestions": 81,
+ "totalQuestions": 511,
+ "answerKeyDistribution": {
+  "A": 72,
+  "B": 362,
+  "C": 67,
+  "D": 10,
+  "note": "Option order is shuffled per attempt on the server, so authored positions are not what learners see."
+ },
+ "topicsInCatalogue": 160,
+ "topicsTaught": 160,
+ "topicsAssessed": 157,
+ "topicsNotAssessedByDesign": [
+  "src-references-part1",
+  "a-call-to-action",
+  "a-manifesto-mapping"
+ ],
+ "processesTaught": 49,
+ "processesAssessed": 49,
+ "byModule": [
+  {
+   "id": "M00",
+   "title": "Orientation",
+   "lessons": 2,
+   "minutes": 25,
+   "knowledgeCheckQuestions": 8
+  },
+  {
+   "id": "M01",
+   "title": "Project management foundations",
+   "lessons": 5,
+   "minutes": 125,
+   "knowledgeCheckQuestions": 15
+  },
+  {
+   "id": "M02",
+   "title": "The environment in which projects operate",
+   "lessons": 3,
+   "minutes": 70,
+   "knowledgeCheckQuestions": 12
+  },
+  {
+   "id": "M03",
+   "title": "The role of the project manager",
+   "lessons": 4,
+   "minutes": 95,
+   "knowledgeCheckQuestions": 12
+  },
+  {
+   "id": "M04",
+   "title": "Project Integration Management",
+   "lessons": 6,
+   "minutes": 165,
+   "knowledgeCheckQuestions": 15
+  },
+  {
+   "id": "M05",
+   "title": "Project Scope Management",
+   "lessons": 4,
+   "minutes": 120,
+   "knowledgeCheckQuestions": 14
+  },
+  {
+   "id": "M06",
+   "title": "Project Schedule Management",
+   "lessons": 5,
+   "minutes": 150,
+   "knowledgeCheckQuestions": 15
+  },
+  {
+   "id": "M07",
+   "title": "Project Cost Management",
+   "lessons": 4,
+   "minutes": 130,
+   "knowledgeCheckQuestions": 15
+  },
+  {
+   "id": "M08",
+   "title": "Project Quality Management",
+   "lessons": 3,
+   "minutes": 95,
+   "knowledgeCheckQuestions": 14
+  },
+  {
+   "id": "M09",
+   "title": "Project Resource Management",
+   "lessons": 4,
+   "minutes": 115,
+   "knowledgeCheckQuestions": 14
+  },
+  {
+   "id": "M10",
+   "title": "Project Communications Management",
+   "lessons": 2,
+   "minutes": 65,
+   "knowledgeCheckQuestions": 12
+  },
+  {
+   "id": "M11",
+   "title": "Project Risk Management",
+   "lessons": 5,
+   "minutes": 160,
+   "knowledgeCheckQuestions": 15
+  },
+  {
+   "id": "M12",
+   "title": "Project Procurement Management",
+   "lessons": 3,
+   "minutes": 95,
+   "knowledgeCheckQuestions": 13
+  },
+  {
+   "id": "M13",
+   "title": "Project Stakeholder Management",
+   "lessons": 3,
+   "minutes": 85,
+   "knowledgeCheckQuestions": 12
+  },
+  {
+   "id": "M14",
+   "title": "The Standard for Project Management",
+   "lessons": 2,
+   "minutes": 50,
+   "knowledgeCheckQuestions": 8
+  },
+  {
+   "id": "M15",
+   "title": "The five Process Groups end to end",
+   "lessons": 3,
+   "minutes": 85,
+   "knowledgeCheckQuestions": 11
+  },
+  {
+   "id": "M16",
+   "title": "Appendices and glossary revision",
+   "lessons": 3,
+   "minutes": 70,
+   "knowledgeCheckQuestions": 10
+  },
+  {
+   "id": "M17",
+   "title": "Agile Practice Guide",
+   "lessons": 8,
+   "minutes": 245,
+   "knowledgeCheckQuestions": 15
+  }
+ ],
+ "warnings": []
+}

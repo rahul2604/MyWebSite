@@ -1,0 +1,161 @@
+{
+ "batch": "B32",
+ "range": [
+  761,
+  794
+ ],
+ "readBy": "glossary S-W read in full; index pages PDF 764-793 profiled programmatically (word counts, page-reference counts, first and last entries per page) and spot-read (PDF 764-765 in full) - they contain only alphabetical entries with page references, so their disposition is 'index'; PDF 794 is the Agile Practice Guide cover, 2026-10-20",
+ "topics": {
+  "g-glossary-s-w": {
+   "title": "Glossary definitions S-W (Start-to-Start to Work Performance Reports)",
+   "section": "Glossary 3 (PDF 761-763)",
+   "kind": "definition",
+   "module": "M16",
+   "notes": "SS; statement of work (narrative description of products, services or results to be delivered); statistical sampling; successor activity; summary activity; SWOT analysis; tacit knowledge (personal, hard to articulate - beliefs, experience, insights); tailoring (determining the appropriate combination of processes, inputs, tools, techniques, outputs and life cycle phases); team charter (team values, agreements, operating guidelines and expectations of acceptable behaviour); team management plan (component of the resource management plan describing when and how members are acquired and how long they are needed - glossary-only term); technique vs tool (technique = defined systematic procedure employed by a human resource, possibly using tools; tool = something tangible such as a template or software program); templates (partially complete documents in a predefined format); test and evaluation documents; threat (risk with a negative effect); three-point estimating (average or weighted average of optimistic, pessimistic and most likely estimates); threshold (predetermined value of a measurable variable that requires action if reached); T&M contract; TCPI; tolerance (quantified acceptable variation for a quality requirement); tornado diagram (special bar chart in sensitivity analysis comparing variables' relative importance); total float; trend analysis (mathematical models forecasting outcomes from historical results); trigger condition (event or situation indicating a risk is about to occur); unanimity; update (modification to any deliverable, plan component or document not under formal change control) vs change (modification to a formally controlled item); validation (assurance the product meets the needs of the customer and stakeholders) vs verification (evaluation of compliance with a regulation, requirement, specification or imposed condition) - the Validate Scope / Control Quality distinction; variance and variation (actual condition differing from the expected baseline condition); variance analysis; VAC; verified deliverables; virtual teams; voice of the customer (translating customer requirements into technical requirements for each phase of product development); WBS, WBS component (any level), WBS dictionary, work package (lowest level, cost and duration estimated and managed); work performance data, information (data from controlling processes analysed against plan components, documents and other WPI) and reports."
+  }
+ },
+ "pages": {
+  "761": {
+   "t": [
+    "g-glossary-s-w"
+   ]
+  },
+  "762": {
+   "t": [
+    "g-glossary-s-w"
+   ]
+  },
+  "763": {
+   "t": [
+    "g-glossary-s-w"
+   ]
+  },
+  "764": {
+   "t": [],
+   "d": "index (navigation; page references only, no curriculum content): entries 'A' ... 'Project Stakeholder Engagement and, 506'"
+  },
+  "765": {
+   "t": [],
+   "d": "index (navigation; page references only, no curriculum content): entries 'Agile release planning, 215' ... 'Burndown chart, 226'"
+  },
+  "766": {
+   "t": [],
+   "d": "index (navigation; page references only, no curriculum content): entries 'Business Analysis for Practitioners: A P' ... 'Code of Ethics and Professional Conduct,'"
+  },
+  "767": {
+   "t": [],
+   "d": "index (navigation; page references only, no curriculum content): entries 'Collaboration' ... 'Conﬁguration items, change control and, '"
+  },
+  "768": {
+   "t": [],
+   "d": "index (navigation; page references only, no curriculum content): entries 'Conﬁguration management plan, 88, 116, 1' ... 'Corporate knowledge base repositories, 9'"
+  },
+  "769": {
+   "t": [],
+   "d": "index (navigation; page references only, no curriculum content): entries 'Corrective action' ... 'effective, 349'"
+  },
+  "770": {
+   "t": [],
+   "d": "index (navigation; page references only, no curriculum content): entries 'Decision-making techniques, 111, 119, 14' ... 'DfX. See Design for X'"
+  },
+  "771": {
+   "t": [],
+   "d": "index (navigation; page references only, no curriculum content): entries 'Diagramming techniques, 705' ... 'project inﬂuences and, 37'"
+  },
+  "772": {
+   "t": [],
+   "d": "index (navigation; page references only, no curriculum content): entries 'Environment, 37–49, 133. See also Adapti' ... 'Fixed-price contracts, 471, 707'"
+  },
+  "773": {
+   "t": [],
+   "d": "index (navigation; page references only, no curriculum content): entries 'Fixed Price Incentive Fee contract (FPIF' ... 'Identiﬁed risks. See also Risk register'"
+  },
+  "774": {
+   "t": [],
+   "d": "index (navigation; page references only, no curriculum content): entries 'contingency reserves and, 245' ... 'process level and, 67'"
+  },
+  "775": {
+   "t": [],
+   "d": "index (navigation; page references only, no curriculum content): entries 'Intellectual property rights, 470, 480, ' ... 'KPIs. See Key performance indicators'"
+  },
+  "776": {
+   "t": [],
+   "d": "index (navigation; page references only, no curriculum content): entries 'L' ... 'tools and techniques, 383–386'"
+  },
+  "777": {
+   "t": [],
+   "d": "index (navigation; page references only, no curriculum content): entries 'Management. See also Conﬂict management;' ... 'Milestone charts, 218'"
+  },
+  "778": {
+   "t": [],
+   "d": "index (navigation; page references only, no curriculum content): entries 'Milestone list' ... 'Operational documents, 128'"
+  },
+  "779": {
+   "t": [],
+   "d": "index (navigation; page references only, no curriculum content): entries 'OPM. See Organizational Project Manageme' ... 'Performing integration. See Integration'"
+  },
+  "780": {
+   "t": [],
+   "d": "index (navigation; page references only, no curriculum content): entries 'Performing organization, 39, 40, 271, 33' ... 'tools and techniques, 181'"
+  },
+  "781": {
+   "t": [],
+   "d": "index (navigation; page references only, no curriculum content): entries 'Plan Scope Management process, 134–137, ' ... 'variability risks and, 399'"
+  },
+  "782": {
+   "t": [],
+   "d": "index (navigation; page references only, no curriculum content): entries 'Problem solving, 295, 356' ... 'Project characteristics, 47, 253'"
+  },
+  "783": {
+   "t": [],
+   "d": "index (navigation; page references only, no curriculum content): entries 'Project charter. See also Develop Projec' ... 'Project Management Knowledge Areas, 23–2'"
+  },
+  "784": {
+   "t": [],
+   "d": "index (navigation; page references only, no curriculum content): entries 'Project management ofﬁce (PMO), 40, 48–4' ... 'prioritized list of, 436'"
+  },
+  "785": {
+   "t": [],
+   "d": "index (navigation; page references only, no curriculum content): entries 'Project risk exposure, assessment of, 43' ... 'PV. See Planned value'"
+  },
+  "786": {
+   "t": [],
+   "d": "index (navigation; page references only, no curriculum content): entries 'Q' ... 'as output, 97, 147–148, 155, 162, 167, 1'"
+  },
+  "787": {
+   "t": [],
+   "d": "index (navigation; page references only, no curriculum content): entries 'Requirements Management: A Practice Guid' ... 'deﬁnition, 720'"
+  },
+  "788": {
+   "t": [],
+   "d": "index (navigation; page references only, no curriculum content): entries 'Risk analysis. See Perform Qualitative R' ... '490, 500'"
+  },
+  "789": {
+   "t": [],
+   "d": "index (navigation; page references only, no curriculum content): entries 'Schedule compression, 228, 721' ... 'SIPOC model, 284, 285'"
+  },
+  "790": {
+   "t": [],
+   "d": "index (navigation; page references only, no curriculum content): entries 'Situation, analysis of, 31' ... 'Storyboarding, 147'"
+  },
+  "791": {
+   "t": [],
+   "d": "index (navigation; page references only, no curriculum content): entries 'Strategic management, PMI Talent Triangl' ... 'Terms of reference (TOR), 468, 469, 478'"
+  },
+  "792": {
+   "t": [],
+   "d": "index (navigation; page references only, no curriculum content): entries 'Test and evaluation documents, 296, 300,' ... 'Virtual meetings, 103, 392'"
+  },
+  "793": {
+   "t": [],
+   "d": "index (navigation; page references only, no curriculum content): entries 'Virtual teams, 311, 333, 340, 725' ... 'X, Design for X (DfX), 295'"
+  },
+  "794": {
+   "t": [
+    "src-publication-structure"
+   ],
+   "d": "Agile Practice Guide cover",
+   "visual": "Done (cover page; title text extracted)"
+  }
+ }
+}

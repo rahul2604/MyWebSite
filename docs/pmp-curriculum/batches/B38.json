@@ -1,0 +1,49 @@
+{
+  "batch": "B38",
+  "range": [921, 950],
+  "readBy": "sequential read of extracted text (Annex A3 end, Appendices X1-X3, references, start of bibliography); PDF 930, 938-941, 943 and 945 rendered and inspected, 2026-10-20",
+  "topics": {
+    "a-tailoring-agile": {
+      "title": "Tailoring agile approaches: cautions, Shu-Ha-Ri, self-supporting practice pairs and tailoring guidelines",
+      "section": "APG Appendix X2 (Table X2-1)", "kind": "technique", "module": "M17",
+      "notes": "Tailoring is advanced: gain experience and succeed with an approach as designed, in several environments, before tailoring it. Dropping a practice because it is unpopular (e.g., 'retrospectives were unpopular so we dropped them') signals a deeper team problem and removes the very practice that improves the process. Shu-Ha-Ri skill progression: Shu (obey and protect the rules), Ha (consciously change or digress), Ri (separate - find an individual path); start at Shu before tailoring (Ha) or inventing (Ri). Tailor collaboratively with those affected to gain buy-in and avoid resistance; coaches can help. How to use: first use the approach as designed; find the matching situation in Table X2-1; discuss with those impacted; trial the change for an iteration or two (or a few features in flow); review at a retrospective and continue, modify or drop; institutionalise successful tailoring for similar projects. Beware of taking things away: many practices are self-supporting pairs (colocation and frequent business conversation enable lightweight requirements; XP's rigorous testing enables courageous refactoring). Table X2-1 (rendered): very large teams - split into smaller projects, technology trial then implementation project, more frequent smaller releases, reduce to the critical core team, multiple smaller teams coordinated by (agile/lean) program management, or a scaled framework such as DA, SAFe or LeSS (each with implementation risk and process weight); dispersed teams - instant messaging, video, electronic boards; meet face to face early to build trust; round-robin check-ins and consensus checks for remote meetings; iteration-based approaches; across many time zones, fewer whole-team sessions and more frequent small (2-3 person) meetings; safety-critical products needing extra documentation and conformance - keep agile but add conformance review, documentation and certification layers, documentation may be part of done, hybrid approaches (e.g., aircraft flight systems, drug companies); stable requirements and execution - question whether full agile is needed; lengthen build/feedback cycles if they rarely refine requirements; if design changes a lot but roll-out is repeatable, use hybrid life cycles per phase; functional silos - ask people to form cross-functional teams themselves; change compensation that rewards functional areas first; transparency causes fear - lead by example with visible decision-making (status board or whiteboard); team members with little domain knowledge - self-direction may cause rework, so provide more assigning and directing until skills grow; build centres of competency; lack of executive buy-in - find common ground and improvement areas, use experiments and retrospectives, educate executives, explain agile via lean thinking (short cycles, small batches, frequent reviews, retrospectives); agile terms clash with culture - rename terms (e.g., 'planning workshop' instead of 'planning game') and define each term."
+    },
+    "a-suitability-filter": {
+      "title": "Agile suitability filter: culture, team and project attributes on a radar chart",
+      "section": "APG Appendix X3 (Figures X3-1 to X3-13)", "kind": "technique", "module": "M17",
+      "notes": "Origins: DSDM (1994) project and organisational suitability questionnaires; Crystal's team size and criticality criteria (lighter controls for small, less critical projects; more rigour for large, mission- or life-critical ones); Boehm and Turner's model; APG synthesises these and adds the hybrid middle ground. Three categories: culture (buy-in to approach, trust in team, decision-making powers of team), team (team size, experience levels, access to the customer/business), project (likelihood of change, criticality of product or service, incremental delivery). Instructions: complete as a group (small project: sponsor, technical lead, customer; large: sponsoring group, execution team, impacted business groups, governance, customers) because any single person is biased; the conversation is the value; follow stakeholder consensus even if it differs from the result; score 1-10 with anchors at 1, 5 and 10 (intermediate values fine); if the group cannot agree, discuss openly before compromising. Scales (rendered): lower scores favour agile - buy-in, experience and access: yes = 1, partial = 5, no = 10; trust and decision-making: yes = 1, probably = 5, unlikely = 10; team size: 1-9 = 1, 10-20 = 2, 21-30 = 3, 31-45 = 4, 46-60 = 5, 61-80 = 6, 81-110 = 7, 111-150 = 8, 151-200 = 9, 201+ = 10; likelihood of change (share of requirements changing or discovered monthly): 50% = 1, 25% = 5, 5% = 10; criticality (loss from defects): comfort/time = 1, discretionary funds, essential funds = 5, single life, many lives = 10; incremental delivery: yes = 1, maybe/sometimes = 5, unlikely = 10. Interpretation: plot on the radar chart (Fig X3-11) - clustering at the centre indicates agile; the middle band indicates hybrid (or agile with extra risk reduction such as training, validation and documentation, or predictive with proof-of-concept work); the outer band indicates predictive; spikes on one or two axes suggest hybrid. Mismatches are inputs to risk management; the tool is a diagnostic, not an inclusion/exclusion gate. Case studies (rendered): online drug store - extremely volatile requirements, 2-day iterations and weekly releases, high buy-in and trust, small experienced team with business access, fairly high criticality (essential funds) - plot clustered centrally with one spike on criticality, very successful agile; military messaging system - 5 years running, no agile buy-in, mixed trust, decisions by committees, no end-to-end incremental demonstration, many lives at risk, locked requirements, 300+ people from one vendor but experienced roles, no direct customer access (contract analysts replied within about 10 days) - plot mostly in the predictive zone, with experience and trust lower; parts could have run as agile but the core was one large project."
+    }
+  },
+  "pages": {
+    "921": {"t": ["a-frameworks-scaled"], "visual": "Done (Table A3-6 two columns separable: similarities - one product backlog, one definition of done, one shippable increment per sprint, one product owner, complete cross-functional teams, one sprint; LeSS additions - two-part sprint planning (what and how), organic cross-team coordination, overall cross-team refinement, overall retrospective)"},
+    "922": {"t": ["a-frameworks-scaled"]},
+    "923": {"t": [], "d": "contributors and reviewers (names only, no curriculum content)"},
+    "924": {"t": [], "d": "contributors and reviewers (names only, no curriculum content)"},
+    "925": {"t": [], "d": "contributors and reviewers (names only, no curriculum content)"},
+    "926": {"t": [], "d": "contributors and reviewers (names only, no curriculum content)"},
+    "927": {"t": ["a-tailoring-agile"]},
+    "928": {"t": ["a-tailoring-agile"]},
+    "929": {"t": ["a-tailoring-agile"]},
+    "930": {"t": ["a-tailoring-agile"], "visual": "Done (rendered; situation-recommendation pairings verified)"},
+    "931": {"t": ["a-tailoring-agile"], "visual": "Done (rendered; four situations and recommendations verified)"},
+    "932": {"t": [], "d": "blank (running header only)"},
+    "933": {"t": ["a-suitability-filter"]},
+    "934": {"t": ["a-suitability-filter"]},
+    "935": {"t": ["a-suitability-filter"], "visual": "Done (radar chart axes and zones extracted; example plot not used)"},
+    "936": {"t": ["a-suitability-filter"]},
+    "937": {"t": ["a-suitability-filter"], "visual": "Done (scale anchors yes/partial/no; direction confirmed from rendered sibling scales)"},
+    "938": {"t": ["a-suitability-filter"], "visual": "Done (rendered; yes = 1, probably = 5, unlikely = 10)"},
+    "939": {"t": ["a-suitability-filter"], "visual": "Done (rendered; team size and experience scales verified)"},
+    "940": {"t": ["a-suitability-filter"], "visual": "Done (rendered; access and change scales verified, 50% = 1, 5% = 10)"},
+    "941": {"t": ["a-suitability-filter"], "visual": "Done (rendered; criticality and incremental delivery scales verified)"},
+    "942": {"t": ["a-suitability-filter"], "visual": "Done (blank radar chart; axes and zones extracted)"},
+    "943": {"t": ["a-suitability-filter"], "visual": "Done (rendered; drug store plot central with criticality spike)"},
+    "944": {"t": ["a-suitability-filter"]},
+    "945": {"t": ["a-suitability-filter"], "visual": "Done (rendered; military plot predominantly predictive)"},
+    "946": {"t": ["a-suitability-filter"]},
+    "947": {"t": ["src-publication-structure"], "d": "references (citation list; no curriculum content beyond source attribution)"},
+    "948": {"t": [], "d": "blank (running header only)"},
+    "949": {"t": ["src-publication-structure"], "d": "bibliography (suggested reading list; no curriculum content)"},
+    "950": {"t": ["src-publication-structure"], "d": "bibliography (suggested reading list; no curriculum content)"}
+  }
+}

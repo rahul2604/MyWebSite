@@ -1,0 +1,105 @@
+{
+  "batch": "B03",
+  "range": [63, 88],
+  "readBy": "sequential read of extracted text; page 84 rendered and inspected, 2026-10-20",
+  "topics": {
+    "f-data-information-reports": {
+      "title": "Work performance data, information and reports and how they flow",
+      "section": "1.2.4.7 (Figure 1-7)", "kind": "definition", "module": "M01",
+      "notes": "Work performance data (WPD) = raw observations and measurements from executing work (percent physically complete, quality and technical measures, activity start/finish dates, number of change requests and defects, actual costs and durations), usually recorded in the PMIS. Work performance information (WPI) = WPD collected from controlling processes, analysed in context and integrated across areas (deliverable status, change-request implementation status, forecast estimate to complete). Work performance reports (WPR) = physical or electronic representation of WPI in project documents intended to drive decisions or raise issues, actions or awareness (status reports, memos, dashboards, recommendations). Figure 1-7 flow: Executing processes produce WPD -> controlling processes turn it into WPI -> overall project control (Monitor and Control Project Work) produces WPR -> project communications to team and stakeholders; project change control (Perform Integrated Change Control) returns approved change requests and plan/document updates. Exam-critical sequence: data (Executing) -> information (Monitoring & Controlling processes) -> reports (4.5)."
+    },
+    "f-tailoring": {
+      "title": "Tailoring project management to the project",
+      "section": "1.2.5", "kind": "concept", "module": "M01",
+      "notes": "Methodologies may be developed in-house, bought from vendors, obtained from professional associations or acquired from government agencies; the Guide is not one. Tailoring = selecting the appropriate processes, inputs, tools, techniques, outputs and life-cycle phases; the PM tailors with the team, sponsor and/or organisational management, and some organisations mandate a methodology. Needed because every project is unique and not every element is needed on every project. Tailoring should address the competing constraints of scope, schedule, cost, resources, quality and risk, whose importance differs per project, considering environment, culture, stakeholder needs, required governance levels and whether the customer is internal or external. Even a tailorable methodology may need further tailoring per project."
+    },
+    "f-business-documents": {
+      "title": "Project business documents: business case and benefits management plan",
+      "section": "1.2.6, 1.2.6.1, 1.2.6.2 (Table 1-5, Figure 1-8)", "kind": "concept", "module": "M01",
+      "notes": "Two business documents, interdependent and iteratively maintained across the life cycle. Business case = documented economic feasibility study establishing the validity of benefits of a selected component that lacks sufficient definition; basis for authorising further project management activities; lists objectives and reasons for initiation; used before initiation (may yield go/no-go) and to measure success at the end. The sponsor is generally accountable for the business case; the PM provides recommendations and oversight to keep business case, project management plan, charter and benefits plan success measures aligned with each other and with organisational goals. They may be held at program level. A needs assessment often precedes the business case (understanding goals, issues and opportunities and recommending proposals). Business case contents: business needs (what prompts action, situational statement of problem/opportunity and value, affected stakeholders, scope); analysis of the situation (strategies/goals, root causes, gap analysis of needed vs existing capabilities, known risks, critical success factors, decision criteria classed required/desired/optional, options such as do nothing ('business as usual', project not authorised), do the minimum, do more than the minimum); recommendation (option, analysis results, constraints/assumptions/risks/dependencies, success measures, implementation approach with milestones, dependencies, roles); evaluation (plan for measuring benefits, including ongoing operations). Benefits management plan = how and when benefits will be delivered and measured; a benefit is an outcome providing value to the sponsoring organisation and intended beneficiaries. Elements: target benefits (financial value expressed as NPV), strategic alignment, timeframe, benefits owner (accountable for monitoring and reporting realised benefits), metrics (direct and indirect), assumptions, risks. Uses business case and needs assessment data (e.g., cost-benefit analyses). Figure 1-8 timeline: needs assessment and business case are pre-project; charter at starting the project; project management plan through organising/preparing and carrying out the work; benefits management plan spans the life cycle."
+    },
+    "f-charter-and-plan-defs": {
+      "title": "Project charter and project management plan defined",
+      "section": "1.2.6.3", "kind": "definition", "module": "M01",
+      "notes": "Project charter: issued by the sponsor, formally authorises the existence of the project and gives the PM authority to apply organisational resources to project activities. Project management plan: describes how the project will be executed, monitored and controlled. Both detailed in Chapter 4."
+    },
+    "f-success-measures": {
+      "title": "Project success measures and financial measures",
+      "section": "1.2.6.4", "kind": "concept", "module": "M01",
+      "notes": "Traditionally time, cost, scope and quality defined success; now achievement of project objectives also counts. Stakeholders may disagree on success, so document measurable objectives and agree answers to: what does success look like, how will it be measured, what factors may affect it. Further criteria: completing the benefits management plan; meeting financial measures in the business case - net present value (NPV), return on investment (ROI), internal rate of return (IRR), payback period (PBP), benefit-cost ratio (BCR); nonfinancial business case objectives; reaching the future state; contract terms; strategy and goals; stakeholder satisfaction; customer/end-user adoption; integration of deliverables into operations; agreed quality; governance criteria; other agreed measures (e.g., throughput). Constant business alignment raises the chance of success. A project can succeed on scope/schedule/budget yet fail from a business viewpoint if business needs or the market change before completion. (Formulas for NPV, IRR etc. are not given in the Guide; lessons will flag any formula as supplementary.)"
+    },
+    "e-project-influences": {
+      "title": "Project influences: EEFs, OPAs and organisational systems",
+      "section": "2.1 (Figure 2-1)", "kind": "concept", "module": "M02",
+      "notes": "Projects operate in environments whose influences may be favourable or unfavourable. Two major categories: enterprise environmental factors (EEFs), originating outside the project and often outside the enterprise, with impact at organisational, portfolio, program or project level; and organisational process assets (OPAs), internal to the organisation, from the organisation, a portfolio, program, other project or a combination. Figure 2-1: EEFs split internal/external; OPAs split into processes, policies and procedures and the corporate knowledge base. Organisational systems (Section 2.4) also shape power, influence, interests, competence and political capability."
+    },
+    "e-eefs": {
+      "title": "Enterprise environmental factors (internal and external)",
+      "section": "2.2, 2.2.1, 2.2.2", "kind": "concept", "module": "M02",
+      "notes": "EEFs = conditions not under the project team's control that influence, constrain or direct the project; internal and/or external; inputs to many processes, especially most planning processes; may enhance or constrain options and affect outcomes positively or negatively. Internal: organisational culture, structure and governance (vision, mission, values, norms, leadership style, hierarchy, ethics, code of conduct); geographic distribution of facilities and resources (factory locations, virtual teams, shared systems, cloud); infrastructure (facilities, equipment, telecom, IT hardware, capacity); IT software (scheduling tools, configuration management systems, web interfaces, work authorisation systems); resource availability (contracting/purchasing constraints, approved providers, collaboration agreements); employee capability. External: marketplace conditions (competitors, market share, brand, trademarks); social and cultural influences (political climate, codes of conduct, ethics, perceptions); legal restrictions (security, data protection, business conduct, employment, procurement laws); commercial databases (benchmarks, standard cost-estimating data, industry risk studies, risk databases); academic research; government or industry standards (regulations on products, production, environment, quality, workmanship); financial considerations (exchange, interest and inflation rates, tariffs, location); physical environmental elements (working conditions, weather, constraints)."
+    },
+    "e-opas": {
+      "title": "Organisational process assets: processes/policies/procedures and knowledge repositories",
+      "section": "2.3, 2.3.1, 2.3.2", "kind": "concept", "module": "M02",
+      "notes": "OPAs = plans, processes, policies, procedures and knowledge bases specific to and used by the performing organisation, including lessons learned, historical information, completed schedules, risk data and earned value data; inputs to many processes; the team may update and add to them. Two categories. (1) Processes, policies and procedures: generally not updated by project work; established by the PMO or another function and changed only through organisational policy, though some organisations let teams tailor templates, life cycles and checklists. Initiating/Planning examples: tailoring guidelines; policies (HR, health and safety, security, quality, procurement, environmental); life cycles and methods; templates (plans, registers, report formats, contracts, risk categories, probability and impact definitions and matrices, stakeholder register); preapproved supplier lists and contract types (fixed-price, cost-reimbursable, T&M). Executing/M&C examples: change control procedures; traceability matrices; financial controls (time reporting, expenditure reviews, accounting codes); issue and defect management; resource availability control; communication requirements (technology, media, record retention, security); work authorisation procedures; templates (risk register, issue log, change log); guidelines, proposal evaluation and performance measurement criteria; verification and validation procedures. Closing: closure guidelines (final audits, evaluations, deliverable acceptance, contract closure, resource reassignment, knowledge transfer). (2) Organisational knowledge repositories: updated throughout the project - configuration management repositories, financial data repositories, historical information and lessons learned, issue and defect data, metrics data, and project files from previous projects (baselines, calendars, network diagrams, risk registers and reports, stakeholder registers)."
+    },
+    "e-organizational-systems": {
+      "title": "Organisational systems and systems principles",
+      "section": "2.4.1", "kind": "concept", "module": "M02",
+      "notes": "Projects operate within constraints imposed by structure and governance; the PM must understand where responsibility, accountability and authority reside to use power, influence, competence, leadership and political capability. System factors: management elements, governance frameworks, organisational structure types. A system is a collection of components producing results not obtainable individually; a component is an identifiable element providing a function. Principles: systems are dynamic; systems can be optimised; components can be optimised; systems and their components cannot be optimised at the same time; systems are nonlinear in responsiveness. Management examines optimisation trade-offs between components and the system; the PM must take the results into account."
+    },
+    "e-governance": {
+      "title": "Organisational and project governance frameworks",
+      "section": "2.4.2", "kind": "concept", "module": "M02",
+      "notes": "Governance = organisational or structural arrangements at all levels designed to determine and influence members' behaviour; multidimensional (people, roles, structures, policies) and requires direction and oversight through data and feedback. It is the framework within which authority is exercised: rules, policies, procedures, norms, relationships, systems and processes, influencing how objectives are set and achieved, risk is monitored and assessed, and performance optimised. PMI's governance practice guide describes four domains - alignment, risk, performance, communications - each with functions of oversight, control, integration and decision making. Project governance = the framework, functions and processes guiding project management activities to create a unique product, service or result meeting organisational, strategic and operational goals. No single framework fits all; tailor to culture, project types and needs."
+    },
+    "e-management-elements": {
+      "title": "Management elements (general management principles)",
+      "section": "2.4.3", "kind": "concept", "module": "M02",
+      "notes": "Components comprising key functions or principles of general management, allocated according to the governance framework and structure type: division of work by specialised skills; authority to perform work; responsibility assigned by skill and experience; discipline of action; unity of command (one person gives orders to an individual); unity of direction (one plan and one head for activities with the same objective); organisational goals above individual goals; fair pay; optimal use of resources; clear communication channels; right materials to the right person at the right time; fair and equal treatment; clear security of positions; workplace safety; open contribution to planning and execution; optimal morale. In hierarchical structures, responsibility, accountability and authority at each level determine how these functions are performed."
+    },
+    "e-structure-types": {
+      "title": "Organisational structure types and their influence on projects",
+      "section": "2.4.4.1, 2.4.4.2 (Table 2-1, visually verified)", "kind": "table", "module": "M02",
+      "notes": "No one-size-fits-all structure; it results from trade-offs. Table 2-1 compares by work-group arrangement, PM authority, PM role, resource availability, who manages the budget and PM administrative staff. Organic/simple: flexible, side-by-side; authority little or none; part-time coordinator role; owner or operator manages budget. Functional (centralised): arranged by job being done; authority little or none; part-time role; functional manager manages budget; admin staff part-time. Multi-divisional: by product, process, portfolio, program, region or customer type; authority little or none; functional manager budget. Weak matrix: job function; authority low; part-time role done as part of another job; resource availability low; functional manager budget. Balanced matrix: job function; authority low to moderate; part-time role embedded as a skill; resource availability low to moderate; budget mixed. Strong matrix: by job function with PM as a function; authority moderate to high; full-time designated role; resources moderate to high; PM manages budget; full-time admin staff. Project-oriented (composite, hybrid): by project; authority high to almost total; full-time; resources high to almost total; PM manages budget; full-time staff. Virtual: network structure; authority low to moderate; full- or part-time; budget mixed. Hybrid: mix of other types; everything mixed. PMO: mix; authority high to almost total; full-time; PM manages budget. Selection factors: alignment with objectives, specialisation, span of control/efficiency/effectiveness, clear escalation path, clear line and scope of authority, delegation, accountability and responsibility assignment, adaptability and simplicity of design, efficiency, cost, physical locations (colocated, regional, virtual), clear communication."
+    },
+    "e-pmo": {
+      "title": "Project management office: types and functions",
+      "section": "2.4.4.3", "kind": "concept", "module": "M02",
+      "notes": "A PMO is an organisational structure that standardises project governance processes and facilitates sharing of resources, methodologies, tools and techniques; responsibilities range from support to directly managing projects. Supportive PMO: consultative - templates, best practices, training, information, lessons learned; acts as a repository; low control. Controlling PMO: support plus required compliance (frameworks/methodologies, templates and tools, governance conformance); moderate control. Directive PMO: directly manages projects; PMs assigned by and report to the PMO; high control. A PMO may have organisation-wide responsibility, support strategic alignment, integrate strategic project data, and act as liaison between portfolios, programs, projects and measurement systems (e.g., balanced scorecard). It may make recommendations, lead knowledge transfer, terminate projects. Primary support functions: managing shared resources, developing methodology and standards, coaching/mentoring/training/oversight, monitoring compliance through project audits, managing policies, procedures and templates (OPAs), coordinating communication across projects."
+    },
+    "r-pm-role-overview": {
+      "title": "The project manager's role and the orchestra-conductor analogy",
+      "section": "3.1", "kind": "concept", "module": "M03",
+      "notes": "The PM leads the team to achieve project objectives, often from initiation to closing, sometimes also in pre-project evaluation (advising executives on strategy, business analysis, business case, portfolio aspects) and follow-on benefits realisation. The role is tailored to the organisation as processes are tailored to the project. Analogy with a conductor: membership and roles (100+ members in sections like orchestra sections representing business units); responsibility for the team's product, taking a holistic view, aligning with organisational vision, mission and objectives and using that interpretation to communicate and motivate. (Continues on PDF 89.)"
+    }
+  },
+  "pages": {
+    "63": {"t": ["f-data-information-reports"]},
+    "64": {"t": ["f-data-information-reports"], "visual": "Done (flow diagram; labels reconstructed from extracted text)"},
+    "65": {"t": ["f-tailoring"]},
+    "66": {"t": ["f-business-documents"]},
+    "67": {"t": ["f-business-documents"], "visual": "Done (timeline diagram; labels reconstructed from extracted text)"},
+    "68": {"t": ["f-business-documents"]},
+    "69": {"t": ["f-business-documents"]},
+    "70": {"t": ["f-business-documents"]},
+    "71": {"t": ["f-charter-and-plan-defs", "f-success-measures"]},
+    "72": {"t": ["f-success-measures"]},
+    "73": {"t": [], "d": "blank"},
+    "74": {"t": ["e-project-influences"], "visual": "Done (simple tree diagram; labels reconstructed from extracted text)"},
+    "75": {"t": ["e-eefs"]},
+    "76": {"t": ["e-eefs", "e-opas"]},
+    "77": {"t": ["e-opas"]},
+    "78": {"t": ["e-opas"]},
+    "79": {"t": ["e-organizational-systems"]},
+    "80": {"t": ["e-organizational-systems", "e-governance"]},
+    "81": {"t": ["e-governance", "e-management-elements"]},
+    "82": {"t": ["e-management-elements", "e-structure-types"]},
+    "83": {"t": ["e-structure-types"]},
+    "84": {"t": ["e-structure-types"], "visual": "Done (rendered and inspected; all cells verified)"},
+    "85": {"t": ["e-pmo"]},
+    "86": {"t": ["e-pmo"]},
+    "87": {"t": [], "d": "blank"},
+    "88": {"t": ["r-pm-role-overview"]}
+  }
+}

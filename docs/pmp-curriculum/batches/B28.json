@@ -1,0 +1,39 @@
+{
+  "batch": "B28",
+  "range": [676, 700],
+  "readBy": "sequential read of extracted text; Tables X1-1 to X1-8 (Fifth vs Sixth Edition process lists) readable from extracted columns; X2 contributor lists reviewed and deliberately excluded (no educational content; personal names not reproduced), 2026-10-20",
+  "topics": {
+    "x1-sixth-edition-changes": {
+      "title": "Appendix X1: Sixth Edition changes - ITTO conventions, tool-and-technique groups, new and renamed processes, Knowledge Area front matter",
+      "section": "X1.1-X1.22 (Tables X1-1 to X1-8)", "kind": "concept", "module": "M16",
+      "notes": "Scope of update: review deferred material and feedback on the Fifth Edition, align with ISO 21500, harmonise with other PMI standards, consider the PM role delineation study and research; focus on consistency and clarity of processes and ITTOs. Glossary rule: terms in both the Guide and PMI Lexicon use the Lexicon definition; terms in other PMI standards should be identical or are escalated to the Lexicon team. Input/output rules: inputs are documents key to the process; outputs should become inputs elsewhere unless terminal or embedded; inputs come from another process's output unless from outside the project. Project documents: listed specifically the first time created, then as 'project documents updates'; as inputs, listed as 'project documents' with specifics in the narrative. Plan: planning processes creating a subsidiary plan list the charter first and the project management plan second; the creating process lists the component specifically, later as 'plan updates'. Sequencing: charter first; plan components ordered by the section that produces them, then baselines, then other plans; project documents alphabetical; EEFs then OPAs last; updates ordered plan updates, project documents updates, OPA updates. Tools and techniques were reduced to those used on most projects most of the time; described the first time and referenced afterwards; grouped by intent: data gathering, data analysis, data representation, decision-making, communication skills, interpersonal and team skills (Appendix X6 indexes them). Plan components created within Develop Project Management Plan: change management plan, configuration management plan, performance measurement baseline, project life cycle, development approach, management reviews. Section 1 rewritten (life cycles, phases, gates, development approaches; business documents); Section 2 rewritten (governance, management elements, structure types); Section 3 new (PM role, sphere of influence, Talent Triangle, leadership styles, personality, integration). Agile: 'Considerations for Adaptive Environments' added to Sections 4-13; agile tools such as sprint/iteration planning introduced; Appendix X3 explains agile, adaptive, iterative and hybrid approaches. Knowledge Area front matter standardised: key concepts (compiled in X4), trends and emerging practices (not necessarily practised on most projects - the Guide describes good practice, it does not lead the industry), tailoring considerations (compiled in X5), agile/adaptive considerations. Knowledge Area renames: Project Time Management -> Project Schedule Management (the schedule, not time, is managed); Project Human Resource Management -> Project Resource Management (team and physical resources). Process changes: added Manage Project Knowledge (4.4), Control Resources (9.6), Implement Risk Responses (11.6); moved Estimate Activity Resources from Schedule to Resource; eliminated Close Procurements (12.4) - closure evaluation of deliverables absorbed into Control Procurements, administrative/communications/records into Close Project or Phase, because few PMs actually have authority to close procurements. Renames: Perform Quality Assurance -> Manage Quality (quality managed through the plan; many QA tools little used); Plan Human Resource Management -> Plan Resource Management; Acquire Project Team -> Acquire Resources; Develop Project Team -> Develop Team; Manage Project Team -> Manage Team; Control Communications -> Monitor Communications; Control Risks -> Monitor Risks; Plan Stakeholder Management -> Plan Stakeholder Engagement; Control Stakeholder Engagement -> Monitor Stakeholder Engagement - research shows PMs monitor, facilitate and manage rather than control, especially with people; risks cannot be controlled, only monitored; stakeholders cannot be controlled. Section notes: Integration - lessons learned register emphasises continuous learning; business documents as inputs to Develop Project Charter and Close Project or Phase. Scope - aligned with The Standard for Business Analysis. Schedule - agile concepts in Develop Schedule. Communications - 'communication' = the act (facilitating, informing, listening); 'communications' = the artefacts (memos, presentations, emails). Risk - emphasis on overall project risk; new 'escalate' response. Procurement - more global perspective. Stakeholder - focus on engagement rather than management. Glossary updated for clarity and translation; unused terms removed. Tables X1-1 to X1-8 map Fifth to Sixth Edition process numbering (e.g., Fifth 6.4 Estimate Activity Resources becomes Sixth 9.2; Fifth 12.4 Close Procurements has no Sixth equivalent). Used for a short 'edition changes' revision lesson only."
+    }
+  },
+  "pages": {
+    "676": {"t": ["x1-sixth-edition-changes"]},
+    "677": {"t": ["x1-sixth-edition-changes"]},
+    "678": {"t": ["x1-sixth-edition-changes"]},
+    "679": {"t": ["x1-sixth-edition-changes"]},
+    "680": {"t": ["x1-sixth-edition-changes"]},
+    "681": {"t": ["x1-sixth-edition-changes"]},
+    "682": {"t": ["x1-sixth-edition-changes"], "visual": "Done (two-column change table; rows readable in extracted order)"},
+    "683": {"t": ["x1-sixth-edition-changes"], "visual": "Done (two-column change tables; rows readable in extracted order)"},
+    "684": {"t": ["x1-sixth-edition-changes"], "visual": "Done (two-column change table; rows readable in extracted order)"},
+    "685": {"t": ["x1-sixth-edition-changes"], "visual": "Done (two-column change tables; rows readable in extracted order)"},
+    "686": {"t": ["x1-sixth-edition-changes"], "visual": "Done (two-column change table; rows readable in extracted order)"},
+    "687": {"t": ["x1-sixth-edition-changes"], "visual": "Done (two-column change table; rows readable in extracted order)"},
+    "688": {"t": [], "d": "contributor list (excluded: acknowledgements, no educational content)"},
+    "689": {"t": [], "d": "contributor list (excluded: acknowledgements, no educational content)"},
+    "690": {"t": [], "d": "contributor list (excluded: acknowledgements, no educational content)"},
+    "691": {"t": [], "d": "contributor list (excluded: acknowledgements, no educational content)"},
+    "692": {"t": [], "d": "contributor list (excluded: acknowledgements, no educational content)"},
+    "693": {"t": [], "d": "contributor list (excluded: acknowledgements, no educational content)"},
+    "694": {"t": [], "d": "contributor list (excluded: acknowledgements, no educational content)"},
+    "695": {"t": [], "d": "contributor list (excluded: acknowledgements, no educational content)"},
+    "696": {"t": [], "d": "contributor list (excluded: acknowledgements, no educational content)"},
+    "697": {"t": [], "d": "contributor list (excluded: acknowledgements, no educational content)"},
+    "698": {"t": [], "d": "contributor list (excluded: acknowledgements, no educational content)"},
+    "699": {"t": [], "d": "contributor list (excluded: acknowledgements, no educational content)"},
+    "700": {"t": [], "d": "contributor list (excluded: acknowledgements, no educational content)"}
+  }
+}

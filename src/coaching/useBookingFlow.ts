@@ -1,6 +1,6 @@
 import { useCallback, useReducer } from 'react';
-import { bookingApi, BookingError, type BookingConfirmation } from './api/bookingApi';
-import type { ServiceId } from './data/services';
+import { apiFor, BookingError, newIdempotencyKey, type BookingConfirmation, type BookingMode } from './api/bookingApi';
+import { findService, type ServiceId } from './data/services';
 import { EMPTY_DETAILS, validateDetails, type AspirantDetails, type DetailsErrors } from './lib/validation';
 
 export type Step = 'services' | 'details' | 'slot' | 'form' | 'review' | 'confirmed';
@@ -25,6 +25,12 @@ interface State {
   submitting: boolean;
   submitError: string | null;
   confirmation: BookingConfirmation | null;
+  /** Idempotency key for the current review screen; retries reuse it. */
+  attemptKey: string;
+  /** Reported by the server with availability: mock (sample hours) or live (Google Calendar). */
+  mode: BookingMode | null;
+  resending: boolean;
+  resendError: string | null;
 }
 
 type Action =
@@ -38,6 +44,9 @@ type Action =
   | { type: 'submitStart' }
   | { type: 'submitFail'; message: string; slotTaken: boolean }
   | { type: 'submitOk'; confirmation: BookingConfirmation }
+  | { type: 'mode'; mode: BookingMode }
+  | { type: 'resendStart' }
+  | { type: 'resendDone'; confirmation?: BookingConfirmation; error?: string }
   | { type: 'reset' };
 
 const initial: State = {
@@ -51,15 +60,23 @@ const initial: State = {
   submitting: false,
   submitError: null,
   confirmation: null,
+  attemptKey: '',
+  mode: null,
+  resending: false,
+  resendError: null,
 };
 
 function reducer(s: State, a: Action): State {
   switch (a.type) {
     case 'go':
-      return { ...s, step: a.step, submitError: null };
+      // Entering Review starts a new confirmation attempt with a fresh idempotency key.
+      return { ...s, step: a.step, submitError: null, attemptKey: a.step === 'review' ? newIdempotencyKey() : s.attemptKey };
     case 'pickService':
-      // The slot and form are kept: availability is shared across services.
-      return { ...s, serviceId: a.id, step: 'details' };
+      // The form is kept. The slot is cleared when the service changes: live and demo
+      // services draw on different availability.
+      return a.id === s.serviceId
+        ? { ...s, step: 'details' }
+        : { ...s, serviceId: a.id, step: 'details', date: null, time: null, slotError: null };
     case 'pickDate':
       return { ...s, date: a.date, time: s.date === a.date ? s.time : null, slotError: null };
     case 'pickTime':
@@ -82,6 +99,12 @@ function reducer(s: State, a: Action): State {
         : { ...s, submitting: false, submitError: a.message };
     case 'submitOk':
       return { ...s, submitting: false, confirmation: a.confirmation, step: 'confirmed' };
+    case 'mode':
+      return s.mode === a.mode ? s : { ...s, mode: a.mode };
+    case 'resendStart':
+      return { ...s, resending: true, resendError: null };
+    case 'resendDone':
+      return { ...s, resending: false, resendError: a.error ?? null, confirmation: a.confirmation ?? s.confirmation };
     case 'reset':
       return initial;
   }
@@ -121,13 +144,16 @@ export function useBookingFlow() {
       dispatch({ type: 'go', step: 'form' });
       return;
     }
+    const service = findService(state.serviceId);
+    if (!service) return;
     dispatch({ type: 'submitStart' });
     try {
-      const confirmation = await bookingApi.createBooking({
+      const confirmation = await apiFor(service).createBooking({
         serviceId: state.serviceId,
         date: state.date,
         time: state.time,
         details: state.details,
+        idempotencyKey: state.attemptKey || newIdempotencyKey(),
       });
       dispatch({ type: 'submitOk', confirmation });
     } catch (err) {
@@ -135,7 +161,21 @@ export function useBookingFlow() {
       const message = err instanceof Error ? err.message : 'Something went wrong. Please try again.';
       dispatch({ type: 'submitFail', message, slotTaken });
     }
-  }, [state.serviceId, state.date, state.time, state.details]);
+  }, [state.serviceId, state.date, state.time, state.details, state.attemptKey]);
+
+  /** Retries only the emails that weren't accepted, using the original idempotency key (no new booking). */
+  const resendEmails = useCallback(async () => {
+    const c = state.confirmation;
+    const service = c && findService(c.serviceId);
+    if (!c?.request || !service) return;
+    dispatch({ type: 'resendStart' });
+    try {
+      const updated = await apiFor(service).createBooking(c.request);
+      dispatch({ type: 'resendDone', confirmation: updated });
+    } catch (err) {
+      dispatch({ type: 'resendDone', error: err instanceof Error ? err.message : 'Please try again in a moment.' });
+    }
+  }, [state.confirmation]);
 
   return {
     state,
@@ -147,6 +187,8 @@ export function useBookingFlow() {
     confirmSlot,
     submitDetails,
     confirmBooking,
+    resendEmails,
+    setMode: (mode: BookingMode) => dispatch({ type: 'mode', mode }),
     reset: () => dispatch({ type: 'reset' }),
   };
 }

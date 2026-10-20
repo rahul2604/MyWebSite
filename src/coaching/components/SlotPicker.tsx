@@ -1,10 +1,10 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { ArrowLeft, ArrowRight } from '../../components/Icons';
-import { bookingApi, type DayAvailability } from '../api/bookingApi';
+import { apiFor, BookingError, type BookingMode, type DayAvailability } from '../api/bookingApi';
 import { BOOKING_TIMEZONE_LABEL } from '../data/availability';
 import type { CoachingService } from '../data/services';
 import {
-  formatDateLong, formatMonth, formatSlot, monthGrid, parseDateKey, toDateKey, WEEKDAY_LABELS,
+  formatDateLong, formatDateShort, formatMonth, formatSlot, monthGrid, parseDateKey, toDateKey, WEEKDAY_LABELS,
 } from '../lib/dates';
 import { BookingSummary } from './BookingSummary';
 
@@ -17,14 +17,17 @@ interface Props {
   onPickTime: (time: string) => void;
   onBack: () => void;
   onContinue: () => void;
+  /** Tells the flow whether the server is in mock or live (Google Calendar) mode. */
+  onMode?: (mode: BookingMode) => void;
 }
 
-type Load = { status: 'loading' } | { status: 'error' } | { status: 'ready'; days: Map<string, DayAvailability> };
+type Load = { status: 'loading' } | { status: 'error'; message: string } | { status: 'ready'; days: Map<string, DayAvailability> };
 
 const monthIndex = (y: number, m: number) => y * 12 + m;
 
-export function SlotPicker({ service, date, time, error, onPickDate, onPickTime, onBack, onContinue }: Props) {
-  const range = useMemo(() => bookingApi.bookingWindow(), []);
+export function SlotPicker({ service, date, time, error, onPickDate, onPickTime, onBack, onContinue, onMode }: Props) {
+  const api = apiFor(service);
+  const range = useMemo(() => api.bookingWindow(), [api]);
   const first = parseDateKey(range.first);
   const last = parseDateKey(range.last);
   const start = date ? parseDateKey(date) : first;
@@ -32,6 +35,34 @@ export function SlotPicker({ service, date, time, error, onPickDate, onPickTime,
   const [load, setLoad] = useState<Load>({ status: 'loading' });
   const [attempt, setAttempt] = useState(0);
   const timesRef = useRef<HTMLDivElement>(null);
+  const [nextSlot, setNextSlot] = useState<{ date: string; time: string } | null>(null);
+
+  // Earliest open slot in the whole booking window, for the "Next available" shortcut.
+  useEffect(() => {
+    let alive = true;
+    api
+      .getAvailability(range.first, range.last, service.id)
+      .then(({ days, mode }) => {
+        if (!alive) return;
+        onMode?.(mode);
+        for (const d of days) {
+          const s = d.slots.find((x) => x.status === 'available');
+          if (s) return setNextSlot({ date: d.date, time: s.time });
+        }
+      })
+      .catch(() => {});
+    return () => {
+      alive = false;
+    };
+  }, [range.first, range.last]);
+
+  const pickNext = () => {
+    if (!nextSlot) return;
+    const { y, m } = parseDateKey(nextSlot.date);
+    setView({ y, m });
+    onPickDate(nextSlot.date);
+    onPickTime(nextSlot.time);
+  };
   const pickedDate = useRef(date);
 
   // On narrow screens the times sit below the calendar: bring them into view after a date is picked.
@@ -51,10 +82,20 @@ export function SlotPicker({ service, date, time, error, onPickDate, onPickTime,
     const monthEnd = toDateKey(view.y, view.m, new Date(Date.UTC(view.y, view.m + 1, 0)).getUTCDate());
     const from = monthStart < range.first ? range.first : monthStart;
     const to = monthEnd > range.last ? range.last : monthEnd;
-    bookingApi
-      .getAvailability(from, to)
-      .then((days) => alive && setLoad({ status: 'ready', days: new Map(days.map((d) => [d.date, d])) }))
-      .catch(() => alive && setLoad({ status: 'error' }));
+    api
+      .getAvailability(from, to, service.id)
+      .then(({ days, mode }) => {
+        if (!alive) return;
+        onMode?.(mode);
+        setLoad({ status: 'ready', days: new Map(days.map((d) => [d.date, d])) });
+      })
+      .catch((err) =>
+        alive &&
+        setLoad({
+          status: 'error',
+          message: err instanceof BookingError && err.code === 'unavailable' ? err.message : "Couldn't load availability.",
+        }),
+      );
     return () => {
       alive = false;
     };
@@ -85,6 +126,15 @@ export function SlotPicker({ service, date, time, error, onPickDate, onPickTime,
         one does not reserve anything.
       </p>
 
+      {nextSlot && (
+        <button type="button" className="bk-next" onClick={pickNext} aria-pressed={date === nextSlot.date && time === nextSlot.time}>
+          <span className="bk-next-label">Next available</span>
+          <span className="bk-next-value">
+            {formatSlot(nextSlot.time, service.durationMinutes)}, {formatDateShort(nextSlot.date)}
+          </span>
+        </button>
+      )}
+
       <div className="bk-two-col">
         <div className="bk-main-col">
           <div className="card bk-calendar">
@@ -100,7 +150,7 @@ export function SlotPicker({ service, date, time, error, onPickDate, onPickTime,
 
             {load.status === 'error' ? (
               <div className="bk-state" role="alert">
-                <p>Couldn't load availability.</p>
+                <p>{load.message}</p>
                 <button type="button" className="btn btn-ghost btn-small" onClick={() => setAttempt((n) => n + 1)}>
                   Try again
                 </button>

@@ -1,0 +1,40 @@
+{
+  "batch": "B33",
+  "range": [795, 815],
+  "readBy": "sequential read of extracted text (Agile Practice Guide front matter, table of contents, lists of figures and tables, Section 1, start of Section 2), 2026-10-20",
+  "topics": {
+    "a-apg-purpose-scope": {
+      "title": "Agile Practice Guide: purpose, joint PMI-Agile Alliance origin, scope and structure",
+      "section": "APG Preface, Section 1 (Table 1-1)", "kind": "orientation", "module": "M17",
+      "notes": "Chartered jointly by PMI and Agile Alliance (Agile Alliance co-funded it and does not endorse any methodology or certification) to equip teams with tools, situational guidelines and understanding of agile techniques; agile is used well beyond software (manufacturing, education, healthcare); there are multiple ways to succeed and teams should choose approaches that fit the project and culture. Written in a more informal style than PMI standards, with tips, sidebars and case studies; a bridge from predictive to agile approaches - many activities (e.g., planning) occur in both but are handled differently. Why now: exponential technology advances and customer demand for faster value; agile handles disruptive technologies; the first agile principle prioritises customer satisfaction; social media gives rapid, transparent feedback, so organisations must focus outward on customer experience. Disruptive technology (e.g., cloud computing with pay-as-you-go models and iterative releases) lowers barriers to entry; mature organisations risk being slow and complex versus startups, driving them to adopt an agile mindset. Sidebars: agile-based learning in education; disruptive technology. Scope (Table 1-1): in scope - agile at project or team level; most popular approaches per industry surveys; suitability factors; mapping agile to PMBOK Guide processes and Knowledge Areas; agile beyond software; guidance and techniques for implementation; definitions of generally accepted terms. Out of scope - organisation-wide agile or agile programs; niche, company-specific or incomplete approaches; recommending a particular approach; changing PMBOK Guide processes; removing software influence; prescriptive step-by-step instructions; new terms. Organisational change management is essential but out of scope (see Managing Change in Organizations). Audience: teams in the 'messy middle-ground' between predictive and agile. Structure: Section 2 introduction to agile (manifesto, mindset, definable vs high-uncertainty work, lean and Kanban); 3 life cycle selection (suitability filters, tailoring, combinations); 4 creating an agile environment (servant leadership, team composition); 5 delivering in an agile environment (practices, measurements); 6 organisational considerations (culture, readiness, business practices, PMO); 7 call to action; annexes are mandatory information too long for the body, appendixes are nonmandatory supplements; references, bibliography, glossary."
+    },
+    "a-definable-vs-uncertain": {
+      "title": "Definable work vs high-uncertainty work",
+      "section": "APG 2.1", "kind": "concept", "module": "M17",
+      "notes": "Project work ranges from definable to high-uncertainty. Definable work: clear procedures proven on similar projects; e.g., producing a car, appliance or home after design is complete; well-understood domain and processes; low execution uncertainty and risk. High-uncertainty (exploratory) work: new design, problem solving, not-done-before work requiring SMEs to collaborate to create a solution - e.g., software systems engineers, product designers, doctors, teachers, lawyers, problem-solving engineers. As definable work is automated, teams take on more high-uncertainty work. High-uncertainty projects have high rates of change, complexity and risk, which challenge predictive approaches that fix most requirements up front and control change through change requests; agile approaches were created to explore feasibility in short cycles and adapt quickly based on evaluation and feedback. (Section 2.1 continues on PDF 816.)"
+    }
+  },
+  "pages": {
+    "795": {"t": [], "d": "title page"},
+    "796": {"t": [], "d": "copyright and publication data"},
+    "797": {"t": [], "d": "legal notice"},
+    "798": {"t": [], "d": "blank"},
+    "799": {"t": ["a-apg-purpose-scope"]},
+    "800": {"t": [], "d": "blank"},
+    "801": {"t": ["src-publication-structure"], "d": "navigation"},
+    "802": {"t": ["src-publication-structure"], "d": "navigation"},
+    "803": {"t": ["src-publication-structure"], "d": "navigation"},
+    "804": {"t": ["src-publication-structure"], "d": "navigation"},
+    "805": {"t": ["src-publication-structure"], "d": "navigation"},
+    "806": {"t": ["src-publication-structure"], "d": "navigation"},
+    "807": {"t": ["src-publication-structure"], "d": "navigation"},
+    "808": {"t": [], "d": "blank"},
+    "809": {"t": ["a-apg-purpose-scope"]},
+    "810": {"t": ["a-apg-purpose-scope"]},
+    "811": {"t": ["a-apg-purpose-scope"]},
+    "812": {"t": ["a-apg-purpose-scope"], "visual": "Done (two-column scope table; in-scope and out-of-scope lists separable in extracted text)"},
+    "813": {"t": ["a-apg-purpose-scope"]},
+    "814": {"t": [], "d": "blank"},
+    "815": {"t": ["a-definable-vs-uncertain"]}
+  }
+}

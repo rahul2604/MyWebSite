@@ -1,0 +1,54 @@
+{
+  "batch": "B27",
+  "range": [646, 675],
+  "readBy": "sequential read of extracted text; Standard input/output lists for 4.9-4.10, 5.1-5.12 and 6.1 compared item by item with ittos.json - all match, 2026-10-20",
+  "topics": {
+    "std-executing-group-2": {
+      "title": "Standard: Conduct Procurements (end) and Manage Stakeholder Engagement inputs and outputs",
+      "section": "Part 2, 4.9.2-4.10 (Figure 4-11)", "kind": "process-group", "module": "M15",
+      "notes": "Example documents and plan/document updates for Conduct Procurements and the full input/output list for Manage Stakeholder Engagement (increase support, minimise resistance), all matching Part 1 (verified)."
+    },
+    "std-monitoring-controlling-group": {
+      "title": "Standard: Monitoring and Controlling Process Group - monitoring vs controlling, what the group involves; inputs and outputs of the 12 M&C processes",
+      "section": "Part 2, Section 5, 5.1-5.12 (Figures 5-1 to 5-13)", "kind": "process-group", "module": "M15",
+      "notes": "M&C = processes to track, review and regulate progress and performance, identify needed plan changes and initiate them. Monitoring = collecting project performance data, producing performance measures, and reporting and disseminating performance information. Controlling = comparing actual with planned performance, analysing variances, assessing trends to effect process improvements, evaluating alternatives and recommending corrective action as needed. Key benefit: performance is measured and analysed at regular intervals, appropriate events or exception conditions to identify and correct variances from the plan. Also involves: evaluating change requests and deciding responses; recommending corrective or preventive action in anticipation of problems; monitoring ongoing activities against the plan and baselines; influencing factors that could circumvent change control so only approved changes are implemented. Continuous monitoring gives insight into status and areas needing attention; M&C covers each Knowledge Area, each Process Group, each life cycle phase and the project as a whole. Figure 5-1 groups the 12 processes: Integration - Monitor and Control Project Work, Perform Integrated Change Control; Scope - Validate Scope, Control Scope; Schedule - Control Schedule; Cost - Control Costs; Quality - Control Quality; Resource - Control Resources; Communications - Monitor Communications; Risk - Monitor Risks; Procurement - Control Procurements; Stakeholder - Monitor Stakeholder Engagement. Sections 5.1-5.12 restate definitions, key benefits, frequency (Control Procurements: throughout the project when procurements are active) and input/output lists with example components - all matching Part 1 (verified). Note: the Standard's definition of Perform Integrated Change Control includes managing changes to organisational process assets as well as deliverables, documents and the plan (consistent with the Part 1 chapter introduction)."
+    },
+    "std-closing-group": {
+      "title": "Standard: Closing Process Group - purpose, single process, early closure; Close Project or Phase inputs and outputs",
+      "section": "Part 2, Section 6 (Figures 6-1, 6-2)", "kind": "process-group", "module": "M15",
+      "notes": "Closing = process(es) to formally complete or close a project, phase or contract; verifies that defined processes are completed within all Process Groups and formally establishes completion. Key benefit: phases, projects and contracts are closed out appropriately. Only one process (6.1 Close Project or Phase) but the term Process Group is kept because organisations may have their own closure processes. Also addresses early closure - aborted or cancelled projects. Inputs and outputs match Part 1 (verified); all plan components may be inputs; example documents: assumption log, basis of estimates, change log, issue log, lessons learned, milestone list, project communications, quality control measurements, quality reports, requirements documentation, risk register, risk report; document update: lessons learned register."
+    }
+  },
+  "pages": {
+    "646": {"t": ["std-executing-group-2"]},
+    "647": {"t": ["std-executing-group-2"]},
+    "648": {"t": ["std-executing-group-2"]},
+    "649": {"t": [], "d": "blank"},
+    "650": {"t": ["std-monitoring-controlling-group"]},
+    "651": {"t": ["std-monitoring-controlling-group"], "visual": "Done (grouping diagram; all process labels extracted)"},
+    "652": {"t": ["std-monitoring-controlling-group"]},
+    "653": {"t": ["std-monitoring-controlling-group"]},
+    "654": {"t": ["std-monitoring-controlling-group"]},
+    "655": {"t": ["std-monitoring-controlling-group"]},
+    "656": {"t": ["std-monitoring-controlling-group"]},
+    "657": {"t": ["std-monitoring-controlling-group"]},
+    "658": {"t": ["std-monitoring-controlling-group"]},
+    "659": {"t": ["std-monitoring-controlling-group"]},
+    "660": {"t": ["std-monitoring-controlling-group"]},
+    "661": {"t": ["std-monitoring-controlling-group"]},
+    "662": {"t": ["std-monitoring-controlling-group"]},
+    "663": {"t": ["std-monitoring-controlling-group"]},
+    "664": {"t": ["std-monitoring-controlling-group"]},
+    "665": {"t": ["std-monitoring-controlling-group"]},
+    "666": {"t": ["std-monitoring-controlling-group"]},
+    "667": {"t": ["std-monitoring-controlling-group"]},
+    "668": {"t": ["std-monitoring-controlling-group"]},
+    "669": {"t": ["std-monitoring-controlling-group"]},
+    "670": {"t": ["std-closing-group"], "visual": "Done (single-process diagram; label extracted)"},
+    "671": {"t": ["std-closing-group"]},
+    "672": {"t": ["std-closing-group"]},
+    "673": {"t": [], "d": "blank"},
+    "674": {"t": ["src-publication-structure"], "d": "part divider", "visual": "Done (divider page; text fully extracted)"},
+    "675": {"t": [], "d": "blank"}
+  }
+}

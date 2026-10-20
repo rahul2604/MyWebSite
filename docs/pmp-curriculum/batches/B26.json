@@ -1,0 +1,48 @@
+{
+  "batch": "B26",
+  "range": [617, 645],
+  "readBy": "sequential read of extracted text; Standard input/output lists for 3.14-3.24 and 4.1-4.9 compared item by item with ittos.json - all match, 2026-10-20",
+  "topics": {
+    "std-planning-group-2": {
+      "title": "Standard: planning processes 3.14-3.24 (quality, resource, communications, risk, procurement, stakeholder planning) - inputs, outputs and example components",
+      "section": "Part 2, 3.14-3.24 (Figures 3-15 to 3-25)", "kind": "process-group", "module": "M15",
+      "notes": "Restates definitions, key benefits, frequency and input/output lists for Plan Quality Management, Plan Resource Management, Estimate Activity Resources, Plan Communications Management, Plan Risk Management (all available plan components should be considered so risk management fits project needs), Identify Risks, Perform Qualitative Risk Analysis, Perform Quantitative Risk Analysis, Plan Risk Responses, Plan Procurement Management and Plan Stakeholder Engagement, with example plan components and documents that match Part 1. Note: the Standard's 3.22.2 lists project team assignments as a Plan Risk Responses input, consistent with Part 1 Figure 11-16 (supporting the choice made where Figure 11-17 differs). All inputs and outputs verified against ittos.json."
+    },
+    "std-executing-group": {
+      "title": "Standard: Executing Process Group - purpose, budget consumption, change requests; inputs and outputs of the 10 executing processes (4.1-4.9)",
+      "section": "Part 2, Section 4, 4.1-4.9 (Figures 4-1 to 4-10)", "kind": "process-group", "module": "M15",
+      "notes": "Executing = processes performed to complete the work defined in the project management plan to satisfy requirements: coordinating resources, managing stakeholder engagement, integrating and performing activities per the plan. Key benefit: the work needed to meet requirements and objectives is performed according to plan. A large portion of the project budget, resources and time is expended in Executing. Executing processes may generate change requests; if approved they may trigger planning processes producing a modified plan, documents and possibly new baselines. Figure 4-1 groups the ten executing processes: Integration - Direct and Manage Project Work, Manage Project Knowledge; Quality - Manage Quality; Resource - Acquire Resources, Develop Team, Manage Team; Communications - Manage Communications; Risk - Implement Risk Responses; Procurement - Conduct Procurements; Stakeholder - Manage Stakeholder Engagement. Sections 4.1-4.9 restate definitions, key benefits, frequency and input/output lists (Direct and Manage Project Work, Manage Project Knowledge, Manage Quality, Acquire Resources, Develop Team, Manage Team, Manage Communications, Implement Risk Responses, Conduct Procurements) with example components and documents - all matching Part 1 ITTOs (verified). (4.10 Manage Stakeholder Engagement continues on PDF 646.)"
+    }
+  },
+  "pages": {
+    "617": {"t": ["std-planning-group-2"]},
+    "618": {"t": ["std-planning-group-2"]},
+    "619": {"t": ["std-planning-group-2"]},
+    "620": {"t": ["std-planning-group-2"]},
+    "621": {"t": ["std-planning-group-2"]},
+    "622": {"t": ["std-planning-group-2"]},
+    "623": {"t": ["std-planning-group-2"]},
+    "624": {"t": ["std-planning-group-2"]},
+    "625": {"t": ["std-planning-group-2"]},
+    "626": {"t": ["std-planning-group-2"]},
+    "627": {"t": ["std-planning-group-2"]},
+    "628": {"t": ["std-planning-group-2"]},
+    "629": {"t": ["std-planning-group-2"]},
+    "630": {"t": ["std-planning-group-2"]},
+    "631": {"t": ["std-planning-group-2"]},
+    "632": {"t": ["std-executing-group"]},
+    "633": {"t": ["std-executing-group"], "visual": "Done (grouping diagram; all process labels extracted)"},
+    "634": {"t": ["std-executing-group"]},
+    "635": {"t": ["std-executing-group"]},
+    "636": {"t": ["std-executing-group"]},
+    "637": {"t": ["std-executing-group"]},
+    "638": {"t": ["std-executing-group"]},
+    "639": {"t": ["std-executing-group"]},
+    "640": {"t": ["std-executing-group"]},
+    "641": {"t": ["std-executing-group"]},
+    "642": {"t": ["std-executing-group"]},
+    "643": {"t": ["std-executing-group"]},
+    "644": {"t": ["std-executing-group"]},
+    "645": {"t": ["std-executing-group"]}
+  }
+}
