@@ -1,4 +1,15 @@
 # Cloudflare Pages project config (used by `wrangler pages deploy` and Git-connected builds).
-name = "rahul-mehra-portfolio"
+# This file is the source of truth for the project's bindings; secrets (RESEND_API_KEY,
+# PMP_ADMIN_BOOTSTRAP_PASSWORD, Google secrets) are set separately with
+# `wrangler pages secret put <NAME> --project-name mywebsite` or in the dashboard.
+name = "mywebsite"
 compatibility_date = "2026-10-01"
 pages_build_output_dir = "./dist"
+
+# One D1 database for bookings and the PMP learning platform. The platform uses PMP_DB if
+# bound, otherwise BOOKINGS_DB; its tables are prefixed pmp_. Tables are created on first use.
+# Locally, `wrangler pages dev` uses a local copy of this binding in .wrangler/ (never production).
+[[d1_databases]]
+binding = "BOOKINGS_DB"
+database_name = "rahul-site-db"
+database_id = "5f113c96-6e7f-4e0a-9685-ff97ed7e4785"

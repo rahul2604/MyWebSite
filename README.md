@@ -119,9 +119,8 @@ in as the owner and allow access, wait for "Google Calendar connected", then tur
 Redirect URIs registered in Google Cloud must be exactly `http://localhost:8788/api/google/callback` and
 `https://rahulmehra.co.in/api/google/callback`.
 
-**D1 setup:** Cloudflare → Storage & Databases → D1 → *Create* (e.g. `rahul-bookings`) → Pages project → Settings →
-Bindings → *Add* → D1 database → variable name `BOOKINGS_DB` → Save → redeploy. (If the dashboard says bindings are
-managed by `wrangler.toml`, add a `[[d1_databases]]` entry with `binding = "BOOKINGS_DB"` there instead.)
+**D1 setup:** the `BOOKINGS_DB` binding is declared in `wrangler.toml` (database `rahul-site-db`); see
+"Production D1 binding" below.
 To view bookings: D1 → the database → Console →
 `SELECT reference, date, time, name, status, meet_url, owner_email, booker_email FROM bookings ORDER BY start_ms;`
 
@@ -204,7 +203,7 @@ changes and content edits are recorded in `pmp_audit` (never with passwords or t
 
 | Name | Type | Default | Purpose |
 | --- | --- | --- | --- |
-| `PMP_DB` | D1 binding | falls back to `BOOKINGS_DB` | Database for the PMP platform. If unbound, the platform uses the bookings database; its tables all start with `pmp_`, so they never touch booking data. If neither is bound, `/api/pmp/*` returns 503. |
+| `PMP_DB` | D1 binding | falls back to `BOOKINGS_DB` | Database for the PMP platform. Not bound in production: the platform uses `BOOKINGS_DB` (`rahul-site-db`); its tables all start with `pmp_`, so they never touch booking data. If neither is bound, `/api/pmp/*` returns 503. |
 | `PMP_SIGNUP_OPEN` | Text | open | `false` closes new learner registrations (existing learners and the admin can still sign in). Any other value, or unset, leaves sign-up open. |
 | `PMP_ADMIN_EMAIL` | Text | `rahul.a.mehra@gmail.com` | The only email that can be bootstrapped as administrator; reserved from learner sign-up. |
 | `PMP_ADMIN_BOOTSTRAP_PASSWORD` | Secret | unset | One-time bootstrap secret (10+ characters). Remove it after the first sign-in. |
@@ -222,16 +221,17 @@ existing learner accounts and sessions keep working. There is no separate migrat
 
 ### Production D1 binding
 
-`wrangler.toml` does not declare D1, so bindings are managed in the Cloudflare dashboard, the same way as
-`BOOKINGS_DB`. The `--d1 BOOKINGS_DB` flag in `npm run preview:pages` is local only; production never depends on it.
+`wrangler.toml` is the source of truth for the Pages project (`mywebsite`) and binds one D1 database,
+`rahul-site-db`, as `BOOKINGS_DB`. Bookings and the PMP platform share it (PMP tables are prefixed `pmp_`), so
+`PMP_DB` does not need to be bound. Git-connected builds and `wrangler pages deploy` both read this binding, and
+`wrangler pages dev` uses a local copy in `.wrangler/` (never the production data).
 
-- **Recommended (no new database):** leave `PMP_DB` unbound, and the platform uses the existing production
-  `BOOKINGS_DB`.
-- **Separate database (optional):** Cloudflare → Storage & Databases → D1 → *Create* (e.g. `rahul-pmp`) → Pages
-  project → Settings → Bindings → *Add* → D1 database → variable name `PMP_DB` → Save (for Production, and Preview if
-  wanted) → redeploy. If the dashboard says bindings are managed by `wrangler.toml`, add a `[[d1_databases]]` entry with
-  `binding = "PMP_DB"`, `database_name` and `database_id` there instead.
-- Check after deploying: D1 → the database → Console → `SELECT name FROM sqlite_master WHERE name LIKE 'pmp_%';`
+- To use a separate database for the PMP platform: `npx wrangler d1 create <name>`, then add a second
+  `[[d1_databases]]` entry with `binding = "PMP_DB"` and its `database_name` and `database_id`, commit and deploy.
+- Secrets are not in `wrangler.toml`. Set them with
+  `npx wrangler pages secret put <NAME> --project-name mywebsite` (or in the dashboard): `RESEND_API_KEY`,
+  `PMP_ADMIN_BOOTSTRAP_PASSWORD`, and the Google secrets if `BOOKING_MODE=live`.
+- Check after deploying: `npx wrangler d1 execute rahul-site-db --remote --command "SELECT name FROM sqlite_master WHERE name LIKE 'pmp_%'"`
   (the tables appear after the first request to `/api/pmp/*`).
 
 ### Curriculum artifacts

@@ -16,7 +16,7 @@ RESEND_API_KEY=
 # CONTACT_FROM_EMAIL=Rahul Mehra Website <website@send.rahulmehra.co.in>
 
 # ---------------- Bookings (#coaching) ----------------
-# The BOOKINGS_DB D1 binding comes from `--d1 BOOKINGS_DB` in `npm run preview:pages` (not this file).
+# The BOOKINGS_DB D1 binding is declared in wrangler.toml; `npm run preview:pages` uses a local copy (not this file).
 
 # "mock" (default) = sample weekly hours, no Google. "live" = Google Calendar free/busy + Calendar event with Meet.
 # BOOKING_MODE=mock
@@ -46,7 +46,7 @@ GOOGLE_TOKEN_ENCRYPTION_KEY=
 # GOOGLE_INVITE_EMAILS=false
 
 # ---------------- PMP learning platform (#pmp, #admin) ----------------
-# PMP_DB is a D1 binding (not set here). Locally the platform falls back to BOOKINGS_DB from `npm run preview:pages`.
+# PMP_DB is an optional D1 binding (not set here). Without it the platform uses BOOKINGS_DB from wrangler.toml.
 
 # "false" closes new learner sign-ups. Default: open.
 # PMP_SIGNUP_OPEN=true

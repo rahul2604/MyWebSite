@@ -138,7 +138,7 @@ The six phases come from the original build brief for the PMP learning platform:
 
 **Outstanding issues**
 
-- Production D1 binding and secrets must be set in the Cloudflare dashboard by the owner.
+- Production D1 is bound in wrangler.toml (rahul-site-db as BOOKINGS_DB); secrets (RESEND_API_KEY, PMP_ADMIN_BOOTSTRAP_PASSWORD, Google) must be set by the owner.
 - The production admin account must be bootstrapped with a strong one-time secret (not the local temporary password) and the password changed on first sign-in.
 
 **Next actions**
