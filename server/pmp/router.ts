@@ -1,31 +1,42 @@
 /*
  * /api/pmp/* — the learning platform API (mounted by functions/api/pmp/[[path]].ts).
  *
- *   POST /auth/signup  {name, email, password}      create account, start session
- *   POST /auth/login   {email, password}            start session
+ *   POST /auth/signup  {name, email, password}      create a learner account, start session
+ *   POST /auth/login   {email, password}            start session (also the one-time admin bootstrap)
  *   POST /auth/logout                               end session
- *   GET  /me                                        learner + full course state (locks enforced here)
- *   GET  /lessons/:id                               lesson content, only when unlocked
- *   POST /lessons/:id/complete                      mark complete (only when unlocked)
- *   POST /assessments/:id/start                     start or resume an attempt; questions without answers
- *   POST /assessments/:id/submit {attemptId, answers}  score on the server; returns review
+ *   POST /auth/change-password {currentPassword, newPassword}
+ *   GET  /me                                        user + course state (locks enforced here)
+ *   GET  /lessons/:id                               lesson content, only when unlocked (admins: always)
+ *   POST /lessons/:id/complete                      mark complete (learners only, only when unlocked)
+ *   POST /assessments/:id/start                     start or resume an attempt (learners only)
+ *   POST /assessments/:id/submit {attemptId, answers}  score on the server (learners only)
  *   GET  /attempts/:id                              review of a submitted attempt
  *   POST /certificate                               issue the certificate once the final is passed
  *   GET  /certificate.pdf                           the learner's certificate as a PDF
  *   GET  /verify/:code                              public verification (no sign-in)
+ *   *    /admin/*                                   administrator API (server/pmp/admin.ts)
+ *
+ * Roles: the role lives only in pmp_users.role and is read from the database on every
+ * request. Administrators bypass learner *progression* checks for reading content, never
+ * authentication; learner write paths refuse admin accounts so previews cannot create
+ * progress, attempts or certificates.
  *
  * Every state-changing request must be same-origin JSON. Responses never contain password
- * hashes, session tokens or answer keys for unsubmitted attempts.
+ * hashes, session tokens or answer keys for unsubmitted learner attempts.
  */
 import type { D1Like } from '../bookingStore.ts';
 import { clock } from '../clock.ts';
-import { randomBytes, sha256b64url } from '../crypto.ts';
+import { randomBytes, safeEqual, sha256b64url } from '../crypto.ts';
 import { fail, json, makeRateLimiter, sameSite } from '../http.ts';
+import { handleAdmin } from './admin.ts';
 import {
+  ADMIN_SESSION_TTL_MS,
+  DEFAULT_ADMIN_EMAIL,
   LOCKOUT_MS,
   MAX_FAILED_LOGINS,
   SESSION_COOKIE,
   SESSION_TTL_MS,
+  adminPasswordProblem,
   burnPasswordCheck,
   cleanName,
   clearSessionCookie,
@@ -41,6 +52,7 @@ import {
   verifyPassword,
 } from './auth.ts';
 import { certificatePdf } from './certificatePdf.ts';
+import { loadCourse, type Course } from './content.ts';
 import { COURSE_TITLE, COURSE_VERSION } from './course.ts';
 import {
   EXAM_GRACE_MS,
@@ -55,12 +67,15 @@ import {
   parseLayout,
   presentQuestions,
   score,
+  unlockedForAdmin,
 } from './engine.ts';
 import {
   attemptsFor,
+  audit,
   closeAttempt,
   completedLessons,
   deleteSession,
+  deleteSessionsForUser,
   ensurePmpSchema,
   findAttempt,
   findCertificateByCode,
@@ -73,6 +88,8 @@ import {
   pmpDb,
   recordLoginFailure,
   resetLoginFailures,
+  updatePassword,
+  upsertAdmin,
   type AttemptRow,
   type UserRow,
 } from './store.ts';
@@ -82,16 +99,27 @@ export interface PmpEnv {
   BOOKINGS_DB?: D1Like;
   /** "false" closes new sign-ups (existing learners can still sign in). Default: open. */
   PMP_SIGNUP_OPEN?: string;
+  /** The administrator account's email. Default: rahul.a.mehra@gmail.com. Reserved from public sign-up. */
+  PMP_ADMIN_EMAIL?: string;
+  /**
+   * Secret. One-time bootstrap password for the administrator account. Only used while no
+   * administrator exists for PMP_ADMIN_EMAIL; the account must change it on first sign-in.
+   * Remove it once the administrator has set their own password.
+   */
+  PMP_ADMIN_BOOTSTRAP_PASSWORD?: string;
 }
 
-const MAX_BODY = 32 * 1024;
+const MAX_BODY = 64 * 1024;
 const authLimiter = makeRateLimiter(10, 10 * 60 * 1000);
 const signupLimiter = makeRateLimiter(5, 60 * 60 * 1000);
 
 const ip = (r: Request) => r.headers.get('CF-Connecting-IP') || 'local';
-const formatDate = (ms: number) => new Date(ms).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' });
+export const formatDate = (ms: number) => new Date(ms).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' });
+export const adminEmail = (env: PmpEnv) => normaliseEmail(env.PMP_ADMIN_EMAIL) || DEFAULT_ADMIN_EMAIL;
+const bootstrapPassword = (env: PmpEnv) => (env.PMP_ADMIN_BOOTSTRAP_PASSWORD && env.PMP_ADMIN_BOOTSTRAP_PASSWORD.length >= 10 ? env.PMP_ADMIN_BOOTSTRAP_PASSWORD : undefined);
+export const isAdmin = (u: UserRow) => u.role === 'admin';
 
-async function readJson(request: Request): Promise<Record<string, unknown> | Response> {
+export async function readJson(request: Request): Promise<Record<string, unknown> | Response> {
   if (!(request.headers.get('Content-Type') || '').includes('application/json')) return fail(415, 'unsupported', 'Unsupported request.');
   if (Number(request.headers.get('Content-Length') || 0) > MAX_BODY) return fail(413, 'too_large', 'Request too large.');
   const raw = await request.text();
@@ -106,11 +134,18 @@ async function readJson(request: Request): Promise<Record<string, unknown> | Res
   }
 }
 
-const publicUser = (u: UserRow) => ({ id: u.id, name: u.name, email: u.email, joined: new Date(u.created_ms).toISOString() });
+const publicUser = (u: UserRow) => ({
+  id: u.id,
+  name: u.name,
+  email: u.email,
+  joined: new Date(u.created_ms).toISOString(),
+  role: isAdmin(u) ? 'admin' : 'learner',
+  mustChangePassword: isAdmin(u) && u.must_change_password === 1,
+});
 
-async function stateFor(db: D1Like, userId: string, nowMs: number) {
+async function stateFor(db: D1Like, userId: string, nowMs: number, course: Course) {
   const [done, attempts] = await Promise.all([completedLessons(db, userId), attemptsFor(db, userId)]);
-  return { state: courseState(done, attempts, nowMs), attempts };
+  return { state: courseState(done, attempts, nowMs, course), attempts };
 }
 
 /** Closes any exam attempt whose deadline (plus grace) has passed; it does not count. */
@@ -123,6 +158,11 @@ async function expireStale(db: D1Like, attempts: AttemptRow[], nowMs: number): P
   }
   return changed;
 }
+
+const adminPreviewOnly = () =>
+  fail(403, 'admin_preview', 'Administrator accounts preview the course without recording progress, attempts or certificates. Use a learner account to take the course.');
+
+const sessionTtl = (u: Pick<UserRow, 'role'>) => (u.role === 'admin' ? ADMIN_SESSION_TTL_MS : SESSION_TTL_MS);
 
 export async function handlePmp(request: Request, env: PmpEnv, path: string): Promise<Response> {
   const db = pmpDb(env);
@@ -163,6 +203,26 @@ export async function handlePmp(request: Request, env: PmpEnv, path: string): Pr
     if (authLimiter(ip(request), now)) return fail(429, 'rate_limited', 'Too many attempts. Please wait a few minutes and try again.');
     const body = await readJson(request);
     if (body instanceof Response) return body;
+
+    if (action === 'change-password') {
+      const me = await currentUser(db, request, now);
+      if (!me) return fail(401, 'signed_out', 'Please sign in.');
+      const current = typeof body.currentPassword === 'string' ? body.currentPassword : '';
+      const next = body.newPassword;
+      if (!current || current.length > 128 || !(await verifyPassword(current, me))) {
+        await recordLoginFailure(db, me.id, now + LOCKOUT_MS, MAX_FAILED_LOGINS);
+        return fail(400, 'wrong_password', 'Your current password is incorrect.');
+      }
+      const issue = isAdmin(me) ? adminPasswordProblem(next, bootstrapPassword(env)) : passwordProblem(next);
+      if (issue) return fail(400, 'weak_password', issue);
+      if (next === current) return fail(400, 'weak_password', 'Choose a password different from your current one.');
+      await updatePassword(db, me.id, await newPasswordRecord(next as string), now);
+      await deleteSessionsForUser(db, me.id); // sign out every other device
+      await audit(db, now, me, 'password_changed', me.id);
+      const s = await createSession(db, me.id, now, sessionTtl(me));
+      return json(200, { ok: true }, { 'Set-Cookie': sessionCookie(request.url, s.token, sessionTtl(me) / 1000) });
+    }
+
     const email = normaliseEmail(body.email);
     const password = typeof body.password === 'string' ? body.password : '';
 
@@ -172,6 +232,7 @@ export async function handlePmp(request: Request, env: PmpEnv, path: string): Pr
       const name = cleanName(body.name);
       if (name.length < 2) return fail(400, 'invalid_name', 'Enter your name as it should appear on your certificate.');
       if (!validEmail(email)) return fail(400, 'invalid_email', 'Enter a valid email address.');
+      if (email === adminEmail(env)) return fail(403, 'reserved_email', 'This email cannot be used for a learner account.');
       const pwIssue = passwordProblem(body.password);
       if (pwIssue) return fail(400, 'weak_password', pwIssue);
       const rec = await newPasswordRecord(password);
@@ -179,13 +240,32 @@ export async function handlePmp(request: Request, env: PmpEnv, path: string): Pr
       const created = await insertUser(db, { id, email, name, ...rec, created_ms: now });
       if (!created) return fail(409, 'email_taken', 'An account with this email already exists. Please sign in.');
       const s = await createSession(db, id, now);
-      return json(201, { ok: true, user: { id, name, email } }, { 'Set-Cookie': sessionCookie(request.url, s.token, SESSION_TTL_MS / 1000) });
+      return json(201, { ok: true, user: { id, name, email, role: 'learner' } }, { 'Set-Cookie': sessionCookie(request.url, s.token, SESSION_TTL_MS / 1000) });
     }
 
     if (action === 'login') {
       const generic = () => fail(401, 'invalid_credentials', 'Email or password is incorrect.');
       if (!validEmail(email) || !password || password.length > 128) return generic();
-      const user = await findUserByEmail(db, email);
+      let user = await findUserByEmail(db, email);
+
+      // One-time administrator bootstrap: only for the configured admin email, only while no
+      // administrator account exists for it, and only with the server-side secret.
+      const boot = bootstrapPassword(env);
+      if (email === adminEmail(env) && boot && (!user || !isAdmin(user)) && !(user && user.locked_until_ms > now)) {
+        if (safeEqual(password, boot)) {
+          await upsertAdmin(db, { id: newId(), email, name: user?.name || 'Rahul Mehra', ...(await newPasswordRecord(password)), created_ms: now });
+          user = (await findUserByEmail(db, email))!;
+          await deleteSessionsForUser(db, user.id);
+          await audit(db, now, user, 'admin_bootstrap', user.id, 'Administrator account created or promoted with the bootstrap password; password change required.');
+          const s = await createSession(db, user.id, now, ADMIN_SESSION_TTL_MS);
+          return json(200, { ok: true, user: publicUser(user) }, { 'Set-Cookie': sessionCookie(request.url, s.token, ADMIN_SESSION_TTL_MS / 1000) });
+        }
+        if (!user) {
+          await burnPasswordCheck(password);
+          return generic();
+        }
+      }
+
       if (!user) {
         await burnPasswordCheck(password);
         return generic();
@@ -193,11 +273,13 @@ export async function handlePmp(request: Request, env: PmpEnv, path: string): Pr
       if (user.locked_until_ms > now) return fail(423, 'locked', 'Too many failed attempts. Please try again in 15 minutes.');
       if (!(await verifyPassword(password, user))) {
         await recordLoginFailure(db, user.id, now + LOCKOUT_MS, MAX_FAILED_LOGINS);
+        if (isAdmin(user)) await audit(db, now, null, 'admin_login_failed', user.id);
         return generic();
       }
       await resetLoginFailures(db, user.id);
-      const s = await createSession(db, user.id, now);
-      return json(200, { ok: true, user: { id: user.id, name: user.name, email: user.email } }, { 'Set-Cookie': sessionCookie(request.url, s.token, SESSION_TTL_MS / 1000) });
+      if (isAdmin(user)) await audit(db, now, user, 'admin_login', user.id);
+      const s = await createSession(db, user.id, now, sessionTtl(user));
+      return json(200, { ok: true, user: publicUser(user) }, { 'Set-Cookie': sessionCookie(request.url, s.token, sessionTtl(user) / 1000) });
     }
     return fail(404, 'not_found', 'Not found.');
   }
@@ -205,42 +287,58 @@ export async function handlePmp(request: Request, env: PmpEnv, path: string): Pr
   /* ---------------- signed-in ---------------- */
   const user = await currentUser(db, request, now);
   if (!user) return fail(401, 'signed_out', 'Please sign in.');
+  const admin = isAdmin(user);
 
   if (parts[0] === 'me' && parts.length === 1 && method === 'GET') {
-    let { state, attempts } = await stateFor(db, user.id, now);
-    if (await expireStale(db, attempts, now)) ({ state } = await stateFor(db, user.id, now));
-    const cert = await findCertificateByUser(db, user.id);
+    const { course } = await loadCourse(db);
+    let { state, attempts } = await stateFor(db, user.id, now, course);
+    if (await expireStale(db, attempts, now)) ({ state } = await stateFor(db, user.id, now, course));
+    const cert = admin ? null : await findCertificateByUser(db, user.id);
     return json(200, {
       ok: true,
       user: publicUser(user),
       course: { title: COURSE_TITLE, version: COURSE_VERSION, passMark: 80 },
-      state,
+      state: admin ? unlockedForAdmin(state) : state,
       certificate: cert ? { code: cert.code, issued: new Date(cert.issued_ms).toISOString(), name: cert.name } : null,
     });
   }
 
+  // A bootstrapped administrator must set their own password before doing anything else.
+  if (admin && user.must_change_password === 1) return fail(403, 'password_change_required', 'Change the temporary password before continuing.');
+
+  if (parts[0] === 'admin') {
+    if (!admin) return fail(403, 'forbidden', 'You do not have access to this area.');
+    return handleAdmin(request, db, user, parts.slice(1), now);
+  }
+
   if (parts[0] === 'lessons' && parts[1]) {
-    const found = findLesson(parts[1]);
+    const { course } = await loadCourse(db);
+    const found = findLesson(parts[1], course);
     if (!found) return fail(404, 'not_found', 'Lesson not found.');
-    const { state } = await stateFor(db, user.id, now);
+    const { state } = await stateFor(db, user.id, now, course);
     const status = lessonStatus(state, found.lesson.id);
-    if (status === 'locked') return fail(403, 'locked', 'This lesson unlocks after you complete the previous step.');
     if (parts.length === 2 && method === 'GET') {
-      return json(200, { ok: true, lesson: lessonPayload(found.module, found.lesson, found.index), completed: status === 'completed' });
+      // Admins may read any lesson; learners only unlocked ones.
+      if (!admin && status === 'locked') return fail(403, 'locked', 'This lesson unlocks after you complete the previous step.');
+      return json(200, { ok: true, lesson: lessonPayload(found.module, found.lesson, found.index), completed: status === 'completed', preview: admin });
     }
     if (parts[2] === 'complete' && parts.length === 3 && method === 'POST') {
+      if (admin) return adminPreviewOnly();
+      if (status === 'locked') return fail(403, 'locked', 'This lesson unlocks after you complete the previous step.');
       await markLessonComplete(db, user.id, found.lesson.id, now);
-      const after = await stateFor(db, user.id, now);
+      const after = await stateFor(db, user.id, now, course);
       return json(200, { ok: true, state: after.state });
     }
     return fail(405, 'method', 'Method not allowed.');
   }
 
   if (parts[0] === 'assessments' && parts[1] && parts.length === 3 && method === 'POST') {
-    const a = findAssessment(parts[1]);
+    if (admin) return adminPreviewOnly();
+    const { course } = await loadCourse(db);
+    const a = findAssessment(parts[1], course);
     if (!a) return fail(404, 'not_found', 'Assessment not found.');
-    let { state, attempts } = await stateFor(db, user.id, now);
-    if (await expireStale(db, attempts, now)) ({ state, attempts } = await stateFor(db, user.id, now));
+    let { state, attempts } = await stateFor(db, user.id, now, course);
+    if (await expireStale(db, attempts, now)) ({ state, attempts } = await stateFor(db, user.id, now, course));
     const st = assessmentStatus(state, parts[1])!;
 
     if (parts[2] === 'start') {
@@ -308,7 +406,7 @@ export async function handlePmp(request: Request, env: PmpEnv, path: string): Pr
         const prior = again?.answers ? (JSON.parse(again.answers) as Record<string, number>) : {};
         return json(200, { ok: true, replayed: true, result: score(a.questions, layout, prior), state });
       }
-      const after = await stateFor(db, user.id, now);
+      const after = await stateFor(db, user.id, now, course);
       return json(200, { ok: true, result, state: after.state });
     }
     return fail(404, 'not_found', 'Not found.');
@@ -318,7 +416,8 @@ export async function handlePmp(request: Request, env: PmpEnv, path: string): Pr
     const attempt = await findAttempt(db, parts[1], user.id);
     if (!attempt) return fail(404, 'not_found', 'Attempt not found.');
     if (attempt.status !== 'submitted') return fail(409, 'not_submitted', 'This attempt has not been submitted.');
-    const a = findAssessment(attempt.assessment_id);
+    const { course } = await loadCourse(db);
+    const a = findAssessment(attempt.assessment_id, course);
     if (!a) return fail(404, 'not_found', 'Assessment not found.');
     const answers = attempt.answers ? (JSON.parse(attempt.answers) as Record<string, number>) : {};
     return json(200, {
@@ -329,6 +428,7 @@ export async function handlePmp(request: Request, env: PmpEnv, path: string): Pr
   }
 
   if (parts[0] === 'certificate' && parts.length === 1 && method === 'POST') {
+    if (admin) return adminPreviewOnly();
     const existing = await findCertificateByUser(db, user.id);
     if (existing) return json(200, { ok: true, certificate: { code: existing.code, issued: new Date(existing.issued_ms).toISOString(), name: existing.name } });
     const attempts = await attemptsFor(db, user.id);
@@ -343,28 +443,35 @@ export async function handlePmp(request: Request, env: PmpEnv, path: string): Pr
   }
 
   if (parts[0] === 'certificate.pdf' && parts.length === 1 && method === 'GET') {
+    if (admin) return adminPreviewOnly();
     const cert = await findCertificateByUser(db, user.id);
     if (!cert) return fail(404, 'not_found', 'No certificate has been issued yet.');
-    const origin = new URL(request.url).origin;
-    const pdf = certificatePdf({
+    return pdfResponse(request, {
       name: cert.name,
-      courseTitle: COURSE_TITLE,
-      issuedOn: formatDate(cert.issued_ms),
       code: cert.code,
-      verifyUrl: `${origin}/#pmp/verify/${cert.code}`,
+      issuedMs: cert.issued_ms,
       scoreText: `Final assessment score: ${Math.round((cert.score / cert.total) * 1000) / 10}%`,
-    });
-    return new Response(pdf, {
-      status: 200,
-      headers: {
-        'Content-Type': 'application/pdf',
-        'Content-Disposition': `attachment; filename="certificate-${cert.code}.pdf"`,
-        'Cache-Control': 'no-store',
-      },
+      filename: `certificate-${cert.code}.pdf`,
     });
   }
 
   return fail(404, 'not_found', 'Not found.');
+}
+
+export function pdfResponse(request: Request, c: { name: string; code: string; issuedMs: number; scoreText: string; filename: string }): Response {
+  const origin = new URL(request.url).origin;
+  const pdf = certificatePdf({
+    name: c.name,
+    courseTitle: COURSE_TITLE,
+    issuedOn: formatDate(c.issuedMs),
+    code: c.code,
+    verifyUrl: `${origin}/#pmp/verify/${c.code}`,
+    scoreText: c.scoreText,
+  });
+  return new Response(pdf, {
+    status: 200,
+    headers: { 'Content-Type': 'application/pdf', 'Content-Disposition': `attachment; filename="${c.filename}"`, 'Cache-Control': 'no-store' },
+  });
 }
 
 /** Human-friendly, unguessable certificate ID, e.g. "PMP-7K2Q-9XMD-4TBA". */

@@ -40,7 +40,7 @@ export interface CourseState {
 }
 
 export interface Me {
-  user: { id: string; name: string; email: string; joined: string };
+  user: { id: string; name: string; email: string; joined: string; role: 'learner' | 'admin'; mustChangePassword: boolean };
   course: { title: string; version: string; passMark: number };
   state: CourseState;
   certificate: { code: string; issued: string; name: string } | null;
@@ -135,7 +135,8 @@ async function request<T>(path: string, init: { method?: string; body?: unknown 
 export const api = {
   me: () => request<Me & { ok: true }>('me'),
   signup: (name: string, email: string, password: string) => request<{ user: { name: string } }>('auth/signup', { body: { name, email, password } }),
-  login: (email: string, password: string) => request<{ user: { name: string } }>('auth/login', { body: { email, password } }),
+  login: (email: string, password: string) => request<{ user: { name: string; role: 'learner' | 'admin'; mustChangePassword: boolean } }>('auth/login', { body: { email, password } }),
+  changePassword: (currentPassword: string, newPassword: string) => request<{ ok: true }>('auth/change-password', { body: { currentPassword, newPassword } }),
   logout: () => request<{ ok: true }>('auth/logout', { body: {} }),
   lesson: (id: string) => request<{ lesson: Lesson; completed: boolean }>(`lessons/${encodeURIComponent(id)}`),
   completeLesson: (id: string) => request<{ state: CourseState }>(`lessons/${encodeURIComponent(id)}/complete`, { body: {} }),
@@ -146,4 +147,15 @@ export const api = {
   issueCertificate: () => request<{ certificate: { code: string; issued: string; name: string } }>('certificate', { body: {} }),
   verify: (code: string) => request<Verification>(`verify/${encodeURIComponent(code)}`),
   certificatePdfUrl: '/api/pmp/certificate.pdf',
+};
+
+/* ---------------- administrator API (server checks the role on every call) ---------------- */
+export const adminApi = {
+  get: <T = any>(path: string) => request<T>(`admin/${path}`),
+  post: <T = any>(path: string, body: unknown = {}) => request<T>(`admin/${path}`, { body }),
+  put: <T = any>(path: string, body: unknown) => request<T>(`admin/${path}`, { method: 'PUT', body }),
+  previewStart: (id: string) => request<{ attempt: Attempt; layout: { q: string; o: number[] }[] }>(`admin/preview/${encodeURIComponent(id)}/start`, { body: {} }),
+  previewScore: (id: string, layout: { q: string; o: number[] }[], answers: Record<string, number>) =>
+    request<{ result: Result }>(`admin/preview/${encodeURIComponent(id)}/score`, { body: { layout, answers } }),
+  sampleCertificateUrl: '/api/pmp/admin/certificate-sample.pdf',
 };

@@ -5,7 +5,7 @@ import { go, href } from './route';
 
 type Load = { kind: 'loading' } | { kind: 'error'; message: string; locked: boolean } | { kind: 'ready'; lesson: Lesson; completed: boolean };
 
-export function LessonView({ id, state, refresh }: { id: string; state: CourseState; refresh: () => Promise<void> }) {
+export function LessonView({ id, state, refresh, preview = false }: { id: string; state: CourseState; refresh: () => Promise<void>; preview?: boolean }) {
   const [load, setLoad] = useState<Load>({ kind: 'loading' });
   const [busy, setBusy] = useState(false);
   const [actionError, setActionError] = useState('');
@@ -40,8 +40,9 @@ export function LessonView({ id, state, refresh }: { id: string; state: CourseSt
     setBusy(true);
     setActionError('');
     try {
-      if (!completed) await api.completeLesson(lesson.id);
-      await refresh();
+      // Administrator previews never record progress.
+      if (!completed && !preview) await api.completeLesson(lesson.id);
+      if (!preview) await refresh();
       go(lesson.nextLessonId ? `lesson/${lesson.nextLessonId}` : `check/${lesson.moduleId}`);
     } catch (err) {
       setActionError(err instanceof ApiError ? err.message : 'Could not save your progress. Please try again.');
@@ -116,7 +117,7 @@ export function LessonView({ id, state, refresh }: { id: string; state: CourseSt
           <span />
         )}
         <button className="btn btn-blue btn-cta" type="button" onClick={() => void completeAndContinue()} disabled={busy}>
-          {busy ? 'Saving…' : completed ? (isLastLesson ? 'Go to the knowledge check' : 'Next lesson') : isLastLesson ? 'Complete and take the knowledge check' : 'Complete and continue'}
+          {busy ? 'Saving…' : completed || preview ? (isLastLesson ? 'Go to the knowledge check' : 'Next lesson') : isLastLesson ? 'Complete and take the knowledge check' : 'Complete and continue'}
         </button>
       </div>
       {actionError && (

@@ -221,6 +221,13 @@
 .pmp-verify-dl dt { font-size: 13px; color: var(--t-muted); }
 .pmp-verify-dl dd { margin: 2px 0 0; font-weight: 600; color: var(--t-strong); overflow-wrap: anywhere; }
 
+/* Learner-preview banner shown inside #pmp for administrator accounts */
+.pmp-preview-banner {
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 16px;
+  padding: 10px 14px; border-radius: 10px; background: var(--badge-bg); color: var(--badge-text); font-size: 14px; font-weight: 500;
+}
+.pmp-preview-banner a { color: inherit; font-weight: 700; }
+
 /* ---------- responsive ---------- */
 @media (max-width: 1023px) {
   .pmp-entry { grid-template-columns: minmax(0, 1fr); }

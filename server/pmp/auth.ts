@@ -13,6 +13,10 @@ import { deleteExpiredSessions, findSession, findUserById, insertSession, type U
 export const PBKDF2_ITERATIONS = 100_000;
 export const SESSION_COOKIE = 'pmp_session';
 export const SESSION_TTL_MS = 30 * 24 * 60 * 60 * 1000;
+/** Administrator sessions are shorter-lived. */
+export const ADMIN_SESSION_TTL_MS = 12 * 60 * 60 * 1000;
+/** The only account that may be bootstrapped as administrator (override with PMP_ADMIN_EMAIL). */
+export const DEFAULT_ADMIN_EMAIL = 'rahul.a.mehra@gmail.com';
 export const MAX_FAILED_LOGINS = 8;
 export const LOCKOUT_MS = 15 * 60 * 1000;
 
@@ -52,15 +56,25 @@ export function passwordProblem(pw: unknown): string | null {
   return null;
 }
 
+/** Stricter rules for the administrator's own password. */
+export function adminPasswordProblem(pw: unknown, bootstrapPassword?: string): string | null {
+  const base = passwordProblem(pw);
+  if (base) return base;
+  const p = pw as string;
+  if (p.length < 14) return 'Use at least 14 characters for the administrator password.';
+  if (bootstrapPassword && p === bootstrapPassword) return 'Choose a new password, not the temporary one.';
+  return null;
+}
+
 export function cleanName(v: unknown): string {
   if (typeof v !== 'string') return '';
   return v.replace(/[\u0000-\u001f\u007f<>]/g, '').replace(/\s+/g, ' ').trim().slice(0, 80);
 }
 
 /* ---------------- sessions ---------------- */
-export async function createSession(db: D1Like, userId: string, nowMs: number): Promise<{ token: string; expiresMs: number }> {
+export async function createSession(db: D1Like, userId: string, nowMs: number, ttlMs = SESSION_TTL_MS): Promise<{ token: string; expiresMs: number }> {
   const token = randomToken(32);
-  const expiresMs = nowMs + SESSION_TTL_MS;
+  const expiresMs = nowMs + ttlMs;
   await deleteExpiredSessions(db, userId, nowMs);
   await insertSession(db, await sha256b64url(token), userId, nowMs, expiresMs);
   return { token, expiresMs };

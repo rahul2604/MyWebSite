@@ -34,6 +34,17 @@ export function CertificateView({ me, refresh }: { me: Me; refresh: () => Promis
     }
   };
 
+  if (me.user.role === 'admin') {
+    return (
+      <div className="pmp-card pmp-notice">
+        <p>Administrator accounts cannot be issued certificates. Inspect the template and verification rules in the admin panel.</p>
+        <a className="btn btn-ghost btn-small" href="#admin/certificate">
+          Certificate template
+        </a>
+      </div>
+    );
+  }
+
   if (!me.state.certificateEligible && !cert) {
     return (
       <div className="pmp-card pmp-notice">

@@ -1,3 +1,4 @@
+import { AdminApp } from './admin/AdminApp';
 import { About } from './components/About';
 import { Blog } from './components/Blog';
 import { Contact } from './components/Contact';
@@ -34,6 +35,7 @@ export default function App() {
       )}
 
       <PmpApp hidden={!onPmp} />
+      <AdminApp hidden={view !== 'admin'} />
       <CoachingPage hidden={view !== 'coaching'} />
 
       {onHome && (

@@ -1,6 +1,8 @@
 # Rahul Mehra — Portfolio
 
-React + TypeScript + Vite site for Revenue Strategy, Aviation and Project Management, with a PMP® Learning Path prototype.
+React + TypeScript + Vite site for Revenue Strategy, Aviation and Project Management, with a PMP® learning platform
+(`#pmp`), its administrator panel (`#admin`) and a free-call booking page (`#coaching`), served by Cloudflare Pages
+with Pages Functions and D1.
 
 ## Develop
 
@@ -25,7 +27,8 @@ npm run dev
 **Direct upload:** `npm run build`, then `npx wrangler pages deploy` (reads `wrangler.toml`).
 
 `public/_headers` sets long-lived caching on hashed assets and basic security headers. The site needs no server routing:
-the PMP® Learning Path lives at `/#pmp`, so no `_redirects` file is needed.
+views live at `/#pmp`, `/#admin` and `/#coaching`. Pages serves `index.html` for unknown paths, so `/admin` also works
+(the app rewrites it to `/#admin`); no `_redirects` file is needed.
 
 ## "Chat with Rahul" email delivery
 
@@ -129,13 +132,146 @@ to anyone else are rejected (the booking is kept and the page offers "Send email
 **Local:** copy `.dev.vars.example` to `.dev.vars`, then `npm run preview:pages` (site + functions + local D1 in
 `.wrangler/`). **Tests:** `npm test` — Google and Resend are faked; any other network call fails the test.
 
+## PMP learning platform (`#pmp`) and administrator panel (`#admin`)
+
+### What it is
+
+- **Learners** sign up with email and password, then work through 18 modules (69 lessons), a knowledge check per
+  module, two mock tests and a final assessment, and receive a verifiable course certificate (not a PMI credential).
+- **The administrator** (`rahul.a.mehra@gmail.com`) signs in at `/admin` (or `/#admin`) and can open every module,
+  lesson and assessment, see answers and explanations, preview the learner experience, edit lessons and questions as
+  drafts and publish them, view source coverage and learner progress, and read an audit log.
+
+### Prerequisites and local development
+
+- Node with built-in TypeScript support for the scripts and tests (22.18+ or 23.6+), npm, and Wrangler (a dev
+  dependency).
+
+```bash
+npm install
+cp .dev.vars.example .dev.vars        # fill in local values; never commit .dev.vars
+npm run preview:pages                 # builds, then serves site + Functions + local D1 on http://localhost:8788
+```
+
+- Main site: `http://localhost:8788/` · learner area: `http://localhost:8788/#pmp` · admin: `http://localhost:8788/admin`
+- `npm run dev` (Vite on :5173) proxies `/api` to `:8788`, so run `npm run preview:pages` alongside it when you need
+  the API with hot reload.
+- The local D1 database lives in `.wrangler/` (git-ignored). Delete `.wrangler/state` to start from an empty database.
+
+### Authentication and roles
+
+- Passwords are hashed with **PBKDF2-SHA-256, 100,000 iterations, 16-byte random salt per user** (Web Crypto).
+  Argon2id or bcrypt would need a WASM or pure-JS library in Workers, and pure-JS bcrypt is slow enough to risk
+  Workers CPU limits; 100,000 is the highest PBKDF2 iteration count Cloudflare Workers accepts. This is below OWASP's
+  current PBKDF2 recommendation (600,000), so use a long administrator password (the admin policy requires 14+
+  characters).
+- Sessions: a random 32-byte token in an `HttpOnly`, `SameSite=Lax` cookie scoped to `/api/pmp`, `Secure` everywhere
+  except plain-http localhost. Only the token's SHA-256 hash is stored. Learner sessions last 30 days, administrator
+  sessions 12 hours. Changing a password signs out every other session.
+- CSRF: every state-changing request must be same-origin (checked against `Origin`), have a JSON body, and carry the
+  `SameSite=Lax` cookie.
+- Brute force: per-IP rate limits on sign-in and sign-up, a 15-minute account lockout after 8 failed attempts, and one
+  generic error message for unknown email and wrong password.
+- **Roles live only in D1** (`pmp_users.role`, `learner` by default). The server reads the role from the database on
+  every request; nothing in the browser (local storage, URL, request body) can grant it. `/api/pmp/admin/*` returns 401
+  when signed out and 403 for learners.
+- **Admins bypass progression, not security.** For an admin, every lesson and assessment is readable regardless of
+  progress, but the learner write endpoints (complete a lesson, start or submit an attempt, issue a certificate) refuse
+  admin accounts. Assessment previews use `/api/pmp/admin/preview/*`, which scores without storing anything. Viewing
+  never marks anything complete.
+- Learners are unchanged: lessons, checks, mocks, the final and certificates unlock only by the server rules in
+  `server/pmp/engine.ts`, including for direct URL and API requests (covered by `tests/pmp.test.ts` and
+  `tests/pmp-admin.test.ts`).
+
+### Creating the administrator account (bootstrap)
+
+The admin account is created the first time someone signs in with the admin email **and** the one-time secret
+`PMP_ADMIN_BOOTSTRAP_PASSWORD`. The secret is read only on the server, is never in source code or the browser, and
+stops working as soon as an administrator account exists for that email.
+
+1. Set `PMP_ADMIN_BOOTSTRAP_PASSWORD`: locally in `.dev.vars`; in production as an encrypted **secret** with a strong
+   random value (not the local temporary password, and not a password you use anywhere else).
+2. Open `/admin` and sign in with the admin email and that secret.
+3. Set your own password (14+ characters, letters and numbers, not the temporary one). Nothing else works until you
+   do, and other sessions are signed out.
+4. Remove `PMP_ADMIN_BOOTSTRAP_PASSWORD` from the environment.
+
+The admin email is reserved: it cannot be used to register a learner account. If a learner account already exists
+with that email, the bootstrap promotes it to admin and replaces its password. Bootstrap, admin sign-ins, password
+changes and content edits are recorded in `pmp_audit` (never with passwords or tokens).
+
+### Environment variables
+
+| Name | Type | Default | Purpose |
+| --- | --- | --- | --- |
+| `PMP_DB` | D1 binding | falls back to `BOOKINGS_DB` | Database for the PMP platform. If unbound, the platform uses the bookings database; its tables all start with `pmp_`, so they never touch booking data. If neither is bound, `/api/pmp/*` returns 503. |
+| `PMP_SIGNUP_OPEN` | Text | open | `false` closes new learner registrations (existing learners and the admin can still sign in). Any other value, or unset, leaves sign-up open. |
+| `PMP_ADMIN_EMAIL` | Text | `rahul.a.mehra@gmail.com` | The only email that can be bootstrapped as administrator; reserved from learner sign-up. |
+| `PMP_ADMIN_BOOTSTRAP_PASSWORD` | Secret | unset | One-time bootstrap secret (10+ characters). Remove it after the first sign-in. |
+
+Pointing `PMP_DB` at a different, empty database later hides the learners, progress, certificates and admin edits in
+the old one; copy the `pmp_*` tables across first.
+
+### Database and migrations
+
+The schema is created and migrated **automatically and additively** on first use (`ensurePmpSchema` in
+`server/pmp/store.ts`): `CREATE TABLE IF NOT EXISTS` for `pmp_users`, `pmp_sessions`, `pmp_lesson_progress`,
+`pmp_attempts`, `pmp_certificates`, `pmp_content_overrides` and `pmp_audit`, and `ALTER TABLE … ADD COLUMN` for
+columns added later (`role`, `must_change_password`, `password_changed_ms`). Nothing is dropped or rewritten, and
+existing learner accounts and sessions keep working. There is no separate migration command.
+
+### Production D1 binding
+
+`wrangler.toml` does not declare D1, so bindings are managed in the Cloudflare dashboard, the same way as
+`BOOKINGS_DB`. The `--d1 BOOKINGS_DB` flag in `npm run preview:pages` is local only; production never depends on it.
+
+- **Recommended (no new database):** leave `PMP_DB` unbound, and the platform uses the existing production
+  `BOOKINGS_DB`.
+- **Separate database (optional):** Cloudflare → Storage & Databases → D1 → *Create* (e.g. `rahul-pmp`) → Pages
+  project → Settings → Bindings → *Add* → D1 database → variable name `PMP_DB` → Save (for Production, and Preview if
+  wanted) → redeploy. If the dashboard says bindings are managed by `wrangler.toml`, add a `[[d1_databases]]` entry with
+  `binding = "PMP_DB"`, `database_name` and `database_id` there instead.
+- Check after deploying: D1 → the database → Console → `SELECT name FROM sqlite_master WHERE name LIKE 'pmp_%';`
+  (the tables appear after the first request to `/api/pmp/*`).
+
+### Curriculum artifacts
+
+| Path | What it is |
+| --- | --- |
+| `server/pmp/content/m00.ts` … `m17.ts`, `mock1.ts`, `mock2.ts`, `final.ts` | Authored lessons and questions (server only; answers never reach the browser bundle) |
+| `server/pmp/sourceMap.ts`, `server/pmp/sourceStats.ts` | Generated topic → page references and source-processing summary |
+| `docs/pmp-curriculum/page-processing-manifest.json` | One record per PDF page (976) |
+| `docs/pmp-curriculum/source-index.json`, `topic-catalogue.json`, `process-map.json`, `ittos.json` | Source index, topics, the 49-process map, ITTOs |
+| `docs/pmp-curriculum/topic-coverage-matrix.json`, `content-stats.json` | Generated coverage and statistics |
+| `docs/pmp-curriculum/*.md` | Curriculum outline, source review, assessment coverage, completion and six-phase handover reports |
+
+Admin edits are stored in D1 (`pmp_content_overrides`) as drafts and published versions layered on the authored files;
+"Restore original" removes a published edit. Edits cannot add or remove lessons or questions, and page references come
+only from catalogue topics. The reports describe the authored content, not D1 edits.
+
+### Tests and validation
+
+```bash
+npm run typecheck     # app + server TypeScript
+npm test              # all tests (D1 is real in-memory SQLite; Google and Resend are faked)
+npm run build         # production build
+npm run pmp:check     # content validation, source stats and the five reports
+```
+
+### Deploying (only after approval)
+
+1. Merge the reviewed pull request into `main` (a Git-connected Pages project then builds and deploys), or run
+   `npm run build && npx wrangler pages deploy` for a direct upload.
+2. Set `PMP_ADMIN_BOOTSTRAP_PASSWORD` (secret) and, if wanted, bind `PMP_DB`; bootstrap the admin account, then remove
+   the secret.
+3. Verify `/#pmp` sign-up and a lesson, `/admin` sign-in, and a `/#pmp/verify/…` link on the production URL.
+
 ## Editing content
 
 All lists live in [`src/data.ts`](src/data.ts):
 
 - `LINKEDIN_POSTS`, `BOOK_POSTS` — blog carousels (newest first)
 - `REELS` — Instagram reels; `code` is the part after `/reel/` in the link, `cover` is an image in `src/assets/`
-- `PMP_MODULES` — learning-path module titles
 - `WHATSAPP_NUMBER` — the WhatsApp contact tile appears when this has 10+ digits
 
 Theme colours for dark and light mode are the tokens at the top of [`src/styles.css`](src/styles.css).
@@ -144,14 +280,19 @@ Theme colours for dark and light mode are the tokens at the top of [`src/styles.
 
 ```
 src/
-  App.tsx              page layout, home ⇄ PMP view switch
+  App.tsx              page layout, home ⇄ PMP ⇄ admin ⇄ coaching view switch
   hooks/useTheme.ts    dark/light theme, remembered in localStorage
-  hooks/useHashView.ts #pmp view + section scrolling
-  components/          Header, Hero, About, Services, PmpPath, Blog, Contact, Footer, Icons
-  lib/certificate.ts   sample certificate SVG generator
-  coaching/            Strategy & Coaching booking prototype (#coaching)
+  hooks/useHashView.ts #pmp / #admin / #coaching views + section scrolling
+  components/          Header, Hero, About, Services, Blog, Contact, Footer, Icons
+  pmp/                 PMP learner interface (#pmp)
+  admin/               administrator panel (#admin)
+  coaching/            Strategy & Coaching booking (#coaching)
   contact/             "Chat with Rahul" widget and contact API client
   assets/              portraits, hero skies, reel covers
 functions/
   api/contact.ts       Cloudflare Pages Function that emails enquiries via Resend
+  api/pmp/[[path]].ts  PMP platform API (/api/pmp/*), implemented in server/pmp/
+server/pmp/            auth, D1 store, unlock engine, scoring, admin API, course content, certificate PDF
+docs/pmp-curriculum/   source-processing artifacts and the curriculum reports
+scripts/               content validation, source stats and report generators
 ```

@@ -59,6 +59,34 @@ const SCHEMA = [
     total INTEGER NOT NULL,
     course_version TEXT NOT NULL
   )`,
+  // ---- v2: admin content overrides and audit log ----
+  `CREATE TABLE IF NOT EXISTS pmp_content_overrides (
+    kind TEXT NOT NULL,
+    item_id TEXT NOT NULL,
+    draft TEXT,
+    draft_updated_ms INTEGER,
+    draft_by TEXT,
+    published TEXT,
+    published_ms INTEGER,
+    published_by TEXT,
+    PRIMARY KEY (kind, item_id)
+  )`,
+  `CREATE TABLE IF NOT EXISTS pmp_audit (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    at_ms INTEGER NOT NULL,
+    actor_id TEXT,
+    actor_email TEXT,
+    action TEXT NOT NULL,
+    target TEXT,
+    detail TEXT
+  )`,
+];
+
+/** v2 columns on pmp_users, added with ALTER TABLE when missing (additive only). */
+const USER_V2_COLUMNS: [string, string][] = [
+  ['role', `TEXT NOT NULL DEFAULT 'learner'`],
+  ['must_change_password', 'INTEGER NOT NULL DEFAULT 0'],
+  ['password_changed_ms', 'INTEGER'],
 ];
 
 const ready = new WeakSet<object>();
@@ -66,6 +94,16 @@ const ready = new WeakSet<object>();
 export async function ensurePmpSchema(db: D1Like): Promise<void> {
   if (ready.has(db)) return;
   for (const sql of SCHEMA) await db.prepare(sql).run();
+  const { results } = await db.prepare(`PRAGMA table_info(pmp_users)`).all<{ name: string }>();
+  const have = new Set(results.map((r) => r.name));
+  for (const [name, ddl] of USER_V2_COLUMNS) {
+    if (have.has(name)) continue;
+    try {
+      await db.prepare(`ALTER TABLE pmp_users ADD COLUMN ${name} ${ddl}`).run();
+    } catch (err) {
+      if (!/duplicate column/i.test(err instanceof Error ? err.message : '')) throw err;
+    }
+  }
   ready.add(db);
 }
 
@@ -82,6 +120,10 @@ export interface UserRow {
   failed_logins: number;
   locked_until_ms: number;
   created_ms: number;
+  /** 'admin' only when set on the server (bootstrap); never from client input. */
+  role: 'learner' | 'admin';
+  must_change_password: number;
+  password_changed_ms: number | null;
 }
 
 export type AttemptStatus = 'open' | 'submitted' | 'expired';
@@ -119,8 +161,8 @@ export const findUserByEmail = (db: D1Like, email: string) =>
 
 export const findUserById = (db: D1Like, id: string) => db.prepare(`SELECT * FROM pmp_users WHERE id = ?1`).bind(id).first<UserRow>();
 
-/** Returns false if the email is already registered. */
-export async function insertUser(db: D1Like, u: Omit<UserRow, 'failed_logins' | 'locked_until_ms'>): Promise<boolean> {
+/** Returns false if the email is already registered. Always creates a learner. */
+export async function insertUser(db: D1Like, u: Pick<UserRow, 'id' | 'email' | 'name' | 'pw_hash' | 'pw_salt' | 'pw_iter' | 'created_ms'>): Promise<boolean> {
   const res = await db
     .prepare(
       `INSERT INTO pmp_users (id, email, name, pw_hash, pw_salt, pw_iter, created_ms)
@@ -143,6 +185,131 @@ export const recordLoginFailure = (db: D1Like, id: string, lockUntilMs: number, 
 
 export const resetLoginFailures = (db: D1Like, id: string) =>
   db.prepare(`UPDATE pmp_users SET failed_logins = 0, locked_until_ms = 0 WHERE id = ?1`).bind(id).run();
+
+/** Creates the administrator account (bootstrap), or promotes an existing account with that email. */
+export async function upsertAdmin(
+  db: D1Like,
+  a: Pick<UserRow, 'id' | 'email' | 'name' | 'pw_hash' | 'pw_salt' | 'pw_iter' | 'created_ms'>,
+): Promise<void> {
+  await db
+    .prepare(
+      `INSERT INTO pmp_users (id, email, name, pw_hash, pw_salt, pw_iter, created_ms, role, must_change_password)
+       VALUES (?1, ?2, ?3, ?4, ?5, ?6, ?7, 'admin', 1)
+       ON CONFLICT (email) DO UPDATE SET role = 'admin', must_change_password = 1, pw_hash = ?4, pw_salt = ?5, pw_iter = ?6,
+         failed_logins = 0, locked_until_ms = 0`,
+    )
+    .bind(a.id, a.email, a.name, a.pw_hash, a.pw_salt, a.pw_iter, a.created_ms)
+    .run();
+}
+
+export const updatePassword = (db: D1Like, id: string, rec: { pw_hash: string; pw_salt: string; pw_iter: number }, nowMs: number) =>
+  db
+    .prepare(`UPDATE pmp_users SET pw_hash = ?2, pw_salt = ?3, pw_iter = ?4, must_change_password = 0, password_changed_ms = ?5 WHERE id = ?1`)
+    .bind(id, rec.pw_hash, rec.pw_salt, rec.pw_iter, nowMs)
+    .run();
+
+export const deleteSessionsForUser = (db: D1Like, userId: string) => db.prepare(`DELETE FROM pmp_sessions WHERE user_id = ?1`).bind(userId).run();
+
+/* ---------------- admin: learners ---------------- */
+export interface LearnerSummaryRow {
+  id: string;
+  name: string;
+  email: string;
+  created_ms: number;
+  lessons_done: number;
+  last_lesson_ms: number | null;
+  attempts: number;
+  last_attempt_ms: number | null;
+  certificate_code: string | null;
+}
+
+export async function learnerSummaries(db: D1Like, limit = 500): Promise<LearnerSummaryRow[]> {
+  const { results } = await db
+    .prepare(
+      `SELECT u.id, u.name, u.email, u.created_ms,
+         (SELECT COUNT(*) FROM pmp_lesson_progress p WHERE p.user_id = u.id) AS lessons_done,
+         (SELECT MAX(completed_ms) FROM pmp_lesson_progress p WHERE p.user_id = u.id) AS last_lesson_ms,
+         (SELECT COUNT(*) FROM pmp_attempts a WHERE a.user_id = u.id AND a.status = 'submitted') AS attempts,
+         (SELECT MAX(submitted_ms) FROM pmp_attempts a WHERE a.user_id = u.id) AS last_attempt_ms,
+         (SELECT code FROM pmp_certificates c WHERE c.user_id = u.id) AS certificate_code
+       FROM pmp_users u WHERE u.role = 'learner' ORDER BY u.created_ms DESC LIMIT ?1`,
+    )
+    .bind(limit)
+    .all<LearnerSummaryRow>();
+  return results;
+}
+
+export async function passedAssessmentsByUser(db: D1Like): Promise<Map<string, Set<string>>> {
+  const { results } = await db
+    .prepare(`SELECT DISTINCT user_id, assessment_id FROM pmp_attempts WHERE status = 'submitted' AND passed = 1`)
+    .all<{ user_id: string; assessment_id: string }>();
+  const map = new Map<string, Set<string>>();
+  for (const r of results) map.set(r.user_id, (map.get(r.user_id) ?? new Set()).add(r.assessment_id));
+  return map;
+}
+
+/* ---------------- admin: content overrides ---------------- */
+export type OverrideKind = 'lesson' | 'question';
+
+export interface OverrideRow {
+  kind: OverrideKind;
+  item_id: string;
+  draft: string | null;
+  draft_updated_ms: number | null;
+  draft_by: string | null;
+  published: string | null;
+  published_ms: number | null;
+  published_by: string | null;
+}
+
+export async function allOverrides(db: D1Like): Promise<OverrideRow[]> {
+  const { results } = await db.prepare(`SELECT * FROM pmp_content_overrides`).all<OverrideRow>();
+  return results;
+}
+
+export const findOverride = (db: D1Like, kind: OverrideKind, id: string) =>
+  db.prepare(`SELECT * FROM pmp_content_overrides WHERE kind = ?1 AND item_id = ?2`).bind(kind, id).first<OverrideRow>();
+
+export const saveDraft = (db: D1Like, kind: OverrideKind, id: string, draft: string, nowMs: number, by: string) =>
+  db
+    .prepare(
+      `INSERT INTO pmp_content_overrides (kind, item_id, draft, draft_updated_ms, draft_by) VALUES (?1, ?2, ?3, ?4, ?5)
+       ON CONFLICT (kind, item_id) DO UPDATE SET draft = ?3, draft_updated_ms = ?4, draft_by = ?5`,
+    )
+    .bind(kind, id, draft, nowMs, by)
+    .run();
+
+/** Moves the draft to published (only if a draft exists). */
+export const publishDraft = (db: D1Like, kind: OverrideKind, id: string, nowMs: number, by: string) =>
+  db
+    .prepare(
+      `UPDATE pmp_content_overrides SET published = draft, published_ms = ?3, published_by = ?4, draft = NULL, draft_updated_ms = NULL, draft_by = NULL
+       WHERE kind = ?1 AND item_id = ?2 AND draft IS NOT NULL`,
+    )
+    .bind(kind, id, nowMs, by)
+    .run();
+
+export const discardDraft = (db: D1Like, kind: OverrideKind, id: string) =>
+  db.prepare(`UPDATE pmp_content_overrides SET draft = NULL, draft_updated_ms = NULL, draft_by = NULL WHERE kind = ?1 AND item_id = ?2`).bind(kind, id).run();
+
+/** Removes the published edit so learners see the original authored content again. */
+export const revertPublished = (db: D1Like, kind: OverrideKind, id: string) =>
+  db.prepare(`UPDATE pmp_content_overrides SET published = NULL, published_ms = NULL, published_by = NULL WHERE kind = ?1 AND item_id = ?2`).bind(kind, id).run();
+
+/* ---------------- audit ---------------- */
+export const audit = (db: D1Like, nowMs: number, actor: { id: string; email: string } | null, action: string, target: string | null, detail: string | null = null) =>
+  db
+    .prepare(`INSERT INTO pmp_audit (at_ms, actor_id, actor_email, action, target, detail) VALUES (?1, ?2, ?3, ?4, ?5, ?6)`)
+    .bind(nowMs, actor?.id ?? null, actor?.email ?? null, action, target, detail ? detail.slice(0, 500) : null)
+    .run();
+
+export async function recentAudit(db: D1Like, limit = 200) {
+  const { results } = await db
+    .prepare(`SELECT id, at_ms, actor_email, action, target, detail FROM pmp_audit ORDER BY id DESC LIMIT ?1`)
+    .bind(limit)
+    .all<{ id: number; at_ms: number; actor_email: string | null; action: string; target: string | null; detail: string | null }>();
+  return results;
+}
 
 /* ---------------- sessions ---------------- */
 export const insertSession = (db: D1Like, tokenHash: string, userId: string, nowMs: number, expiresMs: number) =>

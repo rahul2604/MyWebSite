@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import { ApiError, api, type Attempt, type CourseState, type Result } from './api';
+import { ApiError, adminApi, api, type Attempt, type CourseState, type Result } from './api';
 import { ResultView } from './ResultView';
 import { href } from './route';
 
@@ -36,23 +36,31 @@ function formatClock(ms: number) {
   return `${h ? `${h}:` : ''}${String(m).padStart(h ? 2 : 1, '0')}:${String(sec).padStart(2, '0')}`;
 }
 
-export function AssessmentView({ id, state, refresh }: { id: string; state: CourseState; refresh: () => Promise<void> }) {
+export function AssessmentView({ id, state, refresh, preview = false }: { id: string; state: CourseState; refresh: () => Promise<void>; preview?: boolean }) {
   const info = state.modules.find((m) => m.id === id)?.quiz ?? state.exams.find((e) => e.id === id) ?? null;
   const moduleIndex = state.modules.findIndex((m) => m.id === id);
   const [phase, setPhase] = useState<Phase>({ kind: 'intro' });
   const [error, setError] = useState('');
+  // Administrator previews use the no-storage preview endpoints; the layout stays in memory.
+  const previewLayout = useRef<{ q: string; o: number[] }[] | null>(null);
 
   const start = useCallback(async () => {
     setError('');
     setPhase({ kind: 'starting' });
     try {
+      if (preview) {
+        const r = await adminApi.previewStart(id);
+        previewLayout.current = r.layout;
+        setPhase({ kind: 'taking', attempt: r.attempt });
+        return;
+      }
       const { attempt } = await api.start(id);
       setPhase({ kind: 'taking', attempt });
     } catch (err) {
       setError(err instanceof ApiError ? err.message : 'Could not start. Please try again.');
       setPhase({ kind: 'intro' });
     }
-  }, [id]);
+  }, [id, preview]);
 
   if (!info) {
     return (
@@ -73,6 +81,12 @@ export function AssessmentView({ id, state, refresh }: { id: string; state: Cour
         onSubmit={async (answers) => {
           setPhase({ kind: 'submitting', attempt: phase.attempt });
           try {
+            if (preview && previewLayout.current) {
+              const p = await adminApi.previewScore(id, previewLayout.current, answers);
+              clearAnswers(phase.attempt.id);
+              setPhase({ kind: 'done', result: p.result });
+              return;
+            }
             const r = await api.submit(id, phase.attempt.id, answers);
             clearAnswers(phase.attempt.id);
             await refresh();
@@ -156,6 +170,7 @@ export function AssessmentView({ id, state, refresh }: { id: string; state: Cour
           <li>{info.minutes ? <>Time limit <strong>{info.minutes} minutes</strong> (the clock keeps running if you leave)</> : <>No time limit</>}</li>
           <li>{info.attempts ? `${info.attempts} previous attempt${info.attempts > 1 ? 's' : ''}${info.best !== null ? `, best ${info.best}%` : ''}` : 'Not attempted yet'}</li>
         </ul>
+        {preview && <p className="pmp-muted">Administrator preview: questions are scored, but no attempt is recorded and no learner data changes.</p>}
         {info.kind === 'quiz' && <p className="pmp-muted">You can retake a knowledge check as often as you like. Each attempt shuffles the answer options.</p>}
         {id === 'mock-1' && <p className="pmp-muted">Submitting Mock Test 1 (whatever the score) opens Mock Test 2. Use your results to find topics to revise.</p>}
         {id === 'mock-2' && <p className="pmp-muted">Submitting Mock Test 2 opens the final assessment.</p>}

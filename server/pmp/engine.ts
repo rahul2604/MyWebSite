@@ -12,7 +12,7 @@
  * is stored with the attempt, and the learner's displayed choices are mapped back to the
  * original options before marking. Answer keys never leave the server before submission.
  */
-import { EXAMS, MODULES } from './course.ts';
+import { BASE_COURSE, type Course } from './content.ts';
 import { SOURCE_MAP } from './sourceMap.ts';
 import { PASS_MARK, type Exam, type Lesson, type Module, type Question } from './types.ts';
 import type { AttemptRow } from './store.ts';
@@ -67,7 +67,8 @@ function attemptSummary(assessmentId: string, attempts: AttemptRow[]) {
   return { submitted, best, passed: submitted.some((a) => a.passed === 1), open, lastSubmitted, count: submitted.length };
 }
 
-export function courseState(done: Set<string>, attempts: AttemptRow[], nowMs: number): CourseState {
+export function courseState(done: Set<string>, attempts: AttemptRow[], nowMs: number, course: Course = BASE_COURSE): CourseState {
+  const { modules: MODULES, exams: EXAMS } = course;
   let previousPassed = true; // Module 0 is always open
   const modules: CourseState['modules'] = [];
   let next: CourseState['next'] = null;
@@ -168,20 +169,43 @@ export function courseState(done: Set<string>, attempts: AttemptRow[], nowMs: nu
 }
 
 /* ---------------- lookups ---------------- */
-export function findLesson(id: string): { module: Module; lesson: Lesson; index: number } | null {
-  for (const module of MODULES) {
+export function findLesson(id: string, course: Course = BASE_COURSE): { module: Module; lesson: Lesson; index: number } | null {
+  for (const module of course.modules) {
     const index = module.lessons.findIndex((l) => l.id === id);
     if (index >= 0) return { module, lesson: module.lessons[index], index };
   }
   return null;
 }
 
-export function findAssessment(id: string): { kind: 'quiz'; module: Module; questions: Question[] } | { kind: 'exam'; exam: Exam; questions: Question[] } | null {
-  const module = MODULES.find((m) => m.id === id);
+export function findAssessment(
+  id: string,
+  course: Course = BASE_COURSE,
+): { kind: 'quiz'; module: Module; questions: Question[] } | { kind: 'exam'; exam: Exam; questions: Question[] } | null {
+  const module = course.modules.find((m) => m.id === id);
   if (module) return { kind: 'quiz', module, questions: module.quiz };
-  const exam = EXAMS.find((e) => e.id === id);
+  const exam = course.exams.find((e) => e.id === id);
   if (exam) return { kind: 'exam', exam, questions: exam.questions };
   return null;
+}
+
+/**
+ * The administrator's view of the course: every module, lesson and assessment is open for
+ * inspection. Completion flags are untouched, so nothing is marked done by viewing it. This
+ * only changes what is *shown*; server write paths refuse admin accounts (see router.ts).
+ */
+export function unlockedForAdmin(state: CourseState): CourseState {
+  const open = (s: Status): Status => (s === 'locked' ? 'available' : s);
+  return {
+    ...state,
+    modules: state.modules.map((m) => ({
+      ...m,
+      status: open(m.status),
+      lessons: m.lessons.map((l) => ({ ...l, status: open(l.status) })),
+      quiz: { ...m.quiz, status: open(m.quiz.status), lockReason: null, availableFromMs: null },
+    })),
+    exams: state.exams.map((e) => ({ ...e, status: open(e.status), lockReason: null, availableFromMs: null })),
+    certificateEligible: false,
+  };
 }
 
 export function lessonStatus(state: CourseState, lessonId: string): Status {

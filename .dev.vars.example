@@ -44,3 +44,17 @@ GOOGLE_TOKEN_ENCRYPTION_KEY=
 
 # Optional. "true" = Google also emails its own calendar invite to the booker. Default off (our Resend email has the link).
 # GOOGLE_INVITE_EMAILS=false
+
+# ---------------- PMP learning platform (#pmp, #admin) ----------------
+# PMP_DB is a D1 binding (not set here). Locally the platform falls back to BOOKINGS_DB from `npm run preview:pages`.
+
+# "false" closes new learner sign-ups. Default: open.
+# PMP_SIGNUP_OPEN=true
+
+# Optional. The administrator email (default rahul.a.mehra@gmail.com). Reserved from learner sign-up.
+# PMP_ADMIN_EMAIL=rahul.a.mehra@gmail.com
+
+# One-time bootstrap secret for the administrator account (10+ characters). Sign in at /admin with the admin email and
+# this value, set your own password when asked, then remove this line. In production store it as an encrypted SECRET
+# with a strong random value. Leave it empty here; put a real value only in your own .dev.vars.
+PMP_ADMIN_BOOTSTRAP_PASSWORD=

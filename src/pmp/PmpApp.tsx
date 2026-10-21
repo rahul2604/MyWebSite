@@ -77,7 +77,21 @@ export function PmpApp({ hidden }: { hidden: boolean }) {
           </div>
         )}
         {session.kind === 'signedOut' && <AuthPage onSignedIn={() => void refresh()} />}
-        {session.kind === 'signedIn' && (
+        {session.kind === 'signedIn' && session.me.user.mustChangePassword && (
+          <div className="pmp-card pmp-notice" role="alert">
+            <p>Set your own administrator password before previewing the course.</p>
+            <a className="btn btn-blue btn-small" href="#admin">
+              Go to the admin panel
+            </a>
+          </div>
+        )}
+        {session.kind === 'signedIn' && !session.me.user.mustChangePassword && session.me.user.role === 'admin' && (
+          <p className="pmp-preview-banner" role="note">
+            <span>Preview as learner: every module and assessment is open, and nothing you do here is recorded.</span>
+            <a href="#admin">Back to the admin panel</a>
+          </p>
+        )}
+        {session.kind === 'signedIn' && !session.me.user.mustChangePassword && (
           <div className="pmp-shell">
             <div className="pmp-topbar">
               <button className="btn btn-ghost btn-small pmp-menu-btn" type="button" aria-expanded={drawerOpen} aria-controls="pmp-sidebar" onClick={() => setDrawerOpen(true)}>
@@ -111,12 +125,13 @@ export function PmpApp({ hidden }: { hidden: boolean }) {
 }
 
 function Page({ route, me, refresh }: { route: PmpRoute; me: Me; refresh: () => Promise<void> }) {
+  const preview = me.user.role === 'admin';
   switch (route.page) {
     case 'lesson':
-      return <LessonView key={route.id} id={route.id} state={me.state} refresh={refresh} />;
+      return <LessonView key={route.id} id={route.id} state={me.state} refresh={refresh} preview={preview} />;
     case 'check':
     case 'exam':
-      return <AssessmentView key={route.id} id={route.id} state={me.state} refresh={refresh} />;
+      return <AssessmentView key={route.id} id={route.id} state={me.state} refresh={refresh} preview={preview} />;
     case 'review':
       return <ReviewView key={route.id} id={route.id} state={me.state} />;
     case 'certificate':
