@@ -17,17 +17,6 @@ export const GMAIL_COMPOSE_URL = `https://mail.google.com/mail/?view=cm&fs=1&to=
 /* WhatsApp — number with country code. The icon only shows when this holds 10+ digits. */
 export const WHATSAPP_NUMBER = '+919537784427';
 
-export const PMP_MODULES = [
-  'Introduction to PMP® and the Certification Journey',
-  'Project Management Fundamentals',
-  'Predictive Project Management',
-  'Agile and Hybrid Project Management',
-  'Project Planning and Execution',
-  'Project Monitoring, Risk and Quality',
-  'Leadership and Stakeholder Management',
-  'Exam Preparation and Mock Tests',
-];
-
 /* Instagram reels — newest first. `code` is the part after /reel/ in the reel's link. */
 export const REELS = [
   { code: 'DcOkQvsBUvN', cover: reel1 },

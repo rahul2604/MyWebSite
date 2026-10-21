@@ -1,0 +1,55 @@
+{
+  "batch": "B25",
+  "range": [591, 616],
+  "readBy": "sequential read of extracted text; Standard input/output lists for 2.1-2.2 and 3.1-3.13 compared item by item against ittos.json (Part 1 figures) - all match; Table 1-1 identical in content to verified Part 1 Table 1-4, 2026-10-20",
+  "topics": {
+    "std-process-groups": {
+      "title": "Standard: the five Process Groups, process frequency categories, Process Group interactions and phases",
+      "section": "Part 2, 1.9 (Figure 1-5, Table 1-1)", "kind": "concept", "module": "M15",
+      "notes": "Process Group definitions repeat Part 1 (Initiating - define a new project or phase by obtaining authorisation; Planning - establish scope, refine objectives, define the course of action; Executing - complete the planned work to satisfy requirements; Monitoring and Controlling - track, review and regulate progress and performance, identify needed plan changes and initiate them; Closing - formally complete or close a project, phase or contract). Process Groups are independent of application areas (marketing, information services, accounting) and industry focus (construction, aerospace, telecommunications). Individual processes are often iterated before a phase or project completes. Frequency categories: once or at predefined points (charter, close); periodically as needed (acquire resources, conduct procurements); continuously (define activities with rolling wave or adaptive approaches; most M&C processes). Outputs of one process generally become inputs to another or deliverables (e.g., the plan and documents such as the risk register and responsibility assignment matrix from Planning are used and updated in Executing). Figure 1-5 shows Process Groups overlapping over time within a project or phase with varying level of effort (Initiating first, Planning and Executing peaks, Monitoring and Controlling spanning the whole duration, Closing last). Process Groups are not phases: within a phased project, processes of all Process Groups may be repeated in each phase (concept development, feasibility, design, prototype, build, test) until the phase completion criteria are satisfied. Table 1-1 maps the 49 processes to Process Groups and Knowledge Areas - identical to Part 1 Table 1-4 (see process-map.json)."
+    },
+    "std-eef-opa-tailoring": {
+      "title": "Standard: EEFs and OPAs; tailoring the project artifacts; plan components vs project documents vs business documents",
+      "section": "Part 2, 1.10-1.11 (Table 1-2)", "kind": "concept", "module": "M14",
+      "notes": "EEFs originate outside the project and often the enterprise; conditions not under the team's control that influence, constrain or direct the project; impact at enterprise, portfolio, program or project level; e.g., internal culture, structure and governance (vision, mission, values, beliefs, norms, hierarchy, authority relationships). OPAs are internal to the enterprise (from the enterprise, a portfolio, program, other project or combination): plans, processes, policies, procedures and knowledge bases used by the performing organisation; e.g., change control procedures, templates, previous project information, lessons learned repositories. 1.11: 'artifact' here includes processes, inputs, tools, techniques, outputs, EEFs and OPAs; selecting and adapting them is tailoring - needed because not every process or ITTO is required on every project. The project management plan is the most prevalent artifact (subsidiary management plans, baselines, life cycle description); identifying which components are needed is part of tailoring. The Standard lists plan components and project documents beneath each process's input/output table only as examples - not required and not exhaustive. Project documents are other documents not part of the plan; the PM is accountable for identifying which documents a process needs and updates. Table 1-2 repeats Part 1 Table 4-1 (18 plan components, 33 project documents). Business documents originate outside the project and are inputs to it (business case, benefits management plan); their use depends on company culture and the initiation process. EEFs and OPAs depend on the project and are not listed per process in the Standard."
+    },
+    "std-initiating-group": {
+      "title": "Standard: Initiating Process Group - purpose, project boundaries, revisiting at each phase; Develop Project Charter and Identify Stakeholders inputs and outputs",
+      "section": "Part 2, Section 2 (Figures 2-1 to 2-4)", "kind": "process-group", "module": "M15",
+      "notes": "Initiating = processes to define a new project or phase by obtaining authorisation. Purpose: align stakeholders' expectations with the project purpose, inform them of scope and objectives, and discuss how their participation helps meet their expectations. The initial scope is defined, initial financial resources committed, stakeholders identified, the PM appointed if not already, captured in the charter and stakeholder register; charter approval officially authorises the project and the PM's authority to apply resources. Key benefits: only projects aligned with strategic objectives are authorised; business case, benefits and stakeholders are considered from the start. In some organisations the PM helps develop the business case and benefits and writes the charter; elsewhere pre-project work is done by the sponsor, PMO, portfolio steering committee or others; the Standard assumes the sponsor or governing body approved the project after reviewing business documents. Figure 2-1 (project boundaries): the sponsor and business documents sit outside the boundary and feed Initiating; within the boundary, Initiating, Planning, Executing, Monitoring & Controlling and Closing processes interact; deliverables go out to end users and project records to OPAs. In phased projects, Initiating information is re-examined at each phase start - charter, business documents and success criteria verified; stakeholders' influence, drivers, expectations and objectives reviewed - keeping focus on the business need; involving sponsors, customers and stakeholders in initiation creates shared understanding of success criteria and raises acceptance and satisfaction. Processes: 2.1 Develop Project Charter (Integration) and 2.2 Identify Stakeholders (Stakeholder) - definitions, key benefits and frequency as in Part 1; inputs and outputs match Part 1 figures (verified); example plan components for 2.2: communications management plan, stakeholder engagement plan; documents: change log, issue log, requirements documentation; plan updates: requirements, communications, risk, stakeholder engagement plans; document updates: assumption log, issue log, risk register."
+    },
+    "std-planning-group": {
+      "title": "Standard: Planning Process Group - purpose, progressive elaboration, baselines; inputs and outputs of the 24 planning processes (part 1: 3.1-3.13)",
+      "section": "Part 2, Section 3, 3.1-3.13 (Figures 3-1 to 3-14)", "kind": "process-group", "module": "M15",
+      "notes": "Planning = processes that establish the total scope of the effort, define and refine objectives and develop the course of action; they develop the plan components and project documents. Repeated feedback loops may be needed; significant changes may require revisiting planning and possibly initiating processes. Ongoing refinement of the plan is progressive elaboration - planning and documentation are iterative or ongoing. Key benefit: defines the course of action to complete the project or phase successfully. The team seeks input and involvement from relevant stakeholders. When initial planning is complete, the approved plan is considered a baseline; M&C processes compare performance to baselines. Figure 3-1 groups the 24 planning processes by Knowledge Area (Integration: Develop Project Management Plan; Scope: Plan Scope Management, Collect Requirements, Define Scope, Create WBS; Schedule: Plan Schedule Management, Define Activities, Sequence Activities, Estimate Activity Durations, Develop Schedule; Cost: Plan Cost Management, Estimate Costs, Determine Budget; Quality: Plan Quality Management; Resource: Plan Resource Management, Estimate Activity Resources; Communications: Plan Communications Management; Risk: Plan Risk Management, Identify Risks, Perform Qualitative and Quantitative Risk Analysis, Plan Risk Responses; Procurement: Plan Procurement Management; Stakeholder: Plan Stakeholder Engagement - labelled 'Plan Stakeholder Management' in the figure, a naming slip in the source). Sections 3.1-3.13 restate definitions, key benefits, frequency and input/output lists for Develop Project Management Plan through Determine Budget, with example plan components and documents; all inputs/outputs match the Part 1 ITTO figures recorded in ittos.json (verified item by item). Create WBS note: scope baseline = approved scope statement, WBS and WBS dictionary. The Standard lists inputs and outputs only; tools and techniques are in the Guide."
+    }
+  },
+  "pages": {
+    "591": {"t": ["std-process-groups"]},
+    "592": {"t": ["std-process-groups"], "visual": "Done (overlap diagram; Process Group order and labels extracted, shape described in notes)"},
+    "593": {"t": ["std-process-groups", "f-process-map"], "visual": "Done (same mapping as verified Part 1 Table 1-4; process lists identical)"},
+    "594": {"t": ["std-eef-opa-tailoring"]},
+    "595": {"t": ["std-eef-opa-tailoring"]},
+    "596": {"t": ["std-eef-opa-tailoring"], "visual": "Done (two-column list identical to Part 1 Table 4-1)"},
+    "597": {"t": [], "d": "blank"},
+    "598": {"t": ["std-initiating-group"]},
+    "599": {"t": ["std-initiating-group"], "visual": "Done (project boundaries and Process Group diagrams; labels extracted and relationships described)"},
+    "600": {"t": ["std-initiating-group"]},
+    "601": {"t": ["std-initiating-group"]},
+    "602": {"t": ["std-planning-group"]},
+    "603": {"t": ["std-planning-group"], "visual": "Done (grouping diagram; all process labels extracted)"},
+    "604": {"t": ["std-planning-group"]},
+    "605": {"t": ["std-planning-group"]},
+    "606": {"t": ["std-planning-group"]},
+    "607": {"t": ["std-planning-group"]},
+    "608": {"t": ["std-planning-group"]},
+    "609": {"t": ["std-planning-group"]},
+    "610": {"t": ["std-planning-group"]},
+    "611": {"t": ["std-planning-group"]},
+    "612": {"t": ["std-planning-group"]},
+    "613": {"t": ["std-planning-group"]},
+    "614": {"t": ["std-planning-group"]},
+    "615": {"t": ["std-planning-group"]},
+    "616": {"t": ["std-planning-group"]}
+  }
+}

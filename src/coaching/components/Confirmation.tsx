@@ -6,11 +6,31 @@ import { BookingSummary } from './BookingSummary';
 interface Props {
   confirmation: BookingConfirmation;
   service: CoachingService;
+  resending: boolean;
+  resendError: string | null;
+  onResendEmails: () => void;
   onBookAnother: () => void;
   onHome: () => void;
 }
 
-export function Confirmation({ confirmation: c, service, onBookAnother, onHome }: Props) {
+/** Plain-language status for each email, never claiming more than the server confirmed. */
+function emailLine(who: 'booker' | 'owner', outcome: string | undefined, email: string) {
+  if (who === 'booker') {
+    if (outcome === 'sent') return <>A confirmation email has been sent to <strong className="bk-break">{email}</strong>.</>;
+    if (outcome === 'failed') return <>We couldn’t send your confirmation email. Please note your reference above — your booking is still recorded.</>;
+    return <>We couldn’t confirm whether your confirmation email was sent. Please note your reference above.</>;
+  }
+  if (outcome === 'sent') return <>Rahul has been notified by email.</>;
+  if (outcome === 'failed') return <>Rahul couldn’t be notified automatically. Please also send a message through <strong>Chat with Rahul</strong> with your reference.</>;
+  return <>We couldn’t confirm whether Rahul was notified. Please also message him through <strong>Chat with Rahul</strong>.</>;
+}
+
+export function Confirmation({ confirmation: c, service, resending, resendError, onResendEmails, onBookAnother, onHome }: Props) {
+  const server = c.mode !== 'demo'; // stored by the server (mock or live)
+  const live = c.mode === 'live'; // Google Calendar event + verified Meet link
+  const first = c.details.fullName.trim().split(/\s+/)[0];
+  const allSent = c.emails?.owner === 'sent' && c.emails?.booker === 'sent';
+  const canResend = server && !allSent && !!c.request;
   return (
     <div className="bk-confirmed">
       <div className="bk-confirmed-head">
@@ -18,31 +38,83 @@ export function Confirmation({ confirmation: c, service, onBookAnother, onHome }
           <CheckIcon />
         </div>
         <div>
-          <span className="badge">DEMO BOOKING</span>
+          <span className="badge">{live ? 'CONFIRMED' : 'DEMO BOOKING'}</span>
           <h3 className="bk-step-title" data-step-heading tabIndex={-1}>
-            Demo booking complete
+            {live ? 'Your session is confirmed' : server ? 'Your slot is booked' : 'Demo booking complete'}
           </h3>
-          <p className="bk-lede">Thanks, {c.details.fullName.trim().split(/\s+/)[0]}. This is how the confirmation will look once bookings are live.</p>
+          <p className="bk-lede">
+            {live
+              ? `Thanks, ${first}. Your session is in Rahul’s calendar and your Google Meet link is ready.`
+              : server
+                ? `Thanks, ${first}. Your slot is reserved — no one else can book this time.`
+                : `Thanks, ${first}. This is how the confirmation will look once bookings are live.`}
+          </p>
         </div>
       </div>
 
       <div className="bk-ref">
-        <span>Demo reference</span>
+        <span>{server ? 'Booking reference' : 'Demo reference'}</span>
         <strong>{c.reference}</strong>
       </div>
 
-      <div className="bk-prototype-notice" role="note">
-        <h4>Prototype — nothing has been booked</h4>
-        <ul>
-          <li>This slot has <strong>not</strong> been reserved against a real calendar.</li>
-          <li>No meeting link has been created.</li>
-          <li>No WhatsApp message or email has been sent to you or to Rahul.</li>
-        </ul>
-        <p>
-          Online booking isn't live yet. To arrange a session in the meantime, reach out through the{' '}
-          <a href="#contact">contact options</a> on this site.
-        </p>
-      </div>
+      {live && c.meetUrl && (
+        <div className="bk-meet" role="region" aria-label="Google Meet">
+          <div className="bk-meet-head">
+            <span className="bk-meet-label">Google Meet</span>
+            <a className="bk-meet-url bk-break" href={c.meetUrl} target="_blank" rel="noopener noreferrer">
+              {c.meetUrl.replace('https://', '')}
+            </a>
+          </div>
+          <a className="btn btn-blue btn-cta" href={c.meetUrl} target="_blank" rel="noopener noreferrer">
+            Join Google Meet
+          </a>
+          <ol className="bk-meet-steps">
+            <li>A minute before your session, open the link above (it’s also in your email).</li>
+            <li>Sign in with any Google account, or join from the browser as a guest.</li>
+            <li>Allow your camera and microphone, then press <strong>Join</strong> or <strong>Ask to join</strong>.</li>
+          </ol>
+        </div>
+      )}
+
+      {server ? (
+        <div className={allSent ? 'bk-live-notice' : 'bk-live-notice is-warning'} role="status">
+          <h4>{allSent ? 'Emails sent' : 'Booking recorded — some emails weren’t sent'}</h4>
+          <ul>
+            <li>{emailLine('booker', c.emails?.booker, c.details.email)}</li>
+            <li>{emailLine('owner', c.emails?.owner, c.details.email)}</li>
+            {!live && (
+              <li>
+                This is a demo booking from the new booking system. <strong>The meeting link will be shared separately.</strong>
+              </li>
+            )}
+          </ul>
+          {canResend && (
+            <div className="bk-resend">
+              <button type="button" className="btn btn-ghost bk-ghost-cta" onClick={onResendEmails} disabled={resending} aria-busy={resending}>
+                {resending ? 'Sending…' : 'Send email again'}
+              </button>
+              {c.emailRetryAfterSeconds ? (
+                <span role="status">Please wait about {c.emailRetryAfterSeconds} seconds before trying again.</span>
+              ) : null}
+              {resendError && <span role="alert">{resendError}</span>}
+            </div>
+          )}
+        </div>
+      ) : (
+        <div className="bk-prototype-notice" role="note">
+          <h4>Prototype — nothing has been booked</h4>
+          <ul>
+            <li>This slot has <strong>not</strong> been reserved against a real calendar.</li>
+            <li>No meeting link has been created.</li>
+            <li>No WhatsApp message or email has been sent to you or to Rahul.</li>
+            {!service.free && <li>No payment has been taken.</li>}
+          </ul>
+          <p>
+            Online booking for this session isn't live yet. To arrange it in the meantime, reach out through the{' '}
+            <a href="#contact">contact options</a> on this site.
+          </p>
+        </div>
+      )}
 
       <div className="bk-two-col">
         <div className="bk-main-col">
@@ -62,7 +134,7 @@ export function Confirmation({ confirmation: c, service, onBookAnother, onHome }
 
       <div className="bk-actions">
         <button type="button" className="btn btn-blue btn-cta" onClick={onBookAnother}>
-          Make another demo booking
+          {server ? 'Book another session' : 'Make another demo booking'}
         </button>
         <button type="button" className="btn btn-ghost bk-ghost-cta" onClick={onHome}>
           Back to homepage

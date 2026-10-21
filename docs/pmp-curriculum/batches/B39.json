@@ -1,0 +1,40 @@
+{
+  "batch": "B39",
+  "range": [951, 976],
+  "readBy": "sequential read of extracted text (bibliography end, APG glossary acronyms and definitions in full, APG index pages read and confirmed to be page-reference entries only), 2026-10-20",
+  "topics": {
+    "g-apg-glossary": {
+      "title": "Agile Practice Guide glossary: agile terms and definitions",
+      "section": "APG Glossary (PDF 957-963)", "kind": "definition", "module": "M17",
+      "notes": "Acronyms: ATDD, BDD, BRD, DA, DoD, DoR, DSDM, Evo, LeSS, LSD, PDCA, PMO, ROI, RUP, SAFe, SBE, XP. Key definitions for lessons and items: A3 (problem-solving on a single A3 sheet); ATDD (collaboratively creating acceptance criteria and tests before delivery); agile (a mindset of values and principles per the Manifesto); agile coach; agile life cycle (both iterative and incremental); agile mindset (four values and twelve principles); anti-pattern (known flawed pattern of work); backlog refinement (progressive elaboration of requirements, collaboratively reviewing, updating and writing them); BDD (test-first design and validation using English-like scripts); blended agile (two or more frameworks or practices together, e.g., Scrum with XP and Kanban); I-shaped (single deep specialism), T-shaped (one deep specialism plus broad ability), broken comb or paint drip (various depths in multiple skills); burndown (work remaining vs time left in a timebox) and burnup (work completed toward a release); cadence (rhythm of execution); collective code ownership; continuous delivery and continuous integration; cross-functional team; daily scrum/standup; definition of done (criteria for a deliverable to be ready for customer use) vs definition of ready (information needed to begin work on a requirement); DevOps (collaboration of development and operations for smooth flow); double loop learning (challenges underlying values and assumptions to find root causes) vs single loop learning (applies predefined methods without challenging them); Evo (credited as the first agile method, focused on multiple measurable value requirements); fit for purpose vs fit for use; flow master (Kanban coach, equivalent to scrum master) and service request manager (orders requests to maximise value, equivalent to product owner); Hoshin Kanri (strategy/policy deployment); hybrid approach (glossary wording: combination of agile and non-agile elements 'having a non-agile end result' - unusual wording, lessons describe hybrid as a combination of approaches without that clause); IDEAL improvement model (initiating, diagnosing, establishing, acting, learning); impact mapping; impediment/blocker; increment (functional, tested, accepted deliverable that is a subset of the outcome); incremental life cycle (finished deliverables usable immediately) vs iterative life cycle (feedback on unfinished work to improve it); information radiator; iteration (timeboxed cycle doing all work needed to deliver value); kaizen events; kanban board; mobbing (many members on one work item) vs swarming (many members resolving one impediment) vs pair work; organisational bias (exploration vs execution, speed vs stability, quantity vs quality, flexibility vs predictability); organisational change management; personas; pivot (planned course correction testing a new hypothesis); PDCA; predictive approach and predictive life cycle (bulk of planning up front, single pass); product backlog (ordered list of user-centric requirements); product owner (maximises product value, accountable for the end product); refactoring (improve design without altering behaviour); retrospective; rolling wave planning; scrum board; scrum master (coach and process owner, removes obstacles, facilitates events, shields the team); Scrum of Scrums; Scrum team (glossary says development team, scrum master and 'process owner' - conflicts with Annex A3.2, which names the product owner; lessons follow A3.2); self-organising team (people fluidly assume leadership); servant leadership; siloed organisation vs value stream; smoke testing; specification by example; spike (short fixed-length research or prototyping interval to prove viability); sprint, sprint backlog, sprint planning; story point (unit-less relative estimate); technical debt (deferred cost of work not done earlier); test-driven development; timebox (fixed period, e.g., 1 week to 1 month); user story (brief description of value for a specific user - a promise for a conversation); user story mapping; UX design; value stream mapping."
+    }
+  },
+  "pages": {
+    "951": {"t": ["src-publication-structure"], "d": "bibliography (suggested reading list; no curriculum content)"},
+    "952": {"t": ["src-publication-structure"], "d": "bibliography (suggested reading list; no curriculum content)"},
+    "953": {"t": ["src-publication-structure"], "d": "bibliography (suggested reading list; no curriculum content)"},
+    "954": {"t": ["src-publication-structure"], "d": "bibliography (suggested reading list; no curriculum content)"},
+    "955": {"t": ["src-publication-structure"], "d": "bibliography (suggested reading list; no curriculum content)"},
+    "956": {"t": ["src-publication-structure"], "d": "bibliography (suggested reading list; no curriculum content)"},
+    "957": {"t": ["g-apg-glossary"]},
+    "958": {"t": ["g-apg-glossary"]},
+    "959": {"t": ["g-apg-glossary"]},
+    "960": {"t": ["g-apg-glossary"]},
+    "961": {"t": ["g-apg-glossary"]},
+    "962": {"t": ["g-apg-glossary"]},
+    "963": {"t": ["g-apg-glossary"]},
+    "964": {"t": [], "d": "blank (running header only)"},
+    "965": {"t": [], "d": "index (navigation; page references only, no curriculum content): entries 'A3' ... 'Agile practitioner'"},
+    "966": {"t": [], "d": "index (navigation; page references only, no curriculum content): entries 'Agile principles' ... 'Change control boards'"},
+    "967": {"t": [], "d": "index (navigation; page references only, no curriculum content): entries 'Change management' ... 'Dedicated team members'"},
+    "968": {"t": [], "d": "index (navigation; page references only, no curriculum content): entries 'Definable work projects' ... 'Follow the sun'"},
+    "969": {"t": [], "d": "index (navigation; page references only, no curriculum content): entries 'Framework(s)' ... 'Knowledge, product'"},
+    "970": {"t": [], "d": "index (navigation; page references only, no curriculum content): entries 'Large-Scale Scrum' ... 'Out-of-scope items'"},
+    "971": {"t": [], "d": "index (navigation; page references only, no curriculum content): entries 'Pain points' ... 'Project task board'"},
+    "972": {"t": [], "d": "index (navigation; page references only, no curriculum content): entries 'Project vision' ... 'Servant leader(s)'"},
+    "973": {"t": [], "d": "index (navigation; page references only, no curriculum content): entries 'project managers using' ... 'TDD'"},
+    "974": {"t": [], "d": "index (navigation; page references only, no curriculum content): entries 'Team(s)' ... 'Value'"},
+    "975": {"t": [], "d": "index (navigation; page references only, no curriculum content): entries 'Value stream' ... 'XP-inspired engineering practices'"},
+    "976": {"t": [], "d": "blank (running header only)"}
+  }
+}

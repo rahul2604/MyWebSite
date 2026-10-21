@@ -1,14 +1,15 @@
+import { AdminApp } from './admin/AdminApp';
 import { About } from './components/About';
 import { Blog } from './components/Blog';
 import { Contact } from './components/Contact';
 import { Footer } from './components/Footer';
 import { Header } from './components/Header';
 import { Hero } from './components/Hero';
-import { PmpPath } from './components/PmpPath';
 import { Services } from './components/Services';
 import { CoachingPage } from './coaching/CoachingPage';
 import { ChatWidget } from './contact/ChatWidget';
 import { useHashView } from './hooks/useHashView';
+import { PmpApp } from './pmp/PmpApp';
 import { useTheme } from './hooks/useTheme';
 
 export default function App() {
@@ -33,7 +34,8 @@ export default function App() {
         </>
       )}
 
-      <PmpPath hidden={!onPmp} />
+      <PmpApp hidden={!onPmp} />
+      <AdminApp hidden={view !== 'admin'} />
       <CoachingPage hidden={view !== 'coaching'} />
 
       {onHome && (

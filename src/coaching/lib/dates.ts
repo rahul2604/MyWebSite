@@ -5,7 +5,7 @@
  * both in the booking timezone (IST). Weekday and month maths use UTC so the
  * visitor's own timezone never shifts a date.
  */
-import { BOOKING_TIMEZONE } from '../data/availability';
+import { BOOKING_TIMEZONE } from '../data/availability.ts';
 
 const IST_OFFSET = '+05:30';
 

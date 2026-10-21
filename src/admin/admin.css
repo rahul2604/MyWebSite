@@ -1,0 +1,59 @@
+/* ============ Administrator panel (#admin) — builds on pmp.css and the site's theme tokens ============ */
+.adm-narrow { max-width: 520px; margin: 0 auto; }
+.adm-h { margin: 8px 0 6px; font-weight: 500; font-size: 28px; color: var(--t-strong); }
+.adm-title { display: flex; flex-direction: column; gap: 2px; }
+.adm-title-text { font-family: 'Outfit', sans-serif; font-size: 20px; color: var(--t-strong); }
+.adm-nav ul { list-style: none; margin: 6px 0 0; padding: 0; display: flex; flex-direction: column; gap: 2px; }
+.adm-nav .pmp-side-link { font-weight: 500; }
+.adm-nav-note { margin: 14px 10px 4px; }
+.adm-banner {
+  margin: 0; padding: 10px 14px; border-radius: 10px; font-size: 14px; font-weight: 500;
+  background: var(--badge-bg); color: var(--badge-text); border: 1px solid var(--line-2);
+}
+.adm-ok { margin: 0; color: var(--ok-text); font-weight: 500; }
+.adm-kv { margin: 0 0 6px; color: var(--t-body); font-size: 15px; }
+.adm-list { margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 6px; color: var(--t-body); }
+.adm-sub { margin: 0 0 10px; font-family: 'Outfit', sans-serif; font-weight: 500; font-size: 18px; color: var(--t-strong); }
+.adm-search { width: 100%; }
+.adm-filters { display: flex; gap: 10px; flex-wrap: wrap; }
+.adm-filters .adm-search { flex: 1 1 260px; width: auto; }
+.adm-short { max-width: 140px; }
+.adm-area { min-height: 0; padding: 10px 14px; line-height: 1.5; resize: vertical; }
+.adm-body { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 14px; }
+.adm-two { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.adm-tabs { width: fit-content; max-width: 100%; }
+.adm-tabs button { white-space: nowrap; padding: 0 14px; }
+.adm-tabs button:disabled { opacity: 0.5; cursor: not-allowed; }
+
+.adm-mods { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; }
+.adm-mod { padding: 0; overflow: hidden; }
+.adm-mod-head {
+  width: 100%; display: flex; align-items: center; gap: 14px; padding: 16px 18px; border: 0; background: transparent;
+  font: inherit; color: var(--t-body-strong); text-align: left; cursor: pointer;
+}
+.adm-mod-head:hover { background: var(--mod-hover); }
+.adm-mod-title { flex: 1; display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.adm-mod-body { padding: 0 18px 18px; display: flex; flex-direction: column; gap: 12px; }
+.adm-mod-body > p { margin: 0; }
+.adm-objectives { margin: 6px 0 0; padding-left: 18px; font-size: 13px; color: var(--t-muted); }
+
+.adm-table { width: 100%; border-collapse: collapse; font-size: 14.5px; }
+.adm-table th, .adm-table td { padding: 9px 10px; text-align: left; vertical-align: top; border-bottom: 1px solid var(--line-2); }
+.adm-table th { background: var(--bg-alt); color: var(--t-strong); font-weight: 600; white-space: nowrap; }
+.adm-actions { white-space: nowrap; }
+.adm-actions a { display: block; }
+.adm-sources { padding: 12px 16px; border: 1px dashed var(--line-strong); border-radius: 12px; }
+.adm-sources summary { cursor: pointer; font-weight: 600; color: var(--t-strong); }
+.adm-sources ul { margin: 10px 0 0; padding-left: 18px; display: flex; flex-direction: column; gap: 8px; font-size: 14px; color: var(--t-body); }
+.adm-preview { padding: 18px; border: 1px solid var(--line-2); border-radius: 14px; background: var(--bg); }
+.adm-preview-title { margin: 0; font-weight: 500; font-size: 26px; color: var(--t-strong); }
+.adm-qedit { border-color: var(--accent-border); }
+.adm-opts { border: 0; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+.adm-opts legend { font-size: 14px; font-weight: 500; color: var(--t-label); margin-bottom: 6px; }
+.adm-opt { display: flex; align-items: center; gap: 10px; }
+.adm-opt .field { flex: 1; min-width: 0; }
+
+@media (max-width: 599px) {
+  .adm-two { grid-template-columns: minmax(0, 1fr); }
+  .adm-table { font-size: 13.5px; }
+}

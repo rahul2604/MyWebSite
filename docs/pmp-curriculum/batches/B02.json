@@ -1,0 +1,129 @@
+{
+  "batch": "B02",
+  "range": [38, 62],
+  "readBy": "sequential read of extracted text; pages 46 and 62 rendered and inspected, 2026-10-20",
+  "topics": {
+    "f-guide-purpose": {
+      "title": "Purpose of the PMBOK Guide: generally recognised good practice, tailoring, guide vs methodology",
+      "section": "1.1, 1.1.1", "kind": "concept", "module": "M01",
+      "notes": "The project management body of knowledge (BOK) is everything known in the profession, published or not, and keeps evolving; the Guide covers only the subset that is 'generally recognized' (applies to most projects most of the time, with consensus on value) and 'good practice' (applying it improves the odds of success). Choosing the right mix of processes, ITTOs and life-cycle phases for a project is tailoring. The Guide is not a methodology (a system of practices, techniques, procedures and rules); organisations build methodologies on top of it. The Guide is based on The Standard for Project Management, an ANSI standard built on consensus, openness, due process and balance; both are descriptive, not prescriptive - nothing in them must be performed. Portfolio and program management have their own PMI standards and appear in the Guide only where they interact with projects."
+    },
+    "f-vocabulary-ethics": {
+      "title": "Common vocabulary and the PMI Code of Ethics and Professional Conduct",
+      "section": "1.1.2, 1.1.3", "kind": "concept", "module": "M03",
+      "notes": "A shared vocabulary is a mark of a profession; the PMI Lexicon supplies it and the Guide's glossary includes the Lexicon plus more terms. The Code of Ethics rests on four values chosen by the global community: responsibility, respect, fairness and honesty. It has aspirational standards (conduct practitioners strive for; hard to measure but expected of professionals, not optional) and mandatory standards (firm requirements; breaches by PMI members, certification holders or volunteers go to PMI's Ethics Review Committee)."
+    },
+    "f-project-definition": {
+      "title": "What a project is: temporary, unique, deliverables and objectives; when a project ends",
+      "section": "1.2.1", "kind": "definition", "module": "M01",
+      "notes": "A project is a temporary endeavour to create a unique product, service or result. Objective = an outcome toward which work is directed (a position, purpose, result, product or service). Deliverable = any unique and verifiable product, result or capability to perform a service required to complete a process, phase or project; may be tangible or intangible. Deliverables can be a product (component, enhancement, correction or new end item), a service or capability, a result (e.g., research findings, a document) or a combination. Repetitive elements do not remove uniqueness (two similar office buildings still differ in location, design, people). Projects occur at every organisational level, with one person or many units. Temporary = definite beginning and end, not necessarily short. A project ends when objectives are achieved, they will not or cannot be met, funding is exhausted, the need no longer exists, human or physical resources are no longer available, or it is terminated for legal cause or convenience. Deliverables may outlive the project (e.g., a monument)."
+    },
+    "f-projects-drive-change": {
+      "title": "Projects drive change: current state, transition state, future state",
+      "section": "1.2.1 (Figure 1-1)", "kind": "concept", "module": "M01",
+      "notes": "From a business view a project moves an organisation from a current state to a desired future state to achieve a specific objective; some projects pass through a transition state of several steps. Figure 1-1 shows business value rising over time as project activities move the organisation from current to future state."
+    },
+    "f-business-value": {
+      "title": "Business value: tangible and intangible benefits",
+      "section": "1.2.1", "kind": "definition", "module": "M01",
+      "notes": "PMI defines business value as the net quantifiable benefit derived from a business endeavour; it may be tangible, intangible or both. Business value in projects is the benefit a project's results provide to stakeholders. Tangible examples: monetary assets, stockholder equity, utility, fixtures, tools, market share. Intangible examples: goodwill, brand recognition, public benefit, trademarks, strategic alignment, reputation."
+    },
+    "f-initiation-context": {
+      "title": "Project initiation context: the four categories of factors that create projects",
+      "section": "1.2.1 (Figure 1-2, Table 1-1)", "kind": "concept", "module": "M01",
+      "notes": "Leaders initiate projects in response to factors acting on the organisation, in four categories: meet regulatory, legal or social requirements; satisfy stakeholder requests or needs; implement or change business or technological strategies; create, improve or fix products, processes or services. These factors should link to strategic objectives and business value. Table 1-1 (visually verified) gives specific factors - new technology, competitive forces, material issues, political changes, market demand, economic changes, customer request, stakeholder demands, legal requirement, business process improvements, strategic opportunity or business need, social need, environmental considerations - and shows one factor can fall into more than one category (e.g., market demand maps to stakeholder needs, create/improve products and strategy; material issues map to regulatory and fix products)."
+    },
+    "f-importance-of-pm": {
+      "title": "Project management defined and why it matters",
+      "section": "1.2.2", "kind": "concept", "module": "M01",
+      "notes": "Project management is the application of knowledge, skills, tools and techniques to project activities to meet project requirements, achieved by applying and integrating the processes identified for the project. Effective PM helps meet business objectives, satisfy stakeholders, be more predictable, raise chances of success, deliver the right products at the right time, resolve issues, respond to risks in time, optimise resources, identify/recover/terminate failing projects, manage and balance constraints (scope, quality, schedule, cost, resources) and manage change. Poor PM leads to missed deadlines, overruns, poor quality, rework, uncontrolled expansion, reputational loss, unhappy stakeholders and failed objectives. PM should be a strategic competency: tie results to business goals, compete, sustain the organisation and adjust plans to environmental change."
+    },
+    "f-portfolio-program-project": {
+      "title": "Portfolios, programs, projects and operations compared",
+      "section": "1.2.3.1 (Figure 1-3, Table 1-2)", "kind": "concept", "module": "M01",
+      "notes": "A project can be stand-alone, within a program or within a portfolio. Program = related projects, subsidiary programs and program activities managed in a coordinated way to obtain benefits not available individually; programs are not large projects. A very large project is a megaproject (guideline: US$1 billion or more, affects 1 million or more people, runs for years). Portfolio = projects, programs, subsidiary portfolios and operations managed as a group to achieve strategic objectives. They share stakeholders and resources, which can cause conflict and needs coordination. Program and project management do things the 'right way'; portfolio management does the 'right' programs and projects. Table 1-2 compares definition, scope (projects: defined objectives, progressively elaborated; programs: encompass component scopes; portfolios: organisational scope changing with strategy), change (projects control it; programs adapt to optimise benefits; portfolios monitor the wider environment), planning, management, monitoring and success measures (projects: product and project quality, timeliness, budget compliance, customer satisfaction; programs: delivery of intended benefits; portfolios: aggregate investment performance and benefit realisation)."
+    },
+    "f-program-management": {
+      "title": "Program management and program-level interdependencies",
+      "section": "1.2.3.2", "kind": "concept", "module": "M01",
+      "notes": "Program management applies knowledge, skills and principles to achieve program objectives and gain benefits and control not available by managing components individually; a program component is a project or program within it. Project management focuses on interdependencies within a project; program management on interdependencies between projects and the program level: aligning with strategy, allocating program scope, managing component interdependencies, shared risks and constraints, resolving issues between components and program, managing change in a shared governance framework, allocating budgets across projects and assuring benefits realisation. Example: a communications satellite system with projects for satellite and ground station design/build, launch and system integration."
+    },
+    "f-portfolio-management": {
+      "title": "Portfolio management aims",
+      "section": "1.2.3.3", "kind": "concept", "module": "M01",
+      "notes": "Portfolio management is the centralised management of one or more portfolios to achieve strategic objectives; components need not be interdependent. Aims: guide investment decisions, select the optimal mix of programs and projects, make decisions transparent, prioritise team and physical resources, raise likelihood of the desired ROI, and centralise management of the aggregate risk profile. It confirms alignment with strategy and prioritises components by contribution. Example: an infrastructure firm with power and water portfolios; designing, building then operating a power plant can be grouped as one program inside the portfolio."
+    },
+    "f-operations-and-projects": {
+      "title": "Operations management and where operations meet projects",
+      "section": "1.2.3.4-1.2.3.5", "kind": "concept", "module": "M01",
+      "notes": "Operations management (outside the Guide's scope) concerns ongoing production of goods or services, transforming inputs into outputs efficiently. Ongoing operations are outside a project's scope, but they intersect: developing, upgrading or expanding products; improving operations or product development; end of product life cycle; each closeout phase. At each point deliverables and knowledge transfer between project and operations, by moving project resources/knowledge to operations or operational resources to the project."
+    },
+    "f-opm": {
+      "title": "Organisational project management (OPM) and strategy alignment",
+      "section": "1.2.3.6 (Figure 1-4)", "kind": "concept", "module": "M01",
+      "notes": "Portfolio management aligns with strategy by selecting, prioritising and resourcing work; program management harmonises components and interdependencies to realise benefits; project management enables organisational goals. OPM is a framework integrating portfolio, program and project management with organisational enablers to achieve strategic objectives; its purpose is to make sure the organisation undertakes the right projects and allocates critical resources appropriately, and that all levels understand the strategic vision. Figure 1-4: strategy drives portfolio value decisions; programs and projects deliver results; operations realise business value; feedback via business impact analysis and value performance analysis into portfolio review and adjustment."
+    },
+    "f-key-components": {
+      "title": "Key components of the Guide and how they interrelate",
+      "section": "1.2.4 (Figure 1-5, Table 1-3)", "kind": "concept", "module": "M01",
+      "notes": "Key components: project life cycle, project phase, phase gate, project management processes, Process Groups and Knowledge Areas. Figure 1-5 places a generic life cycle (starting the project, organising and preparing, carrying out the work, ending the project) with phase gates on a timeline, and shows the five Process Groups and ten Knowledge Areas operating across it. Process Groups are not phases."
+    },
+    "f-life-cycles": {
+      "title": "Project and development life cycles: predictive, iterative, incremental, adaptive, hybrid",
+      "section": "1.2.4.1", "kind": "concept", "module": "M01",
+      "notes": "Project life cycle = the phases a project passes through from start to completion (sequential, iterative or overlapping); all projects map to the generic life cycle. Within it, the phases that develop the product form the development life cycle. Predictive (waterfall): scope, time and cost fixed early; scope changes carefully managed. Iterative: scope set early but time and cost estimates are revised as understanding grows; iterations repeat cycles. Incremental: successive iterations add functionality within a predetermined time frame; the deliverable is complete only after the final iteration. Adaptive (agile/change-driven): detailed scope defined and approved before each iteration. Hybrid: known/fixed parts predictive, evolving parts adaptive. The team chooses the best life cycle; flexibility comes from choosing processes per phase and adjusting phase attributes. Project life cycle is independent of the product life cycle (concept, delivery, growth, maturity, retirement)."
+    },
+    "f-phases-and-gates": {
+      "title": "Project phases and phase gates",
+      "section": "1.2.4.2-1.2.4.3", "kind": "concept", "module": "M01",
+      "notes": "A phase is a collection of logically related activities culminating in one or more deliverables. Attributes: name, number, duration, resource requirements, entrance criteria, exit criteria. Typical names include concept development, feasibility, requirements, design, prototype, build, test, transition, commissioning, milestone review, lessons learned. Phases are set by management needs, nature of the project, organisation/industry/technology, project elements and decision points (funding, go/no-go). Multiple phases improve insight and allow corrective or preventive action in later phases. A phase gate at the end of a phase compares performance to the business case, charter, project management plan and benefits management plan, leading to a decision: continue, continue with modification, end the project, remain in the phase, or repeat the phase or parts. Other names: phase review, stage gate, kill point, phase entrance/exit."
+    },
+    "f-pm-processes": {
+      "title": "Project management processes, ITTOs and how often processes run",
+      "section": "1.2.4.4 (Figure 1-6)", "kind": "concept", "module": "M01",
+      "notes": "Each process turns one or more inputs into one or more outputs using tools and techniques; an output is a deliverable or an outcome (end result of a process). Processes are linked by their outputs: an output becomes an input to another process or a project/phase deliverable. Three frequency categories: once or at predefined points (Develop Project Charter, Close Project or Phase); periodically as needed (Acquire Resources as resources are needed; Conduct Procurements before the item is needed); continuously (Define Activities under rolling wave or adaptive approaches; most monitoring and controlling processes)."
+    },
+    "f-process-groups": {
+      "title": "The five Project Management Process Groups",
+      "section": "1.2.4.5", "kind": "definition", "module": "M01",
+      "notes": "A Process Group is a logical grouping of processes to achieve specific objectives; independent of phases. Initiating: define a new project or phase by obtaining authorisation. Planning: establish scope, refine objectives and define the course of action. Executing: complete the work in the project management plan to satisfy requirements. Monitoring and Controlling: track, review and regulate progress and performance, identify needed plan changes and initiate them. Closing: formally complete or close the project, phase or contract. Outputs of one process can feed processes in other groups."
+    },
+    "f-knowledge-areas": {
+      "title": "The ten Knowledge Areas",
+      "section": "1.2.4.6", "kind": "definition", "module": "M01",
+      "notes": "A Knowledge Area is an area of PM defined by its knowledge requirements and described by its processes, practices, inputs, outputs, tools and techniques. Integration (identify, define, combine, unify and coordinate processes), Scope (all the work required and only the work required), Schedule (timely completion), Cost (planning, estimating, budgeting, financing, funding, managing, controlling costs within the approved budget), Quality (incorporating the quality policy for project and product quality requirements), Resource (identify, acquire, manage resources), Communications (planning through ultimate disposition of project information), Risk (planning, identification, analysis, response planning, implementation, monitoring), Procurement (acquiring products, services or results from outside the project team), Stakeholder (identify people affected, analyse expectations and engage them). Some projects need extra areas, e.g., financial or safety and health management in construction."
+    },
+    "f-process-map": {
+      "title": "Process Group and Knowledge Area mapping of all 49 processes",
+      "section": "Table 1-4 (visually verified)", "kind": "table", "module": "M15",
+      "notes": "Verified from the rendered table: Initiating 2 (4.1 Develop Project Charter, 13.1 Identify Stakeholders); Planning 24 (4.2; 5.1-5.4; 6.1-6.5; 7.1-7.3; 8.1; 9.1-9.2; 10.1; 11.1-11.5; 12.1; 13.2); Executing 10 (4.3, 4.4, 8.2, 9.3, 9.4, 9.5, 10.2, 11.6, 12.2, 13.3); Monitoring and Controlling 12 (4.5, 4.6, 5.5, 5.6, 6.6, 7.4, 8.3, 9.6, 10.3, 11.7, 12.3, 13.4); Closing 1 (4.7 Close Project or Phase). Total 49. Machine-readable copy: docs/pmp-curriculum/process-map.json."
+    }
+  },
+  "pages": {
+    "38": {"t": ["f-guide-purpose"]},
+    "39": {"t": ["f-guide-purpose"]},
+    "40": {"t": ["f-guide-purpose", "f-vocabulary-ethics"]},
+    "41": {"t": ["f-project-definition"]},
+    "42": {"t": ["f-project-definition"]},
+    "43": {"t": ["f-projects-drive-change"], "visual": "Done (simple diagram; labels reconstructed from extracted text)"},
+    "44": {"t": ["f-business-value", "f-initiation-context"]},
+    "45": {"t": ["f-initiation-context"], "visual": "Done (simple diagram; labels reconstructed from extracted text)"},
+    "46": {"t": ["f-initiation-context"], "visual": "Done (rendered and inspected; X-mark columns verified)"},
+    "47": {"t": ["f-importance-of-pm"]},
+    "48": {"t": ["f-importance-of-pm", "f-portfolio-program-project"]},
+    "49": {"t": ["f-portfolio-program-project"], "visual": "Done (hierarchy diagram; labels reconstructed from extracted text)"},
+    "50": {"t": ["f-portfolio-program-project"]},
+    "51": {"t": ["f-program-management"]},
+    "52": {"t": ["f-portfolio-management"]},
+    "53": {"t": ["f-operations-and-projects", "f-opm"]},
+    "54": {"t": ["f-opm", "f-key-components"], "visual": "Done (flow diagram; labels reconstructed from extracted text)"},
+    "55": {"t": ["f-key-components"], "visual": "Done (component diagram; labels reconstructed from extracted text)"},
+    "56": {"t": ["f-life-cycles"]},
+    "57": {"t": ["f-phases-and-gates"]},
+    "58": {"t": ["f-phases-and-gates"]},
+    "59": {"t": ["f-pm-processes"], "visual": "Done (ITTO example diagram; labels reconstructed from extracted text)"},
+    "60": {"t": ["f-process-groups", "f-knowledge-areas"]},
+    "61": {"t": ["f-knowledge-areas"]},
+    "62": {"t": ["f-process-map"], "visual": "Done (rendered and inspected; column assignment verified)"}
+  }
+}

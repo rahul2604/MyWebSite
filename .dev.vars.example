@@ -14,3 +14,47 @@ RESEND_API_KEY=
 # which only delivers to the email address that owns your Resend account.
 # After verifying a domain in Resend, use an address on it, e.g.:
 # CONTACT_FROM_EMAIL=Rahul Mehra Website <website@send.rahulmehra.co.in>
+
+# ---------------- Bookings (#coaching) ----------------
+# The BOOKINGS_DB D1 binding comes from `--d1 BOOKINGS_DB` in `npm run preview:pages` (not this file).
+
+# "mock" (default) = sample weekly hours, no Google. "live" = Google Calendar free/busy + Calendar event with Meet.
+# BOOKING_MODE=mock
+
+# Optional. Who receives booking notifications (default rahul.a.mehra@gmail.com) and the sender address.
+# BOOKING_OWNER_EMAIL=rahul.a.mehra@gmail.com
+# BOOKING_FROM_EMAIL=Rahul Mehra <bookings@send.rahulmehra.co.in>
+
+# ---------------- Google Calendar + Meet (needed for BOOKING_MODE=live) ----------------
+# OAuth "Web application" client from Google Cloud Console → APIs & Services → Credentials.
+# Authorized redirect URIs: http://localhost:8788/api/google/callback and https://rahulmehra.co.in/api/google/callback
+GOOGLE_CLIENT_ID=
+GOOGLE_CLIENT_SECRET=
+
+# 32 random bytes, base64. Encrypts the stored refresh token. Generate locally (prints nothing if piped into the file):
+#   node -e "console.log('GOOGLE_TOKEN_ENCRYPTION_KEY='+require('crypto').randomBytes(32).toString('base64'))" >> .dev.vars
+# Use a DIFFERENT key in production. Changing it later means connecting Google again.
+GOOGLE_TOKEN_ENCRYPTION_KEY=
+
+# "true" only while connecting the Google account; otherwise /api/google/start and /callback return 404.
+# GOOGLE_SETUP_ENABLED=false
+
+# Optional. The only Google account allowed to connect (default rahul.a.mehra@gmail.com).
+# GOOGLE_CALENDAR_OWNER=rahul.a.mehra@gmail.com
+
+# Optional. "true" = Google also emails its own calendar invite to the booker. Default off (our Resend email has the link).
+# GOOGLE_INVITE_EMAILS=false
+
+# ---------------- PMP learning platform (#pmp, #admin) ----------------
+# PMP_DB is a D1 binding (not set here). Locally the platform falls back to BOOKINGS_DB from `npm run preview:pages`.
+
+# "false" closes new learner sign-ups. Default: open.
+# PMP_SIGNUP_OPEN=true
+
+# Optional. The administrator email (default rahul.a.mehra@gmail.com). Reserved from learner sign-up.
+# PMP_ADMIN_EMAIL=rahul.a.mehra@gmail.com
+
+# One-time bootstrap secret for the administrator account (10+ characters). Sign in at /admin with the admin email and
+# this value, set your own password when asked, then remove this line. In production store it as an encrypted SECRET
+# with a strong random value. Leave it empty here; put a real value only in your own .dev.vars.
+PMP_ADMIN_BOOTSTRAP_PASSWORD=

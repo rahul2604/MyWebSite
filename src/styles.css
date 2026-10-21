@@ -496,20 +496,22 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   .nav-extras { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; padding-top: 14px; }
   .nav-extras-icons { display: flex; gap: 4px; margin-left: -10px; }
 
-  /* Hero stacks as: name, headline, intro, CTA → photo → badges.
-     `display: contents` lets the portrait and badges be ordered after the copy. */
+  /* Hero stacks as: headshot → name, headline, intro, CTA → badges.
+     `display: contents` lets the portrait and badges be ordered around the copy. A large
+     photo below the CTA showed only the top of the face at the bottom of a phone screen,
+     so here the portrait is a complete, intentional circular headshot above the name. */
   .hero { flex-direction: column; flex-wrap: nowrap; align-items: stretch; gap: 0; padding-top: 20px; }
   .hero-visual { display: contents; }
-  .hero-copy { order: 1; padding-bottom: 0; }
-  /* Show the whole portrait in a soft frame: the desktop fade masks would dissolve the
-     bottom of the photo here, because the badges no longer overlap it. */
   .hero-visual img {
-    order: 2; align-self: center; margin-top: 32px;
-    width: min(84vw, 380px, 52vh); height: auto;
+    order: 0; align-self: flex-start;
+    width: clamp(112px, 30vw, 168px); max-width: none; aspect-ratio: 1; height: auto;
+    object-fit: cover; object-position: 50% 18%;
     -webkit-mask-image: none; mask-image: none;
-    border-radius: 20px; border: 1px solid var(--line-2); box-shadow: var(--card-shadow);
+    border-radius: 50%; border: 3px solid var(--surface); box-shadow: 0 0 0 1px var(--line-strong), var(--card-shadow);
+    margin-bottom: 20px;
   }
-  .hero-stats { order: 3; margin-top: 16px; padding-bottom: 48px; }
+  .hero-copy { order: 1; padding-bottom: 0; }
+  .hero-stats { order: 2; margin-top: 28px; padding-bottom: 48px; }
 }
 
 /* Phones */

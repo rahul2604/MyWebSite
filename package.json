@@ -7,9 +7,10 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "preview": "vite preview",
-    "preview:pages": "npm run build && wrangler pages dev dist --port 8788",
-    "typecheck": "tsc -b",
-    "test": "node --test \"tests/**/*.test.ts\""
+    "preview:pages": "npm run build && wrangler pages dev dist --port 8788 --d1 BOOKINGS_DB",
+    "typecheck": "tsc -b && tsc -p tsconfig.server.json",
+    "test": "node --test \"tests/**/*.test.ts\"",
+    "pmp:check": "node scripts/pmp-content-report.ts && node scripts/pmp-build-source-stats.ts && node scripts/pmp-write-reports.ts"
   },
   "dependencies": {
     "react": "^18.3.1",
