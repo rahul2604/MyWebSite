@@ -3,6 +3,8 @@ import { CheckIcon, CloseIcon } from '../components/Icons';
 import {
   ContactError, devHint, MESSAGE_MAX, sendContactMessage, validateContact, type ContactErrors, type ContactMessage,
 } from './contactApi';
+import type { SupportContext } from '../support/assistant.ts';
+import { SupportAssistant } from '../support/SupportAssistant';
 import './chat.css';
 
 const EMPTY: ContactMessage = { name: '', email: '', whatsapp: '', message: '', website: '' };
@@ -21,9 +23,31 @@ function ChatIcon() {
   );
 }
 
-/* Floating "Chat with Rahul" button and contact panel. The draft survives closing the panel. */
-export function ChatWidget() {
+const GREETING_KEY = 'rm-support-greeting-dismissed';
+const readFlag = () => {
+  try {
+    return sessionStorage.getItem(GREETING_KEY) === '1';
+  } catch {
+    return false;
+  }
+};
+const writeFlag = () => {
+  try {
+    sessionStorage.setItem(GREETING_KEY, '1');
+  } catch {
+    /* storage unavailable: the greeting just shows again next visit */
+  }
+};
+
+/*
+ * Floating "Need help?" button and support panel: an FAQ assistant first ("help" mode), with the
+ * existing "Chat with Rahul" email form one tap away ("email" mode). The email draft survives
+ * closing the panel. `context` tailors the suggested questions; null hides the widget (admin).
+ */
+export function ChatWidget({ context = 'home' }: { context?: SupportContext | null }) {
   const [open, setOpen] = useState(false);
+  const [mode, setMode] = useState<'help' | 'email'>('help');
+  const [greeting, setGreeting] = useState(false);
   const [form, setForm] = useState<ContactMessage>(EMPTY);
   const [errors, setErrors] = useState<ContactErrors>({});
   const [status, setStatus] = useState<Status>('idle');
@@ -35,12 +59,34 @@ export function ChatWidget() {
   /** When the visitor started on this message; the server rejects implausibly fast submissions. */
   const startedAt = useRef<number | null>(null);
 
-  // Other parts of the site (e.g. the Support page) open the panel with openChat().
+  // Other parts of the site (e.g. the Support page) open the email form with openChat().
   useEffect(() => {
-    const onOpen = () => setOpen(true);
+    const onOpen = () => {
+      setMode('email');
+      setOpen(true);
+    };
     window.addEventListener(OPEN_CHAT_EVENT, onOpen);
     return () => window.removeEventListener(OPEN_CHAT_EVENT, onOpen);
   }, []);
+
+  // A small, dismissible greeting once per browser session — never the panel itself.
+  useEffect(() => {
+    if (!context || context === 'support' || readFlag()) return;
+    const t = window.setTimeout(() => setGreeting(true), 6000);
+    return () => window.clearTimeout(t);
+  }, [context]);
+  const dismissGreeting = () => {
+    setGreeting(false);
+    writeFlag();
+  };
+  useEffect(() => {
+    if (open && greeting) dismissGreeting();
+  }, [open, greeting]);
+
+  // Moving focus into the panel when switching between help and email.
+  useEffect(() => {
+    if (open) panelRef.current?.querySelector<HTMLElement>('input, textarea')?.focus();
+  }, [mode]);
 
   // Focus the first field on open; return focus to the button on close; Escape closes.
   useEffect(() => {
@@ -105,21 +151,42 @@ export function ChatWidget() {
     </div>
   );
 
+  if (context === null) return null;
+
   return (
     <div className="chat-root">
       {open && (
-        <div ref={panelRef} id="chat-panel" className="chat-panel" role="dialog" aria-modal="false" aria-labelledby="chat-title">
+        <div ref={panelRef} id="chat-panel" className={`chat-panel is-${mode}`} role="dialog" aria-modal="false" aria-labelledby="chat-title">
           <div className="chat-head">
-            <div>
-              <h2 id="chat-title">Chat with Rahul</h2>
-              <p>Send a message and I'll reply by email.</p>
+            {mode === 'email' && (
+              <button type="button" className="chat-back" onClick={() => setMode('help')} aria-label="Back to help">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                  <path d="M15 18l-6-6 6-6" />
+                </svg>
+              </button>
+            )}
+            <div className="chat-head-text">
+              <h2 id="chat-title">{mode === 'help' ? 'How can we help?' : 'Chat with Rahul'}</h2>
+              <p>
+                {mode === 'help' ? (
+                  <>
+                    <span className="chat-online" aria-hidden="true" /> Instant answers from our help articles
+                  </>
+                ) : (
+                  "Send a message and I'll reply by email."
+                )}
+              </p>
             </div>
-            <button type="button" className="chat-close" onClick={() => setOpen(false)} aria-label="Close chat">
+            <button type="button" className="chat-close" onClick={() => setOpen(false)} aria-label="Close support panel">
               <CloseIcon />
             </button>
           </div>
 
-          {status === 'sent' ? (
+          {/* Stays mounted while the panel is open, so the conversation survives a trip to the email form. */}
+          <div className="chat-help" hidden={mode !== 'help'}>
+            <SupportAssistant context={context ?? 'home'} onEmail={() => setMode('email')} />
+          </div>
+          {mode === 'help' ? null : status === 'sent' ? (
             <div className="chat-body chat-sent" role="status">
               <div className="ok-circle" aria-hidden="true">
                 <CheckIcon />
@@ -163,18 +230,33 @@ export function ChatWidget() {
         </div>
       )}
 
+      {greeting && !open && (
+        <div className="chat-greeting" role="status">
+          <button type="button" className="chat-greeting-text" onClick={() => { setMode('help'); setOpen(true); }}>
+            Questions? Get instant answers here.
+          </button>
+          <button type="button" className="chat-greeting-close" onClick={dismissGreeting} aria-label="Dismiss support message">
+            <CloseIcon />
+          </button>
+        </div>
+      )}
+
       <button
         ref={toggleRef}
         type="button"
         className={open ? 'chat-toggle is-open' : 'chat-toggle'}
         aria-expanded={open}
         aria-controls="chat-panel"
-        aria-label={open ? 'Close chat' : 'Chat with Rahul'}
-        onClick={() => setOpen((o) => !o)}
+        aria-label={open ? 'Close support panel' : 'Need help? Open support chat'}
+        onClick={() => {
+          if (!open) setMode('help');
+          setOpen((o) => !o);
+        }}
       >
         {open ? <CloseIcon /> : <ChatIcon />}
+        {!open && <span className="chat-dot" aria-hidden="true" />}
         <span className="chat-toggle-label" aria-hidden="true">
-          {open ? 'Close' : 'Chat with Rahul'}
+          {open ? 'Close' : 'Need help?'}
         </span>
       </button>
     </div>

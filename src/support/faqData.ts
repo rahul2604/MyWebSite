@@ -7,7 +7,7 @@
  * and never add a phone number or email address that hasn't been confirmed as a support contact.
  */
 
-export type FaqCategoryId = 'start' | 'course' | 'account' | 'bookings' | 'meetings' | 'whatsapp' | 'pricing' | 'technical';
+export type FaqCategoryId = 'start' | 'pricing' | 'bookings' | 'meetings' | 'interviews' | 'course' | 'account' | 'whatsapp' | 'technical';
 
 export interface FaqCategory {
   id: FaqCategoryId;
@@ -31,13 +31,14 @@ export interface FaqItem {
 }
 
 export const FAQ_CATEGORIES: FaqCategory[] = [
-  { id: 'start', label: 'Getting started' },
+  { id: 'start', label: 'General support' },
+  { id: 'pricing', label: 'Services' },
+  { id: 'bookings', label: 'Bookings & appointments' },
+  { id: 'meetings', label: 'Meeting links' },
+  { id: 'interviews', label: 'Mock interviews' },
   { id: 'course', label: 'PMP® course' },
   { id: 'account', label: 'Account & sign-in' },
-  { id: 'bookings', label: 'Session bookings' },
-  { id: 'meetings', label: 'Meeting links' },
   { id: 'whatsapp', label: 'WhatsApp updates' },
-  { id: 'pricing', label: 'Services & pricing' },
   { id: 'technical', label: 'Technical issues' },
 ];
 
@@ -57,17 +58,37 @@ export const FAQ_ITEMS: FaqItem[] = [
   },
   {
     id: 'start-pmp',
-    category: 'start',
-    question: 'How do I get started with the PMP® course?',
+    category: 'course',
+    question: 'How do I access the PMP® course?',
     answer: [
       'Open the PMP® Learning Path from the menu and create a learner account with your name, email address and a password. You then start at the first module; each lesson and knowledge check opens once you have completed the one before it.',
     ],
     links: [{ label: 'Go to the PMP® learning path', href: '#pmp' }],
-    keywords: ['sign up', 'register', 'enrol', 'enroll'],
+    keywords: ['sign up', 'register', 'enrol', 'enroll', 'open', 'start', 'get started'],
+  },
+  {
+    id: 'learning-materials',
+    category: 'course',
+    question: 'Where can I find the learning materials?',
+    answer: [
+      'All the learning material is inside the course. Each module is made up of lessons; every lesson lists what you will be able to do by the end, explains the topic, and closes with key terms and a "Read alongside" list of the book sections and page numbers it relates to. Each module ends with a knowledge check, followed later by two mock tests and a final assessment.',
+      'Open a lesson from the course menu (on a phone, tap "Course menu" first). The only download is your course certificate, once you have passed the final assessment.',
+    ],
+    keywords: ['materials', 'resources', 'notes', 'study', 'content', 'lessons', 'download', 'pdf', 'key terms', 'references'],
+  },
+  {
+    id: 'course-help',
+    category: 'course',
+    question: 'How can I get help with the course?',
+    answer: [
+      'Start with the answers in this help section. If your question is about a lesson, a test or your progress, contact Rahul on WhatsApp from the support options, or use the email form, and mention the module or lesson name. If you are deciding whether the course suits you, you can book a free PMP® Course Discovery Call.',
+    ],
+    links: [{ label: 'Book a PMP® Course Discovery Call', href: '#coaching' }],
+    keywords: ['help', 'question', 'stuck', 'doubt', 'support'],
   },
   {
     id: 'navigate-course',
-    category: 'start',
+    category: 'course',
     question: 'How do I find my way around the learning platform?',
     answer: [
       'The course menu lists every module with its lessons and knowledge check, followed by the mock tests, the final assessment and your certificate. On a phone, tap "Course menu" at the top to open it. The dashboard shows your overall progress and the next item to study.',
@@ -99,7 +120,7 @@ export const FAQ_ITEMS: FaqItem[] = [
     category: 'course',
     question: 'What should I do if the course content does not load?',
     answer: [
-      'Refresh the page first. If you see "Loading your course…" for a long time or an error message, check your internet connection and press "Try again". If it still fails, sign out and back in, or try another browser. If none of that helps, send a message through Chat with Rahul and mention which lesson you were opening.',
+      'Refresh the page first. If you see "Loading your course…" for a long time or an error message, check your internet connection and press "Try again". If it still fails, sign out and back in, or try another browser. If none of that helps, contact Rahul on WhatsApp or by email from Need help? (bottom right) and mention which lesson you were opening.',
     ],
     keywords: ['blank', 'spinner', 'error'],
   },
@@ -127,7 +148,7 @@ export const FAQ_ITEMS: FaqItem[] = [
     question: 'I cannot sign in. What should I do?',
     answer: [
       'Check that you are using the email address you registered with and that Caps Lock is off. After several wrong passwords in a row the account is locked for 15 minutes as a security measure; wait and try again.',
-      'There is no self-service password reset yet. If you have forgotten your password, send a message through Chat with Rahul from the email address you registered with.',
+      'There is no self-service password reset yet. If you have forgotten your password, contact Rahul on WhatsApp or by email from Need help? (bottom right) from the email address you registered with.',
     ],
     keywords: ['login', 'log in', 'password', 'forgot', 'locked out'],
   },
@@ -155,7 +176,7 @@ export const FAQ_ITEMS: FaqItem[] = [
     category: 'account',
     question: 'Who do I contact if my account is not working?',
     answer: [
-      'Use Chat on WhatsApp at the bottom of this page, or the Chat with Rahul form to reply by email. Include the email address of your learner account and what you see on screen. Never send your password.',
+      'Contact Rahul on WhatsApp (or by email, if you prefer) from Need help? at the bottom right, or from the end of the Support page. Include the email address of your learner account and what you see on screen. Never send your password.',
     ],
   },
 
@@ -201,7 +222,7 @@ export const FAQ_ITEMS: FaqItem[] = [
     category: 'bookings',
     question: 'Can I change or cancel my booking?',
     answer: [
-      'There is no self-service change or cancellation yet. Send a message through Chat with Rahul with your booking reference and what you would like to change. Please do this as early as possible so the slot can be offered to someone else.',
+      'There is no self-service change or cancellation yet. Contact Rahul on WhatsApp or by email from Need help? (bottom right) with your booking reference and what you would like to change. Please do this as early as possible so the slot can be offered to someone else.',
     ],
     keywords: ['reschedule', 'cancel', 'move'],
   },
@@ -223,13 +244,14 @@ export const FAQ_ITEMS: FaqItem[] = [
     answer: [
       'It depends on how your booking was made. When the confirmation screen shows a Google Meet link, it was created with your booking and is ready straight away. When the confirmation says the link will be shared separately, Rahul sends it to you before the session.',
     ],
+    keywords: ['when', 'receive', 'get', 'arrive', 'time', 'soon', 'how long'],
   },
   {
     id: 'no-link',
     category: 'meetings',
     question: 'I have not received my meeting link. What should I do?',
     answer: [
-      'Check your confirmation email, including the Spam or Promotions folder. If your booking said the link would be shared separately and you haven\'t received it a few hours before the session, send a message through Chat with Rahul with your booking reference.',
+      'Check your confirmation email, including the Spam or Promotions folder. If your booking said the link would be shared separately and you haven\'t received it a few hours before the session, contact Rahul on WhatsApp or by email from Need help? (bottom right) with your booking reference.',
     ],
   },
   {
@@ -237,7 +259,7 @@ export const FAQ_ITEMS: FaqItem[] = [
     category: 'meetings',
     question: 'What if the meeting link does not work?',
     answer: [
-      'Open the link in Chrome, Edge, Firefox or Safari, or in the Google Meet app on your phone. You can join as a guest without a Google account; press "Ask to join" and wait to be admitted. Allow your camera and microphone when the browser asks. If it still fails, message Rahul through Chat with Rahul with your booking reference.',
+      'Open the link in Chrome, Edge, Firefox or Safari, or in the Google Meet app on your phone. You can join as a guest without a Google account; press "Ask to join" and wait to be admitted. Allow your camera and microphone when the browser asks. If it still fails, message Rahul from Need help? (bottom right) with your booking reference.',
     ],
   },
   {
@@ -262,10 +284,10 @@ export const FAQ_ITEMS: FaqItem[] = [
   },
   {
     id: 'contact-rahul',
-    category: 'whatsapp',
+    category: 'start',
     question: 'How can I contact Rahul for help?',
     answer: [
-      'Use the Chat on WhatsApp button at the bottom of this page. It opens WhatsApp with a short message ready for you to review and send yourself; nothing is sent automatically. You can also use the Chat with Rahul form if you prefer a reply by email.',
+      'Use Chat on WhatsApp in Need help? (bottom right) or at the end of the Support page. It opens WhatsApp with a short message ready for you to review and send yourself; nothing is sent automatically. You can also send him a message by email from Need help?.',
       'This support chat is separate from booking updates: automated confirmations and reminders are sent to your own WhatsApp number, not from this chat.',
     ],
     keywords: ['support', 'contact', 'help', 'chat', 'phone', 'number'],
@@ -309,18 +331,45 @@ export const FAQ_ITEMS: FaqItem[] = [
   },
   {
     id: 'book-mock-interview',
-    category: 'pricing',
-    question: 'How do I book a mock interview, and is it free?',
+    category: 'interviews',
+    question: 'How do I schedule a mock interview, and is it free?',
     answer: [
       'Yes, the 1:1 Case & Guesstimate Mock Interview is free when you book it on this website. Open Book a Session, choose the mock interview, pick a 30-minute slot, enter your details and confirm. There is no payment or checkout step.',
     ],
     links: [{ label: 'Book a free mock interview', href: '#coaching' }],
-    keywords: ['interview', 'case', 'guesstimate', 'consulting', 'price', 'free', '299'],
+    keywords: ['interview', 'mock', 'case', 'guesstimate', 'consulting', 'schedule', 'book', 'price', 'free', '299'],
+  },
+  {
+    id: 'interview-covers',
+    category: 'interviews',
+    question: 'What does the mock interview cover?',
+    answer: [
+      'It is a 30-minute one-to-one video session focused on strategy and consulting interviews: CV-based questions (framing your experience and behavioural answers), guesstimates (structured market sizing and estimation), and case interviews such as profitability and market entry, with feedback as you go.',
+    ],
+    keywords: ['interview', 'mock', 'case', 'guesstimate', 'cv', 'behavioural', 'behavioral', 'topics', 'cover'],
+  },
+  {
+    id: 'interview-for-whom',
+    category: 'interviews',
+    question: 'Who is the mock interview for?',
+    answer: [
+      'MBA students and recent graduates preparing for consulting or strategy interviews, for example MBB, Big 4 or corporate strategy roles.',
+    ],
+    keywords: ['interview', 'mba', 'graduate', 'consulting', 'strategy', 'mbb', 'big 4', 'suitable'],
+  },
+  {
+    id: 'interview-prepare',
+    category: 'interviews',
+    question: 'How should I prepare for the mock interview?',
+    answer: [
+      'In the booking form\'s "Purpose of the call", mention the role, company or interview round you are preparing for and what you want to practise, so the session can focus on it. Join from a quiet place with a working camera and microphone, and have pen and paper ready for guesstimates and cases.',
+    ],
+    keywords: ['interview', 'prepare', 'preparation', 'before', 'ready'],
   },
   {
     id: 'pay-to-book',
     category: 'pricing',
-    question: 'Do I need to pay to book a session?',
+    question: 'Are the services free? Do I need to pay?',
     answer: ['No. Every coaching session offered on this site, including the mock interview, is free, and the booking form never asks for payment details.'],
     keywords: ['price', 'cost', 'fee', 'payment', 'charge', 'free'],
   },
@@ -336,7 +385,7 @@ export const FAQ_ITEMS: FaqItem[] = [
     category: 'pricing',
     question: 'Is the PMP® course free as well?',
     answer: [
-      'The free policy on this page covers the coaching sessions. For questions about the PMP® course itself, book a free PMP® Course Discovery Call or send a message through Chat with Rahul.',
+      'The free policy covers the coaching sessions. For questions about the PMP® course itself, book a free PMP® Course Discovery Call or contact Rahul on WhatsApp or by email from Need help? (bottom right).',
     ],
     links: [{ label: 'Book a PMP® Course Discovery Call', href: '#coaching' }],
     keywords: ['price', 'cost', 'fee'],
@@ -356,7 +405,7 @@ export const FAQ_ITEMS: FaqItem[] = [
     category: 'technical',
     question: 'What should I do if a booking fails?',
     answer: [
-      'Read the message on screen: it says whether anything was booked. If it asks you to press Confirm again, do so; you will never be booked twice. If your time was taken by someone else, choose another slot. If online booking is unavailable, use Chat with Rahul and mention the service and time you wanted.',
+      'Read the message on screen: it says whether anything was booked. If it asks you to press Confirm again, do so; you will never be booked twice. If your time was taken by someone else, choose another slot. If online booking is unavailable, use Need help? (bottom right) to contact Rahul and mention the service and time you wanted.',
     ],
     keywords: ['error', 'not working'],
   },
@@ -365,7 +414,7 @@ export const FAQ_ITEMS: FaqItem[] = [
     category: 'technical',
     question: 'How do I report a technical issue?',
     answer: [
-      'Use Chat on WhatsApp at the bottom of this page, or the Chat with Rahul form. Mention the page you were on, what you expected, what happened instead, and your device and browser. Please don\'t include passwords.',
+      'Contact Rahul on WhatsApp (or by email) from Need help? at the bottom right, or from the end of the Support page. Mention the page you were on, what you expected, what happened instead, and your device and browser. Please don\'t include passwords.',
     ],
     keywords: ['bug', 'problem', 'feedback'],
   },
