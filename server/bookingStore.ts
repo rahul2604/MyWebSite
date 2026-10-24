@@ -61,6 +61,9 @@ export interface BookingRow {
   booker_email_issue: string | null;
   email_attempts: number;
   emails_updated_ms: number;
+  // ---- added in schema v3 ----
+  /** 1 when the booker opted in to WhatsApp confirmation and reminder messages. */
+  whatsapp_opt_in: number;
 }
 
 const BASE_SCHEMA = [
@@ -93,6 +96,25 @@ const BASE_SCHEMA = [
     created_at TEXT NOT NULL,
     updated_at TEXT NOT NULL
   )`,
+  // Schema v3: one row per booking, message kind and channel (the primary key makes a second
+  // confirmation or reminder for the same booking impossible). Never stores tokens or provider text.
+  `CREATE TABLE IF NOT EXISTS booking_notifications (
+    reference TEXT NOT NULL,
+    kind TEXT NOT NULL,
+    channel TEXT NOT NULL DEFAULT 'whatsapp',
+    status TEXT NOT NULL DEFAULT 'pending',
+    due_ms INTEGER NOT NULL,
+    attempts INTEGER NOT NULL DEFAULT 0,
+    provider_message_id TEXT,
+    issue TEXT,
+    has_meeting_link INTEGER NOT NULL DEFAULT 0,
+    preview TEXT,
+    created_ms INTEGER NOT NULL,
+    updated_ms INTEGER NOT NULL,
+    sent_ms INTEGER,
+    PRIMARY KEY (reference, kind, channel)
+  )`,
+  `CREATE INDEX IF NOT EXISTS booking_notifications_due ON booking_notifications (status, due_ms)`,
 ];
 
 /** Schema v2 columns, added with ALTER TABLE when missing (additive only). */
@@ -111,6 +133,8 @@ const V2_COLUMNS: [string, string][] = [
   ['booker_email_issue', 'TEXT'],
   ['email_attempts', 'INTEGER NOT NULL DEFAULT 0'],
   ['emails_updated_ms', 'INTEGER NOT NULL DEFAULT 0'],
+  // v3
+  ['whatsapp_opt_in', 'INTEGER NOT NULL DEFAULT 0'],
 ];
 
 const ready = new WeakSet<object>();
@@ -174,6 +198,8 @@ export interface NewBooking {
   event_id: string | null;
   hold_until_ms: number | null;
   created_at: string;
+  /** WhatsApp opt-in (default 0: no WhatsApp messages). */
+  whatsapp_opt_in?: 0 | 1;
 }
 
 export type ReserveResult = { status: 'created'; row: BookingRow } | { status: 'duplicate_key'; row: BookingRow } | { status: 'conflict' };
@@ -186,8 +212,8 @@ export async function reserve(db: D1Like, b: NewBooking, nowMs: number): Promise
       .prepare(
         `INSERT INTO bookings (reference, idem_key, service_id, date, time, start_ms, end_ms, block_end_ms,
            name, email, whatsapp, purpose, heard_from, created_at,
-           duration_minutes, mode, status, event_id, hold_until_ms, updated_ms, attempts)
-         SELECT ?1, ?2, ?3, ?4, ?5, ?6, ?7, ?8, ?9, ?10, ?11, ?12, ?13, ?14, ?15, ?16, ?17, ?18, ?19, ?20, 1
+           duration_minutes, mode, status, event_id, hold_until_ms, updated_ms, attempts, whatsapp_opt_in)
+         SELECT ?1, ?2, ?3, ?4, ?5, ?6, ?7, ?8, ?9, ?10, ?11, ?12, ?13, ?14, ?15, ?16, ?17, ?18, ?19, ?20, 1, ?21
          WHERE NOT EXISTS (
            SELECT 1 FROM bookings WHERE ${activeAt('?20')} AND start_ms < ?8 AND block_end_ms > ?6
          )`,
@@ -195,7 +221,7 @@ export async function reserve(db: D1Like, b: NewBooking, nowMs: number): Promise
       .bind(
         b.reference, b.idem_key, b.service_id, b.date, b.time, b.start_ms, b.end_ms, b.block_end_ms,
         b.name, b.email, b.whatsapp, b.purpose, b.heard_from, b.created_at,
-        b.duration_minutes, b.mode, b.status, b.event_id, b.hold_until_ms, nowMs,
+        b.duration_minutes, b.mode, b.status, b.event_id, b.hold_until_ms, nowMs, b.whatsapp_opt_in ?? 0,
       )
       .run();
     changes = res.meta.changes;

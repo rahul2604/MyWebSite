@@ -17,11 +17,12 @@ import { generateReference } from '../../src/coaching/lib/reference.ts';
 import { checkSlot, rulesFor, slotRange } from '../../src/coaching/lib/slots.ts';
 import { HEARD_FROM_OPTIONS, normaliseWhatsapp, validateDetails, type AspirantDetails } from '../../src/coaching/lib/validation.ts';
 import { HOLD_MS, IN_PROGRESS_MS, publicBooking, publicEmailStatus, runBooking, type Outcome } from '../../server/bookingPipeline.ts';
-import { ensureSchema, findByIdemKey, findByReference, reclaim, reserve, type BookingRow } from '../../server/bookingStore.ts';
+import { ensureSchema, findByIdemKey, findByReference, reclaim, reserve, type BookingRow, type D1Like } from '../../server/bookingStore.ts';
 import { clock } from '../../server/clock.ts';
-import { bookingMode, type Env } from '../../server/env.ts';
+import { bookingMode, emailDeliveryOff, type Env } from '../../server/env.ts';
 import { googleConfig, newEventId } from '../../server/google.ts';
 import { fail, json, makeRateLimiter, sameSite } from '../../server/http.ts';
+import { getNotifications, publicWhatsappStatus } from '../../server/notifications.ts';
 
 const MAX_BODY_BYTES = 16 * 1024;
 const IDEM_RE = /^[A-Za-z0-9-]{16,64}$/;
@@ -30,15 +31,17 @@ const limited = makeRateLimiter(5, 10 * 60 * 1000);
 
 const str = (v: unknown, max: number) => (typeof v === 'string' ? v.slice(0, max) : '');
 
-function respond(outcome: Outcome, replayed: boolean): Response {
+async function respond(db: D1Like, outcome: Outcome, replayed: boolean): Promise<Response> {
   if (!outcome.ok) return fail(outcome.status, outcome.code, outcome.error);
   const row = outcome.row;
+  const notes = row.whatsapp_opt_in === 1 ? await getNotifications(db, row.reference).catch(() => []) : [];
   return json(200, {
     ok: true,
     mode: row.mode,
     ...(replayed ? { replayed: true } : {}),
-    booking: publicBooking(row, row.mode),
+    booking: { ...publicBooking(row, row.mode), free: true },
     emails: { owner: publicEmailStatus(row.owner_email), booker: publicEmailStatus(row.booker_email) },
+    whatsapp: publicWhatsappStatus(row, notes),
     ...(row.booker_email_issue && row.booker_email !== 'sent' ? { bookerEmailIssue: row.booker_email_issue } : {}),
     ...(row.owner_email_issue && row.owner_email !== 'sent' ? { ownerEmailIssue: row.owner_email_issue } : {}),
     ...(outcome.emailRetryAfterSeconds ? { emailRetryAfterSeconds: outcome.emailRetryAfterSeconds } : {}),
@@ -62,9 +65,11 @@ export const onRequest = async ({ request, env }: { request: Request; env: Env }
     return fail(400, 'invalid', 'Invalid request.');
   }
 
-  // Service: must exist, be bookable through the server, and have a configured duration.
+  // Service: must exist, be bookable through the server, have a configured duration and be free.
+  // There is no payment integration, so the server only ever books free services; the request
+  // carries no price, and nothing in it can add a charge.
   const service = COACHING_SERVICES.find((s) => s.id === body.serviceId);
-  if (!service || service.booking !== 'server' || !service.durationMinutes) {
+  if (!service || service.booking !== 'server' || !service.durationMinutes || service.free !== true) {
     return fail(400, 'service_not_bookable', 'This service can’t be booked online yet.');
   }
   const rules = rulesFor(service.durationMinutes);
@@ -80,6 +85,8 @@ export const onRequest = async ({ request, env }: { request: Request; env: Env }
     email: str(raw.email, 254).replace(/[\u0000-\u001f\u007f]+/g, '').trim(),
     purpose: str(raw.purpose, 1000).replace(/\r\n?/g, '\n').trim(),
     heardFrom: (HEARD_FROM_OPTIONS as readonly string[]).includes(str(raw.heardFrom, 40)) ? (str(raw.heardFrom, 40) as AspirantDetails['heardFrom']) : '',
+    // Consent must be an explicit boolean true; anything else means no WhatsApp messages.
+    whatsappOptIn: raw.whatsappOptIn === true,
   };
   const fieldErrors = validateDetails(details);
   if (Object.keys(fieldErrors).length) {
@@ -94,7 +101,7 @@ export const onRequest = async ({ request, env }: { request: Request; env: Env }
   const check = checkSlot(date, time, now, rules);
 
   const mode = bookingMode(env);
-  if (!env.BOOKINGS_DB || !env.RESEND_API_KEY || (mode === 'live' && !googleConfig(env))) {
+  if (!env.BOOKINGS_DB || (!env.RESEND_API_KEY && !emailDeliveryOff(env)) || (mode === 'live' && !googleConfig(env))) {
     console.error('bookings: missing configuration', { db: !!env.BOOKINGS_DB, resend: !!env.RESEND_API_KEY, mode });
     return fail(503, 'not_configured', UNAVAILABLE);
   }
@@ -136,6 +143,7 @@ export const onRequest = async ({ request, env }: { request: Request; env: Env }
       event_id: mode === 'live' ? newEventId() : null,
       hold_until_ms: mode === 'live' ? nowMs + HOLD_MS : null,
       created_at: now.toISOString(),
+      whatsapp_opt_in: details.whatsappOptIn ? 1 : 0,
     }, nowMs);
 
     if (reserved.status === 'duplicate_key' || (reserved.status === 'conflict' && (await findByIdemKey(db, idemKey)))) {
@@ -143,7 +151,7 @@ export const onRequest = async ({ request, env }: { request: Request; env: Env }
       return fail(409, 'in_progress', 'Your booking is already being processed. Please wait a few seconds and press Confirm again.');
     }
     if (reserved.status === 'conflict') return fail(409, 'slot_taken', 'Sorry, that slot was just booked by someone else. Please choose another time.');
-    return respond(await runBooking(ctx, reserved.row), false);
+    return respond(db, await runBooking(ctx, reserved.row), false);
 
     async function handleRepeat(row: BookingRow): Promise<Response> {
       const sameRequest =
@@ -151,7 +159,7 @@ export const onRequest = async ({ request, env }: { request: Request; env: Env }
       if (!sameRequest) return fail(409, 'idempotency_conflict', 'This doesn’t match your original booking request. Please reload the page and try again.');
       if (row.mode === 'live' && !googleConfig(env)) return fail(503, 'not_configured', UNAVAILABLE);
 
-      if (row.status === 'confirmed') return respond(await runBooking(ctx, row), true); // only unsent emails are retried
+      if (row.status === 'confirmed') return respond(db, await runBooking(ctx, row), true); // only unsent emails are retried
       if (row.status === 'pending' && (row.hold_until_ms ?? 0) > nowMs && nowMs - row.updated_ms < IN_PROGRESS_MS) {
         return fail(409, 'in_progress', 'Your booking is still being processed. Please wait a few seconds and press Confirm again.');
       }
@@ -160,7 +168,7 @@ export const onRequest = async ({ request, env }: { request: Request; env: Env }
         return fail(409, 'slot_taken', 'Sorry, that time is no longer available. Please choose another slot.');
       }
       const fresh = (await findByReference(db, row.reference)) ?? row;
-      return respond(await runBooking(ctx, fresh), true);
+      return respond(db, await runBooking(ctx, fresh), true);
     }
   } catch (err) {
     console.error('bookings: unexpected error', err instanceof Error ? err.message.slice(0, 120) : 'unknown');

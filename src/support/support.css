@@ -1,0 +1,80 @@
+/* ============ Support / FAQ (#support and #pmp/support) — uses the site's theme tokens ============ */
+.support-page { padding-top: clamp(40px, 6vw, 72px); }
+
+.faq { display: flex; flex-direction: column; gap: 20px; max-width: 880px; margin: 0 auto; }
+.faq-in-course { max-width: none; margin: 0; }
+
+.faq-hero { display: flex; flex-direction: column; gap: 4px; }
+.faq-title-sm { margin: 8px 0 0; font-weight: 500; font-size: clamp(26px, 3vw, 32px); line-height: 1.2; color: var(--t-strong); }
+.faq-lede { margin: 10px 0 0; max-width: 640px; color: var(--t-body-2); }
+
+.faq-search { position: relative; margin-top: 20px; }
+.faq-search-icon { position: absolute; left: 16px; top: 50%; transform: translateY(-50%); display: flex; color: var(--t-muted-2); pointer-events: none; }
+.faq-search .field.faq-search-input { width: 100%; min-height: 52px; padding-left: 46px; font-size: 16px; border-radius: 12px; }
+.faq-search-input::-webkit-search-cancel-button { cursor: pointer; }
+
+.faq-cats { display: flex; flex-wrap: wrap; gap: 8px; }
+.faq-cat {
+  display: inline-flex; align-items: center; gap: 8px; min-height: 40px; padding: 0 14px;
+  border: 1px solid var(--line-strong); border-radius: 999px; background: transparent;
+  font: inherit; font-size: 14px; font-weight: 500; color: var(--t-label); cursor: pointer;
+}
+.faq-cat:hover { border-color: var(--ghost-hover-border); background: var(--ghost-hover-bg); color: var(--t-strong); }
+.faq-cat[aria-pressed='true'] { border-color: var(--mod-sel-border); background: var(--mod-sel-bg); color: var(--t-strong); }
+.faq-count {
+  min-width: 22px; padding: 0 6px; border-radius: 999px; background: var(--toggle-bg);
+  font-size: 12px; line-height: 20px; text-align: center; color: var(--t-muted);
+}
+.faq-cat[aria-pressed='true'] .faq-count { background: var(--accent-soft); color: var(--t-accent); }
+
+.faq-status { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; min-height: 24px; margin: -6px 0 -6px; font-size: 14px; color: var(--t-muted); }
+.faq-status:empty { display: none; }
+.faq-reset { padding: 0; border: 0; background: none; font: inherit; font-weight: 600; color: var(--link); cursor: pointer; text-decoration: underline; text-underline-offset: 3px; }
+.faq-reset:hover { color: var(--link-hover); }
+
+.faq-list { display: flex; flex-direction: column; border: 1px solid var(--line-2); border-radius: 16px; background: var(--surface); box-shadow: var(--card-shadow); overflow: hidden; }
+.faq-item + .faq-item { border-top: 1px solid var(--line-2); }
+.faq-q-wrap { margin: 0; }
+.faq-q {
+  width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  min-height: 60px; padding: 16px 20px; border: 0; background: transparent; text-align: left;
+  font: inherit; font-size: 16.5px; font-weight: 600; line-height: 1.4; color: var(--t-body-strong); cursor: pointer;
+}
+.faq-q:hover { background: var(--mod-hover); }
+.faq-q:focus-visible { outline-offset: -3px; }
+.faq-q-text { display: flex; flex-direction: column; gap: 4px; }
+.faq-q-cat { font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--t-eyebrow); }
+.faq-chevron { flex: none; color: var(--t-muted); transition: transform 0.2s ease; }
+.faq-item.is-open .faq-chevron { transform: rotate(180deg); color: var(--t-accent); }
+.faq-item.is-open .faq-q { color: var(--t-strong); }
+.faq-a { padding: 0 20px 18px; color: var(--t-body); font-size: 15.5px; }
+.faq-a p { margin: 0 0 10px; max-width: 70ch; }
+.faq-a p:last-child { margin-bottom: 0; }
+.faq-links { display: flex; flex-wrap: wrap; gap: 4px 20px; }
+.faq-link { min-height: 36px; font-size: 14.5px; }
+
+.faq-empty { padding: 28px 24px; text-align: center; border: 0; box-shadow: none; }
+.faq-empty h3 { margin: 0 0 6px; font-family: 'Outfit', sans-serif; font-weight: 500; font-size: 20px; color: var(--t-strong); }
+.faq-empty p { margin: 0 auto 16px; max-width: 460px; color: var(--t-body); }
+
+.faq-contact { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 18px; padding: 22px 24px; background: var(--bg-alt); }
+.faq-contact h3 { margin: 0 0 4px; font-family: 'Outfit', sans-serif; font-weight: 500; font-size: 21px; color: var(--t-strong); }
+.faq-contact p { margin: 0; max-width: 520px; color: var(--t-body); font-size: 15px; }
+.faq-contact-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+
+@media (max-width: 599px) {
+  /* Topic chips become one swipeable row instead of a tall stack. */
+  .faq-cats { flex-wrap: nowrap; overflow-x: auto; margin: 0 -4px; padding: 2px 4px 6px; scrollbar-width: thin; }
+  .faq-cat { flex: none; }
+  .faq-q { padding: 14px 16px; font-size: 15.5px; }
+  .faq-a { padding: 0 16px 16px; }
+  .faq-contact { padding: 18px; }
+  .faq-contact-actions, .faq-contact-actions .btn { width: 100%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .faq-chevron { transition: none; }
+}
+
+/* WhatsApp support button: a deep WhatsApp green so white text meets WCAG AA (about 5.4:1). */
+.btn-whatsapp { gap: 8px; background: #0f7a3f; color: #ffffff; transition: background 0.2s, transform 0.2s; }
+.btn-whatsapp:hover { background: #0b6634; color: #ffffff; transform: translateY(-1px); }

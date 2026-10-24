@@ -57,3 +57,7 @@
   .adm-two { grid-template-columns: minmax(0, 1fr); }
   .adm-table { font-size: 13.5px; }
 }
+
+.adm-msg { margin-top: 4px; }
+.adm-msg summary { cursor: pointer; color: var(--link); }
+.adm-msg pre { margin: 6px 0 0; padding: 8px 10px; max-width: 280px; white-space: pre-wrap; font: 12.5px/1.45 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; color: var(--t-body); background: var(--bg-alt); border-radius: 8px; }

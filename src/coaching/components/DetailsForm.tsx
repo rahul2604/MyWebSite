@@ -1,7 +1,7 @@
 import { useRef, type FormEvent } from 'react';
 import { ArrowLeft, ArrowRight } from '../../components/Icons';
 import type { CoachingService } from '../data/services';
-import { HEARD_FROM_OPTIONS, PURPOSE_MAX, PURPOSE_MIN, type AspirantDetails, type DetailsErrors } from '../lib/validation';
+import { HEARD_FROM_OPTIONS, PURPOSE_MAX, PURPOSE_MIN, type AspirantDetails, type DetailsErrors, type DetailsField } from '../lib/validation';
 import { BookingSummary } from './BookingSummary';
 
 interface Props {
@@ -10,14 +10,14 @@ interface Props {
   time: string | null;
   details: AspirantDetails;
   errors: DetailsErrors;
-  onField: (field: keyof AspirantDetails, value: string) => void;
+  onField: (field: keyof AspirantDetails, value: string | boolean) => void;
   onSubmit: () => DetailsErrors;
   onBack: () => void;
   onEditSlot: () => void;
 }
 
-const FIELD_ORDER: (keyof AspirantDetails)[] = ['fullName', 'whatsapp', 'email', 'purpose', 'heardFrom'];
-const LABELS: Record<keyof AspirantDetails, string> = {
+const FIELD_ORDER: DetailsField[] = ['fullName', 'whatsapp', 'email', 'purpose', 'heardFrom'];
+const LABELS: Record<DetailsField, string> = {
   fullName: 'Full name',
   whatsapp: 'WhatsApp number',
   email: 'Email address',
@@ -36,10 +36,10 @@ export function DetailsForm({ service, date, time, details, errors, onField, onS
     if (firstBad) formRef.current?.querySelector<HTMLElement>(`#bk-${firstBad}`)?.focus();
   };
 
-  const describedBy = (f: keyof AspirantDetails, hint?: string) =>
+  const describedBy = (f: DetailsField, hint?: string) =>
     [hint, errors[f] ? `bk-${f}-err` : null].filter(Boolean).join(' ') || undefined;
 
-  const fieldError = (f: keyof AspirantDetails) =>
+  const fieldError = (f: DetailsField) =>
     errors[f] ? (
       <span id={`bk-${f}-err`} className="field-error">
         {errors[f]}
@@ -71,7 +71,7 @@ export function DetailsForm({ service, date, time, details, errors, onField, onS
               </ul>
             </div>
           )}
-          <p className="bk-required-note">All fields are required.</p>
+          <p className="bk-required-note">All fields are required unless marked optional.</p>
 
           <div className="field-group">
             <label htmlFor="bk-fullName">{LABELS.fullName}</label>
@@ -90,8 +90,25 @@ export function DetailsForm({ service, date, time, details, errors, onField, onS
               value={details.whatsapp} onChange={(e) => onField('whatsapp', e.target.value)}
               aria-invalid={!!errors.whatsapp} aria-describedby={describedBy('whatsapp', 'bk-whatsapp-hint')}
             />
-            <span id="bk-whatsapp-hint" className="bk-hint">Include your country code, e.g. +91 98765 43210.</span>
+            <span id="bk-whatsapp-hint" className="bk-hint">
+              Your own number, starting with the country code (e.g. +91 98765 43210). It is never shown publicly.
+            </span>
             {fieldError('whatsapp')}
+            {service.booking === 'server' && (
+              <label className="bk-check bk-optin">
+                <input
+                  id="bk-whatsappOptIn" type="checkbox" checked={!!details.whatsappOptIn}
+                  onChange={(e) => onField('whatsappOptIn', e.target.checked)}
+                  aria-describedby="bk-optin-hint"
+                />
+                <span>
+                  Send my booking confirmation and a reminder before the session to this number on WhatsApp
+                  <span id="bk-optin-hint" className="bk-hint">
+                    Optional. Used only for this booking. Your confirmation email is sent either way.
+                  </span>
+                </span>
+              </label>
+            )}
           </div>
 
           <div className="field-group">
@@ -136,7 +153,9 @@ export function DetailsForm({ service, date, time, details, errors, onField, onS
           </div>
 
           <p className="fine-print">
-            Prototype: your details stay in this browser tab. Nothing is stored or sent anywhere.
+            {service.booking === 'server'
+              ? 'Your details are used only to arrange this free session: they are stored with your booking and shared with Rahul, never published.'
+              : 'Prototype: your details stay in this browser tab. Nothing is stored or sent anywhere.'}
           </p>
           <button type="submit" className="btn btn-blue btn-cta bk-continue">
             Review booking <ArrowRight />

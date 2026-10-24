@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
 
-export type View = 'home' | 'pmp' | 'coaching' | 'admin';
+export type View = 'home' | 'pmp' | 'coaching' | 'admin' | 'support';
 
 /* Hashes that open their own view instead of a section of the home page. */
-const PAGE_VIEWS: Record<string, View> = { '#pmp': 'pmp', '#coaching': 'coaching', '#admin': 'admin' };
+const PAGE_VIEWS: Record<string, View> = { '#pmp': 'pmp', '#coaching': 'coaching', '#admin': 'admin', '#support': 'support' };
 
 const viewFromHash = (hash: string): View => PAGE_VIEWS[hash] ?? (hash.startsWith('#pmp/') ? 'pmp' : hash.startsWith('#admin/') ? 'admin' : 'home');
 

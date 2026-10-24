@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useRef, useState, type FormEvent } from 'react';
 import { ApiError, api, type Me } from '../pmp/api';
-import { AssessmentDetail, Assessments, Audit, CertificatePage, LearnerDetail, Learners, LessonEditor, Modules, Overview, Topics } from './pages';
+import { AssessmentDetail, Assessments, Audit, Bookings, CertificatePage, LearnerDetail, Learners, LessonEditor, Modules, Overview, Topics } from './pages';
 import '../pmp/pmp.css';
 import './admin.css';
 
@@ -30,6 +30,7 @@ const NAV: [string, string][] = [
   ['assessments', 'Assessments'],
   ['topics', 'Source coverage'],
   ['learners', 'Learners'],
+  ['bookings', 'Coaching bookings'],
   ['audit', 'Audit log'],
   ['certificate', 'Certificate'],
 ];
@@ -174,6 +175,8 @@ function AdminPage({ route }: { route: AdminRoute }) {
       return <LearnerDetail key={route.id} id={route.id} />;
     case 'audit':
       return <Audit />;
+    case 'bookings':
+      return <Bookings />;
     case 'certificate':
       return <CertificatePage />;
     default:

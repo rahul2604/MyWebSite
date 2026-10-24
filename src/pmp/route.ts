@@ -8,6 +8,7 @@ export type PmpRoute =
   | { page: 'exam'; id: string }
   | { page: 'review'; id: string }
   | { page: 'certificate' }
+  | { page: 'support' }
   | { page: 'verify'; code: string };
 
 export function parseRoute(hash: string): PmpRoute {
@@ -24,6 +25,8 @@ export function parseRoute(hash: string): PmpRoute {
       return id ? { page: 'review', id } : { page: 'home' };
     case 'certificate':
       return { page: 'certificate' };
+    case 'support':
+      return { page: 'support' };
     case 'verify':
       return { page: 'verify', code: id.toUpperCase() };
     default:

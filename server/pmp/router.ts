@@ -308,7 +308,7 @@ export async function handlePmp(request: Request, env: PmpEnv, path: string): Pr
 
   if (parts[0] === 'admin') {
     if (!admin) return fail(403, 'forbidden', 'You do not have access to this area.');
-    return handleAdmin(request, db, user, parts.slice(1), now);
+    return handleAdmin(request, db, user, parts.slice(1), now, env.BOOKINGS_DB);
   }
 
   if (parts[0] === 'lessons' && parts[1]) {

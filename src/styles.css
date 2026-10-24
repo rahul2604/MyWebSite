@@ -464,6 +464,11 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 @media (max-width: 1099px) {
   .header-socials { display: none; }
 }
+/* Six nav links: tighten spacing between the desktop and mobile layouts so the bar stays on one line. */
+@media (min-width: 860px) and (max-width: 1279px) {
+  .primary-nav { gap: clamp(12px, 1.5vw, 22px); font-size: 14.5px; }
+  .site-header { gap: 16px; }
+}
 
 /* Tablets and phones: compact, fixed header bar that auto-hides on scroll + collapsible menu. */
 @media (max-width: 859px) {
@@ -567,3 +572,6 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   html { scroll-behavior: auto; }
   .rm-root, .rm-root * { transition: none !important; }
 }
+
+/* Free-session note on the home page coaching card */
+.service-free-note { margin: 0 0 4px; font-size: 14.5px; font-weight: 600; color: var(--ok-text); }

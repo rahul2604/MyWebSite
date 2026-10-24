@@ -131,6 +131,59 @@ to anyone else are rejected (the booking is kept and the page offers "Send email
 **Local:** copy `.dev.vars.example` to `.dev.vars`, then `npm run preview:pages` (site + functions + local D1 in
 `.wrangler/`). **Tests:** `npm test` — Google and Resend are faked; any other network call fails the test.
 
+## Free services
+
+Every service in [`src/coaching/data/services.ts`](src/coaching/data/services.ts) is free (`price: 'Free'`,
+`free: true`) and booked through the server. There is no payment integration: `/api/bookings` only books services
+marked `free: true`, ignores any price fields in a request, and returns `booking.free: true`. Topmate still lists
+the mock interview at a price; this site intentionally offers it free.
+
+## WhatsApp confirmations and reminders
+
+Bookers can tick an **opt-in** (unticked by default) to receive a WhatsApp confirmation and a reminder before the
+session on the number they entered. Messages go through Meta's official **WhatsApp Cloud API** with approved
+templates ([`server/whatsapp.ts`](server/whatsapp.ts)); the workflow is in
+[`server/notifications.ts`](server/notifications.ts).
+
+- **Confirmation**: sent only after the booking is confirmed in D1 (live mode: only once the verified Meet link
+  exists, and the link is included; mock mode: the message says the link will be shared separately).
+- **Reminder**: `REMINDER_MINUTES_BEFORE` (default 30) before the start. Never scheduled in the past, never sent for
+  bookings that are no longer confirmed, never after the session has started.
+- **No duplicates**: one row per booking and message type in `booking_notifications` (created automatically and
+  additively, like the rest of the schema); every send is atomically claimed first. Failed sends are retried (60 s
+  apart, at most 5 attempts) and never affect the booking.
+- **Status**: pending · sent (WhatsApp *accepted* it — not proof of delivery) · failed · simulated · skipped (with a
+  reason). The booker sees the confirmation status; the admin panel's **Coaching bookings** page shows everything.
+- **Modes** (`WHATSAPP_MODE`): `off` (default), `simulate` (local: recorded and printed with a masked number, never
+  sent), `live`.
+
+**Scheduling.** Pages Functions only run on requests, so a separate Worker,
+[`workers/reminder-cron`](workers/reminder-cron/README.md), calls `POST /api/notifications/run` every 5 minutes with
+`Authorization: Bearer <NOTIFICATIONS_CRON_SECRET>`. It is **not deployed** yet; deploying it is an owner step.
+
+**Production setup (owner):**
+
+1. A WhatsApp Business Account and a business phone number in Meta's WhatsApp Manager; note its **Phone number ID**.
+2. A permanent **system-user access token** with `whatsapp_business_messaging` permission.
+3. Two **Utility** templates approved in WhatsApp Manager, each with six body variables — suggested text is in the
+   header comment of `server/whatsapp.ts` (`booking_confirmation`, `booking_reminder`).
+4. Cloudflare Pages → Settings → Variables and Secrets (Production): `WHATSAPP_MODE=live`,
+   `WHATSAPP_PHONE_NUMBER_ID`, secrets `WHATSAPP_ACCESS_TOKEN` and `NOTIFICATIONS_CRON_SECRET`; optional template
+   names, language, `WHATSAPP_GRAPH_VERSION`, `REMINDER_MINUTES_BEFORE`. Redeploy.
+5. Deploy `workers/reminder-cron` with the same `NOTIFICATIONS_CRON_SECRET`.
+
+**Local:** set `WHATSAPP_MODE=simulate` (and `EMAIL_DELIVERY=off` if you have no Resend key) in `.dev.vars`, run
+`npm run preview:pages`, book with the opt-in ticked, and read the simulated message in the terminal or in
+`#admin` → Coaching bookings. Tests fake the WhatsApp API; any real network call fails a test.
+
+## Support / FAQ
+
+One FAQ, two places: the **Support** page (`#support`, linked from the header and footer) and **Help & FAQs** inside
+the course (`#pmp/support`, linked from the course menu and the sign-in page; it also works when signed out).
+Content lives only in [`src/support/faqData.ts`](src/support/faqData.ts); the component is
+[`src/support/SupportFaq.tsx`](src/support/SupportFaq.tsx) (search, topic filters, accessible accordion). A WhatsApp
+support button appears only if `SUPPORT_WHATSAPP_NUMBER` in `src/data.ts` is set to a confirmed support number.
+
 ## PMP learning platform (`#pmp`) and administrator panel (`#admin`)
 
 ### What it is

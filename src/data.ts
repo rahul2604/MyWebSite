@@ -17,6 +17,14 @@ export const GMAIL_COMPOSE_URL = `https://mail.google.com/mail/?view=cm&fs=1&to=
 /* WhatsApp — number with country code. The icon only shows when this holds 10+ digits. */
 export const WHATSAPP_NUMBER = '+919537784427';
 
+/*
+ * Support WhatsApp number (international format, country code once) for the "Chat on WhatsApp"
+ * button on the Support/FAQ pages. Confirmed by Rahul as the support contact, October 2026.
+ * Empty = no WhatsApp support button. This is ONLY a click-to-chat contact: automated booking
+ * confirmations and reminders go to each customer's own number (server/notifications.ts).
+ */
+export const SUPPORT_WHATSAPP_NUMBER = '+919537784427';
+
 /* Instagram reels — newest first. `code` is the part after /reel/ in the reel's link. */
 export const REELS = [
   { code: 'DcOkQvsBUvN', cover: reel1 },

@@ -60,6 +60,12 @@ export function ReviewStep(p: Props) {
             <dl>
               <div><dt>Full name</dt><dd>{p.details.fullName.trim()}</dd></div>
               <div><dt>WhatsApp</dt><dd>{p.details.whatsapp.trim()}</dd></div>
+              {mode !== 'demo' && (
+                <div>
+                  <dt>WhatsApp updates</dt>
+                  <dd>{p.details.whatsappOptIn ? 'Yes: confirmation and reminder on WhatsApp' : 'No (email only)'}</dd>
+                </div>
+              )}
               <div><dt>Email</dt><dd className="bk-break">{p.details.email.trim()}</dd></div>
               <div><dt>Purpose</dt><dd className="bk-pre">{p.details.purpose.trim()}</dd></div>
               <div><dt>Heard about me via</dt><dd>{p.details.heardFrom}</dd></div>
@@ -69,6 +75,9 @@ export function ReviewStep(p: Props) {
 
         <aside className="bk-side-col">
           <div className="card bk-confirm-box">
+            <p className="bk-free-note">
+              <span className="bk-chip bk-chip-free">Free</span> This session is free. You won’t be asked for any payment.
+            </p>
             <p className="bk-demo-note" role="note">
               {mode === 'live' ? (
                 <>
@@ -84,7 +93,6 @@ export function ReviewStep(p: Props) {
                 <>
                   <strong>This is a demo.</strong> Confirming creates a sample booking reference only. No calendar slot is reserved and
                   no message, email or meeting link is sent.
-                  {!p.service.free && <> No payment is taken: the {p.service.price} fee is not charged here.</>}
                 </>
               )}
             </p>

@@ -6,6 +6,7 @@ import { CloseIcon, InstagramIcon, LinkedInIcon, Logo, MenuIcon, MoonIcon, SunIc
 
 interface HeaderProps {
   onPmp: boolean;
+  onSupport?: boolean;
   theme: Theme;
   onToggleTheme: () => void;
 }
@@ -13,7 +14,7 @@ interface HeaderProps {
 /* Must match the max-width of the mobile-menu media query in styles.css. */
 const MOBILE_MENU_QUERY = '(max-width: 859px)';
 
-export function Header({ onPmp, theme, onToggleTheme }: HeaderProps) {
+export function Header({ onPmp, onSupport = false, theme, onToggleTheme }: HeaderProps) {
   const [menuOpen, setMenuOpen] = useState(false);
   const themeLabel = theme === 'light' ? 'Switch to dark mode' : 'Switch to light mode';
   const closeMenu = () => setMenuOpen(false);
@@ -67,6 +68,7 @@ export function Header({ onPmp, theme, onToggleTheme }: HeaderProps) {
         </a>
         <a className="nav-link" href="#blog" onClick={closeMenu}>Blog</a>
         <a className="nav-link" href="#contact" onClick={closeMenu}>Contact</a>
+        <a className="nav-link" href="#support" aria-current={onSupport ? 'page' : undefined} onClick={closeMenu}>Support</a>
         {/* Shown only inside the mobile menu, where the header bar has no room for them. */}
         <div className="nav-extras">
           <div className="nav-extras-icons">

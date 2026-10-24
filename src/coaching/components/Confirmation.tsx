@@ -1,5 +1,5 @@
 import { CheckIcon } from '../../components/Icons';
-import type { BookingConfirmation } from '../api/bookingApi';
+import type { BookingConfirmation, WhatsappStatus } from '../api/bookingApi';
 import type { CoachingService } from '../data/services';
 import { BookingSummary } from './BookingSummary';
 
@@ -23,6 +23,34 @@ function emailLine(who: 'booker' | 'owner', outcome: string | undefined, email: 
   if (outcome === 'sent') return <>Rahul has been notified by email.</>;
   if (outcome === 'failed') return <>Rahul couldn’t be notified automatically. Please also send a message through <strong>Chat with Rahul</strong> with your reference.</>;
   return <>We couldn’t confirm whether Rahul was notified. Please also message him through <strong>Chat with Rahul</strong>.</>;
+}
+
+const timeIst = (iso: string) =>
+  new Date(iso).toLocaleTimeString('en-IN', { hour: 'numeric', minute: '2-digit', timeZone: 'Asia/Kolkata' }) + ' IST';
+
+/** WhatsApp status, worded strictly by what the server reported (never "delivered"). */
+function whatsappLine(w: WhatsappStatus | undefined, number: string) {
+  if (!w || w.confirmation === 'not_requested') return null;
+  const reminder =
+    w.reminderAt && (w.reminder === 'pending' || w.reminder === 'simulated')
+      ? ` A reminder is scheduled for about ${timeIst(w.reminderAt)} on the day.`
+      : '';
+  switch (w.confirmation) {
+    case 'sent':
+      return <li>Your WhatsApp confirmation was accepted by WhatsApp for <strong className="bk-break">{number}</strong>.{reminder}</li>;
+    case 'simulated':
+      return <li><strong>Test mode:</strong> a WhatsApp confirmation to {number} was simulated. No message was actually sent.{reminder}</li>;
+    case 'failed':
+      return <li>We couldn’t send your WhatsApp confirmation yet; it will be retried automatically. Your booking is confirmed either way.</li>;
+    case 'skipped':
+      return w.confirmationReason === 'disabled' || w.confirmationReason === 'not_configured' ? (
+        <li>WhatsApp messages aren’t switched on for bookings yet, so none was sent. Your confirmation email and booking reference are your record.</li>
+      ) : (
+        <li>No WhatsApp confirmation was sent for this booking. Your confirmation email and booking reference are your record.</li>
+      );
+    default:
+      return <li>Your WhatsApp confirmation is being prepared.{reminder}</li>;
+  }
 }
 
 export function Confirmation({ confirmation: c, service, resending, resendError, onResendEmails, onBookAnother, onHome }: Props) {
@@ -87,6 +115,7 @@ export function Confirmation({ confirmation: c, service, resending, resendError,
                 This is a demo booking from the new booking system. <strong>The meeting link will be shared separately.</strong>
               </li>
             )}
+            {whatsappLine(c.whatsapp, c.details.whatsapp)}
           </ul>
           {canResend && (
             <div className="bk-resend">
@@ -107,7 +136,6 @@ export function Confirmation({ confirmation: c, service, resending, resendError,
             <li>This slot has <strong>not</strong> been reserved against a real calendar.</li>
             <li>No meeting link has been created.</li>
             <li>No WhatsApp message or email has been sent to you or to Rahul.</li>
-            {!service.free && <li>No payment has been taken.</li>}
           </ul>
           <p>
             Online booking for this session isn't live yet. To arrange it in the meantime, reach out through the{' '}
@@ -139,6 +167,9 @@ export function Confirmation({ confirmation: c, service, resending, resendError,
         <button type="button" className="btn btn-ghost bk-ghost-cta" onClick={onHome}>
           Back to homepage
         </button>
+        <a className="inline-link" href="#support">
+          Questions about your booking? Help &amp; FAQs
+        </a>
       </div>
     </div>
   );
