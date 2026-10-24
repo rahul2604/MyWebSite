@@ -1,0 +1,15 @@
+# Separate Cloudflare Worker (NOT part of the Pages build). Deploy only after approval:
+#   cd workers/reminder-cron
+#   npx wrangler deploy
+#   npx wrangler secret put NOTIFICATIONS_CRON_SECRET   # same value as the Pages project's secret
+name = "mywebsite-reminder-cron"
+main = "index.js"
+compatibility_date = "2026-10-01"
+
+[vars]
+# Production site URL. Confirm the production domain before deploying.
+SITE_URL = "https://rahulmehra.co.in"
+
+[triggers]
+# Every 5 minutes. With the default 30-minute reminder, a reminder goes out 25–30 minutes before the session.
+crons = ["*/5 * * * *"]

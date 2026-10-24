@@ -20,8 +20,9 @@ export function Services() {
               One-to-one sessions to prepare for strategy and consulting case interviews — structuring problems,
               communicating your thinking clearly and approaching your next career move with confidence.
             </p>
+            <p className="service-free-note">Free: every session, including the 1:1 mock interview. No payment needed.</p>
             <a className="inline-link" href="#coaching">
-              Explore coaching &amp; book <ArrowRight size={16} />
+              Book a free session <ArrowRight size={16} />
             </a>
           </article>
           <article className="service lift">

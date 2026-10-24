@@ -10,6 +10,7 @@ import { CoachingPage } from './coaching/CoachingPage';
 import { ChatWidget } from './contact/ChatWidget';
 import { useHashView } from './hooks/useHashView';
 import { PmpApp } from './pmp/PmpApp';
+import { SupportPage } from './support/SupportPage';
 import { useTheme } from './hooks/useTheme';
 
 export default function App() {
@@ -22,7 +23,7 @@ export default function App() {
     <div id="top" className="rm-root">
       <section className={onHome ? 'hero-sky' : 'hero-sky is-compact'}>
         <div className="container">
-          <Header onPmp={onPmp} theme={theme} onToggleTheme={toggleTheme} />
+          <Header onPmp={onPmp} onSupport={view === 'support'} theme={theme} onToggleTheme={toggleTheme} />
           {onHome && <Hero />}
         </div>
       </section>
@@ -37,6 +38,7 @@ export default function App() {
       <PmpApp hidden={!onPmp} />
       <AdminApp hidden={view !== 'admin'} />
       <CoachingPage hidden={view !== 'coaching'} />
+      <SupportPage hidden={view !== 'support'} />
 
       {onHome && (
         <>

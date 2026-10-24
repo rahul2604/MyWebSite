@@ -6,6 +6,10 @@ import {
 import './chat.css';
 
 const EMPTY: ContactMessage = { name: '', email: '', whatsapp: '', message: '', website: '' };
+
+const OPEN_CHAT_EVENT = 'rm:open-chat';
+/** Opens the "Chat with Rahul" panel from anywhere on the site. */
+export const openChat = () => window.dispatchEvent(new Event(OPEN_CHAT_EVENT));
 type Status = 'idle' | 'sending' | 'sent' | 'error';
 
 function ChatIcon() {
@@ -30,6 +34,13 @@ export function ChatWidget() {
   const wasOpen = useRef(false);
   /** When the visitor started on this message; the server rejects implausibly fast submissions. */
   const startedAt = useRef<number | null>(null);
+
+  // Other parts of the site (e.g. the Support page) open the panel with openChat().
+  useEffect(() => {
+    const onOpen = () => setOpen(true);
+    window.addEventListener(OPEN_CHAT_EVENT, onOpen);
+    return () => window.removeEventListener(OPEN_CHAT_EVENT, onOpen);
+  }, []);
 
   // Focus the first field on open; return focus to the button on close; Escape closes.
   useEffect(() => {

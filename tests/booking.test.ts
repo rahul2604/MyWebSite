@@ -216,10 +216,17 @@ describe('POST /api/bookings', () => {
     assert.equal(count(), 0);
   });
 
-  test('only live services can be booked through the server', async () => {
-    const res = await book({ serviceId: 'strategy-interview' });
-    assert.equal((await res.json()).code, 'service_not_bookable');
-    assert.equal((await (await book({ serviceId: 'pmp-discovery' })).json()).ok, true);
+  test('every offered service is free and bookable through the server; unknown services are refused', async () => {
+    // 30-minute mock interview (formerly a paid browser demo) at 19:00; 15-minute call after its buffer.
+    const interview = await (await book({ serviceId: 'strategy-interview' })).json();
+    assert.equal(interview.ok, true);
+    assert.equal(interview.booking.durationMinutes, 30);
+    assert.equal(interview.booking.free, true);
+    const call = await (await book({ serviceId: 'pmp-discovery', time: '20:30' })).json();
+    assert.equal(call.ok, true);
+    assert.equal(call.booking.free, true);
+    assert.equal((await (await book({ serviceId: 'paid-masterclass', time: '21:00' })).json()).code, 'service_not_bookable');
+    assert.equal(count(), 2);
   });
 
   test('booker email rejected (e.g. unverified sender): booking kept, status reported', async () => {

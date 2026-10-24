@@ -121,6 +121,9 @@ export function AuthPage({ onSignedIn }: { onSignedIn: () => void }) {
           <p className="fine-print">
             Your progress is saved to your account. We use one secure cookie to keep you signed in, and nothing else.
           </p>
+          <p className="fine-print">
+            Trouble signing in? <a href="#pmp/support">Help &amp; FAQs</a>
+          </p>
         </form>
       </div>
     </div>

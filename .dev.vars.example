@@ -58,3 +58,32 @@ GOOGLE_TOKEN_ENCRYPTION_KEY=
 # this value, set your own password when asked, then remove this line. In production store it as an encrypted SECRET
 # with a strong random value. Leave it empty here; put a real value only in your own .dev.vars.
 PMP_ADMIN_BOOTSTRAP_PASSWORD=
+
+# ---------------- WhatsApp booking confirmations and reminders ----------------
+# Official WhatsApp Cloud API (Meta). Messages are sent only to bookers who tick the WhatsApp opt-in.
+# "off" (default): nothing is sent. "simulate": messages are recorded and printed in the preview:pages
+# terminal (number masked) but NEVER sent — use this locally. "live": real messages (production only).
+# WHATSAPP_MODE=simulate
+
+# Live mode only. Secret: a permanent system-user access token. Store as an encrypted SECRET in Cloudflare.
+WHATSAPP_ACCESS_TOKEN=
+# Live mode only. The Cloud API "Phone number ID" of the business sender number (digits; not the phone number).
+# WHATSAPP_PHONE_NUMBER_ID=
+
+# Optional. Names of the two approved templates (Utility category) and their language code.
+# Each takes 6 body parameters: first name, service, date, time (IST), meeting link or note, reference.
+# WHATSAPP_TEMPLATE_CONFIRMATION=booking_confirmation
+# WHATSAPP_TEMPLATE_REMINDER=booking_reminder
+# WHATSAPP_TEMPLATE_LANG=en
+# WHATSAPP_GRAPH_VERSION=v21.0
+
+# Optional. Minutes before the session for the reminder (5–1440). Default 30.
+# REMINDER_MINUTES_BEFORE=30
+
+# Secret (24+ characters). The scheduled reminder worker (workers/reminder-cron) sends it as a Bearer
+# token to POST /api/notifications/run. Without it that endpoint returns 404.
+NOTIFICATIONS_CRON_SECRET=
+
+# LOCAL DEVELOPMENT ONLY: "off" lets you make test bookings without a Resend key (emails stay unsent and
+# the confirmation page says so). Never set this in production.
+# EMAIL_DELIVERY=off

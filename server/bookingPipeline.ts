@@ -5,6 +5,7 @@
  *   live mode:  re-check Google busy → create event (pre-assigned id; a retry finds the same
  *               event instead of creating another) → wait for a VALID Meet URL → confirmed
  *   both modes: email owner + booker, each atomically claimed so it is never sent twice
+ *   both modes: WhatsApp confirmation for opted-in bookers (server/notifications.ts), claimed the same way
  *
  * A booking is only "confirmed" once its calendar event has a real Meet link (live) — or
  * immediately in mock mode. Emails are sent only for confirmed bookings.
@@ -19,6 +20,7 @@ import {
 } from './bookingStore.ts';
 import { notificationOwner, type BookingMode, type Env } from './env.ts';
 import { getEvent, GoogleError, insertEvent, requestMeet, waitForMeet, type CalendarEvent } from './google.ts';
+import { notifyConfirmed } from './notifications.ts';
 import { sendViaResend } from './resend.ts';
 
 export const HOLD_MS = 10 * 60 * 1000;
@@ -203,6 +205,9 @@ export async function runBooking(ctx: PipelineCtx, held: BookingRow): Promise<Ou
     row = result.row;
   }
   const delivered = await deliverEmails(ctx, row);
+  // WhatsApp confirmation (opted-in bookings only). Only reached for a confirmed booking; it records
+  // its own outcome and never throws, so a messaging problem can't undo or duplicate the booking.
+  await notifyConfirmed(ctx.env, ctx.db, delivered.row, ctx.now.getTime());
   return { ok: true, row: delivered.row, emailRetryAfterSeconds: delivered.retryAfterSeconds };
 }
 

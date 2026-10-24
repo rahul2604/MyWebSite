@@ -929,3 +929,135 @@ export function CertificatePage() {
     </div>
   );
 }
+
+/* ================= Coaching bookings (read-only) ================= */
+const NOTE_LABEL: Record<string, string> = {
+  pending: 'Scheduled',
+  sending: 'Sending',
+  sent: 'Sent (accepted)',
+  failed: 'Failed – will retry',
+  simulated: 'Simulated (test mode)',
+  skipped: 'Not sent',
+};
+const ISSUE_LABEL: Record<string, string> = {
+  disabled: 'WhatsApp off',
+  not_configured: 'credentials missing',
+  too_late: 'booked too close to the start',
+  expired: 'session already started',
+  booking_not_confirmed: 'booking not confirmed',
+  max_attempts: 'gave up after retries',
+  provider_auth: 'token rejected',
+  provider_recipient: 'number not reachable on WhatsApp',
+  provider_rejected: 'rejected by WhatsApp',
+  provider_unavailable: 'WhatsApp unavailable',
+};
+const issueText = (issue: string | null) => (issue ? issue.split(':').map((p) => ISSUE_LABEL[p] ?? p).join(' – ') : '');
+
+function NoteCell({ n, optIn }: { n: any; optIn: boolean }) {
+  if (!optIn) return <span className="pmp-muted">Not requested</span>;
+  if (!n) return <span className="pmp-muted">—</span>;
+  return (
+    <div>
+      <span className={n.status === 'failed' ? 'field-error' : undefined}>{NOTE_LABEL[n.status] ?? n.status}</span>
+      {n.issue && <div className="pmp-small pmp-muted">{issueText(n.issue)}</div>}
+      {n.status === 'pending' && <div className="pmp-small pmp-muted">due {fmt(n.due)}</div>}
+      {n.sentAt && <div className="pmp-small pmp-muted">{fmt(n.sentAt)}</div>}
+      {n.preview && (
+        <details className="adm-msg">
+          <summary className="pmp-small">Message</summary>
+          <pre>{n.preview}</pre>
+        </details>
+      )}
+    </div>
+  );
+}
+
+export function Bookings() {
+  const { data, error, reload } = useLoad<any>('bookings');
+  const [attentionOnly, setAttentionOnly] = useState(false);
+  if (!data) return <Loading error={error} />;
+  const rows: any[] = (data.bookings ?? []).filter((b: any) => !attentionOnly || b.needsAttention);
+  return (
+    <div className="pmp-page">
+      <Head eyebrow="BOOKINGS" title="Coaching bookings">
+        <p className="pmp-muted">
+          Read-only. All offered services are free. “Sent” means the provider accepted the message, not that it was delivered or read.
+        </p>
+      </Head>
+      {!data.configured ? (
+        <p className="pmp-muted">The bookings database is not bound in this environment.</p>
+      ) : (
+        <>
+          <div className="pmp-stats">
+            <Stat n={data.totals.bookings} label="bookings (latest 200)" />
+            <Stat n={data.totals.upcoming} label="upcoming confirmed" />
+            <Stat n={data.totals.needsAttention} label="need attention" note="failed email or WhatsApp" />
+          </div>
+          <div className="adm-filters">
+            <label className="bk-check">
+              <input type="checkbox" checked={attentionOnly} onChange={(e) => setAttentionOnly(e.target.checked)} />
+              <span>Show only bookings that need attention</span>
+            </label>
+            <button className="btn btn-ghost btn-small" type="button" onClick={reload}>
+              Refresh
+            </button>
+          </div>
+          {rows.length === 0 ? (
+            <p className="pmp-muted">{attentionOnly ? 'Nothing needs attention.' : 'No bookings yet.'}</p>
+          ) : (
+            <div className="pmp-table-wrap">
+              <table className="adm-table">
+                <thead>
+                  <tr>
+                    <th>Session</th>
+                    <th>Booked by</th>
+                    <th>Status</th>
+                    <th>Meeting link</th>
+                    <th>Emails</th>
+                    <th>WhatsApp confirmation</th>
+                    <th>WhatsApp reminder</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {rows.map((b) => (
+                    <tr key={b.reference}>
+                      <td>
+                        <strong>{b.service}</strong>
+                        <div className="pmp-small">
+                          {b.date} {b.time} IST · {b.durationMinutes ?? '—'} min · {b.free ? 'Free' : 'Paid'}
+                        </div>
+                        <div className="pmp-small pmp-muted">{b.reference}</div>
+                      </td>
+                      <td>
+                        {b.name}
+                        <div className="pmp-small pmp-muted">{b.email}</div>
+                        <div className="pmp-small pmp-muted">{b.whatsapp}</div>
+                      </td>
+                      <td>
+                        {b.status === 'confirmed' ? 'Confirmed' : b.status === 'pending' ? 'Pending' : b.status === 'failed' ? 'Not completed' : b.status}
+                        <div className="pmp-small pmp-muted">{b.mode === 'live' ? 'Live (Google Calendar)' : 'Demo mode'}</div>
+                        {!b.upcoming && <div className="pmp-small pmp-muted">Past</div>}
+                      </td>
+                      <td>{b.meetingLinkAvailable ? 'Available' : b.mode === 'live' ? 'Missing' : 'Shared separately'}</td>
+                      <td className="pmp-small">
+                        You: {b.emails.owner}
+                        <br />
+                        Booker: {b.emails.booker}
+                      </td>
+                      <td>
+                        <NoteCell n={b.whatsappConfirmation} optIn={b.whatsappOptIn} />
+                      </td>
+                      <td>
+                        <NoteCell n={b.whatsappReminder} optIn={b.whatsappOptIn} />
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          )}
+        </>
+      )}
+    </div>
+  );
+}

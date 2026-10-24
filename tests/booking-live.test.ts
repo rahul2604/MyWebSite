@@ -348,8 +348,14 @@ describe('live booking', () => {
     assert.equal(data.booking.meetUrl, MEET_URL);
   });
 
-  test('30-minute paid service stays a browser demo (not bookable through the server)', async () => {
-    const { data } = await book({ serviceId: 'strategy-interview' });
-    assert.equal(data.code, 'service_not_bookable');
+  test('30-minute mock interview is now free and booked live with its own Meet link', async () => {
+    const { status, data } = await book({ serviceId: 'strategy-interview' });
+    assert.equal(status, 200);
+    assert.equal(data.booking.free, true);
+    assert.equal(data.booking.durationMinutes, 30);
+    assert.equal(data.booking.meetUrl, MEET_URL);
+    const ev = google.eventBodies.at(-1)!;
+    assert.equal(ev.start.dateTime, '2026-10-19T19:00:00+05:30');
+    assert.equal(ev.end.dateTime, '2026-10-19T19:30:00+05:30');
   });
 });

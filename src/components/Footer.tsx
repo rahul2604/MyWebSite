@@ -10,6 +10,10 @@ export function Footer() {
           <a className="tag" href={HASHTAG_URL} target="_blank" rel="noopener noreferrer">
             #rahulm2604
           </a>
+          {' · '}
+          <a className="tag" href="#support">
+            Help &amp; FAQs
+          </a>
         </span>
         <div className="footer-icons">
           <a className="icon-link" href={LINKEDIN_URL} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn (opens in a new tab)">

@@ -8,6 +8,7 @@ import { LessonView } from './LessonView';
 import { ReviewView } from './ReviewView';
 import { Sidebar } from './Sidebar';
 import { VerifyView } from './VerifyView';
+import { SupportFaq } from '../support/SupportFaq';
 import { usePmpRoute, type PmpRoute } from './route';
 import './pmp.css';
 
@@ -76,7 +77,13 @@ export function PmpApp({ hidden }: { hidden: boolean }) {
             </button>
           </div>
         )}
-        {session.kind === 'signedOut' && <AuthPage onSignedIn={() => void refresh()} />}
+        {/* Help & FAQs stay reachable when signed out (e.g. for sign-in problems). */}
+        {route.page === 'support' && (session.kind === 'signedOut' || session.kind === 'error') && (
+          <div className="pmp-card">
+            <SupportFaq context="course" />
+          </div>
+        )}
+        {session.kind === 'signedOut' && route.page !== 'support' && <AuthPage onSignedIn={() => void refresh()} />}
         {session.kind === 'signedIn' && session.me.user.mustChangePassword && (
           <div className="pmp-card pmp-notice" role="alert">
             <p>Set your own administrator password before previewing the course.</p>
@@ -136,6 +143,8 @@ function Page({ route, me, refresh }: { route: PmpRoute; me: Me; refresh: () => 
       return <ReviewView key={route.id} id={route.id} state={me.state} />;
     case 'certificate':
       return <CertificateView me={me} refresh={refresh} />;
+    case 'support':
+      return <SupportFaq context="course" />;
     default:
       return <Dashboard me={me} />;
   }

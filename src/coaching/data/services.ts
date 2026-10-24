@@ -1,8 +1,8 @@
 /*
  * Coaching services shown on the Strategy & Coaching booking page.
  *
- * Source of truth for the first two services: https://topmate.io/rahul_mehra
- * (copied 20 October 2026). Keep them in step with Topmate when either changes.
+ * Source of truth for the first two services' descriptions: https://topmate.io/rahul_mehra
+ * (copied 20 October 2026). Pricing differs on purpose: every service offered on this site is free.
  *
  * Edit freely. Any value wrapped in [square brackets] is a placeholder for
  * information that hasn't been decided yet; the UI marks it as "to be confirmed".
@@ -30,8 +30,12 @@ export interface CoachingService {
   duration: string;
   /** Session length in minutes, once known. Slots and summaries then show an end time. */
   durationMinutes?: number;
+  /** Shown as the session's price. Every currently offered service is "Free". */
   price: string;
-  /** Free sessions get a "Free" badge and never mention payment. */
+  /**
+   * Free sessions get a "Free" badge and never mention payment. The server only books services
+   * marked free (there is no payment integration), so a paid service can't be booked by accident.
+   */
   free?: boolean;
   /** Small highlight label on the card, e.g. "Popular". */
   badge?: string;
@@ -86,10 +90,12 @@ export const COACHING_SERVICES: CoachingService[] = [
     format: 'Video meeting',
     duration: '30 minutes',
     durationMinutes: 30,
-    price: '₹299',
+    // Free on this site (October 2026 product decision: every offered service is free).
+    price: 'Free',
+    free: true,
     badge: 'Popular',
-    // Paid session: stays an in-browser demo until payments exist.
-    booking: 'demo',
+    ctaLabel: 'Book a Free Session',
+    booking: 'server',
     intro: [
       'Are you preparing for consulting or strategy interviews as an MBA student or recent graduate? I offer personalized 1:1 sessions to help you succeed in every round.',
     ],

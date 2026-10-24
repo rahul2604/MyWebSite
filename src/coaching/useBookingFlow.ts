@@ -39,7 +39,7 @@ type Action =
   | { type: 'pickDate'; date: string }
   | { type: 'pickTime'; time: string }
   | { type: 'slotError'; message: string | null }
-  | { type: 'setField'; field: keyof AspirantDetails; value: string }
+  | { type: 'setField'; field: keyof AspirantDetails; value: string | boolean }
   | { type: 'setErrors'; errors: DetailsErrors }
   | { type: 'submitStart' }
   | { type: 'submitFail'; message: string; slotTaken: boolean }
@@ -86,7 +86,7 @@ function reducer(s: State, a: Action): State {
     case 'setField': {
       // Clear a field's error as soon as it's edited; keep the rest until the next submit.
       const errors = { ...s.errors };
-      delete errors[a.field];
+      if (a.field !== 'whatsappOptIn') delete errors[a.field];
       return { ...s, details: { ...s.details, [a.field]: a.value }, errors };
     }
     case 'setErrors':
@@ -183,7 +183,7 @@ export function useBookingFlow() {
     pickService: (id: ServiceId) => dispatch({ type: 'pickService', id }),
     pickDate: (date: string) => dispatch({ type: 'pickDate', date }),
     pickTime: (time: string) => dispatch({ type: 'pickTime', time }),
-    setField: (field: keyof AspirantDetails, value: string) => dispatch({ type: 'setField', field, value }),
+    setField: (field: keyof AspirantDetails, value: string | boolean) => dispatch({ type: 'setField', field, value }),
     confirmSlot,
     submitDetails,
     confirmBooking,

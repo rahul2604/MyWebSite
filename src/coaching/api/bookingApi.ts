@@ -48,6 +48,21 @@ export interface BookingRequest {
 /** "sent" = the email provider accepted it (not proof of inbox delivery). "pending" = outcome unknown. */
 export type EmailOutcome = 'sent' | 'failed' | 'pending';
 
+/**
+ * WhatsApp message status as reported by the server. "sent" = WhatsApp accepted the message (not
+ * proof of delivery). "simulated" = local test mode, nothing was sent. "skipped" comes with a reason.
+ */
+export type WhatsappOutcome = 'not_requested' | 'pending' | 'sent' | 'failed' | 'simulated' | 'skipped';
+
+export interface WhatsappStatus {
+  confirmation: WhatsappOutcome;
+  confirmationReason?: string;
+  reminder?: WhatsappOutcome;
+  /** When the reminder is scheduled (ISO), if one is. */
+  reminderAt?: string;
+  reminderReason?: string;
+}
+
 export interface BookingConfirmation {
   reference: string;
   serviceId: ServiceId;
@@ -59,6 +74,8 @@ export interface BookingConfirmation {
   /** Live mode only: the verified Google Meet joining URL. */
   meetUrl?: string;
   emails?: { owner: EmailOutcome; booker: EmailOutcome };
+  /** Server bookings only. */
+  whatsapp?: WhatsappStatus;
   /** Why the booker's confirmation email failed, if it did (category only). */
   bookerEmailIssue?: string;
   /** Set when an email retry was asked for too soon. */
@@ -223,7 +240,13 @@ export const serverBookingApi: BookingApi = {
     const { res, data } = await call('/api/bookings', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ serviceId: req.serviceId, date: req.date, time: req.time, details: req.details, idempotencyKey: req.idempotencyKey }),
+      body: JSON.stringify({
+        serviceId: req.serviceId,
+        date: req.date,
+        time: req.time,
+        details: { ...req.details, whatsappOptIn: req.details.whatsappOptIn === true },
+        idempotencyKey: req.idempotencyKey,
+      }),
     });
     if (!res.ok || data?.ok !== true) throw toError(res, data);
     const b = data.booking;
@@ -242,6 +265,7 @@ export const serverBookingApi: BookingApi = {
       mode,
       meetUrl: mode === 'live' ? b.meetUrl : undefined,
       emails: data.emails,
+      whatsapp: data.whatsapp && typeof data.whatsapp.confirmation === 'string' ? (data.whatsapp as WhatsappStatus) : undefined,
       bookerEmailIssue: data.bookerEmailIssue,
       emailRetryAfterSeconds: data.emailRetryAfterSeconds,
       request: req,

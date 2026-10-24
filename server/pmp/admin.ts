@@ -18,7 +18,9 @@
  *   GET  learners, learners/:id           learner progress (no password data)
  *   GET  audit                            recent administrative actions
  *   GET  certificate-sample.pdf           the certificate template with sample data
+ *   GET  bookings                         coaching bookings with free status, meeting link and WhatsApp status (read-only)
  */
+import { listBookingsForAdmin } from '../bookingAdmin.ts';
 import type { D1Like } from '../bookingStore.ts';
 import { fail, json } from '../http.ts';
 import {
@@ -92,9 +94,16 @@ const adminQuestion = (q: Question, o: OverrideRow | undefined) => ({
   draft: parse<Partial<Question>>(o?.draft ?? null),
 });
 
-export async function handleAdmin(request: Request, db: D1Like, admin: UserRow, parts: string[], now: number): Promise<Response> {
+export async function handleAdmin(request: Request, db: D1Like, admin: UserRow, parts: string[], now: number, bookingsDb?: D1Like): Promise<Response> {
   const method = request.method;
   const [section, id, action] = parts;
+
+  /* ---------------- coaching bookings (read-only) ---------------- */
+  if (section === 'bookings' && method === 'GET') {
+    if (!bookingsDb) return json(200, { ok: true, configured: false, bookings: [] });
+    return json(200, { ok: true, configured: true, ...(await listBookingsForAdmin(bookingsDb, now)) });
+  }
+
   const { course, overrides } = await loadCourse(db);
   const ov = (kind: OverrideKind, itemId: string) => overrides.find((o) => o.kind === kind && o.item_id === itemId);
 

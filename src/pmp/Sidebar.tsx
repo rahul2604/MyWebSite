@@ -121,6 +121,10 @@ export function Sidebar({ state, route, open, onClose, hasCertificate }: { state
           )}
         </li>
       </ul>
+      <p className="pmp-side-heading">Support</p>
+      <a className={`pmp-side-link${route.page === 'support' ? ' is-current' : ''}`} href={href('support')} aria-current={route.page === 'support' ? 'page' : undefined}>
+        Help &amp; FAQs
+      </a>
     </nav>
   );
 }
