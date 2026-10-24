@@ -21,8 +21,8 @@ function emailLine(who: 'booker' | 'owner', outcome: string | undefined, email: 
     return <>We couldn’t confirm whether your confirmation email was sent. Please note your reference above.</>;
   }
   if (outcome === 'sent') return <>Rahul has been notified by email.</>;
-  if (outcome === 'failed') return <>Rahul couldn’t be notified automatically. Please also send a message through <strong>Chat with Rahul</strong> with your reference.</>;
-  return <>We couldn’t confirm whether Rahul was notified. Please also message him through <strong>Chat with Rahul</strong>.</>;
+  if (outcome === 'failed') return <>Rahul couldn’t be notified automatically. Please also contact him from <strong>Need help?</strong> (bottom right) with your reference.</>;
+  return <>We couldn’t confirm whether Rahul was notified. Please also contact him from <strong>Need help?</strong> (bottom right).</>;
 }
 
 const timeIst = (iso: string) =>

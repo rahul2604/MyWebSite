@@ -48,7 +48,7 @@ export default function App() {
       )}
 
       <Footer />
-      <ChatWidget />
+      <ChatWidget context={view === 'admin' ? null : view === 'coaching' ? 'services' : view === 'pmp' ? 'course' : view === 'support' ? 'support' : 'home'} />
     </div>
   );
 }

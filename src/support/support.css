@@ -75,6 +75,4 @@
   .faq-chevron { transition: none; }
 }
 
-/* WhatsApp support button: a deep WhatsApp green so white text meets WCAG AA (about 5.4:1). */
-.btn-whatsapp { gap: 8px; background: #0f7a3f; color: #ffffff; transition: background 0.2s, transform 0.2s; }
-.btn-whatsapp:hover { background: #0b6634; color: #ffffff; transform: translateY(-1px); }
+/* .btn-whatsapp (deep WhatsApp green, white text ≈ 5.4:1 contrast) is defined once in assistant.css. */

@@ -66,3 +66,52 @@
 @media (prefers-reduced-motion: reduce) {
   .chat-toggle { transition: none; }
 }
+
+/* ============ "Need help?" support panel (help mode + email mode) ============ */
+.chat-toggle { position: relative; }
+/* Small "support available" indicator on the launcher. */
+.chat-dot {
+  position: absolute; top: 6px; left: 34px; width: 10px; height: 10px; border-radius: 50%;
+  background: #22c55e; box-shadow: 0 0 0 2px var(--primary);
+}
+.chat-panel { animation: chat-in 0.18s ease-out; }
+.chat-panel.is-help { display: flex; flex-direction: column; overflow: hidden; }
+@keyframes chat-in { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+
+.chat-head-text { flex: 1; min-width: 0; }
+.chat-head p { display: flex; align-items: center; gap: 6px; }
+.chat-online { width: 8px; height: 8px; border-radius: 50%; background: #22c55e; flex: none; }
+.chat-back {
+  flex: none; width: 36px; height: 36px; margin: -4px 0 0 -6px; display: inline-flex; align-items: center; justify-content: center;
+  border: 0; border-radius: 10px; background: none; color: var(--t-label); cursor: pointer;
+}
+.chat-back:hover { background: var(--ghost-hover-bg); color: var(--t-strong); }
+
+/* Dismissible greeting above the launcher (once per session, never auto-opens the panel). */
+.chat-greeting {
+  display: flex; align-items: center; gap: 2px; max-width: min(280px, calc(100vw - 32px));
+  padding: 4px 4px 4px 14px; border: 1px solid var(--line-2); border-radius: 14px;
+  background: var(--surface); box-shadow: 0 10px 30px rgba(10, 20, 40, 0.18); animation: chat-in 0.25s ease-out;
+}
+.chat-greeting-text { padding: 8px 0; border: 0; background: none; font: inherit; font-size: 14px; font-weight: 500; color: var(--t-body-strong); text-align: left; cursor: pointer; }
+.chat-greeting-text:hover { color: var(--t-strong); text-decoration: underline; text-underline-offset: 3px; }
+.chat-greeting-close {
+  flex: none; width: 36px; height: 36px; display: inline-flex; align-items: center; justify-content: center;
+  border: 0; border-radius: 10px; background: none; color: var(--t-muted); cursor: pointer;
+}
+.chat-greeting-close svg { width: 16px; height: 16px; }
+.chat-greeting-close:hover { background: var(--ghost-hover-bg); color: var(--t-strong); }
+
+@media (max-width: 599px) {
+  .chat-dot { top: 8px; left: auto; right: 10px; }
+  /* Full-width panel on phones, clear of the launcher. */
+  .chat-panel { width: calc(100vw - 32px); max-height: calc(100dvh - 96px); }
+  /* No greeting bubble on phones: it would cover page content. The launcher stays. */
+  .chat-greeting { display: none; }
+  .sa-log { max-height: calc(100dvh - 330px); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .chat-panel, .chat-greeting { animation: none; }
+}
+.chat-help { display: flex; flex-direction: column; min-height: 0; }
+.chat-help[hidden] { display: none; }
