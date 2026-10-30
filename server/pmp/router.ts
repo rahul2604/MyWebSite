@@ -14,7 +14,12 @@
  *   POST /certificate                               issue the certificate once the final is passed
  *   GET  /certificate.pdf                           the learner's certificate as a PDF
  *   GET  /verify/:code                              public verification (no sign-in)
+ *   GET  /status                                    public: { launched } — whether the course is open to the public
  *   *    /admin/*                                   administrator API (server/pmp/admin.ts)
+ *
+ * Launch control: until PMP_COURSE_LAUNCHED is "true", the course is private. Sign-up,
+ * learner sign-in, every learner endpoint and certificate verification return 403
+ * "coming_soon"; only the administrator can sign in and use the course and the admin API.
  *
  * Roles: the role lives only in pmp_users.role and is read from the database on every
  * request. Administrators bypass learner *progression* checks for reading content, never
@@ -107,6 +112,12 @@ export interface PmpEnv {
    * Remove it once the administrator has set their own password.
    */
   PMP_ADMIN_BOOTSTRAP_PASSWORD?: string;
+  /**
+   * "true" opens the course to the public (sign-up, learner sign-in, lessons, assessments,
+   * certificates). Anything else, or unset, keeps it private: visitors see "Coming soon" and
+   * only the administrator has access. Default: private.
+   */
+  PMP_COURSE_LAUNCHED?: string;
 }
 
 const MAX_BODY = 64 * 1024;
@@ -118,6 +129,8 @@ export const formatDate = (ms: number) => new Date(ms).toLocaleDateString('en-GB
 export const adminEmail = (env: PmpEnv) => normaliseEmail(env.PMP_ADMIN_EMAIL) || DEFAULT_ADMIN_EMAIL;
 const bootstrapPassword = (env: PmpEnv) => (env.PMP_ADMIN_BOOTSTRAP_PASSWORD && env.PMP_ADMIN_BOOTSTRAP_PASSWORD.length >= 10 ? env.PMP_ADMIN_BOOTSTRAP_PASSWORD : undefined);
 export const isAdmin = (u: UserRow) => u.role === 'admin';
+export const courseLaunched = (env: PmpEnv) => env.PMP_COURSE_LAUNCHED === 'true';
+const comingSoon = () => fail(403, 'coming_soon', 'The PMP® learning path is coming soon. It is not open yet.');
 
 export async function readJson(request: Request): Promise<Record<string, unknown> | Response> {
   if (!(request.headers.get('Content-Type') || '').includes('application/json')) return fail(415, 'unsupported', 'Unsupported request.');
@@ -165,6 +178,9 @@ const adminPreviewOnly = () =>
 const sessionTtl = (u: Pick<UserRow, 'role'>) => (u.role === 'admin' ? ADMIN_SESSION_TTL_MS : SESSION_TTL_MS);
 
 export async function handlePmp(request: Request, env: PmpEnv, path: string): Promise<Response> {
+  if (path.replace(/\/+$/, '') === 'status' && (request.method === 'GET' || request.method === 'HEAD')) {
+    return json(200, { ok: true, launched: courseLaunched(env) }, { 'Cache-Control': 'no-store' });
+  }
   const db = pmpDb(env);
   if (!db) return fail(503, 'unavailable', 'The learning platform is not available right now.');
   await ensurePmpSchema(db);
@@ -178,6 +194,7 @@ export async function handlePmp(request: Request, env: PmpEnv, path: string): Pr
 
   /* ---------------- public ---------------- */
   if (parts[0] === 'verify' && parts.length === 2 && method === 'GET') {
+    if (!courseLaunched(env)) return comingSoon();
     const code = parts[1];
     if (!/^[A-Z0-9-]{8,32}$/.test(code)) return fail(404, 'not_found', 'Certificate not found.');
     const cert = await findCertificateByCode(db, code);
@@ -207,6 +224,7 @@ export async function handlePmp(request: Request, env: PmpEnv, path: string): Pr
     if (action === 'change-password') {
       const me = await currentUser(db, request, now);
       if (!me) return fail(401, 'signed_out', 'Please sign in.');
+      if (!isAdmin(me) && !courseLaunched(env)) return comingSoon();
       const current = typeof body.currentPassword === 'string' ? body.currentPassword : '';
       const next = body.newPassword;
       if (!current || current.length > 128 || !(await verifyPassword(current, me))) {
@@ -227,6 +245,7 @@ export async function handlePmp(request: Request, env: PmpEnv, path: string): Pr
     const password = typeof body.password === 'string' ? body.password : '';
 
     if (action === 'signup') {
+      if (!courseLaunched(env)) return comingSoon();
       if (env.PMP_SIGNUP_OPEN === 'false') return fail(403, 'signup_closed', 'New registrations are closed at the moment.');
       if (signupLimiter(ip(request), now)) return fail(429, 'rate_limited', 'Too many sign-ups from this network. Please try again later.');
       const name = cleanName(body.name);
@@ -246,6 +265,9 @@ export async function handlePmp(request: Request, env: PmpEnv, path: string): Pr
     if (action === 'login') {
       const generic = () => fail(401, 'invalid_credentials', 'Email or password is incorrect.');
       if (!validEmail(email) || !password || password.length > 128) return generic();
+      // Before launch only the administrator email may sign in (checked before any password
+      // work, so this reveals nothing about learner accounts).
+      if (!courseLaunched(env) && email !== adminEmail(env)) return comingSoon();
       let user = await findUserByEmail(db, email);
 
       // One-time administrator bootstrap: only for the configured admin email, only while no
@@ -288,6 +310,8 @@ export async function handlePmp(request: Request, env: PmpEnv, path: string): Pr
   const user = await currentUser(db, request, now);
   if (!user) return fail(401, 'signed_out', 'Please sign in.');
   const admin = isAdmin(user);
+  // Before launch, learner sessions (including ones created earlier) reach nothing.
+  if (!admin && !courseLaunched(env)) return comingSoon();
 
   if (parts[0] === 'me' && parts.length === 1 && method === 'GET') {
     const { course } = await loadCourse(db);

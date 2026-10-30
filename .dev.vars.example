@@ -48,6 +48,9 @@ GOOGLE_TOKEN_ENCRYPTION_KEY=
 # ---------------- PMP learning platform (#pmp, #admin) ----------------
 # PMP_DB is an optional D1 binding (not set here). Without it the platform uses BOOKINGS_DB from wrangler.toml.
 
+# "true" opens the course to the public. Unset or anything else: "Coming soon" for visitors, admin-only access.
+# PMP_COURSE_LAUNCHED=false
+
 # "false" closes new learner sign-ups. Default: open.
 # PMP_SIGNUP_OPEN=true
 

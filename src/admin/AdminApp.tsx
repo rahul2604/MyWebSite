@@ -49,7 +49,8 @@ export function AdminApp({ hidden }: { hidden: boolean }) {
       else if (me.user.mustChangePassword) setSession({ kind: 'mustChange', me });
       else setSession({ kind: 'admin', me });
     } catch (err) {
-      if (err instanceof ApiError && err.status === 401) setSession({ kind: 'signedOut' });
+      // Before launch a learner session gets "coming_soon": show the sign-in form so the admin can still sign in.
+      if (err instanceof ApiError && (err.status === 401 || err.code === 'coming_soon')) setSession({ kind: 'signedOut' });
       else setSession({ kind: 'error', message: err instanceof ApiError ? err.message : 'Something went wrong.' });
     }
   }, []);

@@ -133,6 +133,7 @@ async function request<T>(path: string, init: { method?: string; body?: unknown 
 }
 
 export const api = {
+  status: () => request<{ launched: boolean }>('status'),
   me: () => request<Me & { ok: true }>('me'),
   signup: (name: string, email: string, password: string) => request<{ user: { name: string } }>('auth/signup', { body: { name, email, password } }),
   login: (email: string, password: string) => request<{ user: { name: string; role: 'learner' | 'admin'; mustChangePassword: boolean } }>('auth/login', { body: { email, password } }),

@@ -382,7 +382,7 @@ describe('scheduled run endpoint and admin view', () => {
     const get = (cookie?: string) =>
       pmpApi({
         request: new Request(`${SITE}/api/pmp/admin/bookings`, { headers: { 'CF-Connecting-IP': '10.8.0.1', ...(cookie ? { Cookie: cookie } : {}) } }),
-        env: { BOOKINGS_DB: db } as never,
+        env: { BOOKINGS_DB: db, PMP_COURSE_LAUNCHED: 'true' } as never,
       });
     assert.equal((await get()).status, 401);
     const signup = await pmpApi({
@@ -391,7 +391,7 @@ describe('scheduled run endpoint and admin view', () => {
         headers: { 'Content-Type': 'application/json', Origin: SITE, 'CF-Connecting-IP': '10.8.0.2' },
         body: JSON.stringify({ name: 'Asha Rao', email: 'learner@example.com', password: 'correct horse 42' }),
       }),
-      env: { BOOKINGS_DB: db } as never,
+      env: { BOOKINGS_DB: db, PMP_COURSE_LAUNCHED: 'true' } as never,
     });
     const cookie = (signup.headers.get('Set-Cookie') || '').split(';')[0];
     assert.equal((await get(cookie)).status, 403);

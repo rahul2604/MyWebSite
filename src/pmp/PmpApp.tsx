@@ -3,6 +3,7 @@ import { ApiError, api, type Me } from './api';
 import { AssessmentView } from './AssessmentView';
 import { AuthPage } from './AuthPage';
 import { CertificateView } from './CertificateView';
+import { ComingSoon } from './ComingSoon';
 import { Dashboard } from './Dashboard';
 import { LessonView } from './LessonView';
 import { ReviewView } from './ReviewView';
@@ -10,13 +11,18 @@ import { Sidebar } from './Sidebar';
 import { VerifyView } from './VerifyView';
 import { SupportFaq } from '../support/SupportFaq';
 import { usePmpRoute, type PmpRoute } from './route';
+import { useCourseLaunched } from './useCourseLaunched';
 import './pmp.css';
 
-type Session = { kind: 'loading' } | { kind: 'signedOut' } | { kind: 'error'; message: string } | { kind: 'signedIn'; me: Me };
+type Session = { kind: 'loading' } | { kind: 'signedOut' } | { kind: 'comingSoon' } | { kind: 'error'; message: string } | { kind: 'signedIn'; me: Me };
 
-/* The PMP® learning platform (#pmp). Locks and scores are decided by the server; this UI reflects them. */
+/*
+ * The PMP® learning platform (#pmp). Locks and scores are decided by the server; this UI reflects them.
+ * Before launch, everyone but a signed-in administrator sees "Coming soon" (the server refuses them too).
+ */
 export function PmpApp({ hidden }: { hidden: boolean }) {
   const route = usePmpRoute();
+  const launched = useCourseLaunched();
   const [session, setSession] = useState<Session>({ kind: 'loading' });
   const [drawerOpen, setDrawerOpen] = useState(false);
   const mainRef = useRef<HTMLDivElement>(null);
@@ -27,6 +33,7 @@ export function PmpApp({ hidden }: { hidden: boolean }) {
       setSession({ kind: 'signedIn', me });
     } catch (err) {
       if (err instanceof ApiError && err.status === 401) setSession({ kind: 'signedOut' });
+      else if (err instanceof ApiError && err.code === 'coming_soon') setSession({ kind: 'comingSoon' });
       else setSession({ kind: 'error', message: err instanceof ApiError ? err.message : 'Something went wrong.' });
     }
   }, []);
@@ -45,6 +52,15 @@ export function PmpApp({ hidden }: { hidden: boolean }) {
   }, [routeKey, hidden]);
 
   if (hidden) return null;
+
+  const closed = session.kind === 'comingSoon' || (launched === false && (session.kind === 'signedOut' || route.page === 'verify'));
+  if (closed || (launched === null && route.page === 'verify')) {
+    return (
+      <section className="pmp-app" aria-label="PMP learning path">
+        <div className="container">{closed ? <ComingSoon /> : <p className="pmp-status">Loading…</p>}</div>
+      </section>
+    );
+  }
 
   if (route.page === 'verify') {
     return (
@@ -68,7 +84,7 @@ export function PmpApp({ hidden }: { hidden: boolean }) {
   return (
     <section className="pmp-app" aria-label="PMP learning platform">
       <div className="container">
-        {session.kind === 'loading' && <p className="pmp-status">Loading your course…</p>}
+        {(session.kind === 'loading' || (session.kind === 'signedOut' && launched === null)) && <p className="pmp-status">Loading your course…</p>}
         {session.kind === 'error' && (
           <div className="pmp-card pmp-notice" role="alert">
             <p>{session.message}</p>
@@ -78,12 +94,12 @@ export function PmpApp({ hidden }: { hidden: boolean }) {
           </div>
         )}
         {/* Help & FAQs stay reachable when signed out (e.g. for sign-in problems). */}
-        {route.page === 'support' && (session.kind === 'signedOut' || session.kind === 'error') && (
+        {route.page === 'support' && ((session.kind === 'signedOut' && launched) || session.kind === 'error') && (
           <div className="pmp-card">
             <SupportFaq context="course" />
           </div>
         )}
-        {session.kind === 'signedOut' && route.page !== 'support' && <AuthPage onSignedIn={() => void refresh()} />}
+        {session.kind === 'signedOut' && launched && route.page !== 'support' && <AuthPage onSignedIn={() => void refresh()} />}
         {session.kind === 'signedIn' && session.me.user.mustChangePassword && (
           <div className="pmp-card pmp-notice" role="alert">
             <p>Set your own administrator password before previewing the course.</p>
