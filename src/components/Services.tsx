@@ -15,10 +15,11 @@ export function Services() {
               </div>
               <span className="service-num">01</span>
             </div>
-            <h3>Strategy &amp; Interview Coaching</h3>
+            <h3>Personalised 1:1 Coaching</h3>
             <p>
-              One-to-one sessions to prepare for strategy and consulting case interviews — structuring problems,
-              communicating your thinking clearly and approaching your next career move with confidence.
+              One-to-one sessions tailored to your goals — from strategy and consulting case interviews, career guidance
+              and mock interviews to learning Claude, exploring AI tools and applying AI effectively in your professional
+              work.
             </p>
             <p className="service-free-note">Free: every session, including the 1:1 mock interview. No payment needed.</p>
             <a className="inline-link" href="#coaching">
