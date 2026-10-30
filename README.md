@@ -194,6 +194,22 @@ support button appears only if `SUPPORT_WHATSAPP_NUMBER` in `src/data.ts` is set
   lesson and assessment, see answers and explanations, preview the learner experience, edit lessons and questions as
   drafts and publish them, view source coverage and learner progress, and read an audit log.
 
+### Launch control (`PMP_COURSE_LAUNCHED`)
+
+Until `PMP_COURSE_LAUNCHED` is exactly `true`, the course is **private** (this is the default when it is unset):
+
+- The home page shows a "Coming soon" card instead of the learning-path card, and `#pmp` shows a "Coming soon" page.
+- The server refuses everyone but the administrator with `403 coming_soon`: sign-up, learner sign-in, every learner
+  endpoint (`/me`, lessons, checks, mocks, the final, attempts, certificates) and certificate verification. Learner
+  sessions created earlier reach nothing. Nothing stored is changed or deleted.
+- The administrator is unaffected: `/admin` sign-in, the admin panel and "Preview as learner" at `#pmp` work as before.
+- `GET /api/pmp/status` (public) returns `{ "launched": true | false }`; the browser uses it to choose what to show.
+
+**To launch:** Cloudflare Pages → project → Settings → Variables and Secrets → Production → add
+`PMP_COURSE_LAUNCHED` = `true` (type Text) → Save, then redeploy (Deployments → latest → Retry deployment, or push a
+commit). Locally: `PMP_COURSE_LAUNCHED=true` in `.dev.vars`, then restart `npm run preview:pages`. Covered by
+`tests/pmp-launch.test.ts`.
+
 ### Prerequisites and local development
 
 - Node with built-in TypeScript support for the scripts and tests (22.18+ or 23.6+), npm, and Wrangler (a dev
@@ -257,6 +273,7 @@ changes and content edits are recorded in `pmp_audit` (never with passwords or t
 | Name | Type | Default | Purpose |
 | --- | --- | --- | --- |
 | `PMP_DB` | D1 binding | falls back to `BOOKINGS_DB` | Database for the PMP platform. Not bound in production: the platform uses `BOOKINGS_DB` (`rahul-site-db`); its tables all start with `pmp_`, so they never touch booking data. If neither is bound, `/api/pmp/*` returns 503. |
+| `PMP_COURSE_LAUNCHED` | Text | private | `true` opens the course to the public. Unset or any other value: "Coming soon" for visitors, admin-only access (see Launch control). |
 | `PMP_SIGNUP_OPEN` | Text | open | `false` closes new learner registrations (existing learners and the admin can still sign in). Any other value, or unset, leaves sign-up open. |
 | `PMP_ADMIN_EMAIL` | Text | `rahul.a.mehra@gmail.com` | The only email that can be bootstrapped as administrator; reserved from learner sign-up. |
 | `PMP_ADMIN_BOOTSTRAP_PASSWORD` | Secret | unset | One-time bootstrap secret (10+ characters). Remove it after the first sign-in. |

@@ -31,7 +31,7 @@ async function call(path: string, opts: { method?: string; body?: unknown; cooki
   if (opts.origin !== null && method !== 'GET') headers.Origin = opts.origin ?? SITE;
   const res = await onRequest({
     request: new Request(`${SITE}/api/pmp/${path}`, { method, headers, body: opts.body !== undefined ? JSON.stringify(opts.body) : undefined }),
-    env: (opts.env ?? { PMP_DB: db }) as never,
+    env: (opts.env ?? { PMP_DB: db, PMP_COURSE_LAUNCHED: 'true' }) as never,
   });
   const type = res.headers.get('Content-Type') || '';
   const body = type.includes('json') ? await res.json() : new Uint8Array(await res.arrayBuffer());
@@ -158,8 +158,9 @@ describe('authentication', () => {
   });
 
   test('sign-up can be closed by configuration', async () => {
-    const r = await call('auth/signup', { body: { name: 'Asha', email: 'x@example.com', password: 'longenough123' }, env: { PMP_DB: db, PMP_SIGNUP_OPEN: 'false' } });
+    const r = await call('auth/signup', { body: { name: 'Asha', email: 'x@example.com', password: 'longenough123' }, env: { PMP_DB: db, PMP_COURSE_LAUNCHED: 'true', PMP_SIGNUP_OPEN: 'false' } });
     assert.equal(r.status, 403);
+    assert.equal(r.body.code, 'signup_closed');
   });
 });
 

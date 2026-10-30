@@ -18,7 +18,7 @@ let n = 0;
 let nowMs = Date.parse('2026-10-21T09:00:00Z');
 
 type Res = { status: number; body: any; headers: Headers };
-const env = (extra: Record<string, unknown> = {}) => ({ PMP_DB: db, PMP_ADMIN_BOOTSTRAP_PASSWORD: BOOT, ...extra });
+const env = (extra: Record<string, unknown> = {}) => ({ PMP_DB: db, PMP_ADMIN_BOOTSTRAP_PASSWORD: BOOT, PMP_COURSE_LAUNCHED: 'true', ...extra });
 
 async function call(path: string, o: { method?: string; body?: unknown; cookie?: string; env?: Record<string, unknown>; origin?: string } = {}): Promise<Res> {
   const method = o.method ?? (o.body !== undefined ? 'POST' : 'GET');
@@ -216,7 +216,7 @@ describe('schema migration', () => {
       });
       return run();
     };
-    const me = await call('me', { cookie, env: { PMP_DB: again } });
+    const me = await call('me', { cookie, env: { PMP_DB: again, PMP_COURSE_LAUNCHED: 'true' } });
     assert.equal(me.status, 200);
     assert.equal(me.body.user.role, 'learner');
     const cols = (raw.prepare('PRAGMA table_info(pmp_users)').all() as { name: string }[]).map((c) => c.name);

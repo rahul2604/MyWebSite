@@ -575,3 +575,30 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 
 /* Free-session note on the home page coaching card */
 .service-free-note { margin: 0 0 4px; font-size: 14.5px; font-weight: 600; color: var(--ok-text); }
+
+/* PMP "Coming soon" card, shown until the course launches (also used by the #pmp page) */
+.service-soon { position: relative; overflow: hidden; }
+.service-soon::before, .pmp-soon::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; opacity: 0.8;
+  background: linear-gradient(90deg, transparent 0%, var(--primary) 50%, transparent 100%) 0 0 / 200% 100%;
+  animation: soon-sheen 6s ease-in-out infinite;
+}
+.soon-icon { animation: soon-float 4.5s ease-in-out infinite; }
+.soon-kicker { margin: 6px 0 -10px; font-size: 12.5px; font-weight: 600; letter-spacing: 0.2em; color: var(--t-eyebrow); }
+.service .soon-note { padding-left: 14px; border-left: 2px solid var(--accent-border); font-size: 15px; color: var(--t-muted); }
+.soon-badge {
+  margin-top: auto; align-self: flex-start; display: inline-flex; align-items: center; gap: 10px;
+  min-height: 36px; padding: 0 14px; border-radius: 999px; border: 1px solid var(--accent-border);
+  background: var(--accent-soft); color: var(--t-accent); font-size: 14px; font-weight: 600;
+}
+.soon-dot { position: relative; width: 8px; height: 8px; border-radius: 50%; background: currentColor; }
+.soon-dot::after {
+  content: ''; position: absolute; inset: 0; border-radius: 50%; background: currentColor;
+  animation: soon-ping 2.4s ease-out infinite;
+}
+@keyframes soon-float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-4px); } }
+@keyframes soon-ping { 0% { transform: scale(1); opacity: 0.6; } 80%, 100% { transform: scale(2.8); opacity: 0; } }
+@keyframes soon-sheen { 0% { background-position: 100% 0; } 100% { background-position: -100% 0; } }
+@media (prefers-reduced-motion: reduce) {
+  .soon-icon, .pmp-soon-icon, .soon-dot::after, .service-soon::before, .pmp-soon::before { animation: none; }
+}
