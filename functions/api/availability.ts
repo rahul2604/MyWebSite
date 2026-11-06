@@ -32,6 +32,7 @@ export const onRequest = async ({ request, env }: { request: Request; env: Env }
   const serviceId = url.searchParams.get('service');
   const service = serviceId ? COACHING_SERVICES.find((s) => s.id === serviceId && s.booking === 'server') : null;
   if (serviceId && !service) return fail(400, 'service_not_bookable', 'This service can’t be booked online.');
+  if (service?.comingSoon) return fail(403, 'service_coming_soon', 'This service is coming soon and can’t be booked yet.');
   const durationMinutes = service?.durationMinutes ?? BOOKING_RULES.sessionMinutes;
 
   if (from < range.first) from = range.first;

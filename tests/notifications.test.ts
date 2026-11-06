@@ -13,7 +13,7 @@ import { normaliseWhatsapp, whatsappProblem } from '../src/coaching/lib/validati
 import { clock } from '../server/clock.ts';
 import { meetingLink, RETRY_GAP_MS } from '../server/notifications.ts';
 import { NO_LINK_NOTE, templateParams, toCloudApiNumber } from '../server/whatsapp.ts';
-import { captureLogs, memoryD1 } from './helpers.ts';
+import { captureLogs, memoryD1, openCoachingBookings } from './helpers.ts';
 
 const SITE = 'https://rahulmehra.co.in';
 // Monday 19 Oct 2026, 15:30 IST. Mock booking hours on Mondays: 19:00–22:00 IST.
@@ -75,7 +75,9 @@ async function cron(env: Record<string, unknown> = liveWa(), auth = `Bearer ${CR
 const notes = () => db.raw.prepare(`SELECT * FROM booking_notifications ORDER BY kind`).all() as any[];
 const bookingCount = () => Number((db.raw.prepare('SELECT COUNT(*) AS n FROM bookings').get() as any).n);
 
+let closeBookings: () => void;
 beforeEach(() => {
+  closeBookings = openCoachingBookings();
   db = memoryD1();
   nowMs = NOW;
   clock.now = () => new Date(nowMs);
@@ -99,6 +101,7 @@ beforeEach(() => {
   }) as typeof fetch;
 });
 afterEach(() => {
+  closeBookings();
   logs.restore();
   globalThis.fetch = realFetch;
   clock.now = realNow;

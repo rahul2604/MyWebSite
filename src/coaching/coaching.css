@@ -114,6 +114,8 @@
 .bk-meta dd { margin: 0; color: var(--t-body); }
 .bk-service-cta { margin-top: auto; min-height: 48px; padding: 0 20px; border-radius: 10px; font-size: 15px; gap: 10px; }
 .bk-service-text { display: flex; flex-direction: column; gap: 14px; }
+/* "Launching soon" status in place of the booking button (badge styles: styles.css). */
+.bk-service-soon { margin-top: auto; }
 
 /* A single offering: one wide card — copy on the left, facts and CTA on the right. */
 @media (min-width: 860px) {
@@ -126,7 +128,7 @@
   .bk-services.is-single .bk-service h4 { font-size: 28px; }
   .bk-services.is-single .bk-service-summary { font-size: 17px; max-width: 620px; }
   .bk-services.is-single .bk-meta { grid-area: meta; padding: 0 0 0 28px; border-top: 0; border-left: 1px solid var(--line); }
-  .bk-services.is-single .bk-service-cta { grid-area: cta; align-self: end; margin-left: 28px; }
+  .bk-services.is-single .bk-service-cta, .bk-services.is-single .bk-service-soon { grid-area: cta; align-self: end; margin-left: 28px; }
 }
 
 /* ---------- Service detail ---------- */

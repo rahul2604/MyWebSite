@@ -16,14 +16,24 @@ export function ServiceList({ selectedId, onSelect }: Props) {
       </h3>
       <div className={single ? 'bk-services is-single' : 'bk-services'}>
         {COACHING_SERVICES.map((s) => (
-          <article key={s.id} className={`bk-service lift${selectedId === s.id ? ' is-selected' : ''}`}>
+          <article
+            key={s.id}
+            className={`bk-service lift${s.comingSoon ? ' service-soon' : selectedId === s.id ? ' is-selected' : ''}`}
+          >
             <div className="bk-service-top">
               <span className="service-num">{s.number}</span>
-              <span className="bk-chips">
-                {selectedId === s.id && <span className="bk-chip">In progress</span>}
-                {s.badge && <span className="bk-chip bk-chip-badge">{s.badge}</span>}
-                {s.free && <span className="bk-chip bk-chip-free">Free</span>}
-              </span>
+              {s.comingSoon ? (
+                /* Same "Coming soon" status as the PMP® learning path; replaces the In progress, Popular and Free chips. */
+                <span className="bk-chips">
+                  <span className="bk-chip">Coming soon</span>
+                </span>
+              ) : (
+                <span className="bk-chips">
+                  {selectedId === s.id && <span className="bk-chip">In progress</span>}
+                  {s.badge && <span className="bk-chip bk-chip-badge">{s.badge}</span>}
+                  {s.free && <span className="bk-chip bk-chip-free">Free</span>}
+                </span>
+              )}
             </div>
             <div className="bk-service-text">
               <h4>{s.title}</h4>
@@ -47,17 +57,27 @@ export function ServiceList({ selectedId, onSelect }: Props) {
                   <Value text={s.duration} />
                 </dd>
               </div>
-              <div>
-                <dt>Price</dt>
-                <dd>
-                  <Value text={s.price} />
-                </dd>
-              </div>
+              {!s.comingSoon && (
+                <div>
+                  <dt>Price</dt>
+                  <dd>
+                    <Value text={s.price} />
+                  </dd>
+                </div>
+              )}
             </dl>
-            <button type="button" className="btn btn-blue bk-service-cta" onClick={() => onSelect(s.id)}>
-              {s.ctaLabel ?? 'View Details & Book'} <ArrowRight size={16} />
-              <span className="sr-only"> — {s.title}</span>
-            </button>
+            {s.comingSoon ? (
+              /* Not a button: booking for this service isn't open yet. */
+              <span className="soon-badge bk-service-soon">
+                <span className="soon-dot" aria-hidden="true" />
+                Launching soon
+              </span>
+            ) : (
+              <button type="button" className="btn btn-blue bk-service-cta" onClick={() => onSelect(s.id)}>
+                {s.ctaLabel ?? 'View Details & Book'} <ArrowRight size={16} />
+                <span className="sr-only"> — {s.title}</span>
+              </button>
+            )}
           </article>
         ))}
       </div>

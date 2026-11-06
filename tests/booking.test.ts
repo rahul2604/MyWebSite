@@ -10,7 +10,8 @@ import { onRequest as bookings } from '../functions/api/bookings.ts';
 import { ensureSchema, reserve } from '../server/bookingStore.ts';
 import { clock } from '../server/clock.ts';
 import { bookingWindow, checkSlot, istToMs, overlaps, scheduledTimes, slotRange } from '../src/coaching/lib/slots.ts';
-import { memoryD1 } from './helpers.ts';
+import { memoryD1, openCoachingBookings } from './helpers.ts';
+import { COACHING_SERVICES } from '../src/coaching/data/services.ts';
 
 /* ---------- helpers ---------- */
 const SITE = 'https://rahulmehra.co.in';
@@ -65,7 +66,9 @@ const count = () => {
   return table ? Number((db.raw.prepare('SELECT COUNT(*) AS n FROM bookings').get() as { n: number }).n) : 0;
 };
 
+let closeBookings: () => void;
 beforeEach(() => {
+  closeBookings = openCoachingBookings();
   db = memoryD1();
   sent = [];
   setNow(MONDAY_1530_IST);
@@ -73,6 +76,38 @@ beforeEach(() => {
 });
 afterEach(() => {
   globalThis.fetch = realFetch;
+  closeBookings();
+});
+
+/* ---------- coming soon ---------- */
+describe('coaching services marked coming soon', () => {
+  test('all three services are coming soon on the site', () => {
+    closeBookings(); // back to the flags as shipped
+    const flags = COACHING_SERVICES.map((s) => [s.id, s.comingSoon]);
+    closeBookings = openCoachingBookings();
+    assert.deepEqual(flags, [['lets-connect', true], ['strategy-interview', true], ['pmp-discovery', true]]);
+  });
+
+  test('the server refuses bookings and slots for a coming-soon service', async () => {
+    closeBookings();
+    try {
+      for (const s of COACHING_SERVICES) {
+        const res = await book({ serviceId: s.id });
+        assert.equal(res.status, 403);
+        assert.equal((await res.json()).code, 'service_coming_soon');
+        const slots = await availability({
+          request: new Request(`${SITE}/api/availability?service=${s.id}`),
+          env: { BOOKINGS_DB: db } as never,
+        });
+        assert.equal(slots.status, 403);
+        assert.equal((await slots.json()).code, 'service_coming_soon');
+      }
+      assert.equal(count(), 0);
+      assert.equal(sent.length, 0);
+    } finally {
+      closeBookings = openCoachingBookings();
+    }
+  });
 });
 
 /* ---------- rules ---------- */

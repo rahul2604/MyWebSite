@@ -72,6 +72,8 @@ export const onRequest = async ({ request, env }: { request: Request; env: Env }
   if (!service || service.booking !== 'server' || !service.durationMinutes || service.free !== true) {
     return fail(400, 'service_not_bookable', 'This service can’t be booked online yet.');
   }
+  // Shown as "Coming soon" on the site: no bookings until the flag is removed.
+  if (service.comingSoon) return fail(403, 'service_coming_soon', 'This service is coming soon and can’t be booked yet.');
   const rules = rulesFor(service.durationMinutes);
 
   const idemKey = str(body.idempotencyKey, 64);

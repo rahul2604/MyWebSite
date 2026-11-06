@@ -72,6 +72,8 @@ function reducer(s: State, a: Action): State {
       // Entering Review starts a new confirmation attempt with a fresh idempotency key.
       return { ...s, step: a.step, submitError: null, attemptKey: a.step === 'review' ? newIdempotencyKey() : s.attemptKey };
     case 'pickService':
+      // A "coming soon" service can't be opened for booking.
+      if (findService(a.id)?.comingSoon) return s;
       // The form is kept. The slot is cleared when the service changes: live and demo
       // services draw on different availability.
       return a.id === s.serviceId
@@ -145,7 +147,7 @@ export function useBookingFlow() {
       return;
     }
     const service = findService(state.serviceId);
-    if (!service) return;
+    if (!service || service.comingSoon) return;
     dispatch({ type: 'submitStart' });
     try {
       const confirmation = await apiFor(service).createBooking({
