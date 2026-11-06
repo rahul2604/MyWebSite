@@ -12,7 +12,7 @@ import { encryptSecret, parseKey } from '../server/crypto.ts';
 import { resetGoogleTokenCache, timing } from '../server/google.ts';
 import { saveGoogleAuth, tokenContext } from '../server/googleAuthStore.ts';
 import {
-  captureLogs, containsSecret, ENC_KEY, FakeGoogle, FakeResend, installFetch, liveEnv, MEET_URL, memoryD1, OWNER, REFRESH_TOKEN, SITE,
+  captureLogs, containsSecret, ENC_KEY, FakeGoogle, FakeResend, installFetch, liveEnv, MEET_URL, memoryD1, openCoachingBookings, OWNER, REFRESH_TOKEN, SITE,
 } from './helpers.ts';
 
 // Monday 19 Oct 2026, 15:30 IST. Booking hours on Mondays: 19:00–22:00 IST.
@@ -39,7 +39,9 @@ async function connectGoogle() {
   await saveGoogleAuth(db, { email: OWNER, encRefreshToken: enc, scopes: 'openid email', nowIso: NOW.toISOString() });
 }
 
+let closeBookings: () => void;
 beforeEach(async () => {
+  closeBookings = openCoachingBookings();
   db = memoryD1();
   google = new FakeGoogle();
   resend = new FakeResend();
@@ -52,6 +54,7 @@ beforeEach(async () => {
   await connectGoogle();
 });
 afterEach(() => {
+  closeBookings();
   logs.restore();
   restoreFetch();
   clock.now = realNow;

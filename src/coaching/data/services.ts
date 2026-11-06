@@ -46,6 +46,12 @@ export interface CoachingService {
    * "demo": in-browser prototype only — nothing is stored or sent.
    */
   booking: 'server' | 'demo';
+  /**
+   * Not open for booking yet: the card shows "Coming soon" with no booking button, the booking
+   * steps can't be entered, and the server refuses bookings and slots for it. Remove the line
+   * (or set false) to reopen booking; the rest of the service is kept as it is.
+   */
+  comingSoon?: boolean;
 
   /* Details page — every section is optional and only shown when present. */
   /** Paragraphs before the topics. */
@@ -77,6 +83,7 @@ export const COACHING_SERVICES: CoachingService[] = [
     free: true,
     ctaLabel: 'Book a Free Call',
     booking: 'server',
+    comingSoon: true,
   },
   {
     // Topmate: "1:1 Case & Guesstimate Mock Interview" — text copied from its "About this session".
@@ -96,6 +103,7 @@ export const COACHING_SERVICES: CoachingService[] = [
     badge: 'Popular',
     ctaLabel: 'Book a Free Session',
     booking: 'server',
+    comingSoon: true,
     intro: [
       'Are you preparing for consulting or strategy interviews as an MBA student or recent graduate? I offer personalized 1:1 sessions to help you succeed in every round.',
     ],
@@ -135,6 +143,7 @@ export const COACHING_SERVICES: CoachingService[] = [
     free: true,
     ctaLabel: 'Book a Free Call',
     booking: 'server',
+    comingSoon: true,
     covers: [
       'An overview of the PMP® course',
       'Your goals and where you are in your PMP® journey',

@@ -6,6 +6,17 @@
 import { DatabaseSync } from 'node:sqlite';
 import type { D1Like, D1Statement } from '../server/bookingStore.ts';
 import { sha256b64url } from '../server/crypto.ts';
+import { COACHING_SERVICES } from '../src/coaching/data/services.ts';
+
+/**
+ * The coaching services are shown as "coming soon" on the site. Booking tests open them for the
+ * duration of a test so the booking pipeline stays covered; the returned function restores the flags.
+ */
+export function openCoachingBookings(): () => void {
+  const saved = COACHING_SERVICES.map((s) => s.comingSoon);
+  for (const s of COACHING_SERVICES) s.comingSoon = false;
+  return () => COACHING_SERVICES.forEach((s, i) => (s.comingSoon = saved[i]));
+}
 
 /* ---------------- D1 over node:sqlite (real SQL semantics) ---------------- */
 export function memoryD1(): D1Like & { raw: DatabaseSync } {

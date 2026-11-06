@@ -33,9 +33,9 @@ export function CoachingPage({ hidden }: { hidden: boolean }) {
     panel.querySelector<HTMLElement>('[data-step-heading]')?.focus({ preventScroll: true });
   }, [state.step]);
 
-  // A step that needs a service (or slot) falls back if it is missing.
+  // A step that needs a service (or slot) falls back if it is missing, or if the service is coming soon.
   const step =
-    state.step !== 'services' && !service ? 'services'
+    state.step !== 'services' && (!service || (service.comingSoon && state.step !== 'confirmed')) ? 'services'
       : (state.step === 'review' && (!state.date || !state.time)) ? 'slot'
         : state.step;
 
