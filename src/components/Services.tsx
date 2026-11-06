@@ -10,23 +10,28 @@ export function Services() {
         <div className="eyebrow">SERVICES</div>
         <h2 className="h2">How I can help</h2>
         <div className="services-grid">
-          <article className="service lift">
+          {/* Coaching is not bookable yet, so the card announces it in the same style as the PMP card. */}
+          <article className="service lift service-soon" aria-labelledby="coaching-soon-title">
             <div className="service-top">
-              <div className="icon-tile">
+              <div className="icon-tile soon-icon">
                 <ChatIcon />
               </div>
               <span className="service-num">01</span>
             </div>
-            <h3>Personalised 1:1 Coaching</h3>
+            <div className="soon-kicker">PERSONALISED 1:1 COACHING</div>
+            <h3 id="coaching-soon-title">Coming Soon</h3>
             <p>
               One-to-one sessions tailored to your goals — from strategy and consulting case interviews, career guidance
               and mock interviews to learning Claude, exploring AI tools and applying AI effectively in your professional
               work.
             </p>
-            <p className="service-free-note">Free: every session, including the 1:1 mock interview. No payment needed.</p>
-            <a className="inline-link" href="#coaching">
-              Book a free session <ArrowRight size={16} />
-            </a>
+            <p className="soon-note">
+              We’re building something valuable. Personalised 1:1 coaching sessions will be launching soon. Stay tuned!
+            </p>
+            <span className="soon-badge">
+              <span className="soon-dot" aria-hidden="true" />
+              Launching soon
+            </span>
           </article>
           {launched ? (
             <article className="service lift">
