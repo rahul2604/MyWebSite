@@ -26,7 +26,8 @@ export function Services() {
               work.
             </p>
             <p className="soon-note">
-              We’re building something valuable. Personalised 1:1 coaching sessions will be launching soon. Stay tuned!
+              We’re preparing personalised one-to-one sessions to help you with career growth, interview preparation,
+              strategy and practical applications of Claude and AI tools. Stay tuned!
             </p>
             <span className="soon-badge">
               <span className="soon-dot" aria-hidden="true" />
